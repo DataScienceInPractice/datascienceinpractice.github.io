@@ -1,0 +1,880 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Natural Language Processing &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="../assignments/D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/tutorials/18-NaturalLanguageProcessing.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#ntlk-natural-language-tool-kit" class="nav-link">NTLK: Natural Language Tool Kit</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#nltk" class="nav-link">NLTK</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#tokenisation" class="nav-link">Tokenisation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-of-speech-pos-tagging" class="nav-link">Part-of-speech (POS) Tagging</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#named-entity-recognition-ner" class="nav-link">Named Entity Recognition (NER)</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#stop-words" class="nav-link">Stop words</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="natural-language-processing">
+<h1>Natural Language Processing<a class="headerlink" href="#natural-language-processing" title="Permalink to this headline">¶</a></h1>
+<div class="alert alert-success">
+Natural Language Processing (NLP) is the approach of analyzing text data, with computers.
+</div>
+<div class="alert alert-info">
+Natural Language Processing on 
+<a href="https://en.wikipedia.org/wiki/Natural-language_processing" class="alert-link">wikipedia</a>.
+</div><div class="section" id="ntlk-natural-language-tool-kit">
+<h2>NTLK: Natural Language Tool Kit<a class="headerlink" href="#ntlk-natural-language-tool-kit" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+NLTK is the main Python module for text-analysis. 
+</div>
+<div class="alert alert-info">
+The NLTK organization website is 
+<a href="http://www.nltk.org/" class="alert-link">here</a>
+and they have a whole book of tutorials 
+<a href="http://www.nltk.org/book/" class="alert-link">here</a>.
+</div>
+<div class="section" id="nltk">
+<h3>NLTK<a class="headerlink" href="#nltk" title="Permalink to this headline">¶</a></h3>
+<p>NLTK provides easy-to-use interfaces to over 50 corpora and lexical resources such as WordNet, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning, wrappers for industrial-strength NLP libraries, and an active discussion forum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import NLTK</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this notebook, we will walk through some basic text-analysis using some useful functions from the NLTK package.</p>
+<p>To work with text-data, you often need corpora - text datasets to compare to. NLTK has many such datasets available, but doesn’t install them by default (as the full set of them would be quite large). Below we will download some of these datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you hit an error downloading things in the cell below, come back to this cell, uncomment it, and run this code.</span>
+<span class="c1">#   This code gives python permission to write to your disk (if it doesn&#39;t already have persmission to do so).</span>
+<span class="kn">import</span> <span class="nn">ssl</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">_create_unverified_https_context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">_create_unverified_context</span>
+<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">ssl</span><span class="o">.</span><span class="n">_create_default_https_context</span> <span class="o">=</span> <span class="n">_create_unverified_https_context</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download some useful data files from NLTK</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;averaged_perceptron_tagger&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;maxent_ne_chunker&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;words&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;treebank&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /Users/tom/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to /Users/tom/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /Users/tom/nltk_data...
+[nltk_data]   Package averaged_perceptron_tagger is already up-to-
+[nltk_data]       date!
+[nltk_data] Downloading package maxent_ne_chunker to
+[nltk_data]     /Users/tom/nltk_data...
+[nltk_data]   Package maxent_ne_chunker is already up-to-date!
+[nltk_data] Downloading package words to /Users/tom/nltk_data...
+[nltk_data]   Package words is already up-to-date!
+[nltk_data] Downloading package treebank to /Users/tom/nltk_data...
+[nltk_data]   Package treebank is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set some test sentences of data to play with</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;UC San Diego is a great place to study cognitive science.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tokenisation">
+<h2>Tokenisation<a class="headerlink" href="#tokenisation" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Tokenization is the process of splitting text data into 'tokens', which are meaningful pieces of data.
+</div>
+<div class="alert alert-info">
+More information on tokenization
+<a href="https://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html" class="alert-link">here</a>.
+</div>
+<p>Tokenization can be done at different levels - you can, for example tokenize text into sentences, and/or into words.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize our sentence, at the word level</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the word-tokenized data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;UC&#39;, &#39;San&#39;, &#39;Diego&#39;, &#39;is&#39;, &#39;a&#39;, &#39;great&#39;, &#39;place&#39;, &#39;to&#39;, &#39;study&#39;, &#39;cognitive&#39;, &#39;science&#39;, &#39;.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-of-speech-pos-tagging">
+<h2>Part-of-speech (POS) Tagging<a class="headerlink" href="#part-of-speech-pos-tagging" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Part-of-Speech tagging is the process of labelling words with respect to their 'types' and relationships to other words.
+</div>
+<div class="alert alert-info">
+Part-of-speech tagging on 
+<a href="https://en.wikipedia.org/wiki/Part-of-speech_tagging" class="alert-link">wikipedia</a>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply part-of-speech tagging to our sentence</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the POS tags for our data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;UC&#39;, &#39;NNP&#39;), (&#39;San&#39;, &#39;NNP&#39;), (&#39;Diego&#39;, &#39;NNP&#39;), (&#39;is&#39;, &#39;VBZ&#39;), (&#39;a&#39;, &#39;DT&#39;), (&#39;great&#39;, &#39;JJ&#39;), (&#39;place&#39;, &#39;NN&#39;), (&#39;to&#39;, &#39;TO&#39;), (&#39;study&#39;, &#39;VB&#39;), (&#39;cognitive&#39;, &#39;JJ&#39;), (&#39;science&#39;, &#39;NN&#39;), (&#39;.&#39;, &#39;.&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the documentation that describes what all of the abbreviations mean</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">upenn_tagset</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>$: dollar
+    $ -$ --$ A$ C$ HK$ M$ NZ$ S$ U.S.$ US$
+&#39;&#39;: closing quotation mark
+    &#39; &#39;&#39;
+(: opening parenthesis
+    ( [ {
+): closing parenthesis
+    ) ] }
+,: comma
+    ,
+--: dash
+    --
+.: sentence terminator
+    . ! ?
+:: colon or ellipsis
+    : ; ...
+CC: conjunction, coordinating
+    &amp; &#39;n and both but either et for less minus neither nor or plus so
+    therefore times v. versus vs. whether yet
+CD: numeral, cardinal
+    mid-1890 nine-thirty forty-two one-tenth ten million 0.5 one forty-
+    seven 1987 twenty &#39;79 zero two 78-degrees eighty-four IX &#39;60s .025
+    fifteen 271,124 dozen quintillion DM2,000 ...
+DT: determiner
+    all an another any both del each either every half la many much nary
+    neither no some such that the them these this those
+EX: existential there
+    there
+FW: foreign word
+    gemeinschaft hund ich jeux habeas Haementeria Herr K&#39;ang-si vous
+    lutihaw alai je jour objets salutaris fille quibusdam pas trop Monte
+    terram fiche oui corporis ...
+IN: preposition or conjunction, subordinating
+    astride among uppon whether out inside pro despite on by throughout
+    below within for towards near behind atop around if like until below
+    next into if beside ...
+JJ: adjective or numeral, ordinal
+    third ill-mannered pre-war regrettable oiled calamitous first separable
+    ectoplasmic battery-powered participatory fourth still-to-be-named
+    multilingual multi-disciplinary ...
+JJR: adjective, comparative
+    bleaker braver breezier briefer brighter brisker broader bumper busier
+    calmer cheaper choosier cleaner clearer closer colder commoner costlier
+    cozier creamier crunchier cuter ...
+JJS: adjective, superlative
+    calmest cheapest choicest classiest cleanest clearest closest commonest
+    corniest costliest crassest creepiest crudest cutest darkest deadliest
+    dearest deepest densest dinkiest ...
+LS: list item marker
+    A A. B B. C C. D E F First G H I J K One SP-44001 SP-44002 SP-44005
+    SP-44007 Second Third Three Two * a b c d first five four one six three
+    two
+MD: modal auxiliary
+    can cannot could couldn&#39;t dare may might must need ought shall should
+    shouldn&#39;t will would
+NN: noun, common, singular or mass
+    common-carrier cabbage knuckle-duster Casino afghan shed thermostat
+    investment slide humour falloff slick wind hyena override subhumanity
+    machinist ...
+NNP: noun, proper, singular
+    Motown Venneboerger Czestochwa Ranzer Conchita Trumplane Christos
+    Oceanside Escobar Kreisler Sawyer Cougar Yvette Ervin ODI Darryl CTCA
+    Shannon A.K.C. Meltex Liverpool ...
+NNPS: noun, proper, plural
+    Americans Americas Amharas Amityvilles Amusements Anarcho-Syndicalists
+    Andalusians Andes Andruses Angels Animals Anthony Antilles Antiques
+    Apache Apaches Apocrypha ...
+NNS: noun, common, plural
+    undergraduates scotches bric-a-brac products bodyguards facets coasts
+    divestitures storehouses designs clubs fragrances averages
+    subjectivists apprehensions muses factory-jobs ...
+PDT: pre-determiner
+    all both half many quite such sure this
+POS: genitive marker
+    &#39; &#39;s
+PRP: pronoun, personal
+    hers herself him himself hisself it itself me myself one oneself ours
+    ourselves ownself self she thee theirs them themselves they thou thy us
+PRP$: pronoun, possessive
+    her his mine my our ours their thy your
+RB: adverb
+    occasionally unabatingly maddeningly adventurously professedly
+    stirringly prominently technologically magisterially predominately
+    swiftly fiscally pitilessly ...
+RBR: adverb, comparative
+    further gloomier grander graver greater grimmer harder harsher
+    healthier heavier higher however larger later leaner lengthier less-
+    perfectly lesser lonelier longer louder lower more ...
+RBS: adverb, superlative
+    best biggest bluntest earliest farthest first furthest hardest
+    heartiest highest largest least less most nearest second tightest worst
+RP: particle
+    aboard about across along apart around aside at away back before behind
+    by crop down ever fast for forth from go high i.e. in into just later
+    low more off on open out over per pie raising start teeth that through
+    under unto up up-pp upon whole with you
+SYM: symbol
+    % &amp; &#39; &#39;&#39; &#39;&#39;. ) ). * + ,. &lt; = &gt; @ A[fj] U.S U.S.S.R * ** ***
+TO: &quot;to&quot; as preposition or infinitive marker
+    to
+UH: interjection
+    Goodbye Goody Gosh Wow Jeepers Jee-sus Hubba Hey Kee-reist Oops amen
+    huh howdy uh dammit whammo shucks heck anyways whodunnit honey golly
+    man baby diddle hush sonuvabitch ...
+VB: verb, base form
+    ask assemble assess assign assume atone attention avoid bake balkanize
+    bank begin behold believe bend benefit bevel beware bless boil bomb
+    boost brace break bring broil brush build ...
+VBD: verb, past tense
+    dipped pleaded swiped regummed soaked tidied convened halted registered
+    cushioned exacted snubbed strode aimed adopted belied figgered
+    speculated wore appreciated contemplated ...
+VBG: verb, present participle or gerund
+    telegraphing stirring focusing angering judging stalling lactating
+    hankerin&#39; alleging veering capping approaching traveling besieging
+    encrypting interrupting erasing wincing ...
+VBN: verb, past participle
+    multihulled dilapidated aerosolized chaired languished panelized used
+    experimented flourished imitated reunifed factored condensed sheared
+    unsettled primed dubbed desired ...
+VBP: verb, present tense, not 3rd person singular
+    predominate wrap resort sue twist spill cure lengthen brush terminate
+    appear tend stray glisten obtain comprise detest tease attract
+    emphasize mold postpone sever return wag ...
+VBZ: verb, present tense, 3rd person singular
+    bases reconstructs marks mixes displeases seals carps weaves snatches
+    slumps stretches authorizes smolders pictures emerges stockpiles
+    seduces fizzes uses bolsters slaps speaks pleads ...
+WDT: WH-determiner
+    that what whatever which whichever
+WP: WH-pronoun
+    that what whatever whatsoever which who whom whosoever
+WP$: WH-pronoun, possessive
+    whose
+WRB: Wh-adverb
+    how however whence whenever where whereby whereever wherein whereof why
+``: opening quotation mark
+    ` ``
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="named-entity-recognition-ner">
+<h2>Named Entity Recognition (NER)<a class="headerlink" href="#named-entity-recognition-ner" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Named entity recognition seeks to label words with the kinds of entities that they relate to.
+</div>
+<div class="alert alert-info">
+Named entity recognition on 
+<a href="https://en.wikipedia.org/wiki/Named-entity_recognition" class="alert-link">wikipedia</a>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply named entity recognition to our POS tags</span>
+<span class="n">entities</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">ne_chunk</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the named entities</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">entities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(S
+  UC/NNP
+  (PERSON San/NNP Diego/NNP)
+  is/VBZ
+  a/DT
+  great/JJ
+  place/NN
+  to/TO
+  study/VB
+  cognitive/JJ
+  science/NN
+  ./.)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stop-words">
+<h2>Stop words<a class="headerlink" href="#stop-words" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+'Stop words' are the most common words of a language, that we often want to filter out before text analysis. 
+</div>
+<div class="alert alert-info">
+Stop words on 
+<a href="https://en.wikipedia.org/wiki/Stop_words" class="alert-link">wikipedia</a>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the corpus of stop words in English</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;, &#39;our&#39;, &#39;ours&#39;, &#39;ourselves&#39;, &#39;you&#39;, &quot;you&#39;re&quot;, &quot;you&#39;ve&quot;, &quot;you&#39;ll&quot;, &quot;you&#39;d&quot;, &#39;your&#39;, &#39;yours&#39;, &#39;yourself&#39;, &#39;yourselves&#39;, &#39;he&#39;, &#39;him&#39;, &#39;his&#39;, &#39;himself&#39;, &#39;she&#39;, &quot;she&#39;s&quot;, &#39;her&#39;, &#39;hers&#39;, &#39;herself&#39;, &#39;it&#39;, &quot;it&#39;s&quot;, &#39;its&#39;, &#39;itself&#39;, &#39;they&#39;, &#39;them&#39;, &#39;their&#39;, &#39;theirs&#39;, &#39;themselves&#39;, &#39;what&#39;, &#39;which&#39;, &#39;who&#39;, &#39;whom&#39;, &#39;this&#39;, &#39;that&#39;, &quot;that&#39;ll&quot;, &#39;these&#39;, &#39;those&#39;, &#39;am&#39;, &#39;is&#39;, &#39;are&#39;, &#39;was&#39;, &#39;were&#39;, &#39;be&#39;, &#39;been&#39;, &#39;being&#39;, &#39;have&#39;, &#39;has&#39;, &#39;had&#39;, &#39;having&#39;, &#39;do&#39;, &#39;does&#39;, &#39;did&#39;, &#39;doing&#39;, &#39;a&#39;, &#39;an&#39;, &#39;the&#39;, &#39;and&#39;, &#39;but&#39;, &#39;if&#39;, &#39;or&#39;, &#39;because&#39;, &#39;as&#39;, &#39;until&#39;, &#39;while&#39;, &#39;of&#39;, &#39;at&#39;, &#39;by&#39;, &#39;for&#39;, &#39;with&#39;, &#39;about&#39;, &#39;against&#39;, &#39;between&#39;, &#39;into&#39;, &#39;through&#39;, &#39;during&#39;, &#39;before&#39;, &#39;after&#39;, &#39;above&#39;, &#39;below&#39;, &#39;to&#39;, &#39;from&#39;, &#39;up&#39;, &#39;down&#39;, &#39;in&#39;, &#39;out&#39;, &#39;on&#39;, &#39;off&#39;, &#39;over&#39;, &#39;under&#39;, &#39;again&#39;, &#39;further&#39;, &#39;then&#39;, &#39;once&#39;, &#39;here&#39;, &#39;there&#39;, &#39;when&#39;, &#39;where&#39;, &#39;why&#39;, &#39;how&#39;, &#39;all&#39;, &#39;any&#39;, &#39;both&#39;, &#39;each&#39;, &#39;few&#39;, &#39;more&#39;, &#39;most&#39;, &#39;other&#39;, &#39;some&#39;, &#39;such&#39;, &#39;no&#39;, &#39;nor&#39;, &#39;not&#39;, &#39;only&#39;, &#39;own&#39;, &#39;same&#39;, &#39;so&#39;, &#39;than&#39;, &#39;too&#39;, &#39;very&#39;, &#39;s&#39;, &#39;t&#39;, &#39;can&#39;, &#39;will&#39;, &#39;just&#39;, &#39;don&#39;, &quot;don&#39;t&quot;, &#39;should&#39;, &quot;should&#39;ve&quot;, &#39;now&#39;, &#39;d&#39;, &#39;ll&#39;, &#39;m&#39;, &#39;o&#39;, &#39;re&#39;, &#39;ve&#39;, &#39;y&#39;, &#39;ain&#39;, &#39;aren&#39;, &quot;aren&#39;t&quot;, &#39;couldn&#39;, &quot;couldn&#39;t&quot;, &#39;didn&#39;, &quot;didn&#39;t&quot;, &#39;doesn&#39;, &quot;doesn&#39;t&quot;, &#39;hadn&#39;, &quot;hadn&#39;t&quot;, &#39;hasn&#39;, &quot;hasn&#39;t&quot;, &#39;haven&#39;, &quot;haven&#39;t&quot;, &#39;isn&#39;, &quot;isn&#39;t&quot;, &#39;ma&#39;, &#39;mightn&#39;, &quot;mightn&#39;t&quot;, &#39;mustn&#39;, &quot;mustn&#39;t&quot;, &#39;needn&#39;, &quot;needn&#39;t&quot;, &#39;shan&#39;, &quot;shan&#39;t&quot;, &#39;shouldn&#39;, &quot;shouldn&#39;t&quot;, &#39;wasn&#39;, &quot;wasn&#39;t&quot;, &#39;weren&#39;, &quot;weren&#39;t&quot;, &#39;won&#39;, &quot;won&#39;t&quot;, &#39;wouldn&#39;, &quot;wouldn&#39;t&quot;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="text-encoding">
+<h1>Text Encoding<a class="headerlink" href="#text-encoding" title="Permalink to this headline">¶</a></h1>
+<p>One of the key components of NLP, is deciding how to encode the text data.</p>
+<p>Common encodings are:</p>
+<ul class="simple">
+<li><p>Bag of Words (BoW)</p>
+<ul>
+<li><p>Text is encoded as a collection of words &amp; frequencies</p></li>
+</ul>
+</li>
+<li><p>Term Frequency / Inverse Document Frequency (TF/IDF)</p>
+<ul>
+<li><p>TF/IDF is a weighting that stores words with relation to their commonality across a corpus.</p></li>
+</ul>
+</li>
+</ul>
+<p>We will walk through an example of encoding text as BoW and TF-IDF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="c1"># Standard Python has some useful string tools</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="c1"># Collections is a part of standard Python, with some useful data objects</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Scikit-learn has some useful NLP tools, such as a TFIDF vectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data we will be looking at is a small subset of the BookCorpus dataset. The original dataset can be found here: http://yknzhu.wixsite.com/mbweb.</p>
+<p>The original dataset was collected from more than 11,000 books, and has already been tokenised at both the sentence and word level. The small subset provided and used here contains the first 10,000 sentences.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/book10k.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">sents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the data - print out the first and last sentences, as examples</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sents</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sents</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>the half-ling book one in the fall of igneeria series kaylee soderburg copyright 2013 kaylee soderburg all rights reserved .
+
+alejo was sure the fact that he was nervously repeating mass along with five wrinkly , age-encrusted spanish women meant that stalin was rethinking whether he was going to pay the price .
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocessing: Strip all extra whitespace from the sentences</span>
+<span class="n">sents</span> <span class="o">=</span> <span class="p">[</span><span class="n">sent</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sents</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We first take a look at the word frequency in the document, and print out top 10 most frequently appeared words with their frequencies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize all the sentences into words</span>
+<span class="c1">#  This collects all the word tokens together into one big list</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sents</span><span class="p">:</span>
+    <span class="n">tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out how many words are in the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of words in the data: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of unique words: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tokens</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of words in the data: 	 140060
+Number of unique words: 	 8221
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;counter&#39; object to count how many times each word appears</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the counts object</span>
+<span class="c1">#  This is basically a &#39;bag-of-words&#39; representation of this corpus</span>
+<span class="c1">#  We have lost word order and grammar - it&#39;s just a collection of words</span>
+<span class="c1">#  What we do have is a list of all the words present, and how often they appear</span>
+<span class="n">counts</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One thing you might notice if you scroll through the word list above is that it still contains punctuation. Let’s remove those.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &#39;string&#39; module (standard library) has a useful list of punctuation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>!&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all punction markers from the counts object</span>
+<span class="k">for</span> <span class="n">punc</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">punc</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+        <span class="n">counts</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">punc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the top 10 most frequent words</span>
+<span class="n">top10</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the top words, and counts</span>
+<span class="n">top10_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">it</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">top10</span><span class="p">]</span>
+<span class="n">top10_counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">it</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">top10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a barplot of the most frequent words in the text</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">top10_words</span><span class="p">,</span> <span class="n">top10_counts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Term Frequency&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/18-NaturalLanguageProcessing_41_0.png" src="../_images/18-NaturalLanguageProcessing_41_0.png" />
+</div>
+</div>
+<p>As we can see, ‘the’, ‘was’, ‘a’, etc. appear a lot in the document.</p>
+<p>These frequently appearing words aren’t really that useful to figure out what these documents are about, or as a way to use and understand this text data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all stop words</span>
+<span class="k">for</span> <span class="n">stop</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">stop</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+        <span class="n">counts</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the top 20 most frequent words, of the stopword-removed data</span>
+<span class="n">top20</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a barplot of the most frequent words in the text</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">([</span><span class="n">it</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">top20</span><span class="p">],</span> <span class="p">[</span><span class="n">it</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">top20</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Term Frequency&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/18-NaturalLanguageProcessing_45_0.png" src="../_images/18-NaturalLanguageProcessing_45_0.png" />
+</div>
+</div>
+<p>This looks potentially more relevant / useful. We could continue exploring this BoW model, but let’s instead pivot now, and explore using TFIDF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize a TFIDF object</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">analyzer</span><span class="o">=</span><span class="s1">&#39;word&#39;</span><span class="p">,</span>
+                        <span class="n">sublinear_tf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
+                        <span class="n">tokenizer</span><span class="o">=</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the TFIDF transformation to our data</span>
+<span class="c1">#  Note that this takes the sentences, and tokenizes them, then applies TFIDF</span>
+<span class="n">tfidf_books</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sents</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The TfidfVectorizer will calculate the inverse document frequency (IDF) for each word.</p>
+<p>The TFIDF is then calculated as the TF * IDF, working to down-weight frequently appearing words. This TFIDF is stored in ‘tfidf_books’ variable, which is a n_documents x n_words matrix that encodes the documents in a TFIDF representation.</p>
+<p>Let’s first plot out the IDF for each of the top 10 most frequently appeared words (from the first analysis).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the IDF weights for the top 10 most common words</span>
+<span class="n">IDF_weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span><span class="p">[</span><span class="n">tfidf</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">[</span><span class="n">token</span><span class="p">]]</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">top10_words</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the IDF scores for the very common words</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">top10_words</span><span class="p">,</span> <span class="n">IDF_weights</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Inverse Document Frequency&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;IDF Score&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/18-NaturalLanguageProcessing_51_0.png" src="../_images/18-NaturalLanguageProcessing_51_0.png" />
+</div>
+</div>
+<p>We compare the plot with the following plot that shows the words with top 10 highest IDF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the words with the highest IDF score</span>
+<span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">top_IDF_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">inds</span><span class="p">]</span>
+<span class="n">top_IDF_scores</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span><span class="p">[</span><span class="n">inds</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the words with the highest IDF score</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">top_IDF_tokens</span><span class="p">,</span> <span class="n">top_IDF_scores</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Inverse Document Frequency&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;IDF Score&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/18-NaturalLanguageProcessing_54_0.png" src="../_images/18-NaturalLanguageProcessing_54_0.png" />
+</div>
+</div>
+<p>As we can see, the frequently appearing words in the document get very low IDF scores, as compared to much rarer words.</p>
+<p>After TF-IDF, we successfully down-weight the frequently appearing words in the document. This allows us to represent a document by the words that are most unique to it, which can be a more useful way to represent text data.</p>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

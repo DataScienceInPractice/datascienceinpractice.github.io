@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo Assignment &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="../tutorials/00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/assignments/D1_gitpython.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="demo-assignment">
+<h1>Demo Assignment<a class="headerlink" href="#demo-assignment" title="Permalink to this headline">¶</a></h1>
+<p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
+<div class="alert alert-danger">
+If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
+</div></div>
+<div class="section" id="how-to-complete-assignments">
+<h1>How to complete assignments<a class="headerlink" href="#how-to-complete-assignments" title="Permalink to this headline">¶</a></h1>
+<p>Whenever you see:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You need to <strong>replace (meaning: delete) these lines of code with some code that answers the questions</strong> and meets the specified criteria. Make sure you remove the ‘raise’ line when you do this (or your notebook will raise an error, regardless of any other code, and thus fail the grading tests).</p>
+<p>You should write the answer to the questions in those cells (the ones with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">YOUR</span> <span class="pre">CODE</span> <span class="pre">HERE</span></code>), but you can also add extra cells to explore / investigate things if you need / want to.</p>
+<p>Any cell with <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements in it is a test cell. You should not try to change or delete these cells. Note that there might be more than one assert that tests a particular question.</p>
+<p>If a test does fail, reading the error that is printed out should let you know which test failed, which may be useful for fixing it.</p>
+<p>Note that some cells, including the test cells, may be read only, which means they won’t let you edit them. If you cannot edit a cell - that is normal, and you shouldn’t need to edit that cell.</p>
+<p>All outside packages/modules that will be used will be specified. You may not use other libraries in the assignments.</p>
+<p>Finally, note that questions have points as specified in the detailed instructions.</p>
+</div>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this assignment is to make sure you have the tools you’ll need to use
+for COGS108. Notably, we’ll be using Python, Jupyter notebooks, and git/GitHub. Since we’re using <a class="reference external" href="http://datahub.ucsd.edu">datahub</a>, you won’t <em>need</em> a local version of Jupyter or Python on your computer. So, for this assignment, we’ll focus on getting you set up on GitHub.</p>
+<p>Most assignments will be completed completely within the Jupyter Notebook and submitted on datahub; however, for this first assignment, we want you to be comfortable in GitHub. Tasks to complete Part 1 below will require work outside of this notebook.</p>
+</div>
+<div class="section" id="part-1-git-github-2-5-points">
+<h1>Part 1: git &amp; GitHub (2.5 points)<a class="headerlink" href="#part-1-git-github-2-5-points" title="Permalink to this headline">¶</a></h1>
+<p>If you’re new to git and GitHub, documentation <a class="reference external" href="https://help.github.com/en/github/getting-started-with-github">here</a>, <a class="reference external" href="https://guides.github.com/activities/hello-world/">here</a>, and <a class="reference external" href="https://github.com/jlord/git-it-electron#what-to-install">here</a> will likely be helpful.</p>
+<p>Below, we will have you accomplish three common GitHub tasks. Well explain them briefly here and <em>why</em> we’re having you do them. Step-by-step instructions are then included below.</p>
+<ul class="simple">
+<li><p>Cloning repositories from GitHub - you’ll do this any time you want to get a repo from GitHub to your local machine.</p></li>
+<li><p>Creating a new repository on your GitHub - here, you’ll create the repo, add files to the repo, and commit these changes</p></li>
+<li><p>Fork a repo &amp; submit a PR - any time you want to work with someone else’s repo to which you don’t have access, you’ll use this procedure.</p></li>
+</ul>
+<div class="section" id="step-by-step-instructions">
+<h2>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>If you do not already have one, <strong>create a GitHub account</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Follow instructions here: https://github.com/</p></li>
+</ul>
+<ol class="simple">
+<li><p><strong>Clone the class repositories</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Go to the class organization: https://github.com/COGS108</p></li>
+<li><p>Clone ‘Lectures-Sp20’ and ‘Projects’</p></li>
+</ul>
+<ol class="simple">
+<li><p><strong>Make a public repo</strong> on your GitHub called ‘COGS108_Repo’</p></li>
+</ol>
+<ul class="simple">
+<li><p>Make sure this repository is public</p></li>
+<li><p>Make sure you name the repo exactly as you see it above</p></li>
+<li><p>Within <code class="docutils literal notranslate"><span class="pre">COGS108_Repo</span></code>, create two files: ‘README’ and ‘.gitignore’.</p>
+<ul>
+<li><p>Add these to ‘COGS108_Repo’.</p></li>
+<li><p>Reminder: the shell command <code class="docutils literal notranslate"><span class="pre">touch</span></code> creates an empty file.</p></li>
+<li><p>These can contain anything you want (or be empty).</p></li>
+<li><p>Stage, commit, and push these changes to your GitHub.</p></li>
+</ul>
+</li>
+</ul>
+<ol class="simple">
+<li><p><strong>Make a Pull Request</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p>Fork the COGS108 repo called ‘MyFirstPullRequest’ to your GitHub account.</p>
+<ul>
+<li><p>Go to the COGS108/MyFirstPullRequest on GitHub.</p>
+<ul>
+<li><p>On the top right of the page, click on the ‘Fork’ button and click through to Fork the repository to your GitHub account</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Clone that fork onto your computer.</p></li>
+<li><p>You are going to add a text file with a unique identifier to your repo</p>
+<ul>
+<li><p>The unique identifier should be: the First Letter of your last name + the last 4 digits of your Student ID (PID).</p></li>
+<li><p>For example, John Smith - A12345678 should submit ‘S5678.txt’.</p></li>
+<li><p>The contents of this file do not matter (it can be empty).</p></li>
+<li><p>Add this file to your cloned repository (the folder on your computer).</p></li>
+<li><p>Note: A ‘txt’ file is a plain text file. It should have the extension ‘.txt’. You may need to specify, in your preferred text editor, to save this filetype.</p></li>
+</ul>
+</li>
+<li><p>Stage &amp; Commit these files.</p></li>
+<li><p>Push these updates to the cloned repo, on your GitHub account.</p></li>
+<li><p>Go to GitHub.com, to ‘/YourAcct/MyFirstPullRequest’ where you should now see your txt file.</p></li>
+<li><p>Create a Pull Request (PR).</p>
+<ul>
+<li><p>Click on ‘New Pull Request’</p></li>
+<li><p>Click on ‘Create Pull Request’ (in green)</p></li>
+<li><p>Replace the commit message with the same identifier (ex - ‘S5678’)</p></li>
+<li><p>Click ‘Create Pull Request’.</p></li>
+</ul>
+</li>
+<li><p>You’re done!</p></li>
+</ul>
+</div>
+<div class="section" id="general-notes">
+<h2>General Notes<a class="headerlink" href="#general-notes" title="Permalink to this headline">¶</a></h2>
+<p>Make sure all the specified repos and files that you make on GitHub are <em>public</em>, and that you type your GitHub username in properly. Automated procedures will be used to check that these repos exist, that the Pull Request was received, and that the submitted Jupyter notebook runs as expected.</p>
+</div>
+<div class="section" id="q0-span-style-color-red-pid-github-username-span-2-5-points">
+<h2>Q0: <span style="color: red;">PID &amp; GitHub Username </span> (2.5 points)<a class="headerlink" href="#q0-span-style-color-red-pid-github-username-span-2-5-points" title="Permalink to this headline">¶</a></h2>
+<p>Once you’ve completed the above instructions, we’ll need you to provide us with your PID and GitHub username so that we can check completion and accuracy of the tasks assigned above.</p>
+<p>In the cell below, assign your UCSD PID as a string to the variable <code class="docutils literal notranslate"><span class="pre">PID</span></code> and your GitHub username as a string to the variable <code class="docutils literal notranslate"><span class="pre">github_username</span></code>.</p>
+<p>For example, the cell below may look something like this (But will include <em>your</em> PID and username):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PID</span> <span class="o">=</span> <span class="s1">&#39;A1234567&#39;</span>
+<span class="n">github_username</span> <span class="o">=</span> <span class="s1">&#39;ShanEllis&#39;</span>
+</pre></div>
+</div>
+<p><em>Note</em>: Make sure you provide your GitHub username, <strong>not the email address</strong> you used to create the account.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">PID</span>
+<span class="k">assert</span> <span class="n">github_username</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-python-5-points">
+<h1>Part 2: Python (5 points)<a class="headerlink" href="#part-2-python-5-points" title="Permalink to this headline">¶</a></h1>
+<p>This part of the assignment is focused on some practice with Python, and with practicing working with the format of the assignments.</p>
+<p>This class assumes some prior knowledge of Python. In the following questions, you will need to work with basic (standard library) data types (floats, lists, dictionaries, etc.) and control flow (conditionals, loops, functions, etc). If the questions in this section are totally unfamiliar to you, you may need to revisit some practice materials to catch up with some of the programming.</p>
+<p>Through these questions, we will also prompt you to use a couple slightly more advanced standard library functions (for example, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> and <code class="docutils literal notranslate"><span class="pre">zip</span></code>), that may be new to you.</p>
+<p>Each question should be answerable with a relatively small number of lines of code, up to about 5-7 lines at most.</p>
+<p>If you are having any trouble, remember to visit the course tutorials (https://github.com/COGS108/Tutorials). Assignment questions often follow the structure of examples provided in the tutorials, and a large number of relevant links and external materials are also indexed in the tutorials.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># PRINTING VARIABLES</span>
+<span class="c1"># A reminder that you can (and should) print and check variables as you go.</span>
+<span class="c1">#  This allows you to check what values they hold, and debug if anything unexpected happens.</span>
+
+<span class="c1"># Define a variable</span>
+<span class="n">math_result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">4</span>
+
+<span class="c1"># Print out the value(s) of a variable.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q1: Defining Variables (0.25 points)</strong></p>
+<p>Create the following variables:</p>
+<ul class="simple">
+<li><p>a variable called <code class="docutils literal notranslate"><span class="pre">my_int</span></code> that stores the integer 29</p></li>
+<li><p>a variable called <code class="docutils literal notranslate"><span class="pre">my_float</span></code> that stores the float 7.29</p></li>
+<li><p>a variable called <code class="docutils literal notranslate"><span class="pre">my_string</span></code> that stores the string ‘COGS108’</p></li>
+<li><p>a variable called <code class="docutils literal notranslate"><span class="pre">my_bool</span></code> that stores the boolean <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the variables</span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tests that check that each variable is of the right type</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">my_int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">my_float</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">my_string</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">my_bool</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q2: Defining Variables: Lists &amp; Tuples (0.25 points)</strong></p>
+<p>Define a list called <code class="docutils literal notranslate"><span class="pre">var_a</span></code>, that contains individual letters a-j (inclusively).</p>
+<p>Define a tuple called <code class="docutils literal notranslate"><span class="pre">var_b</span></code>, that contains the numbers 1-10 (inclusively).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># These tests check the variables are defined</span>
+<span class="k">assert</span> <span class="n">var_a</span>
+<span class="k">assert</span> <span class="n">var_b</span>
+
+<span class="c1"># These tests check that the variables are the right data types</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var_a</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var_b</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
+
+<span class="c1"># These tests check the variables have the right values</span>
+<span class="k">assert</span> <span class="n">var_a</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">var_b</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q3: Defining Variables: Dictionaries (0.5 points)</strong></p>
+<p>Create a Python dict called <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> where the keys are the elements in <code class="docutils literal notranslate"><span class="pre">var_a</span></code> and the values are the corresponding elements in <code class="docutils literal notranslate"><span class="pre">var_b</span></code>. (Note: Use <code class="docutils literal notranslate"><span class="pre">var_a</span></code> and <code class="docutils literal notranslate"><span class="pre">var_b</span></code> you created above.)</p>
+<p>Hints:</p>
+<ol class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">zip</span></code> function may be useful.</p></li>
+<li><p>You might also make use of a Python dictionary comprehension.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">dictionary</span>
+
+<span class="c1"># There are also some hidden tests that check the contents of dictionary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q4: Value Comparisons (0.5 points)</strong></p>
+<p>Store values in the variables <code class="docutils literal notranslate"><span class="pre">comp_val_1</span></code>, <code class="docutils literal notranslate"><span class="pre">comp_val_2</span></code>,<code class="docutils literal notranslate"><span class="pre">comp_val_3</span></code>, and <code class="docutils literal notranslate"><span class="pre">comp_val_4</span></code> such that the assert cell will pass silently (meaning the tests will pass and not produce an error).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">comp_val_1</span> <span class="o">&lt;</span> <span class="n">comp_val_2</span>
+<span class="k">assert</span> <span class="n">comp_val_3</span> <span class="o">!=</span> <span class="n">comp_val_4</span>
+<span class="k">assert</span> <span class="n">comp_val_4</span> <span class="o">&gt;=</span> <span class="n">comp_val_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q5: Control Flow (0.5 points)</strong></p>
+<p>Loop through the provided list <code class="docutils literal notranslate"><span class="pre">my_list</span></code>. For each element, check if it is an even number. If the element is an even number, append the INDEX of that element to the list <code class="docutils literal notranslate"><span class="pre">inds</span></code>.</p>
+<p>Note that you are adding the index to <code class="docutils literal notranslate"><span class="pre">inds</span></code>, <strong>not the element itself</strong>. (Reminder: Python uses zero-based indexing, so the index of the first element in the list is 0.)</p>
+<p>Hints:</p>
+<ol class="simple">
+<li><p>To check if a number is even, you can use the modulo <code class="docutils literal notranslate"><span class="pre">%</span></code> operator.</p></li>
+<li><p>To loop through an iterable, keeping track of the index, you can use the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># These variables are provided to you.</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">inds</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">inds</span>
+
+<span class="c1"># There is also a hidden test that checks the contents of &#39;inds&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q6: Indexing (0.5 points)</strong></p>
+<p>Using the four lists provided in the cell below, complete the following indexing:</p>
+<ul class="simple">
+<li><p>Use forward indexing to store the second value in <code class="docutils literal notranslate"><span class="pre">list_1</span></code> to <code class="docutils literal notranslate"><span class="pre">index_1</span></code></p></li>
+<li><p>Use negative indexing to store the last value in <code class="docutils literal notranslate"><span class="pre">list_2</span></code> to <code class="docutils literal notranslate"><span class="pre">index_2</span></code></p></li>
+<li><p>Store the first three values of <code class="docutils literal notranslate"><span class="pre">list_3</span></code> to <code class="docutils literal notranslate"><span class="pre">index_3</span></code></p></li>
+<li><p>Store the last two values of <code class="docutils literal notranslate"><span class="pre">list_4</span></code> to <code class="docutils literal notranslate"><span class="pre">index_4</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># provided for you</span>
+<span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="n">list_4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">289</span><span class="p">,</span> <span class="mi">938</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index_1</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index_2</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index_3</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index_4</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q7: Looping through Dictionaries (0.75 points)</strong></p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">students</span></code> dictionary provided below, write a for loop that loops across the dictionary and collects all subject numbers (ex. ‘S2’) where the dictionary value is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Imagine, for example, the dictionary indicates whether a student has completed an assignment, and we wanted to get a list of the students who had <em>not yet completed the assignment</em>.</p>
+<p>To answer this question, use a for loop across the <code class="docutils literal notranslate"><span class="pre">students</span></code> dictionary. You then need to get the associated value in each iteration, and check if it is <code class="docutils literal notranslate"><span class="pre">True</span></code>. If it is <code class="docutils literal notranslate"><span class="pre">True</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">continue</span></code> to skip ahead to the next iteration. Otherwise, append the subject number (i.e. ‘S2’) to a list called <code class="docutils literal notranslate"><span class="pre">incomplete</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This dictionary provided for you</span>
+<span class="n">students</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;S1&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;S2&#39;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;S3&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;S4&#39;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">incomplete</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">incomplete</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q8: Functions I (0.5 points)</strong></p>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">return_odd</span></code> that will take a list as its input and return a list of all the odd <em>values</em> as its output.</p>
+<p>Note that this differs from what you did above in two ways: (1) it returns the values, not the index, and (2) it’s looking for odd values, not even.</p>
+<p>For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">return_odd</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">[1, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">return_odd</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">return_odd</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span> <span class="o">==</span> <span class="p">[]</span>
+<span class="k">assert</span> <span class="n">return_odd</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q9: Functions II (0.5 points)</strong></p>
+<p>Write a function <code class="docutils literal notranslate"><span class="pre">squared_diff</span></code> that takes two number inputs and returns the squared difference of the two numbers i.e., <span class="math notranslate nohighlight">\((a - b)^2\)</span>. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squared_diff</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squared_diff</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">81</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">squared_diff</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span>
+<span class="k">assert</span> <span class="n">squared_diff</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">81</span>
+
+<span class="c1"># There are also hidden tests that check more cases of squared_diff</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Q10: Putting it all together (0.75 points)</strong></p>
+<p>Here, we’ll update the values in <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, storing the output in a dictionary called <code class="docutils literal notranslate"><span class="pre">other_dictionary</span></code>. This new dictionary will have the same keys, but some values will be updated.</p>
+<p>The values in <code class="docutils literal notranslate"><span class="pre">other_dictionary</span></code> should be updated, such that if the value in the original <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> is…</p>
+<ul class="simple">
+<li><p>odd: update the the value stored in the dictionary to store the squared difference of the original value and ‘10’. Remember, you created a function to do this above.)</p></li>
+<li><p>even: store the original value (from <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>).</p></li>
+</ul>
+<p>Hints:</p>
+<ol class="simple">
+<li><p>to loop through key-value pairs in a dictionary, check out the <code class="docutils literal notranslate"><span class="pre">.items</span></code> method</p></li>
+<li><p>You created a <code class="docutils literal notranslate"><span class="pre">squared_diff</span></code> function above.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># run this cell to remind yourself what is stored in `dictionary`</span>
+<span class="n">dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">other_dictionary</span>
+
+<span class="c1"># There are hidden tests that check the contents of &#39;other_dictionary&#39;.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-end">
+<h1>The End!<a class="headerlink" href="#the-end" title="Permalink to this headline">¶</a></h1>
+<p>This is the end of the first assignment!</p>
+<p>The goal here was to check your basic Python understanding. From here, assignments will be more data science centric, using lots of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and working with data!</p>
+<p>Have a look back over your answers, and also make sure to <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">&amp;</span> <span class="pre">Run</span> <span class="pre">All</span></code> from the kernel menu to double check that everything is working properly. You can also use the ‘Validate’ button above, which runs your notebook from top to bottom and checks to ensure all <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements pass silently. When you are ready, submit on datahub!</p>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

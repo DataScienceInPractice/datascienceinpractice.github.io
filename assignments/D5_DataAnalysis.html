@@ -1,0 +1,1827 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo Assignment &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="../tutorials/00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/assignments/D5_DataAnalysis.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="demo-assignment">
+<h1>Demo Assignment<a class="headerlink" href="#demo-assignment" title="Permalink to this headline">¶</a></h1>
+<p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
+<div class="alert alert-danger">
+If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
+</div></div>
+<div class="section" id="important-reminders">
+<h1>Important Reminders<a class="headerlink" href="#important-reminders" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>This assignment has hidden tests: tests that are not visible here, but that will be run on your submitted assignment for grading.</p>
+<ul>
+<li><p>This means passing all the tests you can see in the notebook here does not guarantee you have the right answer!</p></li>
+<li><p>In particular many of the tests you can see simply check that the right variable names exist. Hidden tests check the actual values.</p>
+<ul>
+<li><p>It is up to you to check the values, and make sure they seem reasonable.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>A reminder to restart the kernel and re-run the code as a first line check if things seem to go weird.</p>
+<ul>
+<li><p>For example, note that some cells can only be run once, because they re-write a variable (for example, your dataframe), and change it in a way that means a second execution will fail.</p></li>
+<li><p>Also, running some cells out of order might change the dataframe in ways that may cause an error, which can be fixed by re-running.</p></li>
+</ul>
+</li>
+</ul>
+<p>Run the following cell. These are all you need for the assignment. Do not import additional packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports </span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">patsy</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span><span class="p">,</span> <span class="n">chisquare</span><span class="p">,</span> <span class="n">normaltest</span>
+<span class="c1"># Note: the statsmodels import may print out a &#39;FutureWarning&#39;. Thats fine.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Data: the responses collected from a previous survery of the COGS 108 class.</p>
+<ul class="simple">
+<li><p>There are 416 observations in the data, covering 10 different ‘features’.</p></li>
+</ul>
+<p>Research Question: Do students in different majors have different heights?</p>
+<p>Background: Physical height has previously shown to correlate with career choice, and career success. More recently it has been demonstrated that these correlations can actually be explained by height in high school, as opposed to height in adulthood (1). It is currently unclear whether height correlates with choice of major in university.</p>
+<p>Reference: 1) https://www.sas.upenn.edu/~apostlew/paper/pdf/short.pdf</p>
+<p>Hypothesis: We hypothesize that there will be a relation between height and chosen major.</p>
+</div>
+<div class="section" id="part-1-load-clean-the-data-2-95-points">
+<h2>Part 1: Load &amp; Clean the Data (2.95 points)<a class="headerlink" href="#part-1-load-clean-the-data-2-95-points" title="Permalink to this headline">¶</a></h2>
+<p>Fixing messy data makes up a large amount of the work of being a Data Scientist.</p>
+<p>The real world produces messy measurements and it is your job to find ways to standardize your data such that you can make useful analyses out of it.</p>
+<p>In this section, you will learn, and practice, how to successfully deal with unclean data.</p>
+<div class="section" id="a-load-the-data">
+<h3>1a) Load the data<a class="headerlink" href="#a-load-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Import datafile <code class="docutils literal notranslate"><span class="pre">COGS108_IntroQuestionnaireData.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the data</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Those column names are a bit excessive, so first let’s rename them - code provided below to do so.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Renaming the columns of the dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;eye_color&#39;</span><span class="p">,</span> <span class="s1">&#39;born_in_CA&#39;</span><span class="p">,</span> <span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> has a very useful function for detecting missing data. This function is called <code class="docutils literal notranslate"><span class="pre">isnull()</span></code>.</p>
+<p>If you have a dataframe called <code class="docutils literal notranslate"><span class="pre">df</span></code>, then calling <code class="docutils literal notranslate"><span class="pre">df.isnull()</span></code> will return another dataframe of the same size as <code class="docutils literal notranslate"><span class="pre">df</span></code> where every cell is either True of False.</p>
+<p>Each True or False is the answer to the question ‘is the data in this cell null?’. So, False, means the cell is not null (and therefore, does have data). True means the cell is null (does not have data).</p>
+<p>This function is very useful because it allows us to find missing data very quickly in our dataframe. As an example, consider the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the first few rows of the &#39;isnull&#39; dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you print out more, and scroll down, you’ll see some rows with missing data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># For example:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">48</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check an example, row 49, in which an entry has missing data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">49</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Granted, the example above is not very informative. As you can see, the output of <code class="docutils literal notranslate"><span class="pre">isnull()</span></code> is a dataframe where the values at each cell is either True or False. Most cells have the value of <code class="docutils literal notranslate"><span class="pre">False</span></code>. We expect this to be the case since most people gave out answers to each question in our survey.</p>
+<p>However, some rows such as row 49 show that some people chose not to answer certain questions. In the case of row 49, it seems that someone did not give out an answer for ‘What year (in school) are you?’</p>
+<p>However, what if we wanted to use <code class="docutils literal notranslate"><span class="pre">isnull()</span></code> to see all rows where our dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code> has missing values? In other words, what if we want to see the ACTUAL rows with missing values instead of this dataframe with True or False cells. For that, we need to write the following line of code:
+<br>
+<br>
+<code class="docutils literal notranslate"><span class="pre">df[df.isnull().any(axis=1)]</span></code></p>
+</div>
+<div class="section" id="b-find-missing-data">
+<h3>1b) Find missing data<a class="headerlink" href="#b-find-missing-data" title="Permalink to this headline">¶</a></h3>
+<p>Find all rows that have missing data in them.</p>
+<p>Save the ouput, as a dataframe, into a variable called <code class="docutils literal notranslate"><span class="pre">rows_to_drop</span></code>.</p>
+<p>In other words, copy over and use the line of code that we gave out in the cell above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># check output</span>
+<span class="n">rows_to_drop</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rows_to_drop</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">rows_to_drop</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, briefly explain below how <code class="docutils literal notranslate"><span class="pre">df[df.isnull().any(axis=1)]</span></code> works, in a couple sentences.</p>
+<p>Include an explanation of what <code class="docutils literal notranslate"><span class="pre">any(axis=1)</span></code> means and how it affects the code.</p>
+<p>YOUR ANSWER HERE</p>
+<p>Run the following cell and look at its output, but you don’t need to add any code here.</p>
+<p>Real world data are messy. As an example of it, we consider the data shown in <code class="docutils literal notranslate"><span class="pre">rows_to_drop</span></code> (below).</p>
+<p>If you’ve done everything correctly so far, you should see an unexpected response with emojis at index 357. These types of responses, although funny, are hard to parse when dealing with big datasets.</p>
+<p>We’ll learn about solutions to these types of problems in the upcoming cells.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rows_to_drop</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c-drop-the-rows-with-nan-values">
+<h3>1c) Drop the rows with NaN values<a class="headerlink" href="#c-drop-the-rows-with-nan-values" title="Permalink to this headline">¶</a></h3>
+<p>Drop any rows with missing data, but only for the columns <code class="docutils literal notranslate"><span class="pre">major</span></code>, <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">gender</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code>. These will be the data of primary interest for our analyses, so we drop missing data here.</p>
+<p>Note that there are other missing data (in other rows) but this is fine for our analyses, so we keep them.</p>
+<p>To do this, use the pandas <code class="docutils literal notranslate"><span class="pre">dropna</span></code> method, inplace, using the <code class="docutils literal notranslate"><span class="pre">subset</span></code> arguments to specify columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">403</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the rest of Part 1, we will work on writing code, organized into functions that will allow us to transform similar respones into the same value. We will call this process: standardizing the data.</p>
+<p>The cell below provides an example for the kind of code you will need to write to answer this question. This example is separate from our actual data, and is a potential function we might use to standardize messy data - in this case, hypothetical data to the question ‘What is your favourite major python version?’.</p>
+<p>Note some things used in this example that you need to use to standardize data:</p>
+<ul class="simple">
+<li><p>string methods, such as <code class="docutils literal notranslate"><span class="pre">lower</span></code> and <code class="docutils literal notranslate"><span class="pre">strip</span></code> to transform strings</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">replace</span></code> string method, to replace a set of characters with something else</p></li>
+<li><p>if/else statements that check what’s in our string (number, letters, etc)</p></li>
+<li><p>type casting, for example using <code class="docutils literal notranslate"><span class="pre">int()</span></code> to turn a variable into an integer</p></li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> (which stands for ‘not a number’) to denote missing or unknown data</p></li>
+</ul>
+<p><strong>Note</strong>: For the following few cells you should run, read, and understand the code provided, but you don’t have to add any code until Q1d.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># just run this cell</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The line of code above shows us the different values we got, to the question ‘What year (in school) are you?’.</p>
+<p>As you can tell, it is a <b>mess</b>!. For example, if you are a junior student, then you might have answered: 3, three, third, 3rd year, junior, junior year, Junior, etc.</p>
+<p>That is an issue. We want to be able to analyze this data and, in order to do this successfully, we need to all answers with the same meaning to be written in the same way. Therefore, we’re gonna have to transform answers such as ‘3, third, 3rd, junior, etc’ into a single possible value. We’ll do this for all values that mean the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_standardize_function</span><span class="p">(</span><span class="n">str_in</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Standardize data to the question &#39;what is your favorite major python version?&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    str_in : string</span>
+<span class="sd">        A provided answer.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    int_out : int or np.nan</span>
+<span class="sd">        A standardized integer response.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1"># Make the input all lowercase</span>
+    <span class="n">str_in</span> <span class="o">=</span> <span class="n">str_in</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    
+    <span class="c1"># Drop all whitespace</span>
+    <span class="n">str_in</span> <span class="o">=</span> <span class="n">str_in</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="c1"># Replace things (and then strip again afterwords)</span>
+    <span class="c1">#  Note that the &#39;replace&#39; replaces the first argument, with the second</span>
+    <span class="c1">#   The first argument does not need to be present in the string,</span>
+    <span class="c1">#    if it&#39;s not there &#39;replace&#39; does nothing (but does not error), so the code moves on.</span>
+    <span class="n">str_in</span> <span class="o">=</span> <span class="n">str_in</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">str_in</span> <span class="o">=</span> <span class="n">str_in</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">str_in</span> <span class="o">=</span> <span class="n">str_in</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="c1"># Cast to integer, if what&#39;s left seems appropriate</span>
+    <span class="k">if</span> <span class="n">str_in</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">str_in</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">str_in</span><span class="p">)</span>
+    <span class="c1"># Otherwise, consider input was probably ill-formed, return nan</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    
+    <span class="k">return</span> <span class="n">out</span>
+
+<span class="c1"># Check how this function help standardize data:</span>
+<span class="c1">#  Example possible answers to the question &#39;What is your favourite major version of Python&#39;:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;INPUT&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\t\t</span><span class="s1">-</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;OUTPUT&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;version 3&#39;</span><span class="p">,</span> <span class="s1">&#39;42&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;python 3&#39;</span><span class="p">,</span> <span class="s1">&#39;nonsense-lolz&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:10s}</span><span class="s1"> </span><span class="se">\t</span><span class="s1">-</span><span class="se">\t</span><span class="s1"> </span><span class="si">{:1.0f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">example_standardize_function</span><span class="p">(</span><span class="n">inp</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have to standardize the data!</p>
+<p>Check all different values given for majors. It’s a lot!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll write a function performing some simple substring checking in order to group many responses together.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardize_major</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="s1">&#39;cog&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;COGSCI&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;computer&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;COMPSCI&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;cs&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;COMPSCI&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;math&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;MATH&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;electrical&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;ECE&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;bio&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;BIO&#39;</span>
+    <span class="k">elif</span> <span class="s1">&#39;chem&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;CHEM&#39;</span>
+    <span class="c1"># Otherwise, if uncaught - keep as is</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">string</span>
+    
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then have to apply the transformation using the function we just defined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">standardize_major</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Previewing the results of the previous transformation.</p>
+<p>It looks a lot better, though it’s not perfect, but we’ll run with this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-standardize-gender-function">
+<h3>1d) Standardize ‘gender’ function<a class="headerlink" href="#d-standardize-gender-function" title="Permalink to this headline">¶</a></h3>
+<p>Next let’s check the ‘gender’ column.</p>
+<p>Check the different responses received for gender, including how many of each response we have</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># run this to see different gender input data</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using a similar approach to what we used for ‘major’, you’ll write a <code class="docutils literal notranslate"><span class="pre">standardize_gender</span></code> function.</p>
+<p>To do this you’ll:</p>
+<ul class="simple">
+<li><p>convert all text to lowercase</p></li>
+<li><p>use the string method <code class="docutils literal notranslate"><span class="pre">strip()</span></code> to remove leading and trailing characters from the gender value</p></li>
+<li><p>use an <code class="docutils literal notranslate"><span class="pre">if/elif/else</span></code> to:</p>
+<ul>
+<li><p>output ‘female’ if the lowercale gender value is ‘female’, ‘f’, ‘woman’, ‘famale’,  or ‘women’</p></li>
+<li><p>output ‘male’ if the lowercase gender value is ‘male’, ‘m’, ‘man’, or ‘men’</p></li>
+<li><p>output ‘nonbinary_or_trans’ if the lowercase gender value is ‘nonbinary’ or ‘transgender’</p></li>
+<li><p>output <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> otherwise</p></li>
+</ul>
+</li>
+<li><p>return the output</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_gender</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span>
+<span class="k">assert</span> <span class="n">standardize_gender</span><span class="p">(</span><span class="s1">&#39;male&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span>
+<span class="k">assert</span> <span class="n">standardize_gender</span><span class="p">(</span><span class="s1">&#39;Transgender&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;nonbinary_or_trans&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="e-transform-gender-column">
+<h3>1e) Transform ‘gender’ column<a class="headerlink" href="#e-transform-gender-column" title="Permalink to this headline">¶</a></h3>
+<p>Apply the transformation, meaning, use your function and standardize gender in <code class="docutils literal notranslate"><span class="pre">df</span></code></p>
+<p>Then, drop any rows with missing gender information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the results</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">402</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-standardize-other-columns">
+<h3>1f) Standardize other columns<a class="headerlink" href="#f-standardize-other-columns" title="Permalink to this headline">¶</a></h3>
+<p>Find, programatically, the number of unique responses in the ‘year’ column.</p>
+<p>Save the result in a variable named <code class="docutils literal notranslate"><span class="pre">num_unique_responses</span></code>.</p>
+<p>Hint: you can answer this question using the <code class="docutils literal notranslate"><span class="pre">unique</span></code> method, used above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+<span class="n">num_unique_responses</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">num_unique_responses</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num_unique_responses</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out all the different answers in &#39;year&#39;</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="g-standardize-year-column">
+<h3>1g)  Standardize ‘year’ column<a class="headerlink" href="#g-standardize-year-column" title="Permalink to this headline">¶</a></h3>
+<p>Write a function named <code class="docutils literal notranslate"><span class="pre">standardize_year</span></code> that takes in as input a string and returns an integer.</p>
+<p>The function will do the following (in the order specified):</p>
+<p>Note that for these detailed instructions, each line corresponds to one line of code you need to write.</p>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>convert all characters of the string into lowercase</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>strip the string of all leading and trailing whitespace</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘first’ with ‘1’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘second’ with ‘2’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘third’ with ‘3’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘fourth’ with ‘4’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘fifth’ with ‘5’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘sixth’ with ‘6’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘freshman’ with ‘1’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘sophomore’ with ‘2’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘junior’ with ‘3’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘senior’ with 4’</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘year’ with ‘’ (remove it from the string)</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘th’ with ‘’ (remove it from the string)</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘rd’ with ‘’ (remove it from the string)</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘nd’ with ‘’ (remove it from the string)</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>strip the string of all leading and trailing whitespace (again)</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>If the resulting string is a number and it is less than 10, then cast it into an integer and return that value</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Else return np.nan to symbolize that the student’s response was not a valid entry</p></li>
+</ol>
+</li>
+</ul>
+<p>HINTS: you will need to use the functions <code class="docutils literal notranslate"><span class="pre">lower()</span></code>, <code class="docutils literal notranslate"><span class="pre">strip()</span></code>, <code class="docutils literal notranslate"><span class="pre">isnumeric()</span></code> and <code class="docutils literal notranslate"><span class="pre">replace()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;2nd&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;sophomore&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;3rd year&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;5th&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;7    &#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span>
+<span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;randomText&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="h-transform-year-column">
+<h3>1h) Transform ‘year’ column<a class="headerlink" href="#h-transform-year-column" title="Permalink to this headline">¶</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">standardize_year</span></code> to transform the data in column ‘What year (in school) are you?’.</p>
+<p>Hint: use the <code class="docutils literal notranslate"><span class="pre">apply</span></code> function AND remember to save your output inside the dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Assuming that all is correct up to this point, the line below should show all values now found in <code class="docutils literal notranslate"><span class="pre">df['year']</span></code>.</p>
+<p>It should look a lot better. With this data, we can now make insightful analyses.</p>
+<p>You should see an array with elements 1,2,3,4,5,6 and nan (not necessarily in that order).</p>
+<p>Note that if you check the data type of this column, you’ll see that pandas converts these numbers to <code class="docutils literal notranslate"><span class="pre">float</span></code>, even though the applied function returns <code class="docutils literal notranslate"><span class="pre">int</span></code>, because <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> is considered a float. This is fine.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s do it again. Let’s take a look at the responses in the ‘weight’ column, and then standardize them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, ensure that all types are consistent, use strings</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check all the different answers we received</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="i-standardize-weight-column">
+<h3>1i) Standardize ‘weight’ column<a class="headerlink" href="#i-standardize-weight-column" title="Permalink to this headline">¶</a></h3>
+<p>Write a function named <code class="docutils literal notranslate"><span class="pre">standardize_weight</span></code> that takes in as input a string and returns an integer.</p>
+<p>The function will do the following (in the order specified):</p>
+<ul>
+<li><ol class="simple">
+<li><p>convert all characters of the string into lowercase</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>strip the string of all leading and trailing whitespace</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘lbs’ with ‘’ (remove it from the string)</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘lb’ with ‘’ (remove it from the string)</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>replace any occurences of ‘pounds’ with ‘’ (remove it from the string)</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>If the string contains the substring ‘kg’, then:</p></li>
+</ol>
+<ul class="simple">
+<li><p>6.1) replace ‘kg’ with ‘’</p></li>
+<li><p>6.2) strip the string of whitespace</p></li>
+<li><p>6.3) cast the string into a float type using the function <code class="docutils literal notranslate"><span class="pre">float()</span></code></p></li>
+<li><p>6.4) multiply the resulting float by 2.2 (an approximate conversion of kilograms to pounds)</p></li>
+</ul>
+</li>
+<li><ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">try</span></code> to return the <code class="docutils literal notranslate"><span class="pre">int</span></code> of your <code class="docutils literal notranslate"><span class="pre">string</span></code>. If it cannot, return <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p></li>
+</ol>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_weight</span><span class="p">(</span><span class="s1">&#39;34 lbs&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">34</span>
+<span class="k">assert</span> <span class="n">standardize_weight</span><span class="p">(</span><span class="s1">&#39;101 kg&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">222</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="j-transform-weight-column">
+<h3>1j) Transform ‘weight’ column<a class="headerlink" href="#j-transform-weight-column" title="Permalink to this headline">¶</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">standardize_weight</span></code> to transform the data in the ‘weight’ column.</p>
+<p>Hint: use the <code class="docutils literal notranslate"><span class="pre">apply</span></code> function AND remember to save your output inside the dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">83</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s see the result of our hard work. The code below should output all numbers (or nan).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="k-standardize-favorite-icecream-column">
+<h3>1k) Standardize ‘favorite_icecream’ column<a class="headerlink" href="#k-standardize-favorite-icecream-column" title="Permalink to this headline">¶</a></h3>
+<p>Write a function named <code class="docutils literal notranslate"><span class="pre">standardize_icecream</span></code> that takes in as input a string and returns a standardized string.</p>
+<p>This function should:</p>
+<ul class="simple">
+<li><p>ensure all inputs are strings (Note: np.nan is considered a float that will be converted to ‘nan’ if typecast with <code class="docutils literal notranslate"><span class="pre">str()</span></code>)</p></li>
+<li><p>convert all characters of the string into lowercase</p></li>
+<li><p>strip the string of all leading and trailing whitespace</p></li>
+<li><p>standardize the flavors such that:</p>
+<ul>
+<li><p>if either ‘don’t’ or ‘no favorite’ is in the response, the flavor is recorded as <code class="docutils literal notranslate"><span class="pre">np.nan</span></code></p></li>
+<li><p>if either ‘cream’ or ‘creme’ is in the response, the flavor is ‘cookies &amp; cream’</p></li>
+<li><p>if ‘dough’ is in the response, the flavor is recorded as ‘chocolate chip cookie dough’ (we’ll consider cookie dough and chocolate chip cookie dough to be the same)</p></li>
+<li><p>if ‘vanilla’ is in the response, the flavor is recorded as ‘vanilla’</p></li>
+<li><p>if ‘mint’ is in the response, the flavor is recorded as ‘mint chocolate chip’ (we’ll consider mint and mint chocolate chip to be the same)</p></li>
+<li><p>if ‘oreo’ is in the response, the flavor is recorded as ‘oreo’</p></li>
+<li><p>if ‘pistac’  is in the response, the flavor is recorded as ‘pistachio’ (note the different spellings in original)</p></li>
+<li><p>if ‘matcha’ is in the response, the flavor is recorded as ‘matcha’</p></li>
+</ul>
+</li>
+<li><p>return the standardized ice cream flavor</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check all the different answers we received</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="s1">&#39;vanilla&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;vanilla&#39;</span>
+<span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="s1">&#39;Vanilla&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;vanilla&#39;</span>
+<span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;nan&#39;</span>
+
+<span class="c1"># cases that follow instructions</span>
+<span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="s1">&#39;this is not actually a flavor but has the word cream&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;cookies &amp; cream&#39;</span>
+<span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="s1">&#39;cookies &amp; creme&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;cookies &amp; cream&#39;</span>
+<span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="s1">&#39;Vanilla &#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;vanilla&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="l-transform-favorite-icecream-column">
+<h3>1l) Transform ‘favorite_icecream’ column<a class="headerlink" href="#l-transform-favorite-icecream-column" title="Permalink to this headline">¶</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">standardize_icecream</span></code> to transform the data in the ‘favorite_icecream’ column.</p>
+<p>Hint: use the <code class="docutils literal notranslate"><span class="pre">apply</span></code> function AND remember to save your output inside the dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># check output now that we&#39;ve standardized</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">82</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far, you’ve gotten a taste of what it is like to deal with messy data. It’s not easy, as you can tell.</p>
+<p>The last variable we need to standardize for the purposes of our analysis is ‘height’. We will standardize that one for you.</p>
+<p>Do read the code below and try to understand what it is doing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, we&#39;ll look at the possible values for height</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It seems like we’ll have to handle different measurement systems. Ugh, ok…</p>
+<p>Let’s write a function that converts all those values to inches.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert all values to inches</span>
+<span class="k">def</span> <span class="nf">standardize_height</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    
+    <span class="n">orig</span> <span class="o">=</span> <span class="n">string</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="c1"># Basic string pre-processing</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;foot&#39;</span><span class="p">,</span> <span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;feet&#39;</span><span class="p">,</span> <span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;inches&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;inch&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;meter&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;centimeters&#39;</span><span class="p">,</span> <span class="s1">&#39;cm&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;centimeter&#39;</span><span class="p">,</span> <span class="s1">&#39;cm&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    
+    <span class="c1"># CASE 1: string is written in the format FEET &lt;DIVIDER&gt; INCHES</span>
+    <span class="n">dividers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;ft&quot;</span><span class="p">,</span> <span class="s2">&quot;’&quot;</span><span class="p">,</span> <span class="s1">&#39;”&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="s1">&#39;`&#39;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">divider</span> <span class="ow">in</span> <span class="n">dividers</span><span class="p">:</span>
+        
+        <span class="c1"># Split it into its elements</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">divider</span><span class="p">)</span>
+
+        <span class="c1"># If the divider creates two elements</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">divider</span><span class="p">)):</span>
+            <span class="n">feet</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">inch</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">elements</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="s1">&#39;0&#39;</span>
+            
+            <span class="c1"># Cleaning extranious symbols</span>
+            <span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">dividers</span><span class="p">:</span>
+                <span class="n">feet</span> <span class="o">=</span> <span class="n">feet</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">inch</span> <span class="o">=</span> <span class="n">inch</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">symbol</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">inch</span> <span class="o">=</span> <span class="n">inch</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+            
+            <span class="c1"># Removing whitespace</span>
+            <span class="n">feet</span> <span class="o">=</span> <span class="n">feet</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">inch</span> <span class="o">=</span> <span class="n">inch</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            
+            <span class="c1"># By this point, we expect &#39;feet&#39; and &#39;inch&#39; to be numeric</span>
+            <span class="c1"># If not...we ignore this case</span>
+            <span class="k">if</span> <span class="n">feet</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="ow">and</span> <span class="n">inch</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+                
+                <span class="c1"># Converting feet to inches and adding it to the current inches</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">feet</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">inch</span><span class="p">)</span>
+                <span class="k">break</span>
+            
+    <span class="c1"># CASE 2: string is written in the format FEET ft INCHES in </span>
+    <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;ft&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;in&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">):</span>
+        
+        <span class="c1"># Split it into its elements</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+        <span class="n">feet</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">inch</span> <span class="o">=</span> <span class="n">elements</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="c1"># Removing extraneous symbols and stripping whitespace</span>
+        <span class="n">inch</span> <span class="o">=</span> <span class="n">inch</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;inch&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">inch</span> <span class="o">=</span> <span class="n">inch</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">feet</span> <span class="o">=</span> <span class="n">feet</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">inch</span> <span class="o">=</span> <span class="n">inch</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="c1"># By this point, we expect &#39;feet&#39; and &#39;inch&#39; to be numeric</span>
+        <span class="c1"># If not...we ignore this case</span>
+        <span class="k">if</span> <span class="n">feet</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="ow">and</span> <span class="n">inch</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+                
+            <span class="c1"># Converting feet to inches and adding it to the current inches</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">feet</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">inch</span><span class="p">)</span>
+        
+    <span class="c1"># CASE 3: answer was given ONLY in cm</span>
+    <span class="c1">#  Convert to inches: approximately 0.39 inches in a meter</span>
+    <span class="k">elif</span> <span class="s1">&#39;cm&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">centimeters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;cm&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">centimeters</span> <span class="o">=</span> <span class="n">centimeters</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">centimeters</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">centimeters</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.39</span>
+        
+    <span class="c1"># CASE 4: answer was given ONLY in meters</span>
+    <span class="c1">#  Convert to inches: approximately 39 inches in a meter</span>
+    <span class="k">elif</span> <span class="s1">&#39;m&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        
+        <span class="n">meters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">meters</span> <span class="o">=</span> <span class="n">meters</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">meters</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">meters</span><span class="p">)</span><span class="o">*</span><span class="mi">39</span>
+        
+    <span class="c1"># CASE 5: answer was given ONLY in feet</span>
+    <span class="k">elif</span> <span class="s1">&#39;ft&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+
+        <span class="n">feet</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">feet</span> <span class="o">=</span> <span class="n">feet</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">feet</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">feet</span><span class="p">)</span><span class="o">*</span><span class="mi">12</span>
+    
+    <span class="c1"># CASE 6: answer was given ONLY in inches</span>
+    <span class="k">elif</span> <span class="s1">&#39;in&#39;</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="n">inches</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">inches</span> <span class="o">=</span> <span class="n">inches</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">inches</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inches</span><span class="p">)</span>
+        
+    <span class="c1"># CASE 7: answer not covered by existing scenarios / was invalid. </span>
+    <span class="c1">#  Return NaN</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">output</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Applying the transformation and dropping invalid rows</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">standardize_height</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the height data, after applying our standardization</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensuring that the data types are correct - type cast age to int.</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+<span class="c1"># Check out the data, after we&#39;ve cleaned it!</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that the dataframe has the right number of rows</span>
+<span class="c1">#  If this doesn&#39;t pass - check your code in the section above.</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">365</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-exploratory-data-vizualization-0-8-points">
+<h2>Part 2: Exploratory Data Vizualization (0.8 points)<a class="headerlink" href="#part-2-exploratory-data-vizualization-0-8-points" title="Permalink to this headline">¶</a></h2>
+<p>First, we need to do some exploratory data visualization, to get a feel for the data.</p>
+<p>For plotting questions, do not change or move the <code class="docutils literal notranslate"><span class="pre">plt.gcf()</span></code> lines.</p>
+<div class="section" id="a-plot-the-data">
+<h3>2a) Plot the data<a class="headerlink" href="#a-plot-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code>, from <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, plot <code class="docutils literal notranslate"><span class="pre">df</span></code>. Assign it to a variable called <code class="docutils literal notranslate"><span class="pre">fig</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-plot-a-bar-chart-showing-the-number-of-students-in-each-major">
+<h3>2b) Plot a bar chart showing the number of students in each major.<a class="headerlink" href="#b-plot-a-bar-chart-showing-the-number-of-students-in-each-major" title="Permalink to this headline">¶</a></h3>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>if using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, you’re looking to make a countplot</p></li>
+<li><p>if using pandas, you can use <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> to get the counts for each major. You can then use the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method from <code class="docutils literal notranslate"><span class="pre">pandas</span></code> for plotting (You don’t need <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f1</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-cogsci-as-their-major">
+<h3>2c) Plot a histogram of the height data for all students who wrote ‘COGSCI’ as their major.<a class="headerlink" href="#c-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-cogsci-as-their-major" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f2</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-compsci-as-their-major">
+<h3>2d) Plot a histogram of the height data for all students who wrote ‘COMPSCI’ as their major.<a class="headerlink" href="#d-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-compsci-as-their-major" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f3</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-3-exploring-the-data-0-8-points">
+<h2>Part 3: Exploring The Data (0.8 points)<a class="headerlink" href="#part-3-exploring-the-data-0-8-points" title="Permalink to this headline">¶</a></h2>
+<p>Beyond just plotting the data, we should check some other basic properties of the data. This serves both as a way to get a ‘feel’ for the data, and to look for any quirks or oddities about the data, that may indicate issues that need resolving. To do this, let’s explore that data a bit (not limiting ourselves to only features that we plan to use - exploring the dataset as a whole can help us find any issues).</p>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>Your answers should NOT be pandas objects (Series or DataFrames), extract answers so the variables are ints, floats or strings (as appropriate).</p></li>
+<li><p>You must answer these questions programmatically: do not count / check and hard code particular values.</p></li>
+</ul>
+<div class="section" id="a-how-many-different-majors-are-in-the-dataset">
+<h3>3a) How many different majors are in the dataset?<a class="headerlink" href="#a-how-many-different-majors-are-in-the-dataset" title="Permalink to this headline">¶</a></h3>
+<p>Save this number to a variable <code class="docutils literal notranslate"><span class="pre">n_majors</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">n_majors</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">n_majors</span> <span class="o">&lt;</span> <span class="mi">25</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-what-is-the-range-max-value-min-value-of-ages-in-the-dataset">
+<h3>3b) What is the range (max value - min value) of ages in the dataset?<a class="headerlink" href="#b-what-is-the-range-max-value-min-value-of-ages-in-the-dataset" title="Permalink to this headline">¶</a></h3>
+<p>Save this number to a variable <code class="docutils literal notranslate"><span class="pre">r_age</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">r_age</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">r_age</span> <span class="o">&lt;</span> <span class="mi">50</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c-what-is-the-most-popular-ice-cream-flavor">
+<h3>3c) What is the most popular ice cream flavor?<a class="headerlink" href="#c-what-is-the-most-popular-ice-cream-flavor" title="Permalink to this headline">¶</a></h3>
+<p>Save the ice cream name to the variable <code class="docutils literal notranslate"><span class="pre">f_ice</span></code>, and the number of people who like it to a variable <code class="docutils literal notranslate"><span class="pre">n_ice</span></code>.</p>
+<p>Hint: you can get these values using the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">n_ice</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n_ice</span> <span class="o">&lt;</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f_ice</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-how-many-people-have-a-unique-favorite-ice-cream-in-other-words-how-many-ice-cream-flavors-are-only-1-person-s-favorite">
+<h3>3d) How many people have a unique favorite ice cream? (In other words: how many ice cream flavors are only 1 person’s favorite?)<a class="headerlink" href="#d-how-many-people-have-a-unique-favorite-ice-cream-in-other-words-how-many-ice-cream-flavors-are-only-1-person-s-favorite" title="Permalink to this headline">¶</a></h3>
+<p>Save this number to a variable <code class="docutils literal notranslate"><span class="pre">u_ice</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">u_ice</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">u_ice</span> <span class="o">&lt;</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-4-testing-distributions-0-45-points">
+<h2>Part 4: Testing Distributions (0.45 points)<a class="headerlink" href="#part-4-testing-distributions-0-45-points" title="Permalink to this headline">¶</a></h2>
+<p>Soon, in the data analysis, we will want to run some statistical tests on our data. First, we should check the distributions!</p>
+<p>When using methods / statistical tests that make certain assumptions, it’s always best to explicitly check if your data meet those assumptions (otherwise the results may be invalid). Let’s test if our data are in fact normally distributed.</p>
+<p>See an example of how to test the distributions of data in the ‘TestingDistributions’ notebook in Tutorials.</p>
+<p>For convenience, and consistency, we’re providing this code to pull out the required data. Be sure to run the following cell and understand what it’s doing.:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h_co</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;COGSCI&#39;</span><span class="p">][</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">h_cs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;COMPSCI&#39;</span><span class="p">][</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-testing-normality">
+<h3>4a) Testing Normality<a class="headerlink" href="#a-testing-normality" title="Permalink to this headline">¶</a></h3>
+<p>For each of <code class="docutils literal notranslate"><span class="pre">h_co</span></code>, and <code class="docutils literal notranslate"><span class="pre">h_cs</span></code>, use the <code class="docutils literal notranslate"><span class="pre">normaltest</span></code> function to test for normality of the distribution.</p>
+<p><code class="docutils literal notranslate"><span class="pre">normaltest</span></code> returns two values: (1) a test statistic and (2) a p-value</p>
+<p>Save these values as <code class="docutils literal notranslate"><span class="pre">st_co</span></code>, <code class="docutils literal notranslate"><span class="pre">p_co</span></code>, <code class="docutils literal notranslate"><span class="pre">st_cs</span></code>, and <code class="docutils literal notranslate"><span class="pre">p_cs</span></code>, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">st_co</span>
+<span class="k">assert</span> <span class="n">p_co</span>
+<span class="k">assert</span> <span class="n">st_cs</span>
+<span class="k">assert</span> <span class="n">p_cs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Have a look at the values returned.</p>
+<p>Based on these results, and using an alpha significance value of 0.01:</p>
+<p>Set boolean values (<code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>) of whether each distribution can be considered to be normally distributed. Set as <code class="docutils literal notranslate"><span class="pre">True</span></code> if the test supports it is normally distributed (or, more formally, we fail to reject the null hypothesis) and <code class="docutils literal notranslate"><span class="pre">False</span></code> if the test suggests the data is not normally distributed (we should reject the null hypothesis).</p>
+</div>
+<div class="section" id="b-set-boolean-values-as-specified-above">
+<h3>4b) Set boolean values, as specified above.<a class="headerlink" href="#b-set-boolean-values-as-specified-above" title="Permalink to this headline">¶</a></h3>
+<p>For the <code class="docutils literal notranslate"><span class="pre">h_co</span></code> data, set a boolean value to the var <code class="docutils literal notranslate"><span class="pre">is_n_co</span></code></p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">h_cs</span></code> data, set a boolean value to the var <code class="docutils literal notranslate"><span class="pre">is_n_cs</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">is_n_co</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">is_n_cs</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CO data</strong>: plot the comparison of the data and a normal distribution (this code provided)</p>
+<p>This plots a histogram, with the hypothetical normal distribution (with same mean and variance)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h_co</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">h_co</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">h_co</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">h_co</span><span class="p">))</span>
+<span class="c1"># most easily done using matplotlib</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Normal Dist.&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">h_co</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Cognitive Science - Height Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>CS data</strong>: plot the comparison of the data and a normal distribution (this code provided)</p>
+<p>This plots a histogram, with the hypothetical normal distribution (with same mean and variance)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h_cs</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">h_cs</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">h_cs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">h_cs</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Normal Dist.&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">h_cs</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Computer Science - Height Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-5-data-analysis-2-4-points">
+<h2>Part 5: Data Analysis (2.4 points)<a class="headerlink" href="#part-5-data-analysis-2-4-points" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s analyze the data, to address our research question.</p>
+<p>For the purposes of this analysis, let’s assume we need at least 75 students per major to analyze the height data.</p>
+<p>This means we are only going to use data from people who wrote ‘COGSCI’ or ‘COMPSCI’ as their major.</p>
+<div class="section" id="a-pull-out-the-data-we-are-going-to-use">
+<h3>5a) Pull out the data we are going to use:<a class="headerlink" href="#a-pull-out-the-data-we-are-going-to-use" title="Permalink to this headline">¶</a></h3>
+<p>Save the height data for all ‘COGSCI’ majors to a variable called <code class="docutils literal notranslate"><span class="pre">h_co</span></code></p>
+<p>Save the height data for all ‘COMPSCI’ majors to a variable called <code class="docutils literal notranslate"><span class="pre">h_cs</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">h_co</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">h_cs</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">h_co</span><span class="p">)</span> <span class="o">==</span> <span class="mi">178</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">h_cs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">164</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-what-is-the-average-mean-height-for-students-from-each-major">
+<h3>5b) What is the average (mean) height for students from each major?<a class="headerlink" href="#b-what-is-the-average-mean-height-for-students-from-each-major" title="Permalink to this headline">¶</a></h3>
+<p>Save these values to <code class="docutils literal notranslate"><span class="pre">avg_h_co</span></code> for COGSCI students, and <code class="docutils literal notranslate"><span class="pre">avg_h_cs</span></code> for COMPSCI students.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">avg_h_co</span>
+<span class="k">assert</span> <span class="n">avg_h_cs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the average heights - this code provided</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Average height of cogs majors is </span><span class="se">\t</span><span class="s1"> </span><span class="si">{:2.2f}</span><span class="s1"> inches&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_h_co</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Average height of cs majors is </span><span class="se">\t\t</span><span class="s1"> </span><span class="si">{:2.2f}</span><span class="s1"> inches&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_h_cs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Based on the cell above, it looks like there might indeed be a difference in the average height for students in cogs vs cs majors.</p>
+<p>Now we want to statistically test this difference. To do so, we will use a t-test.</p>
+</div>
+<div class="section" id="c-compare-distributions-t-test">
+<h3>5c) Compare distributions: t-test<a class="headerlink" href="#c-compare-distributions-t-test" title="Permalink to this headline">¶</a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">ttest_ind</span></code> function) to compare the two height distributions (<code class="docutils literal notranslate"><span class="pre">h_co</span></code> vs <code class="docutils literal notranslate"><span class="pre">h_cs</span></code>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">ttest_ind</span></code> returns a t-statistic, and a p-value. Save these outputs to <code class="docutils literal notranslate"><span class="pre">t_val</span></code> and <code class="docutils literal notranslate"><span class="pre">p_val</span></code> respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">t_val</span>
+<span class="k">assert</span> <span class="n">p_val</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if statistical test passes significance, using an alpha value of 0.01. This code provided.</span>
+<span class="k">if</span> <span class="n">p_val</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data Science accomplished, there is a significant difference!&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is NOT a significant difference!&#39;</span><span class="p">)</span>
+    
+<span class="c1"># Editorial note:</span>
+<span class="c1">#  Chasing significant p-values as the goal itself is not actually a good way to do data (or any) science :)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: this test <em>should</em> pass significance. If it doesn’t, double check your code up until this point.</p>
+<p>So - we’ve reached a conclusion! We’re done right!?</p>
+<p>Nope. We have a first pass analysis, and an interim conclusion that happens to follow our hypothesis.</p>
+<p>Now let’s try to break it.</p>
+<div class="section" id="let-s-explore-some-more">
+<h4>Let’s explore some more<a class="headerlink" href="#let-s-explore-some-more" title="Permalink to this headline">¶</a></h4>
+<p>You should always interrogate your findings, however they come out. What could be some alternate explanations, that would change our interpretations of the current analysis?</p>
+<p>In this case, we should be worried about confounding variables. We want to be able to say whether height relates to major specifically, but it could be the case that some other variable, that happens to differ between majors, better explains the differences in height.</p>
+<p>In this case, we also have data on gender. Let’s check if differences in the gender ratio of the two majors can explain the difference in height.</p>
+</div>
+</div>
+<div class="section" id="d-digging-deeper">
+<h3>5d) Digging Deeper<a class="headerlink" href="#d-digging-deeper" title="Permalink to this headline">¶</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> from pandas, extract the number of ‘male’ and ‘female’, separately for cogs and cs students.</p>
+<p>To do so:</p>
+<ul class="simple">
+<li><p>select from the <code class="docutils literal notranslate"><span class="pre">df</span></code> each major, separately, extract the gender column, and use the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> method.</p></li>
+<li><p>Save the counts for each gender for ‘COGSCI’ majors to a variable called <code class="docutils literal notranslate"><span class="pre">g_co</span></code></p></li>
+<li><p>Save the counts for each gender for ‘COMPSCI’ majors to a variable called <code class="docutils literal notranslate"><span class="pre">g_cs</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">g_co</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">g_cs</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">g_co</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">91</span>
+<span class="k">assert</span> <span class="n">g_cs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">38</span>
+<span class="k">assert</span> <span class="n">g_cs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="e-what-is-the-ratio-of-women-in-each-major">
+<h3>5e) What is the ratio of women in each major?<a class="headerlink" href="#e-what-is-the-ratio-of-women-in-each-major" title="Permalink to this headline">¶</a></h3>
+<p>By ratio, we mean the proportion of students that are female, as a ratio. This will be a value between 0.0 and 1.0, calculated as #F / (#F + #M + #nonbinary_or_other) - done separately for each major</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">g_co</span></code> and <code class="docutils literal notranslate"><span class="pre">g_cs</span></code> variables to calculate these.</p>
+<p>Save the ratio of women in COGSCI to a variable <code class="docutils literal notranslate"><span class="pre">r_co</span></code>.</p>
+<p>Save the ratio of women in COMPSCI to a variable <code class="docutils literal notranslate"><span class="pre">r_cs</span></code>.</p>
+<p>Note: keep these numbers as ratios (they should be decimal numbers, less than 1).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g_cs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">r_co</span>
+<span class="k">assert</span> <span class="n">r_cs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make sure you print out and check the values of these ratios. They seem pretty different.</p>
+<p>We can actually ask, using a chi-squared test, whether this difference in gender-ratio between the majors is signficantly different.</p>
+<p>Code to do this is provided below.</p>
+<p>Run a chi-squared test of the difference of ratios of categorical data between groups:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chisq</span><span class="p">,</span> <span class="n">p_val_chi</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g_co</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">g_cs</span><span class="o">.</span><span class="n">values</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">p_val_chi</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is a significant difference in ratios!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-subsetting-data">
+<h3>5f) Subsetting data<a class="headerlink" href="#f-subsetting-data" title="Permalink to this headline">¶</a></h3>
+<p>Create a new dataframe, called <code class="docutils literal notranslate"><span class="pre">df2</span></code>, which only includes data from ‘COGSCI’ and ‘COMPSCI’ majors.</p>
+<p>Hint: you can do this using the or operater ‘|’, with loc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">df2</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">342</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;COGSCI&#39;</span><span class="p">,</span> <span class="s1">&#39;COMPSCI&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="g-pivot-tables">
+<h3>5g) Pivot Tables<a class="headerlink" href="#g-pivot-tables" title="Permalink to this headline">¶</a></h3>
+<p>Another way to look at these kinds of comparisons is pivot tables.</p>
+<p>Use the pandas <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> method to create a pivot table, assign it to a variable <code class="docutils literal notranslate"><span class="pre">pv</span></code>.</p>
+<p>Set the values as ‘height’, and the indices as ‘gender’ and ‘major’ in the pivot table.</p>
+<p>Make sure you do this using <code class="docutils literal notranslate"><span class="pre">df2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">pv</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print out the pivot table you just created.</p>
+<p>Compare the average height values, split up by major and gender.</p>
+<p>Does it look like there are differences in heights by major, when spit up by gender?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s recap where we are:</p>
+<ul class="simple">
+<li><p>Our initial hypothesis suggested there is a significant difference between heights of people in different majors.</p></li>
+<li><p>However, further analyses suggested there may be a confounding variable, as there is also a significantly different gender balance between majors.</p></li>
+</ul>
+<p>Checking the average height, per major, split up by gender, suggests there may not be a difference between major, other than what is explained by gender.</p>
+<p>Now we want to statistically ask this question: is there still a difference in height between majors, when controlling for differences in gender?</p>
+<div class="section" id="linear-models">
+<h4>Linear Models<a class="headerlink" href="#linear-models" title="Permalink to this headline">¶</a></h4>
+<p>For the following question you will need to make some linear models, using Ordinary Least Squares (OLS).</p>
+<p>There is more than one way to do this in Python. For the purposes of this assignment, you must use the method that is outlined in the ‘LinearModels’ Tutorial, using patsy, and statsmodels.</p>
+<p>That is:</p>
+<ul class="simple">
+<li><p>Create design matrices with <code class="docutils literal notranslate"><span class="pre">patsy.dmatrices</span></code></p></li>
+<li><p>Initialize an OLS model with <code class="docutils literal notranslate"><span class="pre">sm.OLS</span></code></p></li>
+<li><p>Fit the OLS model</p></li>
+<li><p>Check the summary for results.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="h-linear-model">
+<h3>5h) Linear model<a class="headerlink" href="#h-linear-model" title="Permalink to this headline">¶</a></h3>
+<p>Create a linear model to predict height from major (using <code class="docutils literal notranslate"><span class="pre">df2</span></code> as data).</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">patsy.dmatrices</span></code> to create the design matrices, calling the outputs <code class="docutils literal notranslate"><span class="pre">outcome_1</span></code>, <code class="docutils literal notranslate"><span class="pre">predictors_1</span></code>.</p>
+<p>Create an OLS model (<code class="docutils literal notranslate"><span class="pre">sm.OLS</span></code>) using <code class="docutils literal notranslate"><span class="pre">outcome_1</span></code> and <code class="docutils literal notranslate"><span class="pre">predictors_1</span></code>. Call it <code class="docutils literal notranslate"><span class="pre">mod_1</span></code>.</p>
+<p>Fit the model, assigning it to <code class="docutils literal notranslate"><span class="pre">res_1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">outcome_1</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">predictors_1</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mod_1</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">regression</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">OLS</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res_1</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">regression</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">RegressionResultsWrapper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the summary results of the model fitting</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="i-assess-significance-mod-1">
+<h3>5i) Assess significance: <code class="docutils literal notranslate"><span class="pre">mod_1</span></code><a class="headerlink" href="#i-assess-significance-mod-1" title="Permalink to this headline">¶</a></h3>
+<p>Based on the model you ran above (using alpha value of 0.01), does major significantly predict height?</p>
+<p>Set your answer as a boolean (True / False) to a variable called <code class="docutils literal notranslate"><span class="pre">lm_1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lm_1</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="j-multivariate-regression">
+<h3>5j) Multivariate regression<a class="headerlink" href="#j-multivariate-regression" title="Permalink to this headline">¶</a></h3>
+<p>Create a linear model to predict height from both major and gender (using <code class="docutils literal notranslate"><span class="pre">df2</span></code> as data).</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">patsy.dmatrices</span></code> to create the design matrices, calling the outputs <code class="docutils literal notranslate"><span class="pre">outcome_2</span></code>, <code class="docutils literal notranslate"><span class="pre">predictors_2</span></code></p>
+<p>Create an OLS model (<code class="docutils literal notranslate"><span class="pre">sm.OLS</span></code>) using <code class="docutils literal notranslate"><span class="pre">outcome_2</span></code> and <code class="docutils literal notranslate"><span class="pre">predictors_2</span></code>.  Call it <code class="docutils literal notranslate"><span class="pre">mod_2</span></code>.</p>
+<p>Fit the model, assigning it to <code class="docutils literal notranslate"><span class="pre">res_2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">outcome_2</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">predictors_2</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mod_2</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">regression</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">OLS</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res_2</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">regression</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">RegressionResultsWrapper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the results </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="k-assess-significance-mod-2">
+<h3>5k) Assess significance: <code class="docutils literal notranslate"><span class="pre">mod_2</span></code><a class="headerlink" href="#k-assess-significance-mod-2" title="Permalink to this headline">¶</a></h3>
+<p>Based on the model you ran above (using alpha value of 0.01), does major significantly predict height?</p>
+<p>Set your answer as a boolean (True / False) to a variable called <code class="docutils literal notranslate"><span class="pre">lm_2</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lm_2</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-6-discussion-conclusions-0-1-points">
+<h2>Part 6: Discussion &amp; Conclusions (0.1 points)<a class="headerlink" href="#part-6-discussion-conclusions-0-1-points" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-conclusion">
+<h3>6a) Conclusion<a class="headerlink" href="#a-conclusion" title="Permalink to this headline">¶</a></h3>
+<p>Set a boolean variable, called <code class="docutils literal notranslate"><span class="pre">ans</span></code>, as True or False as the answer to the following statement:</p>
+<p>We have evidence supporting our research hypothesis:</p>
+<blockquote>
+<div><p>People in different majors have systematically different heights (and this difference can be tied to their major).</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-summary">
+<h3>6b) Summary<a class="headerlink" href="#b-summary" title="Permalink to this headline">¶</a></h3>
+<p>Write a short response (1-2 sentence) summarizing the results.</p>
+<p>Did we support our hypothesis? Why or why not? What turned out to be the finding(s)?</p>
+<p>YOUR ANSWER HERE</p>
+</div>
+</div>
+<div class="section" id="the-end">
+<h2>The End!<a class="headerlink" href="#the-end" title="Permalink to this headline">¶</a></h2>
+<p>Good work! Have a look back over your answers, and also make sure to <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">&amp;</span> <span class="pre">Run</span> <span class="pre">All</span></code> from the kernel menu to double check that everything is working properly. You can also use the ‘Validate’ button above, which runs your notebook from top to bottom and checks to ensure all <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements pass silently. When you are ready, submit on datahub!</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

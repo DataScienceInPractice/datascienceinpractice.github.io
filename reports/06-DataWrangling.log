@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/jupyter_cache/executors/basic.py", line 163, in execute
+    executenb(nb_bundle.nb, cwd=tmpdirname, timeout=timeout)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 737, in executenb
+    return ep.preprocess(nb, resources, km=km)[0]
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 405, in preprocess
+    nb, resources = super(ExecutePreprocessor, self).preprocess(nb, resources)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/base.py", line 69, in preprocess
+    nb.cells[index], resources = self.preprocess_cell(cell, resources, index)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 448, in preprocess_cell
+    raise CellExecutionError.from_cell_and_msg(cell, out)
+nbconvert.preprocessors.execute.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# First, explicitly open the file object for reading
+f_obj = open('files/dat.txt', 'r')
+
+# You can then loop through the file object, grabbing each line of data
+for line in f_obj:
+    # Note that I'm removing the new line marker at the end of each line (the '\n')
+    print(line.strip('\n'))
+
+# File objects then have to closed when you are finished with them
+f_obj.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-bf09e473b692>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# First, explicitly open the file object for reading[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mf_obj[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'files/dat.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0;31m# You can then loop through the file object, grabbing each line of data[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mf_obj[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'files/dat.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'files/dat.txt'
+

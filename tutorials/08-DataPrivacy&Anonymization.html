@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Privacy &amp; Anonymization &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Visualization with Python" href="09-DataVisualization.html" />
+    <link rel="prev" title="Data Cleaning" href="07-DataCleaning.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="active">
+    <a href="">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="../assignments/D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/tutorials/08-DataPrivacy&Anonymization.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#information-privacy" class="nav-link">Information Privacy</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#anonymization" class="nav-link">Anonymization</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-privacy-anonymization">
+<h1>Data Privacy &amp; Anonymization<a class="headerlink" href="#data-privacy-anonymization" title="Permalink to this headline">¶</a></h1>
+<p>A lot of data, perhaps the vast majority of data typically used in data science, is, directly or indirectly, about people.</p>
+<p>Individuals have certain privacy rights regarding who can know or share information about specifically identified individuals. This is true in particular about certain classes of sensitive information (for example, health-related information has special protections), but also applies to all other data as well.</p>
+<div class="section" id="information-privacy">
+<h2>Information Privacy<a class="headerlink" href="#information-privacy" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Information (or Data) Privacy refers to the legal, ethical, and practical issues of collecting, using and releasing data in which there is identifiable information about people included in the dataset. It also deals with when and how to deal with data privacy issues, and how to protect users' privacy.
+</div>
+<div class="alert alert-info">
+<a href="https://en.wikipedia.org/wiki/Information_privacy" class="alert-link">Wikipedia</a>
+has an overview of information privacy.
+</div></div>
+<div class="section" id="anonymization">
+<h2>Anonymization<a class="headerlink" href="#anonymization" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Data Anonymization is a type of information sanitization - that is the removal of sensitive information - for the purpose of privacy protection. It is a procedure to modify a data set such that the individuals it reflect are anonymous. Most, typically this means the removal or personally identifiable information of data sets such that the identify of individuals contained in the data set are anonymous.
+</div>
+<div class="alert alert-info">
+<a href="https://en.wikipedia.org/wiki/Data_anonymization" class="alert-link">Wikipedia</a>
+also has an overview of data anonymization.
+</div><p>Data protection and anonymization are interdisciplinary components of data science and data practice, including everything from the considerations of ethics &amp; legalities of data use, to the practical and technical challenges of protecting and anonymizing data.</p>
+<p>Anonymizing data typically comes down to removing any personally identifiable data from a dataset, or, if this information must be kept, separating the identifiable data from sensitive information.</p>
+<p>Part of the difficulty of data anonymization is that while we can provably demonstrate that a given dataset is anonymized, this rests on particular assumptions - most notably that the dataset is only provable anonymized under the assumption that no extra external information is used to attempt to de-identify it.</p>
+<p>In practice, de-anonymizing data can often be done by combining multiple datasets - using information from one or several available information sources to decode the individuals included in some other dataset.</p>
+</div>
+</div>
+<div class="section" id="regulations">
+<h1>Regulations<a class="headerlink" href="#regulations" title="Permalink to this headline">¶</a></h1>
+<p>There are many official guidelines, rules and standards for data privacy and user identity protection, although much of it is case specific.</p>
+<p>At the minimum, what is legally required in terms of data protection depends, amongst other things, on:</p>
+<ul class="simple">
+<li><p>What the data is / contains, and who it is about,</p>
+<ul>
+<li><p>Certain data types, and/or populations may have special protections, for example health-related information.</p></li>
+</ul>
+</li>
+<li><p>Who owns the data and in what capacity they are acting (company, university, etc.)</p>
+<ul>
+<li><p>Regulations for scientific research are different than those for companies</p></li>
+</ul>
+</li>
+<li><p>User agreements / consent procedures that were in place when the data were collected.</p>
+<ul>
+<li><p>Individuals have a right to self-determination in terms of what their data is used for. Data should only be used for things that are covered by it’s terms of use / terms of collection / consent procedures.</p></li>
+</ul>
+</li>
+<li><p>What the data is to be used for.</p>
+<ul>
+<li><p>Often a combination of the what and the who, there may be specific regulations about how you must deal with, and what you can do, based on the goal of having and using the data.</p></li>
+</ul>
+</li>
+<li><p>Where the data was collected and where it is stored, and who it is about.</p>
+<ul>
+<li><p>Different regions (countries, etc) often have different regulations.</p></li>
+</ul>
+</li>
+</ul>
+<p>Much of these regulations apply more directly to the collection, storage, and release of datasets, but aspects also apply to the use of datasets, including publicly available datasets. Available datasets often have a user agreement for using the data, and, in particular, attempting to identify individuals from datasets may at a minimum break user agreements, and/or (depending on the nature of the data) be illegal based on consumer and research subject protection laws.</p>
+<div class="section" id="research-standards">
+<h2>Research Standards<a class="headerlink" href="#research-standards" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Data collected and used for research purposes has it's own set of guidelines and requirements regarding the treatment of human subjects, and the collection, storage, use, and dissemination of data. These regulations focus, among other things, on the right to self-determination of human subjects to consent to what data is collected, and how it is used. Data collected for research purposes must follow restrictions based on these consent procedures. 
+</div>
+<div class="alert alert-info">
+Research protections under the
+<a href="https://en.wikipedia.org/wiki/Declaration_of_Helsinki" class="alert-link">Declaration of Helsinki</a>.
+</div></div>
+<div class="section" id="hipaa-protection-for-health-related-information">
+<h2>HIPAA - Protection for Health Related Information<a class="headerlink" href="#hipaa-protection-for-health-related-information" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+The Health Insurance Portability and Accountability Act (HIPAA) is a US federal government regulation that standardizes and protects individuals medical records and health related data. It includes terms for how data must be stored, and how they can be used & shared.
+</div>
+<div class="alert alert-info">
+The official US federal government HIPAA information
+<a href="https://www.hhs.gov/hipaa/" class="alert-link">guidelines</a>
+include an overview of HIPAA.
+</div></div>
+<div class="section" id="safe-harbour-method">
+<h2>Safe Harbour Method<a class="headerlink" href="#safe-harbour-method" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Safe Harbor is an official agreement regarding how to deal with datasets that have personal data, in particular, specific guidelines on what information to remove from datasets in order to anonymize them. It is a single set of data protection requirements shared across many contexts and countries. 
+</div>
+<div class="alert alert-info">
+The 
+<a href="https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/" class="alert-link">official documentation</a>
+for Safe Harbour includes guidelines on how to anonymize data.
+</div><p>The Safe Harbor method requires that the following identifiers of the individual or of relatives, employers, or household members of the individual, are removed:</p>
+<ul class="simple">
+<li><p>Names</p></li>
+<li><p>Geographic Subdivisions smaller than a state**</p></li>
+<li><p>Dates (such as birth dates, etc), and all ages above 90</p></li>
+<li><p>Telephone Numbers</p></li>
+<li><p>Vehicle Identification Numbers</p></li>
+<li><p>Fax numbers</p></li>
+<li><p>Device identifiers and serial numbers</p></li>
+<li><p>Email addresses</p></li>
+<li><p>Web Universal Resource Locators (URLs)</p></li>
+<li><p>Social security numbers</p></li>
+<li><p>Internet Protocol (IP) addresses</p></li>
+<li><p>Medical record numbers</p></li>
+<li><p>Biometric identifiers, including finger and voice prints</p></li>
+<li><p>Health plan beneficiary numbers</p></li>
+<li><p>Full-face photographs and any comparable images</p></li>
+<li><p>Account numbers</p></li>
+<li><p>Certificate/license numbers</p></li>
+<li><p>Any other unique identifying number, characteristic, or code</p></li>
+</ul>
+<p>** The first three numbers of the zip code can be kept, provided that more than 20,000 people live in the region covered by all the zip codes that share the same initial three digits (the same geographic subdivision).</p>
+<div class="section" id="unique-identifiers">
+<h3>Unique Identifiers<a class="headerlink" href="#unique-identifiers" title="Permalink to this headline">¶</a></h3>
+<p>The logic Safe Harbor (and/or Data Anonymization in general) is to remove any unique information that could be used to identify you.</p>
+<p>This is perhaps most obvious for things like names, but some of the seemingly less obvious specifications of Safe Harbour also relate to the idea that leaving the specified information in a dataset is a risk for identification of individuals contained in the dataset.</p>
+<p>For example, while it may be innocuous to talk about a 37 year old male who lives in Los Angeles (as there are many candidates, such that the specific individual is not revealed), it might actually be quite obvious who the person is when talking about a 37 year old male who lives in Potrero, California, a town of about 700 people. This is the same reason ages above 90 have to be removed - even in a fairly large area, say San Diego, it may be fairly obvious who the 98 year old female participant is.</p>
+<p>Basically - any information that makes you stand out is liable to identify you, and so anonymization attempts to remove these idiosyncracies from data, such that individuals do not stand out in a way that lets someone figure out who they are.</p>
+<p>This also underlies the difficulty in protecting data in the face of multiple data sources, since collecting observations together makes it much easier to start to pick out people more uniquely - so it may still be relatively easy to identify the 37 year old male from LA if you also happen to know (or figure out) that he has a poodle, is 5’6”, works at UCLA, and was at Griffith Park on Saturday, April 15th, all of which may be relatively easy to figure out by combining publicly available, or easily obtainable, data.</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="07-DataCleaning.html" title="previous page">Data Cleaning</a>
+    <a class='right-next' id="next-link" href="09-DataVisualization.html" title="next page">Data Visualization with Python</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Linear Models &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="../assignments/D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/tutorials/14-LinearModels.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#linear-models-overview" class="nav-link">Linear Models - Overview</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#linear-models-pratice" class="nav-link">Linear Models Pratice</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#linear-models-with-statsmodels-patsy" class="nav-link">Linear Models with Statsmodels & Patsy</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#interpreting-outputs" class="nav-link">Interpreting Outputs</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#checking-our-model" class="nav-link">Checking our Model</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#using-multiple-predictors" class="nav-link">Using multiple predictors</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#linear-regression-with-sklearn" class="nav-link">Linear Regression with sklearn</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#using-multiple-predictors-in-sklearn" class="nav-link">Using multiple predictors (in sklearn)</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="linear-models">
+<h1>Linear Models<a class="headerlink" href="#linear-models" title="Permalink to this headline">¶</a></h1>
+<div class="alert alert-success">
+Linear (regression) modelling is a method of predicting the value of an output value as a linear combination of weight input values.
+</div><div class="section" id="linear-models-overview">
+<h2>Linear Models - Overview<a class="headerlink" href="#linear-models-overview" title="Permalink to this headline">¶</a></h2>
+<p>In the simplest case, we are trying to fit a line, so our model is of the form:</p>
+<div class="math notranslate nohighlight">
+\[ y = ax + b \]</div>
+<p>In this equation above, we are trying to predict some data variable <span class="math notranslate nohighlight">\(y\)</span>, from some other data variable <span class="math notranslate nohighlight">\(x\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are parameters we need to figure out, by fitting the model, and reflect the slope, and y-intercept, of the model (line) respectively.</p>
+<p>We need some procedure to go about finding <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. We will use OLS to do so - the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> we want are those that fulfill the OLS solution - meaning the values that lead to the smallest distance between the predictions of the model, and our data.</p>
+<p>Note that you need data in which you know both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> already to do so - to train your model).</p>
+<p>This approach can also be generalized, including, for example, more features used to predict our output of interest.</p>
+<p>Therefore, we will rewrite our model, in the general form, as:</p>
+<div class="math notranslate nohighlight">
+\[ y = a_0 + a_1 x_1 + a_2 x_2 + ... + a_n x_n + \epsilon \]</div>
+<p>In the equation above <span class="math notranslate nohighlight">\(a_0\)</span> is the intercept (the same as <span class="math notranslate nohighlight">\(b\)</span> from above), and <span class="math notranslate nohighlight">\(a_1\)</span> to <span class="math notranslate nohighlight">\(a_n\)</span> are <span class="math notranslate nohighlight">\(n\)</span> parameters that we are trying to learn, as weights for data features <span class="math notranslate nohighlight">\(x_1\)</span> to <span class="math notranslate nohighlight">\(x_n\)</span>. Our output variable (what we are trying to predict) is still <span class="math notranslate nohighlight">\(y\)</span>, and we’ve introduced <span class="math notranslate nohighlight">\(\epsilon\)</span>, which is the error, which basically captures unexplained variance.</p>
+</div>
+<div class="section" id="linear-models-pratice">
+<h2>Linear Models Pratice<a class="headerlink" href="#linear-models-pratice" title="Permalink to this headline">¶</a></h2>
+<p>In the following, we will generate some data, with two features ‘D1’ and ‘D2’, that are correlated.</p>
+<p>Given the correlation, we can try and predict values of ‘D2’ from ‘D1’, and we will create a linear model to do so.</p>
+<p>This model, using the second notation from above, will be of the form:</p>
+<div class="math notranslate nohighlight">
+\[ D2 = a_0 + a_1 * D1 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports </span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Statmodels &amp; patsy</span>
+<span class="kn">import</span> <span class="nn">patsy</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate some correlated data</span>
+
+<span class="c1"># Settings</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="mf">0.75</span>
+<span class="n">covs</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="n">corr</span><span class="p">],</span> <span class="p">[</span><span class="n">corr</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Generate the data</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">covs</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the data we generated</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dat</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="c1">#plt.scatter(dat[:, 0], dat[:, 1], alpha=0.5);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/14-LinearModels_5_0.png" src="../_images/14-LinearModels_5_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put data into a DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eye ball the data</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>D1</th>
+      <th>D2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.148216</td>
+      <td>0.332012</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.688743</td>
+      <td>1.764193</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.886799</td>
+      <td>-0.332816</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.241192</td>
+      <td>-0.409663</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.662426</td>
+      <td>0.949813</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlation between D1 &amp; D2 (that it matches what was synthesized)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>D1</th>
+      <th>D2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>D1</th>
+      <td>1.000000</td>
+      <td>0.758206</td>
+    </tr>
+    <tr>
+      <th>D2</th>
+      <td>0.758206</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="linear-models-with-statsmodels-patsy">
+<h2>Linear Models with Statsmodels &amp; Patsy<a class="headerlink" href="#linear-models-with-statsmodels-patsy" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Statsmodels is a module for statistical analyses in Python. Patsy is a useful package to work with and describe statistical models.
+</div>
+<div class="alert alert-info">
+The official documentation for
+<a href="http://www.statsmodels.org/stable/index.html" class="alert-link">statsmodels</a>
+and
+<a href="https://patsy.readthedocs.io/en/latest/" class="alert-link">patsy</a>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Patsy gives us an easy way to construct design matrices</span>
+<span class="c1">#  For our purpose, &#39;design matrices&#39; are just organized matrices of our predictor and output variables</span>
+<span class="n">outcome</span><span class="p">,</span> <span class="n">predictors</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s1">&#39;D2 ~ D1&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you check the type of ‘outcome’ and ‘predictors’, you will find they are custom patsy objects, of type ‘DesignMatrix’.</p>
+<p>If you print them out, you will see that they reseble pandas Series or DataFrames.</p>
+<p>You can think of them as customized dataframe-like objects for the specific purpose of being organized into matrices to be used for modelling.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now use statsmodels to intialize an OLS linear model</span>
+<span class="c1">#  This step initializes the model, and provides the data (but does not actually compute the model)</span>
+<span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">outcome</span><span class="p">,</span> <span class="n">predictors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that statsmodels, just like scikit-learn that we will encounter a bit later, uses an object-oriented approach.</p>
+<p>In this approach you initialize complex objects that store the data and methods together, giving you an organized way to store and check data and parameters, to fit models, and then even to use them to make predictions and so on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the type of the model object we just created.</span>
+<span class="c1">#  You can also explore, with tab-complete, what is availabe from this object</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>statsmodels.regression.linear_model.OLS
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finally, fit the model</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                     D2   R-squared:                       0.575
+Model:                            OLS   Adj. R-squared:                  0.574
+Method:                 Least Squares   F-statistic:                     1350.
+Date:                Fri, 28 Feb 2020   Prob (F-statistic):          1.42e-187
+Time:                        13:29:56   Log-Likelihood:                -1006.3
+No. Observations:                1000   AIC:                             2017.
+Df Residuals:                     998   BIC:                             2026.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept     -0.0029      0.021     -0.140      0.889      -0.044       0.038
+D1             0.7817      0.021     36.736      0.000       0.740       0.823
+==============================================================================
+Omnibus:                        6.935   Durbin-Watson:                   1.959
+Prob(Omnibus):                  0.031   Jarque-Bera (JB):                9.140
+Skew:                           0.037   Prob(JB):                       0.0104
+Kurtosis:                       3.462   Cond. No.                         1.03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="interpreting-outputs">
+<h3>Interpreting Outputs<a class="headerlink" href="#interpreting-outputs" title="Permalink to this headline">¶</a></h3>
+<p>Statsmodels gives us a lot of information!</p>
+<p>The top section is largely meta-data: it includes things like the model type, and time and date of us running it.</p>
+<p>It also includes the R-squared, which is an overall summary of the amount of variance the model is able to capture. This value ranges from 0-1, and ~0.5, that we see here, is quite a high value, suggesting a good model fit.</p>
+<p>The middle column is the actual model results.</p>
+<p>Each row reflects a parameter, and gives us it’s value (<code class="docutils literal notranslate"><span class="pre">coef</span></code>), the error (<code class="docutils literal notranslate"><span class="pre">std</span> <span class="pre">err</span></code>), the results of a statistical test regarding whether this parameter is a significant predictor of the output variable (<code class="docutils literal notranslate"><span class="pre">t</span></code>, which associated p-value as <code class="docutils literal notranslate"><span class="pre">P&gt;|t|</span></code>), and the confidence interval of the parameters value (<code class="docutils literal notranslate"><span class="pre">[0.025</span></code> - <code class="docutils literal notranslate"><span class="pre">0.975]</span></code>).</p>
+<p>The last model includes some other tests that are run on the data, that can help you check some descriptors of the input data, and also that they meet the required criteria of such a model fit.</p>
+</div>
+<div class="section" id="checking-our-model">
+<h3>Checking our Model<a class="headerlink" href="#checking-our-model" title="Permalink to this headline">¶</a></h3>
+<p>In terms of the model itself, the most useful components are in the second row, in which the summary gives the parameter values, and p-values of our predictors, which in this case are ‘Intercept’, and ‘D2’.</p>
+<p>From the results above, we can grab the values of the parameters, and obtain the following model:</p>
+<div class="math notranslate nohighlight">
+\[ D2 = -0.0029 + 0.7817 * D1 \]</div>
+<p>However, we should also keep in mind the statistical test that is reported, a test of whether the parameter value is significant (significantly different from zero). Using an alpha value of 0.05, in this case, the ‘D2’ parameter value is significant, but the ‘Intercept’ value is not. Since the parameter value for ‘Intercept’ is not significantly different from zero, we can decide not to include it in our final model.</p>
+<p>We therefore finish with the model:
+<span class="math notranslate nohighlight">\($ D2 = 0.7817 * D1 $\)</span></p>
+<p>With this model, it is promising that are value of <span class="math notranslate nohighlight">\(a_1\)</span>, of 0.7817, is very close to the correlation value of the data points, which we set at 0.75!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plot the model fit line</span>
+
+<span class="c1"># Plot the orginal data (as before)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;D2&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">);</span>
+
+<span class="c1"># Generate and plot the model fit line</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="mf">0.7817</span> <span class="o">*</span> <span class="n">xs</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="s1">&#39;--k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Model&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;D1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;D2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/14-LinearModels_20_0.png" src="../_images/14-LinearModels_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="using-multiple-predictors">
+<h3>Using multiple predictors<a class="headerlink" href="#using-multiple-predictors" title="Permalink to this headline">¶</a></h3>
+<p>The model above used only one predictor, fitting a simple straight line, and as such actually mimics previous approaches we’ve taken to fitting lines.</p>
+<p>We can also fit more than 1 predictor variable, and that is where the power of patsy and statsmodels really comes through, as these functions will fit more complex models, including as many parameters as we want, also dealing with some aspects of correlated features, and so on.</p>
+<p>Here, we will add a new variable to our dataframe, and fit an OLS model with two predictors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new column of data to df</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;D3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>D1</th>
+      <th>D2</th>
+      <th>D3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.148216</td>
+      <td>0.332012</td>
+      <td>-0.117398</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.688743</td>
+      <td>1.764193</td>
+      <td>-1.140705</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.886799</td>
+      <td>-0.332816</td>
+      <td>-1.894862</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.241192</td>
+      <td>-0.409663</td>
+      <td>-0.413454</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.662426</td>
+      <td>0.949813</td>
+      <td>-0.864684</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict D1 from D2 and D3</span>
+<span class="n">outcome</span><span class="p">,</span> <span class="n">predictors</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s1">&#39;D1 ~ D2 + D3&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">outcome</span><span class="p">,</span> <span class="n">predictors</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the model fit summary</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                     D1   R-squared:                       0.575
+Model:                            OLS   Adj. R-squared:                  0.574
+Method:                 Least Squares   F-statistic:                     674.3
+Date:                Fri, 28 Feb 2020   Prob (F-statistic):          6.05e-186
+Time:                        13:31:04   Log-Likelihood:                -975.65
+No. Observations:                1000   AIC:                             1957.
+Df Residuals:                     997   BIC:                             1972.
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.0104      0.020      0.510      0.610      -0.030       0.050
+D2             0.7354      0.020     36.722      0.000       0.696       0.775
+D3            -0.0080      0.021     -0.389      0.697      -0.049       0.033
+==============================================================================
+Omnibus:                        0.506   Durbin-Watson:                   1.994
+Prob(Omnibus):                  0.776   Jarque-Bera (JB):                0.389
+Skew:                          -0.024   Prob(JB):                        0.823
+Kurtosis:                       3.084   Cond. No.                         1.05
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that statsmodels, as used above, is a powerful, general OLS model approach.</p>
+<p>You can further investigate how to include other features, such as interactions between input variables, and so on.</p>
+</div>
+</div>
+<div class="section" id="linear-regression-with-sklearn">
+<h2>Linear Regression with sklearn<a class="headerlink" href="#linear-regression-with-sklearn" title="Permalink to this headline">¶</a></h2>
+<p>Scikit-learn also has implementations of Linear Regression models.</p>
+<p>Here we will quickly demonstrate running the same linear OLS model fits as above, using sklearn instead of statsmodels.</p>
+<div class="alert alert-info">
+Linear regression in 
+<a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html" class="alert-link">sklearn</a>.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linear Models with sklearn</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert data into shape for easier use with sklearn</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">D1</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">D1</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">D2</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">D2</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">d3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">D3</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">D3</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize linear regression model</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the linear regression model</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">d1</span><span class="p">)</span> <span class="c1">#d1 = a0 + a1*d2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the results of this</span>
+<span class="c1">#  If you compare these to what we got with statsmodels above, they are indeed the same</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.010669383005965798
+0.7353817173669228
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-multiple-predictors-in-sklearn">
+<h3>Using multiple predictors (in sklearn)<a class="headerlink" href="#using-multiple-predictors-in-sklearn" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize and fit linear model</span>
+<span class="c1"># d1 = a1*d2 + a2*d3 + a0</span>
+<span class="n">reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">d2</span><span class="p">,</span> <span class="n">d3</span><span class="p">]),</span> <span class="n">d1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">d2</span><span class="p">,</span> <span class="n">d3</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(1000, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the results of this</span>
+<span class="c1">#  If you compare these to what we got with statsmodels above, they are indeed the same</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Intercept: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Theta D2 :</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Theta D3 :</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">reg</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Intercept: 	 0.010374409482633963
+Theta D2 :	 0.7354300664652448
+Theta D3 :	 -0.008040442777931771
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Version Control with git/Github &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="../assignments/D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/tutorials/A2-Git.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#git-graphical-user-interfaces-guis" class="nav-link">Git Graphical User Interfaces (GUIs)</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#local-vs-remote" class="nav-link">Local vs. Remote</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#getting-code-from-github" class="nav-link">Getting Code from Github</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="version-control-with-git-github">
+<h1>Version Control with git/Github<a class="headerlink" href="#version-control-with-git-github" title="Permalink to this headline">¶</a></h1>
+<div class="alert alert-success">
+Version Control reflects a set of practices related to managing files, in particular managing different versions of files. 
+</div>
+<div class="alert alert-info">
+You can read more about version control on
+<a href="https://en.wikipedia.org/wiki/Version_control" class="alert-link">Wikipedia</a>
+ or on the 
+<a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" class="alert-link">git docs</a>.
+</div><img src="img/git.png" width="400px"><div class="alert alert-success">
+Git is a version control system: a tool to track changes in files, across multiple locations. 
+</div>
+<div class="alert alert-info">
+<p>Click through to
+<a href="https://git-scm.com/doc" class="alert-link">git</a>.
+Git is an open-source software project.</p>
+</div>
+<hr><img src="img/github.png" width="400px"><div class="alert alert-success">
+Github is a web based version of Git, and version control repository or internet hosting service. It's a place to put code that is tracked with git. 
+</div>
+<div class="alert alert-info">
+Click through to 
+<a href="https://github.com/" class="alert-link">Github</a>.
+Note that Github is a company. 
+</div>
+<hr><div class="section" id="git-graphical-user-interfaces-guis">
+<h2>Git Graphical User Interfaces (GUIs)<a class="headerlink" href="#git-graphical-user-interfaces-guis" title="Permalink to this headline">¶</a></h2>
+<img src="img/sourcetree.png" width="500px"><p>There are several ways to use git, including:</p>
+<ul class="simple">
+<li><p>from the command line, typing in commands</p></li>
+<li><p>using a graphical program to launch git commands</p>
+<ul>
+<li><p>This kind of program is referred to as a ‘graphical user interface’ (GUI).</p>
+<ul>
+<li><p>It basically just means you can click buttons to do things, rather than writing out commands</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Either way the underlying commands, and code that gets executed, are the same. Behind the scenes, it all reduces to the same thing.</p>
+<p>You should use whichever approach you are most comfortable with. If you already know some command line programming, using git from command line can be useful, as generally slightly more functionality is available to you, with more specific control. Using a GUI is much more straight forward if you are not very familiar with the command line.</p>
+<p>If you plan to use a GUI, we recommend SourceTree.</p>
+<div class="alert alert-info">
+Source Tree tutorial documentation is available 
+<a href="https://confluence.atlassian.com/get-started-with-sourcetree" class="alert-link">here</a>.
+</div></div>
+<div class="section" id="local-vs-remote">
+<h2>Local vs. Remote<a class="headerlink" href="#local-vs-remote" title="Permalink to this headline">¶</a></h2>
+<p>What git is mainly doing is keeping two (or more) versions of the same repository consistent.</p>
+<p>A repository is simply a collection of files, like a folder on a computer.</p>
+<p>We will refer to these copies as:</p>
+<ul class="simple">
+<li><p>the ‘local’ copy, which is a copy of the repository on your computer (the one ‘local’ to you)</p></li>
+<li><p>the ‘remote’ copy, which is a copy of the repository somewhere else, such as on Github</p></li>
+</ul>
+<p>There is often a particular copy of the code that is referred to as the ‘master’, which just means it is the master version of the repository in question. Most typically, this is the copy of the code on Github - so there is one ‘master’ copy of the code on Github, and one or more people also have local copies of the code, with local updates. When local updates want to be shared, they can be sent to master, to update the main version of the code, for everyone.</p>
+<p>Here we will consider the case, descriped above, of having two copies of the repository. What is described here can all be extended to multiple copies of the code, including multiple different remote copies of the repository.</p>
+<p>The main function of git, as a version control system, is to automatically check all of the files in each copy of the repository, tracking any changes that happen. It then provides tools to synchronize between different copies when there are changes.</p>
+</div>
+<div class="section" id="getting-code-from-github">
+<h2>Getting Code from Github<a class="headerlink" href="#getting-code-from-github" title="Permalink to this headline">¶</a></h2>
+<p>Most typically, there is code available on Github, and you want to get a local copy, to use the code, and potentially update it, and then send your updates back to Github.</p>
+<p>First you need to get a local copy of the code. Git calls making a copy of a repository ‘cloning’.</p>
+<p>From command line, to clone a Github repository to your computer, use the clone command with the URL to the repository.</p>
+<ul class="simple">
+<li><p>$ git clone ‘repo_url’</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="tracking-propagating-changes">
+<h1>Tracking &amp; Propagating Changes<a class="headerlink" href="#tracking-propagating-changes" title="Permalink to this headline">¶</a></h1>
+<p>Once you have a local copy, connected to a remote repository, changes can go in two directions:</p>
+<ul class="simple">
+<li><p>sending changes you make locally to the remote</p></li>
+<li><p>updating your local copy with changes from the remote</p></li>
+</ul>
+<div class="section" id="tracking-and-sending-changes-from-local-remote">
+<h2>Tracking and Sending Changes from local -&gt; remote<a class="headerlink" href="#tracking-and-sending-changes-from-local-remote" title="Permalink to this headline">¶</a></h2>
+<p>When working on local files, git has multiple ‘levels’. These multiple levels are useful to organize groups of changes into well organized actions.</p>
+<p>The typical workflow is:</p>
+<ul class="simple">
+<li><p>add: select which changes, on which files, you would like git to</p>
+<ul>
+<li><p>You can add multiple files together, each with their own changes</p></li>
+</ul>
+</li>
+<li><p>commit: make a checkpoint, saving all files that have been added together</p>
+<ul>
+<li><p>These changes will be ‘saved’ together with a message (a commit log) about what the changes are</p></li>
+</ul>
+</li>
+<li><p>push: send the changes to the remote</p></li>
+</ul>
+<p>First, in a local git repository, you make some changes to a file, or perhaps many files.</p>
+<p>You can now add files. This needs to be done for each file you changed, that we want to log:</p>
+<ul class="simple">
+<li><p>$ git add ‘f_name’</p></li>
+</ul>
+<p>After you’ve added one or more files, you use a commit to save the status of these files:</p>
+<ul class="simple">
+<li><p>$ git commit -m ‘Commit message’</p></li>
+</ul>
+<p>The ‘-m’ flag is an option to write your commit message directly with the command. If you don’t add it, git will send you into a text editor for you to write a commit message there. You should always add an informative message about what you have changed / added.</p>
+<p>Making small, incremental changes and commiting often, with detailed messages means that your Github log can serve as a history for your project, keeping track of what you’ve done.</p>
+<p>This also allows you  to step back to an older version of the code if everything suddenly breaks.</p>
+<p>A committed change is still only stored in your local copy. To update the remote repostory, you have to push:</p>
+<ul class="simple">
+<li><p>$ git push</p></li>
+</ul>
+<p>You do not have to push after each commit, git push can push many commits at once.</p>
+<p>Once you have pushed, you should see your updates have been added to the remote repository, on Github.</p>
+</div>
+<div class="section" id="getting-changes-from-remote-local">
+<h2>Getting Changes from remote -&gt; local<a class="headerlink" href="#getting-changes-from-remote-local" title="Permalink to this headline">¶</a></h2>
+<p>Git refers to updating a local copy with changes from a remote copy as ‘pulling’</p>
+<p>On command line, if there are changes on the remote branch, use the ‘git pull’ to copy those changes to your local: copy.</p>
+<ul class="simple">
+<li><p>$ git pull</p></li>
+</ul>
+</div>
+<div class="section" id="git-cheatsheet">
+<h2>Git Cheatsheet<a class="headerlink" href="#git-cheatsheet" title="Permalink to this headline">¶</a></h2>
+<p>The most common git functions are:</p>
+<ul class="simple">
+<li><p>git status</p>
+<ul>
+<li><p>Check the status of a git repository</p></li>
+</ul>
+</li>
+<li><p>git add ‘file’</p>
+<ul>
+<li><p>Add a file to staging area</p></li>
+</ul>
+</li>
+<li><p>git commit -m ‘message’</p>
+<ul>
+<li><p>Log a ‘save point’ of all changes in the staging area.</p></li>
+</ul>
+</li>
+<li><p>git push</p>
+<ul>
+<li><p>Copy commits to remote</p></li>
+</ul>
+</li>
+<li><p>git diff ‘file’</p>
+<ul>
+<li><p>Check what has changed in file since last commit</p></li>
+</ul>
+</li>
+<li><p>git clone ‘repo’</p>
+<ul>
+<li><p>Create a local copy of a git repository</p></li>
+</ul>
+</li>
+<li><p>git pull</p>
+<ul>
+<li><p>Update your local copy of a git repository from the remote</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="advanced-git-branching-merging">
+<h2>Advanced Git: Branching &amp; Merging<a class="headerlink" href="#advanced-git-branching-merging" title="Permalink to this headline">¶</a></h2>
+<p>Git has many other functionalities, including <a class="reference external" href="https://git-scm.com/book/en/v1/Git-Branching/">branching</a> and <a class="reference external" href="https://git-scm.com/docs/git-merge">merging</a>, that are worth exploring as you get used to using git, and work on larger projects.</p>
+</div>
+<div class="section" id="external-resources-and-tutorials">
+<h2>External Resources and Tutorials<a class="headerlink" href="#external-resources-and-tutorials" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-info">
+There are many tutorials for working with Github, including an 
+<a href="https://try.github.io/levels/1/challenges/1" class="alert-link">interactive tutorial</a>, 
+and a 
+<a href="https://guides.github.com/activities/hello-world/" class="alert-link">Hello World</a>,
+both made by Github
+<br>
+There are also several other useful guides and tutorials, including these ones available on
+<a href="http://lifehacker.com/5983680/how-the-heck-do-i-use-github" class="alert-link">LifeHacker</a>, 
+<a href="https://www.atlassian.com/git/tutorials" class="alert-link">Atlassian</a>, and
+<a href="http://neuroplausible.com/github" class="alert-link">neuroplausible</a>.
+</div></div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

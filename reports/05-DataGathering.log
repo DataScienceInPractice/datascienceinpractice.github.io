@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/jupyter_cache/executors/basic.py", line 163, in execute
+    executenb(nb_bundle.nb, cwd=tmpdirname, timeout=timeout)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 737, in executenb
+    return ep.preprocess(nb, resources, km=km)[0]
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 405, in preprocess
+    nb, resources = super(ExecutePreprocessor, self).preprocess(nb, resources)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/base.py", line 69, in preprocess
+    nb.cells[index], resources = self.preprocess_cell(cell, resources, index)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 448, in preprocess_cell
+    raise CellExecutionError.from_cell_and_msg(cell, out)
+nbconvert.preprocessors.execute.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Imports
+#  requests lets you make http requests from python
+import requests
+import pandas as pd
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-1-58930e7cf5a9>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;31m#  requests lets you make http requests from python[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mrequests[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mModuleNotFoundError[0m: No module named 'pandas'
+ModuleNotFoundError: No module named 'pandas'
+
