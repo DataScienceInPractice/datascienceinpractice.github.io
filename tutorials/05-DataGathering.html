@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Gathering &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Wrangling" href="06-DataWrangling.html" />
+    <link rel="prev" title="Data Science in Python" href="04-DataSciencePython.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="active">
+    <a href="">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="../assignments/D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/tutorials/05-DataGathering.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#where-to-get-data" class="nav-link">Where to get Data</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#the-web" class="nav-link">The Web</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#other-than-the-web" class="nav-link">Other than the Web</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#data-gathering-skills" class="nav-link">Data Gathering Skills</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#data-repositories" class="nav-link">Data Repositories</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#databases" class="nav-link">Databases</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#structured-query-language-sql" class="nav-link">Structured Query Language - SQL</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#application-program-interfaces-apis" class="nav-link">Application Program Interfaces (APIs)</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#launching-url-requests-from-python" class="nav-link">Launching URL Requests from Python</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#web-scraping" class="nav-link">Web Scraping</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#apis-vs-web-scraping" class="nav-link">APIs vs. Web Scraping</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-gathering">
+<h1>Data Gathering<a class="headerlink" href="#data-gathering" title="Permalink to this headline">¶</a></h1>
+<div class="alert alert-success">
+Data Gathering is simply the process of collecting your data together.
+</div><p>This notebook covers strategies you can use to gather data for an analysis.</p>
+<p>If you want to move on to first working on data analyses (with provided data) you can move onto the next tutorials, and come back to this one later.</p>
+<p>Data gathering can encompass anything from launching a data collection project, web scraping, pulling from a database, downloading data in bulk.</p>
+<p>It might even include simply calling someone to ask if you can use some of their data.</p>
+<div class="section" id="where-to-get-data">
+<h2>Where to get Data<a class="headerlink" href="#where-to-get-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-web">
+<h3>The Web<a class="headerlink" href="#the-web" title="Permalink to this headline">¶</a></h3>
+<p>The web is absolutely full of data or ways to get data, either by hosting <strong>data repositories</strong> from which you can download data, by offering <strong>APIs</strong> through which you can request specific data from particular applications, or as data itself, such that you can use <strong>web scraping</strong> to extract data directly from websites.</p>
+</div>
+<div class="section" id="other-than-the-web">
+<h3>Other than the Web<a class="headerlink" href="#other-than-the-web" title="Permalink to this headline">¶</a></h3>
+<p>Not all data is indexed or accessible on the web, at least not publicly.</p>
+<p>Sometimes finding data means chasing down data wherever it might be.</p>
+<p>If there is some particular data you need, you can try to figure out who might have it, and get in touch to see if it might be available.</p>
+</div>
+<div class="section" id="data-gathering-skills">
+<h3>Data Gathering Skills<a class="headerlink" href="#data-gathering-skills" title="Permalink to this headline">¶</a></h3>
+<p>Depending on your gathering method, you will likely have to do some combination of the following:</p>
+<ul class="simple">
+<li><p>Download data files from repositories</p></li>
+<li><p>Read data files into python</p></li>
+<li><p>Use APIs</p></li>
+<li><p>Query databases</p></li>
+<li><p>Call someone and ask them to send you a harddrive</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="data-repositories">
+<h2>Data Repositories<a class="headerlink" href="#data-repositories" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+A Data Repository is basically just a place that data is stored. For our purposes, it is a place you can download data from. 
+</div>
+<div class="alert alert-info">
+There is a curated list of good data source included in the 
+<a href="https://github.com/COGS108/Projects" class="alert-link">project materials</a>.
+</div></div>
+<div class="section" id="databases">
+<h2>Databases<a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+A database is an organized collection of data. More formally, 'database' refers to a set of related data, and the way it is organized. 
+</div><div class="section" id="structured-query-language-sql">
+<h3>Structured Query Language - SQL<a class="headerlink" href="#structured-query-language-sql" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-success">
+SQL (pronounced 'sequel') is a language used to 'communicate' with databases, making queries to request particular data from them.
+</div>
+<div class="alert alert-info">
+There is a useful introduction and tutorial to SQL
+<a href="http://www.sqlcourse.com/intro.html" class="alert-link">here</a>
+as well as some useful 'cheat sheets' 
+<a href="http://www.cheat-sheets.org/sites/sql.su/" class="alert-link">here</a>
+and
+<a href="http://www.sqltutorial.org/wp-content/uploads/2016/04/SQL-cheat-sheet.pdf" class="alert-link">here</a>.
+</div><p>SQL is the standard, and most popular, way to interface with relational databases.</p>
+<p>Note: None of the rest of the tutorials presume or require any knowledge of SQL.</p>
+<p>You can look into it if you want, or if it is relevant to accessing some data you want to analyze, but it is not required for this set of tutorials.</p>
+</div>
+</div>
+<div class="section" id="application-program-interfaces-apis">
+<h2>Application Program Interfaces (APIs)<a class="headerlink" href="#application-program-interfaces-apis" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+APIs are basically a way for software to talk to software - it is an interface into an application / website / database designed for software.
+</div>
+<div class="alert alert-info">
+For a simple explanation of APIs go
+<a href="https://medium.freecodecamp.com/what-is-an-api-in-english-please-b880a3214a82" class="alert-link">here</a>
+or for a much broader, more technical, overview try
+<a href="https://medium.com/@mattburgess/apis-a-basic-primer-f8250602597d" class="alert-link">here</a>.
+</div><p>APIs offer a lot of functionality - you can send requests to the application to do all kinds of actions. In fact, any application interface that is designed to be used programatically is an API, including, for example, interfaces for using packages of code.</p>
+<p>One of the many things that APIs do, and offer, is a way to query and access data from particular applications / databases. The benefit of using APIs for data gathering purposes is that they typically return data in nicely structured formats, that are relatively easy to analyze.</p>
+<div class="section" id="launching-url-requests-from-python">
+<h3>Launching URL Requests from Python<a class="headerlink" href="#launching-url-requests-from-python" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="c1">#  requests lets you make http requests from python</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In practice, APIs are usually special URLs that return raw data (json or XML) as opposed to a web page to be rendered for human viewers (html). Find the documentation for a particular API to see how you send requests to access whatever data you want. For example, let’s try the Github API.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request data from the Github API on a particular user</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/users/tomdonoghue&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this case, the content we get back is a json file</span>
+<span class="n">page</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;{&quot;login&quot;:&quot;TomDonoghue&quot;,&quot;id&quot;:7727566,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/7727566?v=4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/TomDonoghue&quot;,&quot;html_url&quot;:&quot;https://github.com/TomDonoghue&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/TomDonoghue/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/TomDonoghue/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/TomDonoghue/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/TomDonoghue/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/TomDonoghue/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/TomDonoghue/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/TomDonoghue/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false,&quot;name&quot;:&quot;Tom&quot;,&quot;company&quot;:&quot;UC San Diego&quot;,&quot;blog&quot;:&quot;tomdonoghue.github.io&quot;,&quot;location&quot;:&quot;San Diego&quot;,&quot;email&quot;:null,&quot;hireable&quot;:null,&quot;bio&quot;:&quot;Cognitive Science Grad Student @ UCSD. \\r\\nOn Twitter @TomDonoghue&quot;,&quot;public_repos&quot;:13,&quot;public_gists&quot;:0,&quot;followers&quot;:13,&quot;following&quot;:35,&quot;created_at&quot;:&quot;2014-05-28T20:20:48Z&quot;,&quot;updated_at&quot;:&quot;2018-01-09T04:15:59Z&quot;}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can read in the json data with pandas</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;series&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>avatar_url             https://avatars0.githubusercontent.com/u/77275...
+bio                    Cognitive Science Grad Student @ UCSD. \r\nOn ...
+blog                                               tomdonoghue.github.io
+company                                                     UC San Diego
+created_at                                          2014-05-28T20:20:48Z
+email                                                               None
+events_url             https://api.github.com/users/TomDonoghue/event...
+followers                                                             13
+followers_url          https://api.github.com/users/TomDonoghue/follo...
+following                                                             35
+following_url          https://api.github.com/users/TomDonoghue/follo...
+gists_url              https://api.github.com/users/TomDonoghue/gists...
+gravatar_id                                                             
+hireable                                                            None
+html_url                                  https://github.com/TomDonoghue
+id                                                               7727566
+location                                                       San Diego
+login                                                        TomDonoghue
+name                                                                 Tom
+organizations_url          https://api.github.com/users/TomDonoghue/orgs
+public_gists                                                           0
+public_repos                                                          13
+received_events_url    https://api.github.com/users/TomDonoghue/recei...
+repos_url                 https://api.github.com/users/TomDonoghue/repos
+site_admin                                                         False
+starred_url            https://api.github.com/users/TomDonoghue/starr...
+subscriptions_url      https://api.github.com/users/TomDonoghue/subsc...
+type                                                                User
+updated_at                                          2018-01-09T04:15:59Z
+url                             https://api.github.com/users/TomDonoghue
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info">
+This
+<a href="http://www.webopedia.com/TERM/A/API.html" class="alert-link">list</a>
+includes a collection of commonly used and available APIs. 
+</div></div>
+</div>
+<div class="section" id="web-scraping">
+<h2>Web Scraping<a class="headerlink" href="#web-scraping" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Web scraping is when you (programmatically) extract data from websites.
+</div>
+<div class="alert alert-info">
+<a href="https://en.wikipedia.org/wiki/Web_scraping" class="alert-link">Wikipedia</a>
+has a useful page on web scraping.
+</div><p>Note that the following section uses the ‘BeautifulSoup’ module, which is not part of the standard anaconda distribution.</p>
+<p>If you do not have BeautifulSoup, and want to get it to run this section, you can uncomment the cell below, and run it, to install BeautifulSoup in your current Python environment. You only have to do this once.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#import sys</span>
+<span class="c1">#!conda install --yes --prefix {sys.prefix} beautifulsoup4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the URL for the page we wish to scrape</span>
+<span class="n">site_url</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/wiki/Data_science&#39;</span>
+
+<span class="c1"># Launch the URL request, to get the page</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">site_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the first 1000 characters of the scraped web page</span>
+<span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;&lt;!DOCTYPE html&gt;\n&lt;html class=&quot;client-nojs&quot; lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;\n&lt;head&gt;\n&lt;meta charset=&quot;UTF-8&quot;/&gt;\n&lt;title&gt;Data science - Wikipedia&lt;/title&gt;\n&lt;script&gt;document.documentElement.className = document.documentElement.className.replace( /(^|\\s)client-nojs(\\s|$)/, &quot;$1client-js$2&quot; );&lt;/script&gt;\n&lt;script&gt;(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({&quot;wgCanonicalNamespace&quot;:&quot;&quot;,&quot;wgCanonicalSpecialPageName&quot;:false,&quot;wgNamespaceNumber&quot;:0,&quot;wgPageName&quot;:&quot;Data_science&quot;,&quot;wgTitle&quot;:&quot;Data science&quot;,&quot;wgCurRevisionId&quot;:822535327,&quot;wgRevisionId&quot;:822535327,&quot;wgArticleId&quot;:35458904,&quot;wgIsArticle&quot;:true,&quot;wgIsRedirect&quot;:false,&quot;wgAction&quot;:&quot;view&quot;,&quot;wgUserName&quot;:null,&quot;wgUserGroups&quot;:[&quot;*&quot;],&quot;wgCategories&quot;:[&quot;Use dmy dates from December 2012&quot;,&quot;Information science&quot;,&quot;Computer occupations&quot;,&quot;Computational fields of study&quot;,&quot;Data analysis&quot;],&quot;wgBreakFrames&quot;:false,&quot;wgPageContentLanguage&quot;:&quot;en&quot;,&quot;wgPageContentModel&quot;:&quot;wikitext&quot;,&quot;wgSeparatorTransformTable&quot;:[&quot;&quot;,&quot;&quot;],&quot;wgDigitTransformTable&quot;:[&quot;&quot;,&quot;&quot;],&quot;wgDefaultDateFormat&quot;:&quot;dmy&quot;,&quot;wgMonthNames&quot;:[&quot;&quot;,&quot;Ja&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the source of the scraped web-page is a messy pile of HTML.</p>
+<p>There is a lot of information in there, but with no clear organization. There is some structure in the page though, delineated by HTML tags, etc, we just need to use them to parse out the data. We can do that with BeautifulSoup, which takes in messy documents like this, and parses them based on a specified format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parse the webpage with Beautiful Soup, using a html parser</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># With the parsed soup object, we can select particular segments of the web page</span>
+
+<span class="c1"># Print out the page title</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;TITLE: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+<span class="c1"># Print out the first p-tag</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">P-TAG:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>TITLE: 
+
+&lt;title&gt;Data science - Wikipedia&lt;/title&gt;
+
+P-TAG:
+
+&lt;p&gt;&lt;b&gt;Data science&lt;/b&gt;, also known as &lt;b&gt;data-driven science&lt;/b&gt;, is an interdisciplinary field of scientific methods, processes, and systems to extract &lt;a href=&quot;/wiki/Knowledge&quot; title=&quot;Knowledge&quot;&gt;knowledge&lt;/a&gt; or insights from &lt;a href=&quot;/wiki/Data&quot; title=&quot;Data&quot;&gt;data&lt;/a&gt; in various forms, either structured or unstructured,&lt;sup class=&quot;reference&quot; id=&quot;cite_ref-:0_1-0&quot;&gt;&lt;a href=&quot;#cite_note-:0-1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&quot;reference&quot; id=&quot;cite_ref-2&quot;&gt;&lt;a href=&quot;#cite_note-2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt; similar to &lt;a href=&quot;/wiki/Data_mining&quot; title=&quot;Data mining&quot;&gt;data mining&lt;/a&gt;.&lt;/p&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the soup object, you can explore that the page is much more organized, and in such a way that you can extract particular components of interest.</p>
+<p>Note that it is still ‘messy’ in other ways, in that there might or might not be a systematic structure to how the page is laid out, and it still might take a lot of work to extract the particular information you want from it.</p>
+<div class="section" id="apis-vs-web-scraping">
+<h3>APIs vs. Web Scraping<a class="headerlink" href="#apis-vs-web-scraping" title="Permalink to this headline">¶</a></h3>
+<p>Web scraping is distinct from using an API, even though many APIs may be accessed over the internet. Web scraping is different in that you are (programmatically) navigating through the internet, and extracting data of interest.</p>
+<p>Note:
+Be aware that scraping data from websites (without using APIs) can often be an involved project itself - scraping sites can take a considerable amount of tuning to get the data you want.</p>
+<p>Be aware that data presented on websites may not be well structured, or in an organzed format that lends itself to easy analysis.</p>
+<p>If you try scraping websites, also make sure you are allowed to scrape the data, and follow the websites terms of service.</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="04-DataSciencePython.html" title="previous page">Data Science in Python</a>
+    <a class='right-next' id="next-link" href="06-DataWrangling.html" title="next page">Data Wrangling</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

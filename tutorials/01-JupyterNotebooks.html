@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Jupyter Notebooks &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Analysis" href="02-DataAnalysis.html" />
+    <link rel="prev" title="Data Science in Practice" href="00-Introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="active">
+    <a href="">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="../assignments/D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/tutorials/01-JupyterNotebooks.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#menu-options-shortcuts" class="nav-link">Menu Options & Shortcuts</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#cells" class="nav-link">Cells</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#markdown-cells" class="nav-link">Markdown cells</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="jupyter-notebooks">
+<h1>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
+<p>This is a quick introduction to Jupyter notebooks.</p>
+<div class="alert alert-success">
+Jupyter notebooks are a way to combine executable code, code outputs, and text into one connected file.
+</div>
+<div class="alert alert-info">
+The official documentation from project Jupyter is available 
+<a href="https://jupyter-notebook.readthedocs.io/en/stable/" class="alert-link">here</a>
+and they also have some example notebooks 
+<a href="https://github.com/jupyter/notebook/tree/master/docs/source/examples/Notebook" class="alert-link">here</a>
+.
+</div><div class="section" id="menu-options-shortcuts">
+<h2>Menu Options &amp; Shortcuts<a class="headerlink" href="#menu-options-shortcuts" title="Permalink to this headline">¶</a></h2>
+<p>To get a quick tour of the Jupyter user-interface, click on the ‘Help’ menu, then click ‘User Interface Tour’.</p>
+<p>There are also a large number of useful keyboard shortcuts. Click on the ‘Help’ menu, and then ‘Keyboard Shortcuts’ to see a list.</p>
+</div>
+<div class="section" id="cells">
+<h2>Cells<a class="headerlink" href="#cells" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+The main organizational structure of the notebook are 'cells'.
+</div><p>Cells, can be markdown (text), like this one or code cells (we’ll get to those).</p>
+<div class="section" id="markdown-cells">
+<h3>Markdown cells<a class="headerlink" href="#markdown-cells" title="Permalink to this headline">¶</a></h3>
+<p>Markdown cell are useful for communicating information about our notebooks.</p>
+<p>They perform basic text formatting including italics, bold, headings, links and images.</p>
+<p>Double-click on any of the cells in this section to see what the plain-text looks like. Run the cell to then see what the formatted Markdown text looks like.</p>
+</div>
+</div>
+</div>
+<div class="section" id="this-is-a-heading">
+<h1>This is a heading<a class="headerlink" href="#this-is-a-heading" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="this-is-a-smaller-heading">
+<h2>This is a smaller heading<a class="headerlink" href="#this-is-a-smaller-heading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="this-is-a-really-small-heading">
+<h3>This is a really small heading<a class="headerlink" href="#this-is-a-really-small-heading" title="Permalink to this headline">¶</a></h3>
+<p>We can italicize my text either like <em>this</em> or like <em>this</em>.</p>
+<p>We can embolden my text either like <strong>this</strong> or like <strong>this</strong>.</p>
+<p>Here is an unordered list of items:</p>
+<ul class="simple">
+<li><p>This is an item</p></li>
+<li><p>This is an item</p></li>
+<li><p>This is an item</p></li>
+</ul>
+<p>Here is an ordered list of items:</p>
+<ol class="simple">
+<li><p>This is my first item</p></li>
+<li><p>This is my second item</p></li>
+<li><p>This is my third item</p></li>
+</ol>
+<p>We can have a list of lists by using identation:</p>
+<ul class="simple">
+<li><p>This is an item</p></li>
+<li><p>This is an item</p>
+<ul>
+<li><p>This is an item</p></li>
+<li><p>This is an item</p></li>
+</ul>
+</li>
+<li><p>This is an item</p></li>
+</ul>
+<p>We can also combine ordered and unordered lists:</p>
+<ol class="simple">
+<li><p>This is my first item</p></li>
+<li><p>This is my second item</p>
+<ul class="simple">
+<li><p>This is an item</p></li>
+<li><p>This is an item</p></li>
+</ul>
+</li>
+<li><p>This is my third item</p></li>
+</ol>
+<p>We can make a link to this <a class="reference external" href="https://www.markdownguide.org/cheat-sheet/">useful markdown cheatsheet</a> as such.</p>
+<p>If we don’t use the markdown syntax for links, it will just show the link itself as the link text: https://www.markdownguide.org/cheat-sheet/</p>
+</div>
+<div class="section" id="latex-formatted-text">
+<h3>LaTeX-formatted text<a class="headerlink" href="#latex-formatted-text" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[ P(A \mid B) = \frac{P(B \mid A) \, P(A)}{P(B)} \]</div>
+</div>
+<div class="section" id="code-cells">
+<h3>Code Cells<a class="headerlink" href="#code-cells" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># In a code cell, comments can be typed</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cells can also have output, that gets printed out below the cell.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s1">&#39;hello world&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>hello world
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># tab completion, print(my_string.upper())</span>
+<span class="n">my_string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;HELLO WORLD&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="accessing-documentation">
+<h2>Accessing Documentation<a class="headerlink" href="#accessing-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Jupyter has useful shortcuts. Add a single '?' after a function or class get a window with the documentation, or a double '??' to pull up the source code. 
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import numpy for examples</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Check the docs for a numpy array
+np.array?
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Check the full source code for numpy append function
+np.append??
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># get information about variables you&#39;ve created
+my_string?
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="autocomplete">
+<h2>Autocomplete<a class="headerlink" href="#autocomplete" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+Jupyter also has 
+<a href="https://en.wikipedia.org/wiki/Command-line_completion" class="alert-link">tab complete</a>
+capacities, which can autocomplete what you are typing, and/or be used to explore what code is available.  
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Move your cursor just after the period, press tab, and a drop menu will appear showing all possible completions</span>
+<span class="n">np</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Autocomplete does not have to be at a period. Move to the end of &#39;ra&#39; and hit tab to see completion options. </span>
+<span class="n">ra</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># If there is only one option, tab-complete will auto-complete what you are typing</span>
+<span class="n">ran</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kernel-namespace">
+<h2>Kernel &amp; Namespace<a class="headerlink" href="#kernel-namespace" title="Permalink to this headline">¶</a></h2>
+<p>You do not need to run cells in order! This is useful for flexibly testing and developing code.</p>
+<p>The numbers in the square brackets to the left of a cell show which cells have been run, and in what order.</p>
+<p>However, it can also be easy to lose track of what has already been declared / imported, leading to unexpected behaviour from running cells.</p>
+<p>The kernel is what connects the notebook to your computer behind-the-scenes to execute the code.</p>
+<p>It can be useful to clear and re-launch the kernel. You can do this from the ‘kernel’ drop down menu, at the top, optionally also clearing all ouputs.</p>
+</div>
+<div class="section" id="magic-commands">
+<h2>Magic Commands<a class="headerlink" href="#magic-commands" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+'Magic Commands' are a special (command-line like) syntax in IPython/Jupyter to run special functionality. They can run on lines and/or entire cells. 
+</div>
+<div class="alert alert-info">
+The iPython <a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html" class="alert-link">documentation</a> has more information on magic commands.
+</div><p>Magic commands are designed to succinctly solve various common problems in standard data analysis. Magic commands come in two flavors: line magics, which are denoted by a single % prefix and operate on a single line of input, and cell magics, which are denoted by a double %% prefix and operate on multiple lines of input.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># access quick reference sheet</span>
+<span class="o">%</span><span class="n">quickref</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can check a list of available magic commands</span>
+<span class="o">%</span><span class="n">lsmagic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Available line magics:
+%alias  %alias_magic  %autocall  %automagic  %autosave  %bookmark  %cat  %cd  %clear  %colors  %config  %connect_info  %cp  %debug  %dhist  %dirs  %doctest_mode  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %lf  %lk  %ll  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %lx  %macro  %magic  %man  %matplotlib  %mkdir  %more  %mv  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %popd  %pprint  %precision  %profile  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %rep  %rerun  %reset  %reset_selective  %rm  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
+
+Available cell magics:
+%%!  %%HTML  %%SVG  %%bash  %%capture  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%markdown  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+
+Automagic is ON, % prefix IS NOT needed for line magics.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># see current working directory</span>
+<span class="o">%</span><span class="n">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;/Users/shannonellis/Desktop/Teaching/COGS108/Tutorials&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># all variables</span>
+<span class="o">%</span><span class="n">who</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>a	 b	 my_list	 my_string	 np	 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># all variables; more info</span>
+<span class="o">%</span><span class="n">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Variable    Type      Data/Info
+-------------------------------
+a           int       1
+b           int       2
+my_list     list      n=3
+my_string   str       hello world
+np          module    &lt;module &#39;numpy&#39; from &#39;/an&lt;...&gt;kages/numpy/__init__.py&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># history</span>
+<span class="o">%</span><span class="n">hist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>### Markdown cells
+# history
+%hist
+# specify you&#39;re writing HTML
+%%HTML
+&lt;p&gt;This is a paragraph&lt;/p&gt;
+%%bash
+# Equivalently, (for bash) use the %%bash cell magic to run a cell as bash (command-line)
+pwd
+# In a code cell, comments can be typed
+a = 1
+b = 2
+# Cells can also have output, that gets printed out below the cell.
+print(a + b)
+my_string = &#39;hello world&#39;
+print(my_string)
+# tab completion, print(my_string.upper())
+my_string.upper()
+my_list = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]
+print(my_list)
+# Import numpy for examples
+import numpy as np
+# Check the docs for a numpy array
+np.array?
+# Check the full source code for numpy append function
+np.append??
+# get information about variables you&#39;ve created
+my_string?
+# Move your cursor just after the period, press tab, and a drop menu will appear showing all possible completions
+np.
+# In a code cell, comments can be typed
+a = 1
+b = 2
+# Cells can also have output, that gets printed out below the cell.
+print(a + b)
+my_string = &#39;hello world&#39;
+print(my_string)
+# tab completion, print(my_string.upper())
+my_string.upper()
+my_list = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]
+print(my_list)
+# Import numpy for examples
+import numpy as np
+# Check the docs for a numpy array
+np.array?
+# Check the full source code for numpy append function
+np.append??
+# get information about variables you&#39;ve created
+my_string?
+# Move your cursor just after the period, press tab, and a drop menu will appear showing all possible completions
+np.
+# access quick reference sheet
+%quickref
+# You can check a list of available magic commands
+%lsmagic
+# see current working directory
+%pwd
+# all variables
+%who
+# all variables; more info
+%whos
+# history
+%hist
+# For example, we can time how long it takes to create a large list
+%timeit list(range(100000))
+%%timeit
+# For example, we could time a whole cell
+a = list(range(100000))
+b = [n + 1 for n in a]
+# You can run a terminal command by adding &#39;!&#39; to the start of the line
+!pwd
+
+# Note that in this case, &#39;!pwd&#39; is equivalent to line magic &#39;%pwd&#39;. 
+# The &#39;!&#39; syntax is more general though, allowing you to run anything you want through command-line
+%%bash
+# Equivalently, (for bash) use the %%bash cell magic to run a cell as bash (command-line)
+pwd
+# list files in directory
+!ls
+# change current directory
+!cd .
+# history
+%hist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="line-magics">
+<h3>Line Magics<a class="headerlink" href="#line-magics" title="Permalink to this headline">¶</a></h3>
+<p>Line magics use a single ‘%’, and apply to a single line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># For example, we can time how long it takes to create a large list</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1.6 ms ± 26.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cell-magics">
+<h3>Cell Magics<a class="headerlink" href="#cell-magics" title="Permalink to this headline">¶</a></h3>
+<p>Cell magics use a double ‘%%’, and apply to the whole cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">timeit</span>
+<span class="c1"># For example, we could time a whole cell</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>6.59 ms ± 97.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="running-terminal-commands">
+<h3>Running terminal commands<a class="headerlink" href="#running-terminal-commands" title="Permalink to this headline">¶</a></h3>
+<p>Another nice thing about notebooks is being able to run terminals commands</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># You can run a terminal command by adding &#39;!&#39; to the start of the line
+!pwd
+
+# Note that in this case, &#39;!pwd&#39; is equivalent to line magic &#39;%pwd&#39;. 
+# The &#39;!&#39; syntax is more general though, allowing you to run anything you want through command-line 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/shannonellis/Desktop/Teaching/COGS108/Tutorials
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">bash</span>
+<span class="c1"># Equivalently, (for bash) use the %%bash cell magic to run a cell as bash (command-line)</span>
+<span class="n">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/Users/shannonellis/Desktop/Teaching/COGS108/Tutorials
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># list files in directory
+!ls
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>00-Introduction.ipynb              13-OrdinaryLeastSquares.ipynb
+01-JupyterNotebooks.ipynb          14-LinearModels.ipynb
+02-DataAnalysis.ipynb              15-Clustering.ipynb
+03-Python.ipynb                    16-DimensionalityReduction.ipynb
+04-DataSciencePython.ipynb         17-Classification.ipynb
+05-DataGathering.ipynb             18-NaturalLanguageProcessing.ipynb
+06-DataWrangling.ipynb             A1-PythonPackages.ipynb
+07-DataCleaning.ipynb              A2-Git.ipynb
+08-DataPrivacy&amp;Anonymization.ipynb LICENSE
+09-DataVisualization.ipynb         README.md
+10-Distributions.ipynb             [34mfiles[m[m
+11-TestingDistributions.ipynb      [34mimg[m[m
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># change current directory
+!cd .
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info">
+For more useful information, check out Jupyter Notebooks 
+<a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/" class="alert-link">tips & tricks</a>
+, and more information on how 
+<a href="http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html" class="alert-link">notebooks work</a>.
+</div></div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00-Introduction.html" title="previous page">Data Science in Practice</a>
+    <a class='right-next' id="next-link" href="02-DataAnalysis.html" title="next page">Data Analysis</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

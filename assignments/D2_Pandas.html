@@ -1,0 +1,998 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo Assignment &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Demo Assignment" href="D3_DataExploration.html" />
+    <link rel="prev" title="Distributions" href="../tutorials/10-Distributions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="../tutorials/00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="active">
+    <a href="">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/assignments/D2_Pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="demo-assignment">
+<h1>Demo Assignment<a class="headerlink" href="#demo-assignment" title="Permalink to this headline">¶</a></h1>
+<p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
+<div class="alert alert-danger">
+If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
+</div></div>
+<div class="section" id="part-1-setup">
+<h1>Part 1: Setup<a class="headerlink" href="#part-1-setup" title="Permalink to this headline">¶</a></h1>
+<p>Throughout this assignment we’ll review and get practice with the basics of using the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package for working with tabular data.</p>
+<p>You will absolutely use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> throughout this course, and, if you continue to use Python for working with data in the future, will continue to use this package. This means that while you could Google and look up every <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function when doing assignments, it’s best to memorize the basics. So, do your best to understand each operation you carry out here, as you’ll almost certainly see it again. And, try to commit the most commonly-used functions (those being presented here) to memory. It will save future you a ton of time. The more comfortable you are with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, the easier the rest of the assignments and your final project will be for you!</p>
+<p>Finally, there are a ton of great <code class="docutils literal notranslate"><span class="pre">pandas</span></code> resources and documentation out there, including <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">10 minutes to <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a>. Feel free to use them! However, many of the examples in this assignment were inspired by <code class="docutils literal notranslate"><span class="pre">pandas</span></code> tips and tricks: https://www.dataschool.io/python-pandas-tips-and-tricks/. Feel free to check out all the additional tips and tricks there, many of which are <em>not</em> covered here.</p>
+<div class="section" id="q1-import-0-25-points">
+<h2>Q1: <code class="docutils literal notranslate"><span class="pre">import</span></code> (0.25 points)<a class="headerlink" href="#q1-import-0-25-points" title="Permalink to this headline">¶</a></h2>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package using its typical shortname, <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package using its typical shortname, <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">pd</span>
+<span class="k">assert</span> <span class="n">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-data-import-dataframes-series">
+<h1>Part 2: Data Import, DataFrames, &amp; Series<a class="headerlink" href="#part-2-data-import-dataframes-series" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package has a number of helpful import functions (<code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_json()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_html()</span></code>, etc.)</p>
+<p>We’ll use a number of these throughout the course; however, for this assignment we’ll use a CSV file from <a class="reference external" href="https://fivethirtyeight.com">FiveThirtyEight</a>. The summarized data in the file we’ll use here were used in the article <a class="reference external" href="https://fivethirtyeight.com/features/the-ultimate-halloween-candy-power-ranking/"><em>The Ultimate Halloween Candy Power Ranking</em></a>. To collect these data, candies were pitted against one another with participants having to choose which they liked better.</p>
+<p>The most important functional unit of the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package is the <strong>DataFrame</strong>. DataFrames store information in rows and columns.</p>
+<p>Secondarily, <strong>Series</strong> are one-dimensional labeled arrays. They can hold data of any type.</p>
+<p>You can think of a DataFrame as a bunch of related Series stored together, such that the information in each row comes from a single observation, and each column (Series) stores information about a single variable measured across the observations.</p>
+<p>To access a column (Series) from a Dataframe, the following syntax is used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;series&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">df</span></code> is the object storing the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe and ‘series’ is the column name in <code class="docutils literal notranslate"><span class="pre">df</span></code> that you want to access.</p>
+<p>More information about DataFrames and Series is available <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html">here</a>.</p>
+<div class="section" id="q2-read-the-data-into-python-0-25-points">
+<h2>Q2: Read the data into Python (0.25 points)<a class="headerlink" href="#q2-read-the-data-into-python-0-25-points" title="Permalink to this headline">¶</a></h2>
+<p>To use the data, you’ll have to read it in as a Dataframe. Use the appropriate pandas import function to read in the file from the following repo: https://github.com/fivethirtyeight/data/tree/master/candy-power-ranking.</p>
+<p>Note that URLs can be read in directly using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. The URL you’ll want to use to read the file in is: ‘https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv’.</p>
+<p>Store this in the variable <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q3-data-summary-0-75-points">
+<h2>Q3: Data Summary (0.75 points)<a class="headerlink" href="#q3-data-summary-0-75-points" title="Permalink to this headline">¶</a></h2>
+<p>After reading in a dataset, it’s often helpful to get a quick sense of what information is stored in the dataset. Here you’ll carry out a number of operations that you’ll carry out on almost every dataset you read into Python.</p>
+<div class="section" id="q3a-shape">
+<h3>Q3a: <code class="docutils literal notranslate"><span class="pre">shape</span></code><a class="headerlink" href="#q3a-shape" title="Permalink to this headline">¶</a></h3>
+<p>One way to do that is to determine the <code class="docutils literal notranslate"><span class="pre">shape</span></code> of the dataset. This reports the number of rows and columns in the dataset. Store the shape of the candy dataset in the variable <code class="docutils literal notranslate"><span class="pre">candy_shape</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">candy_shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrames also print out well when you access them. This allows you to get a sense of the information stored in your dataset overall.</p>
+<p>For example, if you run the cell below, you’ll see what information is stored in this dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a look at the information stored in df</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A full description of these data can be found <a class="reference external" href="https://github.com/fivethirtyeight/data/tree/master/candy-power-ranking">here</a>. From that link, we’ll include a description of each variable (column) here:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Header</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>chocolate</p></td>
+<td><p>Does it contain chocolate?</p></td>
+</tr>
+<tr class="row-odd"><td><p>fruity</p></td>
+<td><p>Is it fruit flavored?</p></td>
+</tr>
+<tr class="row-even"><td><p>caramel</p></td>
+<td><p>Is there caramel in the candy?</p></td>
+</tr>
+<tr class="row-odd"><td><p>peanutalmondy</p></td>
+<td><p>Does it contain peanuts, peanut butter or almonds?</p></td>
+</tr>
+<tr class="row-even"><td><p>nougat</p></td>
+<td><p>Does it contain nougat?</p></td>
+</tr>
+<tr class="row-odd"><td><p>crispedricewafer</p></td>
+<td><p>Does it contain crisped rice, wafers, or a cookie component?</p></td>
+</tr>
+<tr class="row-even"><td><p>hard</p></td>
+<td><p>Is it a hard candy?</p></td>
+</tr>
+<tr class="row-odd"><td><p>bar</p></td>
+<td><p>Is it a candy bar?</p></td>
+</tr>
+<tr class="row-even"><td><p>pluribus</p></td>
+<td><p>Is it one of many candies in a bag or box?</p></td>
+</tr>
+<tr class="row-odd"><td><p>sugarpercent</p></td>
+<td><p>The percentile of sugar it falls under within the data set.</p></td>
+</tr>
+<tr class="row-even"><td><p>pricepercent</p></td>
+<td><p>The unit price percentile compared to the rest of the set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>winpercent</p></td>
+<td><p>The overall win percentage according to 269,000 matchups.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that many of the variables store binary information, where 0 means False and 1 means True. For example, for a Snickers bar, <code class="docutils literal notranslate"><span class="pre">chocolate</span></code> would have the value 1 (becuase it <em>is</em> chocolate), while <code class="docutils literal notranslate"><span class="pre">fruity</span></code> for the same candy would store 0 (because Snickers bars are <em>not</em> fruity).</p>
+</div>
+<div class="section" id="q3b-describe">
+<h3>Q3b: <code class="docutils literal notranslate"><span class="pre">describe</span></code><a class="headerlink" href="#q3b-describe" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> also has a very helfpul <code class="docutils literal notranslate"><span class="pre">describe</span></code> function which will provide some helpful summary statistics about your dataframe.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">describe</span></code> function to calculate and display these summary statistics (You do <em>not</em> have to store the output):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the output you just generated, answer the following questions, storing the answer in the variable at the front of each question. (For example, if you thought the answer to the first question was A, you would include <code class="docutils literal notranslate"><span class="pre">win_perc</span> <span class="pre">=</span> <span class="pre">'A'</span></code> in the cell below.)</p>
+<p><code class="docutils literal notranslate"><span class="pre">win_perc</span></code> : What is the highest overall win percentage among the candy included in this dataset?</p>
+<ul class="simple">
+<li><p>A) 1.00</p></li>
+<li><p>B) 98.8</p></li>
+<li><p>C) 85.00</p></li>
+<li><p>D) 84.18</p></li>
+<li><p>E) Unable to determine</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">fruity</span></code> : What proportion of the dataset is comprised of fruity candy?</p>
+<ul class="simple">
+<li><p>A) 0</p></li>
+<li><p>B) 0.45</p></li>
+<li><p>C) 0.50</p></li>
+<li><p>D) 85</p></li>
+<li><p>E) Unable to determine</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">win_perc</span>
+<span class="k">assert</span> <span class="n">fruity</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">win_perc</span> <span class="ow">in</span> <span class="n">answers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">fruity</span> <span class="ow">in</span> <span class="n">answers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s typically most helpful to access a Series of a DataFrame to then use a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> method to understand more about the values in that Series.</p>
+<p>For example, we could see the values stored in the <code class="docutils literal notranslate"><span class="pre">chocolate</span></code> column using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;chocolate&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>However, we typically build upon this by determining some other information about the values in that Series. For example, we often want to determine how many different observations there are for each possible values in a Series with discrete information. The <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> function can be helpful in determining this.</p>
+</div>
+<div class="section" id="q3c-value-counts">
+<h3>Q3c: <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code><a class="headerlink" href="#q3c-value-counts" title="Permalink to this headline">¶</a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> function, determine how many different possible values there are for the <code class="docutils literal notranslate"><span class="pre">chocolate</span></code> series in the <code class="docutils literal notranslate"><span class="pre">df</span></code> DataFrame and how many observations fall into each.</p>
+<p>Store the output in the object <code class="docutils literal notranslate"><span class="pre">chocolate_values</span></code>.</p>
+<p>Take a look at the output. Be sure you understand whether or not there are more chocolate (<code class="docutils literal notranslate"><span class="pre">chocolate</span> <span class="pre">==</span> <span class="pre">1</span></code>) or nonchocolate candies (<code class="docutils literal notranslate"><span class="pre">chocolate</span> <span class="pre">==</span> <span class="pre">0</span></code>) in the dataset from the output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">chocolate_values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">chocolate_values</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">48</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="missing-data">
+<h3>Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">¶</a></h3>
+<p>There are a number of different ways in which to determine whether or not data are missing. The most common approaches are summarized here:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate % of missing values in each column:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Drop columns with any missing values:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+
+<span class="c1"># Drop columns in which more than 10% of values are missing:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">*</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+
+<span class="c1"># Want to know the *count* of missing values in a DataFrame?</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Just want to know if there are *any* missing values?</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Run the following cell and interpret the output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># determine which columns have missing data</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q3d-isna">
+<h3>Q3d: <code class="docutils literal notranslate"><span class="pre">isna()</span></code><a class="headerlink" href="#q3d-isna" title="Permalink to this headline">¶</a></h3>
+<p>How many variables have missing data in this dataset? Store the value in the variable <code class="docutils literal notranslate"><span class="pre">var_missing</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var_missing</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q4-replace-0-5-points">
+<h2>Q4: <code class="docutils literal notranslate"><span class="pre">replace</span></code> (0.5 points)<a class="headerlink" href="#q4-replace-0-5-points" title="Permalink to this headline">¶</a></h2>
+<p>To replace current values with different values dynamically, <code class="docutils literal notranslate"><span class="pre">replace</span></code> is very helpful.</p>
+<p>To demonstrate this, if you wanted to replace the zeroes and ones in the current dataset with boolean values, true or false, you could do this using <code class="docutils literal notranslate"><span class="pre">replace</span></code>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">df</span></code>, replace <code class="docutils literal notranslate"><span class="pre">0</span></code> with <code class="docutils literal notranslate"><span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code> with <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Store this output in <code class="docutils literal notranslate"><span class="pre">df_bool</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df_bool</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+<span class="k">assert</span> <span class="n">df_bool</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;chocolate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">df_bool</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;100 Grand&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-3-common-manipulations">
+<h1>Part 3: Common Manipulations<a class="headerlink" href="#part-3-common-manipulations" title="Permalink to this headline">¶</a></h1>
+<p>Regardless of the dataset you’re working with, you’ll want to be <em>very</em> familiar with a few common data manipulations when wrangling data, each of which is described below:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Manipulation</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>select</strong></p></td>
+<td><p>select which columns to include in dataset</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>filter</strong></p></td>
+<td><p>filter dataset to only include specified rows</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>mutate</strong></p></td>
+<td><p>add a new column based on values in other columns</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>groupby</strong></p></td>
+<td><p>group values to apply a function within the specified groups</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>summarize</strong></p></td>
+<td><p>calculate specified summary metric of a specified variable</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>arrange</strong></p></td>
+<td><p>sort rows ascending or descending order of a specified column</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>merge</strong></p></td>
+<td><p>join separate datasets into a single dataset based on a common column</p></td>
+</tr>
+</tbody>
+</table>
+<p>We’ll review how to carry out each of these in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and you’ll get practice with each.</p>
+<div class="section" id="q5-column-operations-2-15-points">
+<h2>Q5: Column Operations (2.15 points)<a class="headerlink" href="#q5-column-operations-2-15-points" title="Permalink to this headline">¶</a></h2>
+<p>Often we’re only interested in working with some columns in a larger dataset and it’s helpful to filter the dataset so that it only includes the columns we want. In these cases, we <em>select</em> the columns we’re interested in by specifying these columns and returning the output.</p>
+<p>In pandas, there are a number of ways in which this can be done, but the most common is to specify a list of columns you want by name and in the order you want.</p>
+<p>For example, for a dataframe (<code class="docutils literal notranslate"><span class="pre">df</span></code>) with five columns (‘A’, ‘B’, ‘C’, ‘D’, ‘E’), you could select columns ‘C’, ‘B’ and ‘A’ (in that order), using the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="section" id="q5a-selecting-columns">
+<h3>Q5a: selecting columns<a class="headerlink" href="#q5a-selecting-columns" title="Permalink to this headline">¶</a></h3>
+<p>For our candy dataset, we’re ultimately interested in determining the differences between chocolate and fruity candy.</p>
+<p>To just get the data we’re interested in, return a DataFrame with the columns: <code class="docutils literal notranslate"><span class="pre">competitorname</span></code>, <code class="docutils literal notranslate"><span class="pre">chocolate</span></code>, <code class="docutils literal notranslate"><span class="pre">fruity</span></code>, <code class="docutils literal notranslate"><span class="pre">hard</span></code>, <code class="docutils literal notranslate"><span class="pre">bar</span></code>, <code class="docutils literal notranslate"><span class="pre">pluribus</span></code>, <code class="docutils literal notranslate"><span class="pre">sugarpercent</span></code>, <code class="docutils literal notranslate"><span class="pre">pricepercent</span></code>, and <code class="docutils literal notranslate"><span class="pre">winpercent</span></code>.</p>
+<p>Store this output  in <code class="docutils literal notranslate"><span class="pre">df</span></code> (overwriting the previous data stored in <code class="docutils literal notranslate"><span class="pre">df</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dtypes">
+<h3><code class="docutils literal notranslate"><span class="pre">dtypes</span></code><a class="headerlink" href="#dtypes" title="Permalink to this headline">¶</a></h3>
+<p>Occassionally, there are a number of different types of data (strings, numbers, etc.) in a DataFrame and you’re only interested in data of a particular type. For example, in <code class="docutils literal notranslate"><span class="pre">df_bool</span></code>, we have the data about the candy stored as Booleans (False, True) rather than integers (0,1).</p>
+<p>To remind yourself of what type of information is stored in each column, the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute can be very helpful:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># see types for each variable</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># see types for each variable</span>
+<span class="n">df_bool</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q5b-select-by-data-type">
+<h3>Q5b: Select by Data Type<a class="headerlink" href="#q5b-select-by-data-type" title="Permalink to this headline">¶</a></h3>
+<p>For the <code class="docutils literal notranslate"><span class="pre">df_bool</span></code> dataset, we’re interested in selecting only the columns that are either a string (object) or a bool.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">select_dtypes</span></code> function to select those columns. Note, you’ll have to specify the <code class="docutils literal notranslate"><span class="pre">include</span></code> parameter.</p>
+<p>Store this output in <code class="docutils literal notranslate"><span class="pre">df_bool</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">df_bool</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df_bool</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q5c-renaming-columns">
+<h3>Q5c: Renaming Columns<a class="headerlink" href="#q5c-renaming-columns" title="Permalink to this headline">¶</a></h3>
+<p>Often, data have less than helpful column names. To make working with these data as simple as possible, it can be helpful to ensure that all columns have helpful column names. <code class="docutils literal notranslate"><span class="pre">rename</span></code> can help you do this</p>
+<p>Generally there are three approaches to renaming columns:</p>
+<ol class="simple">
+<li><p>Most flexible option: <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.rename({'A':'a',</span> <span class="pre">'B':'b'},</span> <span class="pre">axis='columns')</span></code></p></li>
+<li><p>Overwrite all column names: <code class="docutils literal notranslate"><span class="pre">df.columns</span> <span class="pre">=</span> <span class="pre">['a',</span> <span class="pre">'b']</span></code></p></li>
+<li><p>Apply string method: <code class="docutils literal notranslate"><span class="pre">df.columns</span> <span class="pre">=</span> <span class="pre">df.columns.str.lower()</span></code></p></li>
+</ol>
+<p>For our dataset in partciular, <code class="docutils literal notranslate"><span class="pre">pluribus</span></code> is not an ideal column name. Use approach 1 above to <code class="docutils literal notranslate"><span class="pre">rename</span></code> <code class="docutils literal notranslate"><span class="pre">pluribus</span></code> to <code class="docutils literal notranslate"><span class="pre">multicandy_pack</span></code> for both the <code class="docutils literal notranslate"><span class="pre">df</span></code> and <code class="docutils literal notranslate"><span class="pre">df_bool</span></code> dataframes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="s1">&#39;multicandy_pack&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<span class="k">assert</span> <span class="s1">&#39;multicandy_pack&#39;</span> <span class="ow">in</span> <span class="n">df_bool</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q5d-adding-new-columns">
+<h3>Q5d: Adding new columns<a class="headerlink" href="#q5d-adding-new-columns" title="Permalink to this headline">¶</a></h3>
+<p>Often when working with data we need to add additional columns that use information from existing columns.</p>
+<p>To do this, we typically use one of two approaches, summarized generally here:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assign</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">new_col</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">val</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">apply</span></code></p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">_new&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">my_function</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For example, are there any candy in our dataset that are <em>neither</em> fruity <em>nor</em> chocolate?</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">assign</span></code> to add a new column to <code class="docutils literal notranslate"><span class="pre">df</span></code> called <code class="docutils literal notranslate"><span class="pre">fruity_choco</span></code> that adds the value in <code class="docutils literal notranslate"><span class="pre">chocolate</span></code> to the value in <code class="docutils literal notranslate"><span class="pre">fruity</span></code>. This way, the value will be 0 if it is neither fruity nor chocolate, 1 if it is one or the other and 2 if it is both.</p>
+<p>Store the output in <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fruity_choco&#39;</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a look at this new variable we created. We can use <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> to determine how many candies fall into each category:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># see breakdown of &#39;fruity_choco&#39; column</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;fruity_choco&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q5e-neither">
+<h3>Q5e: neither<a class="headerlink" href="#q5e-neither" title="Permalink to this headline">¶</a></h3>
+<p>Take a look at the output above. How many candies are neither fruity nor chocolate? Store this value in the variable <code class="docutils literal notranslate"><span class="pre">neither</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">neither</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">neither</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q6-row-operations-1-3-points">
+<h2>Q6: Row Operations (1.3 points)<a class="headerlink" href="#q6-row-operations-1-3-points" title="Permalink to this headline">¶</a></h2>
+<p>In addition to column operations, filtering rows to only include those of interest to your analysis can be very important. For example, if we wanted to only include candy that was either chocolate or fruity, we would want to filter to only include the candies that fit that criterion.</p>
+<p>To do this, we have to <em>filter</em> the data, using <strong>slicing</strong>.</p>
+<div class="section" id="slicing-loc-and-iloc">
+<h3>slicing:  <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#slicing-loc-and-iloc" title="Permalink to this headline">¶</a></h3>
+<p>Subsets of data from a DataFrame can also be extracted through the use of slicing. There are two general approaches to slicing:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Manipulation</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">loc</span></code></p></td>
+<td><p>label-based indexing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iloc</span></code></p></td>
+<td><p>integer-based indexing</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example, you could use <code class="docutils literal notranslate"><span class="pre">loc</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>This would return all rows (indicated by the <code class="docutils literal notranslate"><span class="pre">:</span></code>) and three columns  <code class="docutils literal notranslate"><span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C']</span></code>.</p>
+<p>Alternatively, integer-based indexing could be used with <code class="docutils literal notranslate"><span class="pre">iloc</span></code> (where the <code class="docutils literal notranslate"><span class="pre">i</span></code> stands for index):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This would return the first five rows and columns of the dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code>. (As a reminder: when indicating ranges in Python, the final value is not included in what is returned. So, this returns the zero-th through the 4th indices. Index 5 is not included in the output)</p>
+<p>Python also uses <em>zero-based indexing</em> which means the first element is indexed as zero, the second has index 1, and so on.</p>
+</div>
+<div class="section" id="q6a-slicing">
+<h3>Q6a: Slicing<a class="headerlink" href="#q6a-slicing" title="Permalink to this headline">¶</a></h3>
+<p>The concept of slicing can be combined with conditionals. For example, you can return all rows of a particular value.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> above on the <code class="docutils literal notranslate"><span class="pre">fruity_choco</span></code> column we created, we see that there is one candy that is both chocolate and fruity in our dataset. Let’s figure out which candy that was!</p>
+<p>Use slicing to return the row from <code class="docutils literal notranslate"><span class="pre">df</span></code> where <code class="docutils literal notranslate"><span class="pre">fruity_choco</span></code> indicated the candy was both fruity and chocolate.</p>
+<p>Store this DataFrame (which will have a single row) as <code class="docutils literal notranslate"><span class="pre">both</span></code>.
+Again using indexing, store the name of the candy that is both fruity and chocolate in the variable <code class="docutils literal notranslate"><span class="pre">candy_name</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">both</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+<span class="k">assert</span> <span class="n">both</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">candy_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering-rows">
+<h2>Filtering rows<a class="headerlink" href="#filtering-rows" title="Permalink to this headline">¶</a></h2>
+<p>DataFrames can be subset in a number of different ways. For example, to filter a DataFrame to only include certain rows, you could use the approaches summarized here:</p>
+<p>If you wanted to filter a DataFrame by a condition, you could use the following approach:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that this extends and works with multiple OR conditions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;blue&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>A shorter approach to this would utilize <code class="docutils literal notranslate"><span class="pre">isin</span></code>:</p>
+<div class="highlight-ptyhon notranslate"><div class="highlight"><pre><span></span>df[df.color.isin([&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;])]
+</pre></div>
+</div>
+<div class="section" id="q6b-filtering">
+<h3>Q6b: Filtering<a class="headerlink" href="#q6b-filtering" title="Permalink to this headline">¶</a></h3>
+<p>Using this concept, filter <code class="docutils literal notranslate"><span class="pre">df</span></code> to only include rows that contain candy that is fruity or chocolate in some capacity (meaning, something that is both fruity and chocolate <em>would</em> be included).</p>
+<p>Store this output in <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">74</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fruity_choco&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aside-calculations-on-subsets-of-the-data">
+<h3>aside: calculations on subsets of the data<a class="headerlink" href="#aside-calculations-on-subsets-of-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Calculations can be carried out on columns using conditionals. For example, if you wanted to determine how many of the candies in our current dataset are part of a pack of candy with multiple types of candy in the pack, you could use <code class="docutils literal notranslate"><span class="pre">sum()</span></code> on the subset of the data that meets that condition</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># carry out calculation</span>
+<span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;multicandy_pack&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q7-arrange-rows-1-1-points">
+<h2>Q7: arrange rows (1.1 points)<a class="headerlink" href="#q7-arrange-rows-1-1-points" title="Permalink to this headline">¶</a></h2>
+<p>While you don’t always care about what order the rows are sorted, at times it can be helpful to sort a DataFrame so that the rows are ordered in a particular manner.</p>
+<p>To do this, <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> can be very helpful. For example, to sort by the values in ‘col’, you would use the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>To arrange (sort) the rows by more than one column, the syntax changes slightly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="section" id="q7a-sort-values">
+<h3>Q7a: <code class="docutils literal notranslate"><span class="pre">sort_values</span></code><a class="headerlink" href="#q7a-sort-values" title="Permalink to this headline">¶</a></h3>
+<p>Specifically, <code class="docutils literal notranslate"><span class="pre">df</span></code> is currently sorted in alphabetical order by competitor name (candy). What if we were most curious about the sugar percentile of where the candy falls within the dataset?</p>
+<p><strong>Arrange the rows</strong> in <code class="docutils literal notranslate"><span class="pre">df</span></code> such that the candy with the highest <code class="docutils literal notranslate"><span class="pre">sugarpercent</span></code> is displayed first and the lowest <code class="docutils literal notranslate"><span class="pre">sugarpercent</span></code> last. Store this in <code class="docutils literal notranslate"><span class="pre">df.</span></code></p>
+<p>Also, note that when using <code class="docutils literal notranslate"><span class="pre">sort_values</span></code>, the original indices are retained. So, also <strong>reset the index</strong> of <code class="docutils literal notranslate"><span class="pre">df</span></code> so that the highest <code class="docutils literal notranslate"><span class="pre">sugarpercent</span></code> candy is index 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;competitorname&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;100 Grand&#39;</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;sugarpercent&#39;</span><span class="p">],</span> <span class="mf">0.988</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a look at the first few rows</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q7b-sugar-rush">
+<h3>Q7b: Sugar Rush<a class="headerlink" href="#q7b-sugar-rush" title="Permalink to this headline">¶</a></h3>
+<p>Which candy in our dataset is the sugariest? Record your answer in the variable <code class="docutils literal notranslate"><span class="pre">sugary</span></code>. For example, if you thought the answer was A, you would submit <code class="docutils literal notranslate"><span class="pre">sugary</span> <span class="pre">=</span> <span class="pre">'A'</span></code>.</p>
+<ul class="simple">
+<li><p>A) Reese’s Miniatures</p></li>
+<li><p>B) Chiclets</p></li>
+<li><p>C) 100 Grand</p></li>
+<li><p>D) Reese’s Stuffed with Pieces</p></li>
+<li><p>E) Candy not listed here</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sugary</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q8-groupby-agg-1-2-points">
+<h2>Q8: <code class="docutils literal notranslate"><span class="pre">groupby</span></code> + <code class="docutils literal notranslate"><span class="pre">agg</span></code> (1.2 points)<a class="headerlink" href="#q8-groupby-agg-1-2-points" title="Permalink to this headline">¶</a></h2>
+<p>Once a dataset is in order, including the columns and rows that you need for your analysis, it’s often helpful to carry out some grouped operations. <code class="docutils literal notranslate"><span class="pre">groupby</span></code> allows you to group the data in your dataset by the values in a specific column. <code class="docutils literal notranslate"><span class="pre">agg</span></code> is then helpful for carrying out the operation you’re interested in within the groups.</p>
+<p>For example, if you wanted to <code class="docutils literal notranslate"><span class="pre">groupby</span></code> a candy’s <code class="docutils literal notranslate"><span class="pre">chocolate</span></code> status and then carry out some calculations within the group, say, determine the average value for the other variables in the dataset, grouped by <code class="docutils literal notranslate"><span class="pre">chocolate</span></code> status, you could use <code class="docutils literal notranslate"><span class="pre">agg</span></code> to do so.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># carry out operation</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="q8a-cost-interpretation">
+<h3>Q8a: Cost Interpretation<a class="headerlink" href="#q8a-cost-interpretation" title="Permalink to this headline">¶</a></h3>
+<p>Looking at the output in the previous cell, which type of candy costs more, fruity candy or chocolate candy? Store your response in <code class="docutils literal notranslate"><span class="pre">candy_cost</span></code>. For example, if you thought the answer was A, you would submit <code class="docutils literal notranslate"><span class="pre">candy_cost</span> <span class="pre">=</span> <span class="pre">'A'</span></code>.</p>
+<ul class="simple">
+<li><p>A) chocolate costs more</p></li>
+<li><p>B) fruity costs more</p></li>
+<li><p>C) chocolate and fruity cost the same</p></li>
+<li><p>D) can’t be determined</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">candy_cost</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q8b-specific-column-aggregation">
+<h3>Q8b: specific column aggregation<a class="headerlink" href="#q8b-specific-column-aggregation" title="Permalink to this headline">¶</a></h3>
+<p>Carrying out a similar operation, group <code class="docutils literal notranslate"><span class="pre">df</span></code> by <code class="docutils literal notranslate"><span class="pre">fruity</span></code>, and then calculate the minimum, average (mean), and maximum values, <strong>for the <code class="docutils literal notranslate"><span class="pre">sugarpercent</span></code> column only</strong>.</p>
+<p>For this, fruity should be the name for the indices and your column names should be ‘min’, ‘mean’, and ‘max’.</p>
+<p>Store this result in <code class="docutils literal notranslate"><span class="pre">sugar_summary</span></code>.</p>
+<div class="section" id="note-the-pandas-documentation-here-may-help-you-if-you-re-struggling-to-figure-out-the-syntax">
+<h4>Note: the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> documentation <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.22/generated/pandas.core.groupby.DataFrameGroupBy.agg.html">here</a> may help you if you’re struggling to figure out the syntax<a class="headerlink" href="#note-the-pandas-documentation-here-may-help-you-if-you-re-struggling-to-figure-out-the-syntax" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="c1"># look at output</span>
+<span class="n">sugar_summary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">sugar_summary</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+<span class="k">assert</span> <span class="n">sugar_summary</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;fruity&#39;</span>
+<span class="k">assert</span> <span class="s1">&#39;min&#39;</span> <span class="ow">in</span> <span class="n">sugar_summary</span><span class="o">.</span><span class="n">columns</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">sugar_summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;min&#39;</span><span class="p">],</span> <span class="mf">0.034</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q8c-sugar-interpretation">
+<h3>Q8c: Sugar Interpretation<a class="headerlink" href="#q8c-sugar-interpretation" title="Permalink to this headline">¶</a></h3>
+<p>Looking at the output in Q8b, which type of candy has the higher average sugar percentile, fruity candy or chocolate candy? Store your response in <code class="docutils literal notranslate"><span class="pre">candy_sugar</span></code>. For example, if you thought the answer was A, you would submit <code class="docutils literal notranslate"><span class="pre">candy_sugar</span> <span class="pre">=</span> <span class="pre">'A'</span></code>.</p>
+<ul class="simple">
+<li><p>A) chocolate has higher average sugar percentile</p></li>
+<li><p>B) fruity candy has higher average sugar percentile</p></li>
+<li><p>C) chocolate and fruity have the same average sugar percentile</p></li>
+<li><p>D) can’t be determined</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">candy_sugar</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-end">
+<h2>The End!<a class="headerlink" href="#the-end" title="Permalink to this headline">¶</a></h2>
+<p>Good work! While this just scratches the surface of what you can use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to do, we covered common manipulations you’ll do <em>a lot</em>. Do your best to understand each operation you carried out here, becoming as familiar with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, common operations, and the syntax, as possible. These will be used throughout this quarter and (most likely) whenever you’re working with tabular data in Python.</p>
+<p>Have a look back over your answers, and also make sure to <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">&amp;</span> <span class="pre">Run</span> <span class="pre">All</span></code> from the kernel menu to double check that everything is working properly. You can also use the ‘Validate’ button above, which runs your notebook from top to bottom and checks to ensure all <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements pass. When you are ready, submit on datahub!</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../tutorials/10-Distributions.html" title="previous page">Distributions</a>
+    <a class='right-next' id="next-link" href="D3_DataExploration.html" title="next page">Demo Assignment</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

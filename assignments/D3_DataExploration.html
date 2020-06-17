@@ -1,0 +1,1089 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo Assignment &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Demo Assignment" href="D2_Pandas.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="../tutorials/00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="active">
+    <a href="">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/assignments/D3_DataExploration.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="demo-assignment">
+<h1>Demo Assignment<a class="headerlink" href="#demo-assignment" title="Permalink to this headline">¶</a></h1>
+<p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
+<div class="alert alert-danger">
+If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
+</div></div>
+<div class="section" id="assignment-reminders">
+<h1>Assignment reminders<a class="headerlink" href="#assignment-reminders" title="Permalink to this headline">¶</a></h1>
+<p><strong>This assignment has more questions than either A1 or A2! Get started as early as possible.</strong></p>
+<ul class="simple">
+<li><p>This assignment has hidden tests: tests that are not visible here, but that will be run on your submitted assignment. This means passing all the tests you can see in the notebook here does not guarantee you have the right answer!</p></li>
+<li><p>Each coding question in this assignment only requires a small amount of code, about 1-3 lines.</p>
+<ul>
+<li><p>If you find yourself writing much more than that, you might want to reconsider your approach.</p></li>
+<li><p>Use the Tutorials notebooks as reference, as they often contain similar examples to those used in the assignment.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="c1"># </span>
+<span class="c1"># Note: these are all the imports you need for this assignment!</span>
+<span class="c1"># Do not import any other functions / packages</span>
+
+<span class="c1"># Display plots directly in the notebook instead of in a new window</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configure libraries</span>
+<span class="c1"># The seaborn library makes plots look nicer</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+
+<span class="c1"># Don&#39;t display too many rows/cols of DataFrames</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="c1"># Round decimals when displaying DataFrames</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="part-1-data-wrangling-1-45-points">
+<h2>Part 1 - Data Wrangling (1.45 points)<a class="headerlink" href="#part-1-data-wrangling-1-45-points" title="Permalink to this headline">¶</a></h2>
+<p>For this assignment, you are provided with two data files that contain information on a sample of people. The two files and their columns are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">age_steps.csv</span></code>: Contains one row for each person.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: Unique identifier for the person.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code>: Age of the person.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">steps</span></code>: Number of steps the person took on average in January 2018.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">incomes.json</span></code>: Contains one record for each person.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: Unique identifier for the person. Two records with the same ID between <code class="docutils literal notranslate"><span class="pre">age_steps.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">incomes.json</span></code> correspond to the same person.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_name</span></code>: Last name of the person.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code>: First name of the person.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">income</span></code>: Income of the person in 2018.</p></li>
+</ul>
+</li>
+</ul>
+<p>For part 1 and 2 of the assignment, we recommend looking at the official 10 minutes to pandas guide: http://pandas.pydata.org/pandas-docs/stable/10min.html</p>
+<p><strong>Question 1a:</strong> Load the <code class="docutils literal notranslate"><span class="pre">age_steps.csv</span></code> file into a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame named <code class="docutils literal notranslate"><span class="pre">df_steps</span></code>. It should have 11257 rows and 3 columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df_steps</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">df_steps</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">11257</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 1b:</strong> Load the <code class="docutils literal notranslate"><span class="pre">incomes.json</span></code> file into a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame called <code class="docutils literal notranslate"><span class="pre">df_income</span></code>. The DataFrame should have 13332 rows and 4 columns.</p>
+<p>Hint: Find a pandas function similar to <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> for JSON files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df_income</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">df_income</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">13332</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 1c:</strong> Drop the <code class="docutils literal notranslate"><span class="pre">first_name</span></code> and <code class="docutils literal notranslate"><span class="pre">last_name</span></code> columns from the <code class="docutils literal notranslate"><span class="pre">df_income</span></code> DataFrame. The resulting DataFrame should only have two columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="s1">&#39;first_name&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_income</span><span class="o">.</span><span class="n">columns</span>
+<span class="k">assert</span> <span class="s1">&#39;last_name&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_income</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 1d:</strong> Merge the <code class="docutils literal notranslate"><span class="pre">df_steps</span></code> and <code class="docutils literal notranslate"><span class="pre">df_income</span></code> DataFrames into a single combined DataFrame called <code class="docutils literal notranslate"><span class="pre">df</span></code>. Use the <code class="docutils literal notranslate"><span class="pre">id</span></code> column to match rows together.</p>
+<p>The final DataFrame should have 10,135 rows and 4 columns: <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">income</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, and <code class="docutils literal notranslate"><span class="pre">steps</span></code>.</p>
+<p>Call an appropriate <code class="docutils literal notranslate"><span class="pre">pandas</span></code> method to perform this operation; don’t write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. (In general, writing a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop for a DataFrame will produce poor results.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;steps&#39;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">10135</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 1e:</strong> Reorder the columns of <code class="docutils literal notranslate"><span class="pre">df</span></code> so that they appear in the order: <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">steps</span></code>, then <code class="docutils literal notranslate"><span class="pre">income</span></code>.</p>
+<p>(Note: If your DataFrame is already in this order, just put <code class="docutils literal notranslate"><span class="pre">df</span></code> in this cell.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;steps&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 1f:</strong> You may have noticed something strange: the merged <code class="docutils literal notranslate"><span class="pre">df</span></code> DataFrame has fewer rows than either of <code class="docutils literal notranslate"><span class="pre">df_steps</span></code> and <code class="docutils literal notranslate"><span class="pre">df_income</span></code>. Why did this happen? (If you’re unsure, check out the documentation for the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> method you used to merge these two datasets. Take note of the default values set for this method’s parameters.)</p>
+<p>Please select the <strong>one</strong> correct explanation below and save your answer in the variable <code class="docutils literal notranslate"><span class="pre">q1f_answer</span></code>. For example, if you believe choice number 4 explains why <code class="docutils literal notranslate"><span class="pre">df</span></code> has fewer rows, set <code class="docutils literal notranslate"><span class="pre">q1f_answer</span> <span class="pre">=</span> <span class="pre">4</span></code>.</p>
+<ol class="simple">
+<li><p>Some steps were recorded inaccurately in <code class="docutils literal notranslate"><span class="pre">df_steps</span></code>.</p></li>
+<li><p>Some incomes were recorded inaccurately in <code class="docutils literal notranslate"><span class="pre">df_income</span></code>.</p></li>
+<li><p>There are fewer rows in <code class="docutils literal notranslate"><span class="pre">df_steps</span></code> than in <code class="docutils literal notranslate"><span class="pre">df_income</span></code>.</p></li>
+<li><p>There are fewer columns in <code class="docutils literal notranslate"><span class="pre">df_steps</span></code> than in <code class="docutils literal notranslate"><span class="pre">df_income</span></code>.</p></li>
+<li><p>Some <code class="docutils literal notranslate"><span class="pre">id</span></code> values in either <code class="docutils literal notranslate"><span class="pre">df_steps</span></code> and <code class="docutils literal notranslate"><span class="pre">df_income</span></code> were missing in the other DataFrame.</p></li>
+<li><p>Some <code class="docutils literal notranslate"><span class="pre">id</span></code> values were repeated in <code class="docutils literal notranslate"><span class="pre">df_steps</span></code> and in <code class="docutils literal notranslate"><span class="pre">df_income</span></code>.</p></li>
+</ol>
+<p>You may use the cell below to run whatever code you want to check the statements above. Just make sure to set <code class="docutils literal notranslate"><span class="pre">q1f_answer</span></code> once you’ve selected a choice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">q1f_answer</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-data-cleaning-0-9-points">
+<h2>Part 2 - Data Cleaning (0.9 points)<a class="headerlink" href="#part-2-data-cleaning-0-9-points" title="Permalink to this headline">¶</a></h2>
+<p>Before proceeding with analysis, we need to check our data for missing values.</p>
+<p>There are many reasons data might contain missing values. Here are two common ones:</p>
+<ul class="simple">
+<li><p><strong>Nonresponse.</strong> For example, people might have left a field blank when responding to a survey, or left the entire survey blank.</p></li>
+<li><p><strong>Lost in entry.</strong> Data might have been lost after initial recording. For example, a disk cleanup might accidentally wipe older entries of a database.</p></li>
+</ul>
+<p>In general, it is <strong>not</strong> appropriate to simply drop missing values from the dataset or pretend that if filled in they would not change your results. In 2016, many polls mistakenly predicted that Hillary Clinton would easily win the Presidential election by committing this error.</p>
+<p>In this particular dataset, however, the <strong>missing values occur completely at random</strong>. This criteria allows us to drop missing values without significantly affecting our conclusions.</p>
+<p><strong>Question 2a:</strong> How many values are missing in the <code class="docutils literal notranslate"><span class="pre">income</span></code> column of <code class="docutils literal notranslate"><span class="pre">df</span></code>? Save this number into a variable called <code class="docutils literal notranslate"><span class="pre">n_nan</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">n_nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 2b:</strong> Remove all rows from <code class="docutils literal notranslate"><span class="pre">df</span></code> that have missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove all rows from df that have missing data. In other words, remove all rows with NaN values.</span>
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;income&#39;</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">9684</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 2c:</strong> Note that we can now compute the average income. If your <code class="docutils literal notranslate"><span class="pre">df</span></code> variable contains the right values, <code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> should produce the value <code class="docutils literal notranslate"><span class="pre">25508.84</span></code>.</p>
+<p>Suppose that we didn’t drop the missing incomes. What will running <code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> output? Use the variable <code class="docutils literal notranslate"><span class="pre">q2c_answer</span></code> to record which of the below statements you think is true. As usual, you can use the cell below to run any code you’d like in order to help you answer this question as long as you set <code class="docutils literal notranslate"><span class="pre">q2c_answer</span></code> once you’ve finished.</p>
+<ol class="simple">
+<li><p>No change; <code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will ignore the missing values and output <code class="docutils literal notranslate"><span class="pre">25508.84</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will produce an error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will output <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will output <code class="docutils literal notranslate"><span class="pre">nan</span></code> (not a number).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will fill in the missing values with the average income, then compute the average.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will fill in the missing values with <code class="docutils literal notranslate"><span class="pre">0</span></code>, then compute the average.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">q2c_answer</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 2d:</strong> Suppose that missing incomes did not occur at random, and that individuals with incomes below $10000 a year are less likely to report their incomes. If so, which of the following statements below is true? Record your choice in the variable <code class="docutils literal notranslate"><span class="pre">q2d_answer</span></code>.</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will likely output a value that is the same as the population’s average income</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will likely output a value that is smaller than the population’s average income.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will likely output a value that is larger than the population’s average income.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df['income'].mean()</span></code> will raise an error.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">q2d_answer</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-3-data-visualization-0-9-points">
+<h2>Part 3: Data Visualization (0.9 points)<a class="headerlink" href="#part-3-data-visualization-0-9-points" title="Permalink to this headline">¶</a></h2>
+<p>Although <code class="docutils literal notranslate"><span class="pre">pandas</span></code> only displays a few rows of a DataFrame at a time, we can use data visualizations to quickly determine the <strong>distributions</strong> of values within our data.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> comes with some plotting capabilities built-in; however, we’ve discussed using <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> for visualization in class. You’re free to use either here in this assignment. (To learn more about <code class="docutils literal notranslate"><span class="pre">pandas</span></code>’ plotting capabilities, we suggest taking a look at [https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html] for examples.)</p>
+<p>We want to note that most plotting libraries in Python are built on top of a library called <a class="reference external" href="https://matplotlib.org/"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a>, including the plotting methods used in both <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>. Although you won’t need to know <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> for this assignment, you will likely have to use it in future assignments and your final project, so keep the library in mind.</p>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>Everywhere that we ask you to create a plot, make sure to leave the <code class="docutils literal notranslate"><span class="pre">plt.gcf()</span></code> line at the end of the cell. Otherwise, you will lose points in the autograder.</p></li>
+<li><p>For all your histograms, use <strong>25 bins</strong>.</p></li>
+</ul>
+<p><strong>Question 3a:</strong> Plot a histogram of the <code class="docutils literal notranslate"><span class="pre">age</span></code> column with 25 bins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f1</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+
+<span class="c1"># If you fail this test, you didn&#39;t use 25 bins for your histogram.</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">f1</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">patches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">25</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3b:</strong> By looking at the plot, what is the approximate average (mean) age of the individuals in <code class="docutils literal notranslate"><span class="pre">df</span></code>? Round the value to the closest year. Store the answer in the variable <code class="docutils literal notranslate"><span class="pre">average_age</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">average_age</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3c:</strong> Plot a histogram of the <code class="docutils literal notranslate"><span class="pre">steps</span></code> column with 25 bins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f2</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3d:</strong> By looking at the plot you just generated, approximately how many people in <code class="docutils literal notranslate"><span class="pre">df</span></code> do the data suggest took no steps? Store the letter that best corresponds to your answer in the variable <code class="docutils literal notranslate"><span class="pre">no_steps</span></code>. (For example, if you thought the answer was <code class="docutils literal notranslate"><span class="pre">A)</span> <span class="pre">0</span></code>, your response would be <code class="docutils literal notranslate"><span class="pre">no_steps</span> <span class="pre">=</span> <span class="pre">'A'</span></code>.</p>
+<ul class="simple">
+<li><p>A) 0</p></li>
+<li><p>B) 100</p></li>
+<li><p>C) 1000</p></li>
+<li><p>D) 10000</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">no_steps</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3e:</strong> Plot a histogram of the <code class="docutils literal notranslate"><span class="pre">income</span></code> column with 25 bins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f3</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3f</strong> Which of the following statements is true about the income of the individuals included in <code class="docutils literal notranslate"><span class="pre">df</span></code>? Store the letter corresponding to your answer in the variable <code class="docutils literal notranslate"><span class="pre">income_plot</span></code>. (<em>Note</em>: Be sure to consider the bin size of the x-axis when interpreting the plot.)</p>
+<ul class="simple">
+<li><p>A) Most people in <code class="docutils literal notranslate"><span class="pre">df</span></code> had no income in 2018</p></li>
+<li><p>B) Most people in <code class="docutils literal notranslate"><span class="pre">df</span></code> made a six figure salary in 2018</p></li>
+<li><p>C) Most people in <code class="docutils literal notranslate"><span class="pre">df</span></code> made a salary of more than 200000 USD in 2018</p></li>
+<li><p>D) A few people in <code class="docutils literal notranslate"><span class="pre">df</span></code> made a lot more money than the typical person in <code class="docutils literal notranslate"><span class="pre">df</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">income_plot</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3g:</strong> Plot the data using the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code> function. Only plot the <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">steps</span></code>, and <code class="docutils literal notranslate"><span class="pre">income</span></code> columns.</p>
+<p>Note: Including the parameter: <code class="docutils literal notranslate"><span class="pre">figsize</span> <span class="pre">=</span> <span class="pre">(8,</span> <span class="pre">6)</span></code> will increase the size of the plot for easier viewing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f4</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3h:</strong> By looking at the plot matrix you just generated, deteremine the approximate age of the wealthiest person in <code class="docutils literal notranslate"><span class="pre">df</span></code>. Store this value (to the nearest year) in the variable <code class="docutils literal notranslate"><span class="pre">wealthy_age</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">wealthy_age</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-4-data-pre-processing-1-45-points">
+<h2>Part 4: Data Pre-Processing (1.45 points)<a class="headerlink" href="#part-4-data-pre-processing-1-45-points" title="Permalink to this headline">¶</a></h2>
+<p>In the above sections, we performed basic data cleaning and visualization.</p>
+<p>In practice, these two components of an analysis pipeline are often combined into an iterative approach. We go back and forth between looking at the data, checking for issues, and cleaning the data.</p>
+<p>Let’s continue with an iterative procedure of data cleaning and visualization, addressing some issues that we notice after visualizing the data.</p>
+<p><strong>Question 4a:</strong> In the visualization of the <code class="docutils literal notranslate"><span class="pre">steps</span></code> column, we notice a large number of <code class="docutils literal notranslate"><span class="pre">-1</span></code> values. Count how many rows in <code class="docutils literal notranslate"><span class="pre">df</span></code> have <code class="docutils literal notranslate"><span class="pre">-1</span></code> in their <code class="docutils literal notranslate"><span class="pre">steps</span></code> column. Store the result in the variable <code class="docutils literal notranslate"><span class="pre">n_neg</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">n_neg</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">n_neg</span> <span class="o">&gt;</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 4b:</strong> Since it’s impossible to walk a negative number of steps, we will treat the negative values as missing data. Drop the rows with negative steps from <code class="docutils literal notranslate"><span class="pre">df</span></code>. Your answer should modify <code class="docutils literal notranslate"><span class="pre">df</span></code> itself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;steps&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may have noticed that the values in <code class="docutils literal notranslate"><span class="pre">income</span></code> are not normally distributed which can hurt prediction ability in some scenarios. To address this, we will perform a log transformation on the <code class="docutils literal notranslate"><span class="pre">income</span></code> values.</p>
+<p>First though, we will have to deal with any income values that are 0. Note that these values are not impossible values — they may, for example, represent people who are unemployed. So, we shouldn’t remove these individuals; however, when we go to log-transform these data, we can’t (mathematically) have any zero values. We’ll replace the zeroes with ones, to allow for log transformation, while retaining the fact that these indivduals’ income was lower than others in the dataset.</p>
+<p><strong>Question 4c:</strong> Add a new column to <code class="docutils literal notranslate"><span class="pre">df</span></code> called <code class="docutils literal notranslate"><span class="pre">income10</span></code>. It should contain the same values as <code class="docutils literal notranslate"><span class="pre">income</span></code> with all <code class="docutils literal notranslate"><span class="pre">0</span></code> values replaced with <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>Hint: There is a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> function <code class="docutils literal notranslate"><span class="pre">replace</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;steps&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">,</span> <span class="s1">&#39;income10&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;income10&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 4d:</strong> Now, transform the <code class="docutils literal notranslate"><span class="pre">income10</span></code> column using a log-base-10 transform. That is, replace each value in <code class="docutils literal notranslate"><span class="pre">income10</span></code> with the $ log_{10} $ of that value.</p>
+<p>Note: Be sure you underestand the difference between <code class="docutils literal notranslate"><span class="pre">np.log</span></code> and <code class="docutils literal notranslate"><span class="pre">np.log10</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;income10&#39;</span><span class="p">]),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;income10&#39;</span><span class="p">]),</span> <span class="mf">5.867</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 4e:</strong> Now, make a histogram for <code class="docutils literal notranslate"><span class="pre">income10</span></code> data after the data transformation. Again, use 25 bins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f4</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+
+<span class="c1"># If you fail this test, you didn&#39;t use 25 bins for your histogram.</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">f4</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">patches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">25</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 4f:</strong> From this plot, determine approximately how many individuals in <code class="docutils literal notranslate"><span class="pre">df</span></code> had a reported income of 0. Store this value in the variable <code class="docutils literal notranslate"><span class="pre">income_zero</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">income_zero</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 4g:</strong> We might also have certain regulations or restrictions that we need to follow about the data. Here, we will only analyze adults. Remove all rows from <code class="docutils literal notranslate"><span class="pre">df</span></code> where age is less than 18.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">assert</span> <span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">18</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8590</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-5-basic-analyses-1-1-points">
+<h2>Part 5 - Basic Analyses (1.1 points)<a class="headerlink" href="#part-5-basic-analyses-1-1-points" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have wrangled and cleaned our data, we can start doing some simple analyses.</p>
+<p>Here we will explore some basic descriptive summaries of our data, look into the inter-relations (correlations) between variables, and ask some simple questions about potentially interesting subsets of our data.</p>
+<p><strong>Question 5a:</strong> Use the <code class="docutils literal notranslate"><span class="pre">describe</span></code> <code class="docutils literal notranslate"><span class="pre">pandas</span></code> method to check a descriptive summary of the data. Save the DataFrame generated by <code class="docutils literal notranslate"><span class="pre">describe</span></code> to a new variable called <code class="docutils literal notranslate"><span class="pre">desc</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">desc</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 5b:</strong> Calculate the pairwise correlations between all variables.</p>
+<p>Note: do this with a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> method. Keep all columns (including ID). Assign the result (which should be a DataFrame) to a variable called <code class="docutils literal notranslate"><span class="pre">corrs</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">corrs</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">corrs</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 5c:</strong> Answer the following questions by setting your answer variables to either <code class="docutils literal notranslate"><span class="pre">'age'</span></code>, <code class="docutils literal notranslate"><span class="pre">'steps'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'income'</span></code>.</p>
+<ul class="simple">
+<li><p>Which variable is most correlated with age (aside from <code class="docutils literal notranslate"><span class="pre">age</span></code> itself)? Record your answer in a variable called <code class="docutils literal notranslate"><span class="pre">age_corr</span></code>.</p></li>
+<li><p>Which variable is most correlated with income (aside from <code class="docutils literal notranslate"><span class="pre">income</span></code> and <code class="docutils literal notranslate"><span class="pre">income10</span></code>)? Record your answer in a variable called <code class="docutils literal notranslate"><span class="pre">inc_corr</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">age_corr</span>
+<span class="k">assert</span> <span class="n">age_corr</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;steps&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">inc_corr</span>
+<span class="k">assert</span> <span class="n">inc_corr</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;steps&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 5d:</strong> How many steps would you have to walk to be in the top 10% of walkers? Save your answer as a variable called <code class="docutils literal notranslate"><span class="pre">top_walker</span></code>.</p>
+<p>Hint: check out the <code class="docutils literal notranslate"><span class="pre">quantile</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">top_walker</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">top_walker</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 5e:</strong> What is the average income for people over the age of 65? Save your response in a variable called <code class="docutils literal notranslate"><span class="pre">old_income</span></code>.</p>
+<p>Note: We’re asking for the actual income, not the log-10 of income.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">old_income</span>
+<span class="k">assert</span> <span class="n">old_income</span> <span class="o">&gt;</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-6-predictions-1-7-points">
+<h1>Part 6 - Predictions (1.7 points)<a class="headerlink" href="#part-6-predictions-1-7-points" title="Permalink to this headline">¶</a></h1>
+<p>Many analyses ask predictive questions in which data we have currently are used to build a model to predict something about the future (data we do not yet have).</p>
+<p>Here we will explore some basic predictions, looking into whether we might be able to predict income from our other variables.</p>
+<p>Note: You will use the <code class="docutils literal notranslate"><span class="pre">np.polyfit</span></code> function from <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> as we did in <a class="reference external" href="https://nbviewer.jupyter.org/github/COGS108/Tutorials/blob/master/02-DataAnalysis.ipynb">Tutorials/02-DataAnalysis</a>.</p>
+<p><strong>Question 6a:</strong> Use polyfit to fit a 1-degree linear model, predicting income from age. Call the output parameters <code class="docutils literal notranslate"><span class="pre">a1</span></code> and <code class="docutils literal notranslate"><span class="pre">b1</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">assert</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span>
+
+<span class="c1"># If you fail these tests, your parameter values are quite far from what they</span>
+<span class="c1"># should be.</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6b:</strong> Use the model parameters from 6a to predict the income of a 75-year-old. Call your prediction <code class="docutils literal notranslate"><span class="pre">pred_75</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">assert</span><span class="p">(</span><span class="n">pred_75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6c:</strong> Use polyfit once more to fit a 1-degree linear model, predicting income from steps. Call the output parameters <code class="docutils literal notranslate"><span class="pre">a2</span></code> and <code class="docutils literal notranslate"><span class="pre">b2</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span>
+
+<span class="c1"># If you fail these tests, your parameter values are quite far from what they</span>
+<span class="c1"># should be.</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">100</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6d:</strong> Predict the income of someone who took 10,000 steps. Call your prediction <code class="docutils literal notranslate"><span class="pre">pred_10k</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">assert</span><span class="p">(</span><span class="n">pred_10k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6e:</strong> To better understand a model, we can visualize its predictions. Use your first model to predict income from each integer age in between 18 and 80. Your predictions should be stored in a numpy array of floats called <code class="docutils literal notranslate"><span class="pre">pred_age</span></code>.</p>
+<p>Reminder: <code class="docutils literal notranslate"><span class="pre">numpy</span></code> has the <code class="docutils literal notranslate"><span class="pre">arange</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pred_age</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_age</span><span class="p">)</span> <span class="o">==</span> <span class="mi">63</span>
+
+<span class="c1"># Your array should contain decimals, not integers</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pred_age</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6f:</strong> Make a scatter plot with income on the y-axis and age on the x-axis. Then, draw your predictions as a red line on top of the scatter plot. The data in your plot and your line should look like this (although the exact colors/dimensions/appearance may differ a bit):</p>
+<p><img alt="" src="assignments/income_steps_pred.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]),</span><span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]))</span>
+<span class="c1">#np.arange(18, 81)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f5</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f5</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6g:</strong> Now, let’s do the same for the model that uses steps.</p>
+<p>Use your second model to predict income from each multiple of 100 steps in between 2000 and 13000. Your predictions should be stored in a numpy array called <code class="docutils literal notranslate"><span class="pre">pred_steps</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pred_steps</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_steps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">111</span>
+<span class="c1"># Your array should contain decimals, not integers</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pred_steps</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6h:</strong> Make a scatter plot with income on the y-axis and steps on the x-axis. Then, draw your predictions as a red line on top of the scatter plot. Your plot should look like this:</p>
+<p><img alt="" src="assignments/income_age_pred.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">f6</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f6</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6i:</strong> Notice that both these models perform poorly on this data. For this particular dataset, neither age nor steps seem to have a linear relationship with income. Nonetheless, fitting a linear model is simple and gives us a baseline to compare with more complex models in the future.</p>
+<p>Suppose that you were forced to pick one of the above models. Between <code class="docutils literal notranslate"><span class="pre">'age'</span></code> and <code class="docutils literal notranslate"><span class="pre">'steps'</span></code>, which predictor has higher prediction power? Save your response in the variable <code class="docutils literal notranslate"><span class="pre">model_choice</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">model_choice</span>
+<span class="k">assert</span> <span class="n">model_choice</span> <span class="ow">in</span> <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;steps&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="finished">
+<h2>Finished!<a class="headerlink" href="#finished" title="Permalink to this headline">¶</a></h2>
+<p>Have a look back over your answers, and also make sure to <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">&amp;</span> <span class="pre">Run</span> <span class="pre">All</span></code> from the kernel menu to double check that everything is working properly. You can also use the ‘Validate’ button above, which runs your notebook from top to bottom and checks to ensure all <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements pass silently. When you are ready, submit on datahub!</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="D2_Pandas.html" title="previous page">Demo Assignment</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

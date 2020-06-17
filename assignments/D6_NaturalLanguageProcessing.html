@@ -1,0 +1,1063 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo Assignment &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Materials</p>
+</li>
+  <li class="">
+    <a href="../tutorials/00-Introduction.html">Data Science in Practice</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/01-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/02-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/04-DataSciencePython.html">Data Science in Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/09-DataVisualization.html">Data Visualization with Python</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/10-Distributions.html">Distributions</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="D2_Pandas.html">Demo Assignment</a>
+  </li>
+  <li class="">
+    <a href="D3_DataExploration.html">Demo Assignment</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/assignments/D6_NaturalLanguageProcessing.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="demo-assignment">
+<h1>Demo Assignment<a class="headerlink" href="#demo-assignment" title="Permalink to this headline">¶</a></h1>
+<p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
+<div class="alert alert-danger">
+If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
+</div></div>
+<div class="section" id="important">
+<h1>Important<a class="headerlink" href="#important" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>This assignment has hidden tests: tests that are not visible here, but that will be run on your submitted assignment for grading.</p>
+<ul>
+<li><p>This means passing all the tests you can see in the notebook here does not guarantee you have the right answer!</p></li>
+<li><p>In particular many of the tests you can see simply check that the right variable names exist. Hidden tests check the actual values.</p>
+<ul>
+<li><p>It is up to you to check the values, and make sure they seem reasonable.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>A reminder to restart the kernel and re-run the code as a first line check if things seem to go weird.</p>
+<ul>
+<li><p>For example, note that some cells can only be run once, because they re-write a variable (for example, your dataframe), and change it in a way that means a second execution will fail.</p></li>
+<li><p>Also, running some cells out of order might change the dataframe in ways that may cause an error, which can be fixed by re-running.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="background-work-flow">
+<h1>Background &amp; Work Flow<a class="headerlink" href="#background-work-flow" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>In this homework assignment, we will be analyzing text data. A common approach to analyzing text data is to use methods that allow us to convert text data into some kind of numerical representation - since we can then use all of our mathematical tools on such data. In this assignment, we will explore 2 feature engineering methods that convert raw text data into numerical vectors:</p>
+<ul>
+<li><p><strong>Bag of Words (BoW)</strong></p>
+<ul>
+<li><p>BoW encodes an input sentence as the frequency of each word in the sentence.</p></li>
+<li><p>In this approach, all words contribute equally to the feature vectors.</p></li>
+</ul>
+</li>
+<li><p><strong>Term Frequency - Inverse Document Frequency (TF-IDF)</strong></p>
+<ul>
+<li><p>TF-IDF is a measure of how important each term is to a specific document, as compared to an overall corpus.</p></li>
+<li><p>TF-IDF encodes each word as its frequency in the document of interest, divided by a measure of how common the word is across all documents (the corpus).</p></li>
+<li><p>Using this approach, each word contributes differently to the feature vectors.</p></li>
+<li><p>The assumption behind using TF-IDF is that words that appear commonly everywhere are not that informative about what is specifically interesting about a document of interest, so it is tuned to representing a document in terms of the words it uses that are different from other documents.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>To compare those 2 methods, we will first apply them on the same Movie Review dataset to analyse sentiment (how positive or negative a text is). In order to make the comparison fair, an <strong>SVM (support vector machine)</strong> classifier will be used to classify positive reviews and negative reviews.</p></li>
+<li><p>SVM is a simple yet powerful and interpretable linear model. To use it as a classifier, we need to have at least 2 splits of the data: training data and test data. The training data is used to tune the weight parameters in the SVM to learn an optimal way to classify the training data. We can then test this trained SVM classifier on the test data, to see how well it works on data that the classifier has not seen before.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports - these are all the imports needed for the assignment</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Import nltk package </span>
+<span class="c1">#   PennTreeBank word tokenizer </span>
+<span class="c1">#   English language stopwords</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># scikit-learn imports</span>
+<span class="c1">#   SVM (Support Vector Machine) classifer </span>
+<span class="c1">#   Vectorizer, which transforms text data into bag-of-words feature</span>
+<span class="c1">#   TF-IDF Vectorizer that first removes widely used words in the dataset and then transforms test data</span>
+<span class="c1">#   Metrics functions to evaluate performance</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">precision_recall_fscore_support</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this assignment we will be using <code class="docutils literal notranslate"><span class="pre">nltk</span></code>: the Natural Language Toolkit.</p>
+<p>To do so, we will need to download some text data.</p>
+<p>Natural language processing (NLP) often requires corpus data (lists of words, and/or example text data) which is what we will download here now, if you don’t already have them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># In the cell below, we will download some files from nltk. </span>
+<span class="c1">#   If you hit an error doing so, come back to this cell, and uncomment and run the code below. </span>
+<span class="c1">#   This code gives python permission to write to your disk (if it doesn&#39;t already have persmission to do so)</span>
+
+<span class="c1"># import ssl</span>
+
+<span class="c1"># try:</span>
+<span class="c1">#     _create_unverified_https_context = ssl._create_unverified_context</span>
+<span class="c1"># except AttributeError:</span>
+<span class="c1">#     pass</span>
+<span class="c1"># else:</span>
+<span class="c1">#     ssl._create_default_https_context = _create_unverified_https_context</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the NLTK English tokenizer and the stopwords of all languages</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-1-sentiment-analysis-on-movie-review-data-4-25-points">
+<h1>Part 1: Sentiment Analysis on Movie Review Data (4.25 points)<a class="headerlink" href="#part-1-sentiment-analysis-on-movie-review-data-4-25-points" title="Permalink to this headline">¶</a></h1>
+<p>In part 1 we will apply sentiment analysis to Movie Review (MR) data.</p>
+<ul class="simple">
+<li><p>The MR data contains more than 10,000 reviews collected from the IMDB website, and each of the reviews is annotated as either positive or negative. The number of positive and negative reviews are roughly the same. For more information about the dataset, you can visit http://www.cs.cornell.edu/people/pabo/movie-review-data/</p></li>
+<li><p>For this homework assignment, we’ve already shuffled the data, and truncated the data to contain only 5000 reviews.</p></li>
+</ul>
+<p>In this part of the assignment we will:</p>
+<ul class="simple">
+<li><p>Transform the raw text data into vectors with the BoW encoding method</p></li>
+<li><p>Split the data into training and test sets</p></li>
+<li><p>Write a function to train an SVM classifier on the training set</p></li>
+<li><p>Test this classifier on the test set and report the results</p></li>
+</ul>
+<div class="section" id="a-import-data">
+<h2>1a) Import data<a class="headerlink" href="#a-import-data" title="Permalink to this headline">¶</a></h2>
+<p>Import the textfile ‘rt-polarity.tsv’ into a DataFrame called <code class="docutils literal notranslate"><span class="pre">MR_df</span></code>,</p>
+<p>Set the column names as ‘index’, ‘label’, ‘review’</p>
+<p>Note that ‘rt-polarity.tsv’ is a tab separated raw text file, in which data is separated by tabs (‘\t’). You can load this file with <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>, specifying the <code class="docutils literal notranslate"><span class="pre">sep</span></code> (separator) argument as tabs (‘\t’). You will have to set <code class="docutils literal notranslate"><span class="pre">header</span></code> as None.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">MR_filepath</span><span class="o">=</span><span class="s1">&#39;data/rt-polarity.tsv&#39;</span>
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the data</span>
+<span class="n">MR_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-create-a-function-that-converts-string-labels-to-numerical-labels">
+<h2>1b) Create a function that converts string labels to numerical labels<a class="headerlink" href="#b-create-a-function-that-converts-string-labels-to-numerical-labels" title="Permalink to this headline">¶</a></h2>
+<p>Function name: <code class="docutils literal notranslate"><span class="pre">convert_label</span></code></p>
+<p>The function should do the following:</p>
+<ul class="simple">
+<li><p>if the input label is “pos” return 1.0</p></li>
+<li><p>if the input label is “neg” return 0.0</p></li>
+<li><p>otherwise, return the input label as is</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">convert_label</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">callable</span><span class="p">(</span><span class="n">convert_label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c-numerical-labels">
+<h2>1c) Numerical Labels<a class="headerlink" href="#c-numerical-labels" title="Permalink to this headline">¶</a></h2>
+<p>Convert all labels in <code class="docutils literal notranslate"><span class="pre">MR_df[&quot;label&quot;]</span></code> to numerical labels, using the <code class="docutils literal notranslate"><span class="pre">convert_label</span></code> function.</p>
+<p>Save them as a new column named “y” in <code class="docutils literal notranslate"><span class="pre">MR_df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">MR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]))</span> <span class="o">==</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the MR_df data</span>
+<span class="n">MR_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-convert-text-data-into-vector">
+<h2>1d) Convert Text data into vector<a class="headerlink" href="#d-convert-text-data-into-vector" title="Permalink to this headline">¶</a></h2>
+<p>We will now create a <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> object to transform the text data into vectors with numerical values.</p>
+<p>To do so, we will initialize a <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> object, and name it as <code class="docutils literal notranslate"><span class="pre">vectorizer</span></code>.</p>
+<p>We need to pass 4 arguments to initialize a CountVectorizer:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">analyzer</span></code>: <code class="docutils literal notranslate"><span class="pre">'word'</span></code>
+Specify to analyze data from word-level.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_features</span></code>: <code class="docutils literal notranslate"><span class="pre">2000</span></code>
+Set a max number of unique words.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tokenizer</span></code>: <code class="docutils literal notranslate"><span class="pre">word_tokenize</span></code>
+Set to tokenize the text data by using the word_tokenizer from NLTK .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stop_words</span></code>: <code class="docutils literal notranslate"><span class="pre">stopwords.words('english')</span></code>
+Set to remove all stopwords in English. We do this since they generally don’t provide useful discriminative information.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span>
+<span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">max_features</span> <span class="o">==</span> <span class="mi">2000</span>
+<span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">==</span> <span class="n">word_tokenize</span>
+<span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">stop_words</span> <span class="o">==</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">vectorizer</span><span class="p">,</span> <span class="s2">&quot;fit_transform&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="e-vectorize-reviews">
+<h2>1e) Vectorize reviews<a class="headerlink" href="#e-vectorize-reviews" title="Permalink to this headline">¶</a></h2>
+<p>Transform reviews <code class="docutils literal notranslate"><span class="pre">MR_df[&quot;review&quot;]</span></code> into vectors using the <code class="docutils literal notranslate"><span class="pre">vectorizer</span></code> we created above:</p>
+<p>The method you will be using is: <code class="docutils literal notranslate"><span class="pre">MR_X</span> <span class="pre">=</span> <span class="pre">vectorizer.fit_transform(...).toarray()</span></code></p>
+<p>Note that we apply the <code class="docutils literal notranslate"><span class="pre">toarray</span></code> method to the type cast the output to a numpy array. This is something we will do multiple times, turning custom sklearn objects back into arrays.</p>
+<p>Note this may post a warning about stopwords. This is ok.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">MR_X</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-outcome-variable">
+<h2>1f)  Outcome variable<a class="headerlink" href="#f-outcome-variable" title="Permalink to this headline">¶</a></h2>
+<p>Copy out the <code class="docutils literal notranslate"><span class="pre">y</span></code> column in <code class="docutils literal notranslate"><span class="pre">MR_df</span></code> and save it as an np.array named <code class="docutils literal notranslate"><span class="pre">MR_y</span></code></p>
+<p>Make sure the shape of <code class="docutils literal notranslate"><span class="pre">MR_y</span></code> is (5000,) - depending upon your earlier approach, you <em>may</em> have to use <code class="docutils literal notranslate"><span class="pre">reshape</span></code> to do so.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">5000</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="g-defining-the-train-test-sets">
+<h2>1g) Defining the train &amp; test sets<a class="headerlink" href="#g-defining-the-train-test-sets" title="Permalink to this headline">¶</a></h2>
+<p>We first set 80% of the data as the training set to train an SVM classifier. We will then test the learnt classifier on the remaining 20% of data samples (test set). (Reminder: For this homework assignment, we’ve already shuffled the data)</p>
+<ul class="simple">
+<li><p>Calculate the number of training data samples (80% of total) and store it in <code class="docutils literal notranslate"><span class="pre">num_training</span></code></p></li>
+<li><p>Calculate the number of test data samples (20% of total) and store it in <code class="docutils literal notranslate"><span class="pre">num_testing</span></code></p></li>
+<li><p>Make sure both of these variables are of type <code class="docutils literal notranslate"><span class="pre">int</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">num_training</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">num_testing</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="h-extracting-train-test-data">
+<h2>1h)  Extracting train &amp; test Data<a class="headerlink" href="#h-extracting-train-test-data" title="Permalink to this headline">¶</a></h2>
+<p>Split the <code class="docutils literal notranslate"><span class="pre">MR_X</span></code> and <code class="docutils literal notranslate"><span class="pre">MR_y</span></code> into training set and test set. You should use the <code class="docutils literal notranslate"><span class="pre">num_training</span></code> variable to extract the data from MR_X and MR_y.</p>
+<p>Extract the first <code class="docutils literal notranslate"><span class="pre">num_training</span></code> samples as training data, and extract the rest as test data.</p>
+<p>Name them as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MR_train_X</span></code> and <code class="docutils literal notranslate"><span class="pre">MR_train_y</span></code> for the training set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MR_test_X</span></code> and <code class="docutils literal notranslate"><span class="pre">MR_test_y</span></code> for the test set</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_train_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">MR_train_y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">MR_test_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">MR_test_y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">MR_train_X</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4000</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">MR_test_y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="i-svm">
+<h2>1i) SVM<a class="headerlink" href="#i-svm" title="Permalink to this headline">¶</a></h2>
+<p>Define a function called <code class="docutils literal notranslate"><span class="pre">train_SVM</span></code> that initializes an SVM classifier and trains it</p>
+<p>Inputs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code>: np.ndarray, training samples,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: np.ndarray, training labels,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kernel</span></code>: string, set the default value of “kernel” as “linear”</p></li>
+</ul>
+<p>Output: a trained classifier <code class="docutils literal notranslate"><span class="pre">clf</span></code></p>
+<p>Hint: There are 2 steps involved in this function:</p>
+<ul class="simple">
+<li><p>Initializing an SVM classifier: <code class="docutils literal notranslate"><span class="pre">clf</span> <span class="pre">=</span> <span class="pre">SVC(...)</span></code></p></li>
+<li><p>Training the classifier: <code class="docutils literal notranslate"><span class="pre">clf.fit(X,</span> <span class="pre">y)</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_SVM</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">):</span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">callable</span><span class="p">(</span><span class="n">train_SVM</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="j-train-svm">
+<h2>1j) Train SVM<a class="headerlink" href="#j-train-svm" title="Permalink to this headline">¶</a></h2>
+<p>Train an SVM classifier with the default linear kernel on the samples <code class="docutils literal notranslate"><span class="pre">MR_train_X</span></code> and the labels <code class="docutils literal notranslate"><span class="pre">MR_train_y</span></code></p>
+<p>You need to call the function <code class="docutils literal notranslate"><span class="pre">train_SVM</span></code> you just created. Name the returned object as <code class="docutils literal notranslate"><span class="pre">MR_clf</span></code>.</p>
+<p>Note that running this function may take many seconds / up to a few minutes to run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MR_clf</span><span class="p">,</span> <span class="s2">&quot;predict&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="k-predict-outcome">
+<h2>1k) Predict outcome<a class="headerlink" href="#k-predict-outcome" title="Permalink to this headline">¶</a></h2>
+<p>Predict labels for both training samples and test samples. You will need to use <code class="docutils literal notranslate"><span class="pre">MR_clf.predict(...)</span></code></p>
+<p>Name the predicted labels for the training samples as <code class="docutils literal notranslate"><span class="pre">MR_predicted_train_y</span></code>.
+Name the predicted labels for the testing samples as <code class="docutils literal notranslate"><span class="pre">MR_predicted_test_y</span></code>.</p>
+<p>Your code here will also take a minute to run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will use the function <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> to print out the performance of the classifier on the training set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach above 90% accuracy </span>
+<span class="c1"># on the training set</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">MR_train_y</span><span class="p">,</span><span class="n">MR_predicted_train_y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And finally, we check the performance of the trained classifier on the test set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach around 70% accuracy on the test set.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">MR_test_y</span><span class="p">,</span> <span class="n">MR_predicted_test_y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_predicted_train_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4000</span><span class="p">,)</span>
+<span class="k">assert</span> <span class="n">MR_predicted_test_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,)</span>
+
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">MR_train_y</span><span class="p">,</span><span class="n">MR_predicted_train_y</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.91</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.92</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-tf-idf-1-25-points">
+<h1>Part 2: TF-IDF (1.25 points)<a class="headerlink" href="#part-2-tf-idf-1-25-points" title="Permalink to this headline">¶</a></h1>
+<p>In this part, we will explore TF-IDF on sentiment analysis.</p>
+<p>TF-IDF is used as an alternate way to encode text data, as compared to the BoW approach used in Part 1.</p>
+<p>To do this, we will:</p>
+<ul class="simple">
+<li><p>Transform the raw text data into vectors using TF-IDF</p></li>
+<li><p>Train an SVM classifier on the training set and report the performance this classifer on the test set</p></li>
+</ul>
+<div class="section" id="a-text-data-to-vectors">
+<h2>2a) Text Data to Vectors<a class="headerlink" href="#a-text-data-to-vectors" title="Permalink to this headline">¶</a></h2>
+<p>We will create a <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> object to transform the text data into vectors with TF-IDF</p>
+<p>To do so, we will initialize a <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> object, and name it as <code class="docutils literal notranslate"><span class="pre">tfidf</span></code>.</p>
+<p>We need to pass 4 arguments into the “TfidfVectorizer” to initialize a “tfidf”:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sublinear_tf</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code>
+Set to apply TF scaling.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">analyzer</span></code>: <code class="docutils literal notranslate"><span class="pre">'word'</span></code>
+Set to analyze the data at the word-level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_features</span></code>: <code class="docutils literal notranslate"><span class="pre">2000</span></code>
+Set the max number of unique words</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tokenizer</span></code>: <code class="docutils literal notranslate"><span class="pre">word_tokenize</span></code>
+Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span>
+<span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">max_features</span> <span class="o">==</span> <span class="mi">2000</span>
+<span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">==</span> <span class="n">word_tokenize</span>
+<span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">stop_words</span> <span class="o">==</span> <span class="kc">None</span>
+<span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">vectorizer</span><span class="p">,</span> <span class="s2">&quot;fit_transform&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-transform-reviews">
+<h2>2b) Transform Reviews<a class="headerlink" href="#b-transform-reviews" title="Permalink to this headline">¶</a></h2>
+<p>Transform the <code class="docutils literal notranslate"><span class="pre">review</span></code> column of MR_df into vectors using the <code class="docutils literal notranslate"><span class="pre">tfidf</span></code> we created above.</p>
+<p>Save the transformed data into a variable called <code class="docutils literal notranslate"><span class="pre">MR_tfidf_X</span></code></p>
+<p>Hint: You might need to cast the datatype of <code class="docutils literal notranslate"><span class="pre">MR_tfidf_X</span></code> to <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> by using <code class="docutils literal notranslate"><span class="pre">.toarray()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_tfidf_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="s2">&quot;skills&quot;</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">stop_words_</span><span class="p">)</span>
+<span class="k">assert</span> <span class="s2">&quot;risky&quot;</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">stop_words_</span><span class="p">)</span>
+<span class="k">assert</span> <span class="s2">&quot;adopts&quot;</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">stop_words_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c">
+<h2>2c)<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h2>
+<p>Split the <code class="docutils literal notranslate"><span class="pre">MR_tfidf_X</span></code> and <code class="docutils literal notranslate"><span class="pre">MR_y</span></code> into training set and test set.</p>
+<p>Name these variables as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MR_train_tfidf_X</span></code> and <code class="docutils literal notranslate"><span class="pre">MR_train_tfidf_y</span></code> for the training set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MR_test_tfidf_X</span></code> and <code class="docutils literal notranslate"><span class="pre">MR_test_tfidf_y</span></code> for the test set</p></li>
+</ul>
+<p>We will use the same 80/20 split as in part 1. You can use the same <code class="docutils literal notranslate"><span class="pre">num_training</span></code> variable from part 1 to split up the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_train_tfidf_X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="n">MR_tfidf_X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">MR_train_tfidf_X</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">MR_test_tfidf_X</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-training">
+<h2>2d) Training<a class="headerlink" href="#d-training" title="Permalink to this headline">¶</a></h2>
+<p>Train an SVM classifier on the samples <code class="docutils literal notranslate"><span class="pre">MR_train_tfidf_X</span></code> and the labels <code class="docutils literal notranslate"><span class="pre">MR_train_tfidf_y</span></code>.</p>
+<p>You need to call the function <code class="docutils literal notranslate"><span class="pre">train_SVM</span></code> you created in part 1. Name the returned object as <code class="docutils literal notranslate"><span class="pre">MR_tfidf_clf</span></code>.</p>
+<p>Note that this may take many seconds, up to a few minutes, to run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MR_tfidf_clf</span><span class="p">,</span> <span class="s2">&quot;predict&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="e-prediction">
+<h2>2e) Prediction<a class="headerlink" href="#e-prediction" title="Permalink to this headline">¶</a></h2>
+<p>Predict the labels for both the training and test samples (the ‘X’ data). You will need to use <code class="docutils literal notranslate"><span class="pre">MR_tfidf_clf.predict(...)</span></code></p>
+<p>Name the predicted labels on training samples as <code class="docutils literal notranslate"><span class="pre">MR_pred_train_tfidf_y</span></code>. Name the predicted labels on testing samples as <code class="docutils literal notranslate"><span class="pre">MR_pred_test_tfidf_y</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, we use <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> to check the performance on the training set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach above 85% accuracy.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">MR_train_tfidf_y</span><span class="p">,</span> <span class="n">MR_pred_train_tfidf_y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, check performance on the test set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach around 70% accuracy.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">MR_test_tfidf_y</span><span class="p">,</span> <span class="n">MR_pred_test_tfidf_y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">MR_train_tfidf_y</span><span class="p">,</span> <span class="n">MR_pred_train_tfidf_y</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.86</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.87</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="written-answer-question">
+<h2>Written Answer Question<a class="headerlink" href="#written-answer-question" title="Permalink to this headline">¶</a></h2>
+<p>How does the performance of the TF-IDF classifier compare to the classifier used in part 1?</p>
+<p>YOUR ANSWER HERE</p>
+</div>
+</div>
+<div class="section" id="part-3-sentiment-analysis-on-customer-review-with-tf-idf-2-points">
+<h1>Part 3: Sentiment Analysis on Customer Review with TF-IDF (2 points)<a class="headerlink" href="#part-3-sentiment-analysis-on-customer-review-with-tf-idf-2-points" title="Permalink to this headline">¶</a></h1>
+<p>In this part, we will use TF-IDF to analyse the sentiment of some Customer Review (CR) data.</p>
+<p>The CR data contains around 3771 reviews, and they were all collected from the Amazon website. The reviews are annotated by humans as either positive reviews or negative reviews. In this dataset, the 2 classes are not balanced, as there are twice as many positive reviews as negative reviews.</p>
+<p>For more information on this dataset, you can visit https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html</p>
+<p>In this part, we have already split the data into a training set and a test set, in which the training set has labels for the reviews, but the test set doesn’t.</p>
+<p>The goal is to train an SVM classifier on the training set, and then predict pos/neg for each review in the test set.</p>
+<p>To do so, we will:</p>
+<ul class="simple">
+<li><p>Use the TF-IDF feature engineering method to encode the raw text data into vectors</p></li>
+<li><p>Train an SVM classifier on the training set</p></li>
+<li><p>Predict labels for the reviews in the test set</p></li>
+</ul>
+<p>The performance of your trained classifier on the test set will be checked by a hidden test.</p>
+<div class="section" id="a-loading-the-data">
+<h2>3a) Loading the data<a class="headerlink" href="#a-loading-the-data" title="Permalink to this headline">¶</a></h2>
+<p>Customer review task has 2 files</p>
+<ul class="simple">
+<li><p>“data/custrev_train.tsv” contains training data with labels</p></li>
+<li><p>“data/custrev_test.tsv” contains test data without labels which need to be predicted</p></li>
+</ul>
+<p>Import raw textfile <code class="docutils literal notranslate"><span class="pre">data/custrev_train.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">CR_train_df</span></code>. Set the column names as <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">review</span></code>.</p>
+<p>Import raw textfile <code class="docutils literal notranslate"><span class="pre">data/custrev_test.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">CR_test_df</span></code>. Set the column names as <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">review</span></code></p>
+<p>Note that both will need to be imported with <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">header</span></code> arguments (like in 1a)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CR_train_file</span> <span class="o">=</span> <span class="s1">&#39;data/custrev_train.tsv&#39;</span>
+<span class="n">CR_test_file</span> <span class="o">=</span> <span class="s1">&#39;data/custrev_test.tsv&#39;</span>
+
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_train_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_test_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="b-concatenation">
+<h2>3b) Concatenation<a class="headerlink" href="#b-concatenation" title="Permalink to this headline">¶</a></h2>
+<p>Concatenate the 2 DataFrames from the last step into a single DataFrame, and name it <code class="docutils literal notranslate"><span class="pre">CR_df</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">CR_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3771</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c-cleaning">
+<h2>3c) Cleaning<a class="headerlink" href="#c-cleaning" title="Permalink to this headline">¶</a></h2>
+<p>Convert all labels in <code class="docutils literal notranslate"><span class="pre">CR_df[&quot;label&quot;]</span></code> using the <code class="docutils literal notranslate"><span class="pre">convert_label</span></code> function we defined above. Save these numerical labels as a new column named <code class="docutils literal notranslate"><span class="pre">y</span></code> in CR_df.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-use-tfidf">
+<h2>3d)  Use <code class="docutils literal notranslate"><span class="pre">tfidf</span></code><a class="headerlink" href="#d-use-tfidf" title="Permalink to this headline">¶</a></h2>
+<p>Transform reviews <code class="docutils literal notranslate"><span class="pre">CR_df[&quot;review&quot;]</span></code> into vectors using the <code class="docutils literal notranslate"><span class="pre">tfidf</span></code> vectorizer we created in part 2. Save the transformed data into a variable called <code class="docutils literal notranslate"><span class="pre">CR_tfidf_X</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_tfidf_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we will collect all training samples &amp; numerical labels from <code class="docutils literal notranslate"><span class="pre">CR_tfidf_X</span></code>. The code provided below will extract all samples with labels from the dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># code provided to collect labels</span>
+<span class="n">CR_train_X</span> <span class="o">=</span> <span class="n">CR_tfidf_X</span><span class="p">[</span><span class="o">~</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+<span class="n">CR_train_y</span> <span class="o">=</span> <span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+
+<span class="c1"># Note: if these asserts fail, something went wrong</span>
+<span class="c1">#  Go back and check your code (in part 3) above this cell</span>
+<span class="k">assert</span> <span class="n">CR_train_X</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3016</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">CR_train_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3016</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="e-svm">
+<h2>3e) SVM<a class="headerlink" href="#e-svm" title="Permalink to this headline">¶</a></h2>
+<p>Train an SVM classifier on the samples <code class="docutils literal notranslate"><span class="pre">CR_train_X</span></code> and the labels <code class="docutils literal notranslate"><span class="pre">CR_train_y</span></code>:</p>
+<ul class="simple">
+<li><p>You need to call the function <code class="docutils literal notranslate"><span class="pre">train_SVM</span></code> you created above.</p></li>
+<li><p>Name the returned object as <code class="docutils literal notranslate"><span class="pre">CR_clf</span></code>.</p></li>
+<li><p>Note that this function will take many seconds / up to a few minutes to run.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-predict-training-data">
+<h2>3f) Predict: training data<a class="headerlink" href="#f-predict-training-data" title="Permalink to this headline">¶</a></h2>
+<p>Predict labels on the training set, and name the returned variable as <code class="docutils literal notranslate"><span class="pre">CR_pred_train_y</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the classifier accuracy on the train data</span>
+<span class="c1">#   Note that your classifier should be able to reach above 90% accuracy.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">CR_train_y</span><span class="p">,</span> <span class="n">CR_pred_train_y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">CR_train_y</span><span class="p">,</span> <span class="n">CR_pred_train_y</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.91</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect all test samples from CR_tfidf_X</span>
+<span class="n">CR_test_X</span> <span class="o">=</span> <span class="n">CR_tfidf_X</span><span class="p">[</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="g-predict-test-set">
+<h2>3g)  Predict: test set<a class="headerlink" href="#g-predict-test-set" title="Permalink to this headline">¶</a></h2>
+<p>Predict the labels on the test set. Name the returned variable as <code class="docutils literal notranslate"><span class="pre">CR_pred_test_y</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_test_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_pred_test_y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="h-convert-labels">
+<h2>3h) Convert labels<a class="headerlink" href="#h-convert-labels" title="Permalink to this headline">¶</a></h2>
+<p>Convert the predicted numerical labels back to string labels (“pos” and “neg”).</p>
+<p>Create a column called <code class="docutils literal notranslate"><span class="pre">label</span></code> in <code class="docutils literal notranslate"><span class="pre">CR_test_df</span></code> to store the converted labels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># YOUR CODE HERE</span>
+<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_test_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">CR_test_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;neg&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The hidden assignments tests for the cell above will check that your model predicts the right number of pos/neg reviews in the test data provided.</p>
+<p>We now have a model that can predict positive or negative sentiment!</p>
+<p>In the cell below, as a written answer question, briefly, in your own words, what BoW and TF/IDF word representations are, and how they differ. Also, think about and write a quick example of when and why it might be useful to automatically analyze the sentiment of text data. [This whole answer can/should be a couple of sentences].</p>
+<p>After you answer this question, you are done!</p>
+<p>YOUR ANSWER HERE</p>
+</div>
+</div>
+<div class="section" id="complete">
+<h1>Complete!<a class="headerlink" href="#complete" title="Permalink to this headline">¶</a></h1>
+<p>Good work! Have a look back over your answers, and also make sure to <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">&amp;</span> <span class="pre">Run</span> <span class="pre">All</span></code> from the kernel menu to double check that everything is working properly. While you can typically use the ‘Validate’ button above, which runs your notebook from top to bottom and checks to ensure all <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements pass silently, <em><strong>‘Validate’ may fail on this assignment as the code takes too long to run. Use Restart &amp; Run All instead</strong></em>. When you are ready, submit on datahub!</p>
+<p>Note that <em><strong>the final validation is for your reassurance and is not a required step</strong></em>. You can submit without validating. You can also submit without passing all asserts (for partial credit on the assignment). We grade whatever is submitted on datahub. We will grade your most recent submission.</p>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
