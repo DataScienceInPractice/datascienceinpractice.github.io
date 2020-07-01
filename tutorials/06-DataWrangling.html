@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -224,6 +251,10 @@
             </ul>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conclusion" class="nav-link">Conclusion</a>
+        </li>
+    
     </ul>
 </nav>
 
@@ -239,20 +270,19 @@
 <h1>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
 <div class="alert alert-success">
 'Data Wrangling' generally refers to transforming raw data into a useable form for your analyses of interest, including loading, aggregating and formating. 
-</div><p>Note: Throughout this notebook, we will be using ‘!’ to run the shell command ‘cat’ to print out the contents of example data files.</p>
+</div><p>In this notebook, we will focus on loading different types of data files. Other aspects of ‘wrangling’ such as combining different datasets will be covered in future tutorials, and are explored in the assignments.</p>
+<p>Note: Throughout this notebook, we will be using <code class="docutils literal notranslate"><span class="pre">!</span></code> to run the shell command <code class="docutils literal notranslate"><span class="pre">cat</span></code> to print out the contents of example data files.</p>
 <div class="section" id="python-i-o">
 <h2>Python I/O<a class="headerlink" href="#python-i-o" title="Permalink to this headline">¶</a></h2>
-<div class="alert alert-success">
-Python has some basic tools for I/O (input / output). 
-</div>
+<p>Let’s start with basic Python utilities for reading and loading data files.</p>
 <div class="alert alert-info">
 Official Python 
 <a href="https://docs.python.org/3/library/io.html" class="alert-link">documentation</a> 
-on I/O.
+on input / output.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Check out an example data file
-!cat files/dat.txt
+!cat files/data.txt
 </pre></div>
 </div>
 </div>
@@ -266,15 +296,15 @@ Second line of data
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, explicitly open the file object for reading</span>
-<span class="n">f_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/dat.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">file_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
 <span class="c1"># You can then loop through the file object, grabbing each line of data</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f_obj</span><span class="p">:</span>
-    <span class="c1"># Note that I&#39;m removing the new line marker at the end of each line (the &#39;\n&#39;)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_obj</span><span class="p">:</span>
+    <span class="c1"># Here we explicitly remove the new line marker at the end of each line (the &#39;\n&#39;)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
 
 <span class="c1"># File objects then have to closed when you are finished with them</span>
-<span class="n">f_obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">file_obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -285,12 +315,13 @@ Second line of data
 </div>
 </div>
 </div>
+<p>Since opening and closing files basically always goes together, there is a shortcut to do both of them together, which is the <code class="docutils literal notranslate"><span class="pre">with</span></code> keyword.</p>
+<p>By using <code class="docutils literal notranslate"><span class="pre">with</span></code>, file objects will be opened, and then automatically closed at the end of the code block.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Since opening and closing files basically always goes together, there is a shortcut to do both of them</span>
-<span class="c1">#  Use &#39;with&#39; keyword to open files, and the file object will automatically be closed at the end of the code block</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/dat.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_obj</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f_obj</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use &#39;with&#39; keyword to open, read, and then close a file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_obj</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -302,8 +333,8 @@ Second line of data
 </div>
 </div>
 </div>
-<p>Using Python’s I/O is a pretty ‘low level’ way to read data files, and often takes a lot of work sorting out the details of reading files - for example, in the above example, dealing with the new line character explicitly.</p>
-<p>As long as you have reasonably well structured data files, using standardized file types, you can use higher-level functions that will take care of a lot of these details - loading data straight into pandas data objects, for example.</p>
+<p>Using input / output functionality from standard library Python is a pretty ‘low level’ way to read data files. This strategy often takes a lot of work to organize and define the details of how files are organized and how to read them. For example, in the above simple example, we had to deal with the new line character explicitly.</p>
+<p>As long as you have reasonably well structured data files, using standardized file types, you can use higher-level functions that will take care of a lot of these details - loading data straight into <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data objects, for example.</p>
 </div>
 <div class="section" id="pandas-i-o">
 <h2>Pandas I/O<a class="headerlink" href="#pandas-i-o" title="Permalink to this headline">¶</a></h2>
@@ -313,7 +344,7 @@ Pandas has a range of functions that will automatically read in whole files of s
 <div class="alert alert-info">
 Official Pandas
 <a href="http://pandas.pydata.org/pandas-docs/stable/io.html" class="alert-link">documentation</a> 
-on I/O. 
+on input / output. 
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -332,9 +363,9 @@ on I/O.
 </div>
 <div class="section" id="file-types">
 <h2>File types<a class="headerlink" href="#file-types" title="Permalink to this headline">¶</a></h2>
-<div class="alert alert-success">
-There are many different standardized (and un-standardized) file types in which data may be stored. Here, we will start by examing CSV and JSON files. 
-</div><div class="section" id="csv-files">
+<p>There are many different file types in which data may be stored.</p>
+<p>Here, we will start by examining CSV and JSON files.</p>
+<div class="section" id="csv-files">
 <h3>CSV Files<a class="headerlink" href="#csv-files" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-success">
 'Comma Separated Value' files store data, separated by comma's. Think of them like lists.
@@ -345,7 +376,7 @@ More information on CSV files from
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Let&#39;s have a look at a csv file (printed out in plain text)
-!cat files/dat.csv
+!cat files/data.csv
 </pre></div>
 </div>
 </div>
@@ -370,8 +401,8 @@ More information on CSV files from
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can read through our file with the csv module</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/dat.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-    <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
+    <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
 </pre></div>
@@ -399,12 +430,25 @@ pd.read_csv?
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s read in our csv file</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/dat.csv&#39;</span><span class="p">),</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.csv&#39;</span><span class="p">),</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -417,21 +461,21 @@ pd.read_csv?
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>1</td>
       <td>2</td>
       <td>3</td>
       <td>4</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>5</td>
       <td>6</td>
       <td>7</td>
       <td>8</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>9</td>
       <td>10</td>
       <td>11</td>
@@ -441,6 +485,7 @@ pd.read_csv?
 </table>
 </div></div></div>
 </div>
+<p>As we can see, using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> save us from having to do more work (write more code) to use load the file.</p>
 </div>
 </div>
 <div class="section" id="json-files">
@@ -454,7 +499,7 @@ More information on JSON files from
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Let&#39;s have a look at a json file (printed out in plain text)
-!cat files/dat.json
+!cat files/data.json
 </pre></div>
 </div>
 </div>
@@ -494,7 +539,7 @@ More information on JSON files from
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a json file</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/dat.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat_file</span><span class="p">:</span>    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat_file</span><span class="p">:</span>    
     <span class="n">dat</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dat_file</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -543,13 +588,13 @@ dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in our json file with pandas</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/dat.json&#39;</span><span class="p">),</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;series&#39;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.json&#39;</span><span class="p">),</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;series&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>age            53
-firstName    John
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>firstName    John
+age            53
 dtype: object
 </pre></div>
 </div>
@@ -557,6 +602,10 @@ dtype: object
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>As a general guideline, for loading and wrangling data files, using standardized data files, and loading them with ‘higher-level’ tools such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> makes it easier to work with data files.</p>
 </div>
 </div>
 

@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Python &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jupyter Notebooks" href="02-JupyterNotebooks.html" />
+    <link rel="prev" title="Introduction" href="00-Introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Tutorials</p>
+</li>
+  <li class="">
+    <a href="00-Introduction.html">Introduction</a>
+  </li>
+  <li class="active">
+    <a href="">Python</a>
+  </li>
+  <li class="">
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="03-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="09-DataVisualization.html">Data Visualization</a>
+  </li>
+  <li class="">
+    <a href="10-Distributions.html">Distributions</a>
+  </li>
+  <li class="">
+    <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
+  </li>
+  <li class="">
+    <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
+  </li>
+  <li class="">
+    <a href="14-LinearModels.html">Linear Models</a>
+  </li>
+  <li class="">
+    <a href="15-Clustering.html">Clustering</a>
+  </li>
+  <li class="">
+    <a href="16-DimensionalityReduction.html">Dimensionality Reduction</a>
+  </li>
+  <li class="">
+    <a href="17-Classification.html">Classification</a>
+  </li>
+  <li class="">
+    <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/tutorials/01-Python.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#why-python" class="nav-link">Why Python</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#python-versions" class="nav-link">Python Versions</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#python-resources" class="nav-link">Python Resources</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#getting-un-stuck" class="nav-link">Getting Un-Stuck</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#standard-library" class="nav-link">Standard Library</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#packages" class="nav-link">Packages</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#scientific-python" class="nav-link">Scientific Python</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python">
+<h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/COGS108/Tutorials/master/img/python.png" width="400px">
+<br>
+<br><div class="alert alert-success"> 
+Python is an 
+<a href=https://en.wikipedia.org/wiki/Open-source_model class="alert-link">open-source</a>, 
+<a href=https://en.wikipedia.org/wiki/High-level_programming_language class="alert-link">high-level </a>, 
+<a href=https://en.wikipedia.org/wiki/General-purpose_programming_language class="alert-link">general purpose</a>, 
+<a href=https://en.wikipedia.org/wiki/Interpreted_language class="alert-link">interpreted</a>, 
+<a href=https://en.wikipedia.org/wiki/Programming_language class="alert-link">programming language</a>, 
+one of the most popular for data science applications. 
+</div>
+<div class="alert alert-info">
+The official Python
+<a href=https://www.python.org class="alert-link">website</a>.
+</div><div class="section" id="why-python">
+<h2>Why Python<a class="headerlink" href="#why-python" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>As a general purpose language, Python supports a large range of tasks.</p>
+<ul>
+<li><p>Or put another way: ‘Python isn’t the best at anything, but it’s second best at everything’</p></li>
+<li><p>This is useful. A data science project may include everything from scraping data from the web, analyzing a mixture or text and numerical data, computing features, training a model, creating high-quality graphs, and then hosting a website with your results.</p></li>
+</ul>
+</li>
+<li><p>Python is explicitly and by design, user-friendly.</p></li>
+<li><p>Python also has a massive user community, who contribute to a large number of high-quality, well maintained open-source tools.</p>
+<ul>
+<li><p>The best language for your project is one which has the things you need.</p></li>
+</ul>
+</li>
+<li><p>In part for the reasons listed above, Python is heavily used in industry</p></li>
+</ul>
+<div class="alert alert-info">
+The Python programming language is developed and maintained by the
+<a href=https://www.python.org/psf/ class="alert-link">Python Software Foundation</a>.
+</div></div>
+<div class="section" id="python-versions">
+<h2>Python Versions<a class="headerlink" href="#python-versions" title="Permalink to this headline">¶</a></h2>
+<p>This class uses Python3, the currently developed version of Python, and more specifically Python version 3.6 or above.</p>
+<p>Python2 has reached “End of Life” meaning it is no longer supported or maintained by the Python Organization.</p>
+</div>
+<div class="section" id="python-resources">
+<h2>Python Resources<a class="headerlink" href="#python-resources" title="Permalink to this headline">¶</a></h2>
+<p>These materials presume prior knowledge of the Python programming language.</p>
+<p>If you are note yet familiar, here are some entry level materials for learning Python:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.codecademy.com/tracks/python">Codecademy</a> is good for a beginner’s introduction to the language.</p></li>
+<li><p><a class="reference external" href="https://wiki.python.org/moin/BeginnersGuide">The Official Beginners Guide</a> is supported by the Python organization.</p></li>
+<li><p><a class="reference external" href="https://github.com/jakevdp/WhirlwindTourOfPython">Whirlwind Tour of Python</a> is a free collection of Jupyter notebooks that takes you through Python.</p>
+<ul>
+<li><p>This book is especially good (and specifically designed for) if you have some experience with programming in some other language, and want to quickly run through the specifics of Python.</p></li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-info">
+A much broader list of resources and guides for learning Python is available 
+<a href=https://github.com/openlists/PythonResources class="alert-link">here</a>.
+</div></div>
+<div class="section" id="getting-un-stuck">
+<h2>Getting Un-Stuck<a class="headerlink" href="#getting-un-stuck" title="Permalink to this headline">¶</a></h2>
+<p>At some point, you will get stuck. It happens. The internet is your friend.</p>
+<p>If you get an error, or aren’t sure how to proceed, use {your favourite search engine} with specific search terms relating to what you are trying to do. Sometimes this just means searching the error that you got.</p>
+<p>Your are likely to find responses on <a class="reference external" href="https://stackoverflow.com">StackOverflow</a> - which is basically a forum for programming questions, and a good place to find answers.</p>
+</div>
+<div class="section" id="standard-library">
+<h2>Standard Library<a class="headerlink" href="#standard-library" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success"> 
+The Standard Library refers to everything in Python that is part of standard version and install of Python.
+</div><div class="alert alert-info"> 
+The Python 
+<a href=https://docs.python.org/3/library/ class="alert-link">Standard Library</a>
+comes with a lot of basic functionality. 
+</div><p>Part of what makes Python a powerful language is the standard library itself, which is a rich set of tools for programming. However, the standard library itself does not include data science tools, and a lot of the power of Python stems for a rich ecosystem of packages that can be added and used with Python.</p>
+</div>
+<div class="section" id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success"> 
+Packages are collections of code. Packages from outside the standard library can be installed and added to Python.
+</div>
+<div class="alert alert-info"> 
+For managing and installing packages, Anaconda comes with the 
+<a href="https://conda.io/docs/using/pkgs.html" class="alert-link">conda</a>
+package manager.
+</div></div>
+<div class="section" id="scientific-python">
+<h2>Scientific Python<a class="headerlink" href="#scientific-python" title="Permalink to this headline">¶</a></h2>
+<p>When we say that Python is good for data science, and scientific computing, what we really mean is that there is a rich ecosystem of available open-source external packages, that greatly expand the capacities of the language beyond the standard library.</p>
+<p>This set of packages, which we will introduce as we go through these materials, is sometimes referred to as ‘Scientific Python’, or the ‘Scipy’ ecosystem.</p>
+<p>For the purposes of these materials, the Anaconda distribution that we are using contains all the packages you need.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00-Introduction.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="02-JupyterNotebooks.html" title="next page">Jupyter Notebooks</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

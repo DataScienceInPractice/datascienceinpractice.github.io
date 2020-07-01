@@ -31,7 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data Science in Practice" href="../tutorials/00-Introduction.html" />
+    <link rel="next" title="Introduction" href="../tutorials/00-Introduction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -68,16 +68,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="../tutorials/00-Introduction.html">Data Science in Practice</a>
+    <a href="../tutorials/00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="../tutorials/01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="../tutorials/01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="../tutorials/02-DataAnalysis.html">Data Analysis</a>
+    <a href="../tutorials/02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="../tutorials/04-DataSciencePython.html">Data Science in Python</a>
+    <a href="../tutorials/03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
@@ -92,13 +92,16 @@
     <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="../tutorials/09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="../tutorials/09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="../tutorials/10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="../tutorials/11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="../tutorials/13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -118,11 +121,35 @@
   <li class="">
     <a href="../tutorials/18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="../tutorials/A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -186,11 +213,27 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#requirements" class="nav-link">Requirements</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
             <a href="#content" class="nav-link">Content</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#license-acknowledgments" class="nav-link">License & Acknowledgments</a>
+            <a href="#how-to-use-these-materials" class="nav-link">How to Use These Materials</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#relation-to-cogs-108" class="nav-link">Relation to COGS 108</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#license" class="nav-link">License</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#acknowledgments" class="nav-link">Acknowledgments</a>
         </li>
     
     </ul>
@@ -206,35 +249,78 @@
                 
   <div class="section" id="data-science-in-practice">
 <h1>Data Science in Practice<a class="headerlink" href="#data-science-in-practice" title="Permalink to this headline">¶</a></h1>
-<p>Data Science in Practice is an open set of materials for learning and working on introductory data science.</p>
-<p>This website is a public version of the Data Science in Practice course, taught under the course code ‘COGS 108’ at UC San Diego.</p>
-<p><em>If you are in the COGS108 class at UC San Diego, this website is <strong>not</strong> the same as course materials for the class.</em></p>
+<p>Data Science in Practice is an open set of materials for learning introductory data science.</p>
+<p>This website is a public version of the Data Science in Practice course, taught as
+<a class="reference external" href="https://github.com/COGS108/">COGS 108</a>
+at UC San Diego.</p>
+<p><em>If you are in the COGS108 class at UC San Diego, this website is <strong>not</strong> the same as the materials and coursework for the class.</em></p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The goal and focus of Data Science in Practice is as an introductory course for learning Data Science, using the Python programming language. It is focused on the practical elements of doing data science - meaning on working with real data and problems.</p>
-<p>You can read more about the course outline on the
-<a class="reference external" href="https://github.com/COGS108/Overview/blob/master/COGS108-Syllabus.pdf">course syllabus</a>.</p>
+<p>The goal of Data Science in Practice is to introduce the practical elements of <em>doing</em> data science.</p>
+<p>Data science is an emerging and multidisciplinary field, organized around the practice of analyzing data, and all the questions, practices and problems that entails.</p>
+<p>These materials focus on the practical elements of finding, analyzing, interpreting and contextualizing the data analysis, in order to practice using answering questions with data.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>These materials uses the Python programming language, and presume knowledge of standard library Python.</p>
+<p>The tutorials introduce how to get Python installed in which dependencies are needed.</p>
 </div>
 <div class="section" id="content">
 <h2>Content<a class="headerlink" href="#content" title="Permalink to this headline">¶</a></h2>
-<p>This set of online materials are an openly available version of the materials from the class version, that are available to anyone outside of the official course.</p>
-<p>All the materials are available through the table of contents on the left.</p>
-<p>Currently, available materials include:</p>
+<p>Available materials include:</p>
 <ul class="simple">
-<li><p><strong>Tutorials</strong>, which are quick introductions to key topics for doing data science</p></li>
-<li><p><strong>Demo Assignments</strong>, which are openly available versions of some of the course assignments that can be worked through to practice applying these ideas</p></li>
+<li><p><strong>Tutorials</strong> which introduce key topics for doing data science</p>
+<ul>
+<li><p>These can be used to explore and learn about key topics</p></li>
 </ul>
+</li>
+<li><p><strong>Assignments</strong> which are problem sets that can be worked through</p>
+<ul>
+<li><p>These can be used to practice key skills and ideas with code</p></li>
+</ul>
+</li>
+<li><p><strong>Projects</strong> which describes how to pursue independent analysis projects</p>
+<ul>
+<li><p>This can be used as a guide for to how to continue with real data science projects</p></li>
+</ul>
+</li>
+</ul>
+<p>All the materials are listed in the table of contents in the left sidebar.</p>
+<p>Note that these materials are not created as fully detailed descriptions or formal descriptions of the topics they introduce.</p>
+<p>Rather, they seek to <em>introduce</em> key topics, <em>demonstrate</em> them in code, and allow for interaction, exploration and <em>practice</em>.</p>
+<p>Put another way, these materials are designed to be more of a map than encyclopedia.</p>
+<p>For further information on topics we introduce, these materials link to external resources.</p>
 </div>
-<div class="section" id="license-acknowledgments">
-<h2>License &amp; Acknowledgments<a class="headerlink" href="#license-acknowledgments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-to-use-these-materials">
+<h2>How to Use These Materials<a class="headerlink" href="#how-to-use-these-materials" title="Permalink to this headline">¶</a></h2>
+<p>These materials are created as <a class="reference external" href="https://jupyter.org">Jupyter Notebooks</a>, and are intended to be executed and explored in a hands-on manner.</p>
+<p>There is a download link at the top left of the page, that can be used to download each page as a notebook. This allows you to use the notebook locally, executing code, and answer questions.</p>
+</div>
+<div class="section" id="relation-to-cogs-108">
+<h2>Relation to COGS 108<a class="headerlink" href="#relation-to-cogs-108" title="Permalink to this headline">¶</a></h2>
+<p>This website hosts materials and code from a university course,
+<a class="reference external" href="https://github.com/COGS108/">COGS 108</a>,
+which is taught at UC San Diego.</p>
+<p>This set of materials are an openly available version of tutorials and coursework developed for and used in the course.</p>
+<p>These materials may still contain some references to the course which can be ignored.</p>
+<p>You can read more about the course in the
+<a class="reference external" href="https://github.com/COGS108/Overview/blob/master/COGS108-Syllabus.pdf">course syllabus</a>.</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
 <p>The materials on this website are openly available under a
 <a class="reference external" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> license.</p>
-<p>Data Science in Practice was originated by
-<a class="reference external" href="https://voyteklab.com/">Bradley Voytek</a>, and is currently primarily taught &amp; developed by
+</div>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p>Data Science in Practice was originally created by
+<a class="reference external" href="https://voyteklab.com/">Bradley Voytek</a>, and is currently primarily taught by
 <a class="reference external" href="http://www.shanellis.com/">Shannon Ellis</a>.
 This website and many of the materials were developed by
 <a class="reference external" href="https://tomdonoghue.github.io/">Tom Donoghue</a>, with additional contributions from the
 <a class="reference external" href="https://github.com/COGS108/Overview/blob/master/CONTRIBUTORS.md">course staff</a>.</p>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -251,7 +337,7 @@ This website and many of the materials were developed by
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="../tutorials/00-Introduction.html" title="next page">Data Science in Practice</a>
+    <a class='right-next' id="next-link" href="../tutorials/00-Introduction.html" title="next page">Introduction</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

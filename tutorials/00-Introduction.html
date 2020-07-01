@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Data Science in Practice &#8212; Data Science in Practice</title>
+    <title>Introduction &#8212; Data Science in Practice</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -31,7 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Jupyter Notebooks" href="01-JupyterNotebooks.html" />
+    <link rel="next" title="Python" href="01-Python.html" />
     <link rel="prev" title="Data Science in Practice" href="../docs/index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="active">
-    <a href="">Data Science in Practice</a>
+    <a href="">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -183,6 +210,10 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#alerts" class="nav-link">Alerts</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
             <a href="#what-do-you-need-for-these-tutorials" class="nav-link">What do you need for these tutorials?</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
@@ -197,15 +228,21 @@
             <a href="#computational-resources" class="nav-link">Computational Resources</a>
         </li>
     
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#installing-python" class="nav-link">Installing Python</a>
+        </li>
+    
             </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#tools" class="nav-link">Tools</a>
+            <a href="#tools" class="nav-link">Tools</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#checking-your-python-version" class="nav-link">Checking Your Python Version</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#notes" class="nav-link">Notes</a>
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
@@ -223,24 +260,42 @@
         
               <div>
                 
-  <div class="section" id="data-science-in-practice">
-<h1>Data Science in Practice<a class="headerlink" href="#data-science-in-practice" title="Permalink to this headline">¶</a></h1>
-<p>Welcome to the hands on materials for the Data Science in Practice class.</p>
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the hands on materials for Data Science in Practice.</p>
 <p>This notebook will guide through getting the tools you will need for working with these tutorials and assignments.</p>
+<div class="section" id="alerts">
+<h2>Alerts<a class="headerlink" href="#alerts" title="Permalink to this headline">¶</a></h2>
+<p>Throughout these tutorials, you will see colored ‘alert’ text:</p>
+<div class="alert alert-success">
+Green alerts provide key information and definitions.
+</div>
+<div class="alert alert-info">
+Blue alerts provide links out to further 
+<a href=https://google.com class=alert-link>resources</a>. 
+</div></div>
 <div class="section" id="what-do-you-need-for-these-tutorials">
 <h2>What do you need for these tutorials?<a class="headerlink" href="#what-do-you-need-for-these-tutorials" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="software">
 <h3>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Working install of python3.6, with the anaconda distribution (<a class="reference external" href="http://datahub.ucsd.edu">datahub</a> satisfies this requirement)</p></li>
-<li><p>Jupyter Notebooks (<a class="reference external" href="http://datahub.ucsd.edu">datahub</a> satisfies this requirement)</p></li>
-<li><p>git/GitHub</p></li>
+<li><p>Working install of Python (&gt;= 3.6), with the anaconda distribution</p>
+<ul>
+<li><p>If you are in the official class, <a class="reference external" href="http://datahub.ucsd.edu">datahub</a> satisfies this requirement</p></li>
+</ul>
+</li>
+<li><p>Jupyter Notebooks</p>
+<ul>
+<li><p>Also satisfied by <a class="reference external" href="http://datahub.ucsd.edu">datahub</a></p></li>
+</ul>
+</li>
+<li><p>git and a GitHub account</p></li>
 </ul>
 </div>
 <div class="section" id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
-<p>This class, and this series of tutorials, presumes that you already have some basic knowledge of programming.</p>
-<p>In particular it assumes some knowledge Python, covering the standard library.</p>
+<p>These tutorials presume that you do already have some basic knowledge of programming.</p>
+<p>In particular, it assumes knowledge of the Python programming language and standard library.</p>
 <p>If you are somewhat unfamiliar with Python, you can follow the links in the Python notebook to catch up.</p>
 </div>
 <div class="section" id="computational-resources">
@@ -248,27 +303,31 @@
 <p>The examples throughout these tutorials, and in the assignments are not computationally heavy.</p>
 <p>You should be able to run all these materials on any computer you have access to, assuming it will run the aforementioned tools.</p>
 </div>
+<div class="section" id="installing-python">
+<h3>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>If you are running code locally, we recommend you install a new version of Python with Anaconda, as described below</p>
+<ul>
+<li><p>If you are in the official course, you can use <a class="reference external" href="http://datahub.ucsd.edu">datahub</a> for everything you need</p></li>
+</ul>
+</li>
+<li><p>If you are on Mac, you have a native installation of python. This native installation of Python may be older, will not include the extra packages that you will need for this class, and is best left untouched.</p>
+<ul>
+<li><p>Downloading Anaconda will install a separate, independent install of Python, leaving your native install untouched.</p></li>
+</ul>
+</li>
+<li><p>Windows does not require Python natively and so it is not typically pre-installed.</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="tools">
 <h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <p>The following are a series of tools that you will need for this class</p>
-<img src="img/jupyter.png" width="300px"><div class="alert alert-success">
-Jupyter notebooks are a way to intermix code, outputs and plain text. 
-They run in a web browser, and connect to a kernel to be able to execute code. 
-</div>
-<div class="alert alert-info">
-The official Jupyter website is available 
-<a href="http://jupyter.org" class="alert-link">here</a>.
-</div>
-<hr><p>Note that you do not need to download Jupyter separately, as it comes packaged with anaconda, described below.</p>
-<hr><img src="img/NBViewer.png" width="800px"><div class="alert alert-success">
-Notebooks can be rendered on webpages, and shared with others. NBViewer is a tool to host and render notebooks.
-</div>
-<div class="alert alert-info">
-NBViewer is available 
-<a href="https://nbviewer.jupyter.org/" class="alert-link">here</a>.
-</div><p>Note that NBViewer is not a tool that you need to download, or necessarily use at all, it is simply a useful tool available online to view notebooks.</p>
-<hr><img src="img/anaconda.png" width="450px"><div class="alert alert-success">
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/COGS108/Tutorials/master/img/anaconda.png" width="350px">
+<br>
+<br><div class="alert alert-success">
 Anaconda is an open-source distribution of Python, designed for scientific computing, data science and machine learning. 
 </div>
 <div class="alert alert-info">
@@ -276,27 +335,31 @@ The anaconda website is
 <a href="https://www.anaconda.com" class="alert-link">here</a>,
 with the download page
 <a href="https://www.anaconda.com" class="alert-link">here</a>.
-</div><p>Anaconda itself is a distribution, that is, a collection of packages that are curated and maintained together, and serve as powerful.</p>
-<p>Anaconda also comes with conda, which is a package manager, allowing you to download, install, and manage other packages.</p>
-<p>The anaconda distribution includes all packages that are required for these tutorials.</p>
+</div><p>Anaconda itself is a distribution, meaning that is a version of Python with a collection of packages that are curated and maintained together.</p>
+<p>Using a pre-built distribution is useful, as it comes with the packages that you need for data science.</p>
+<p>Anaconda also comes with <code class="docutils literal notranslate"><span class="pre">conda</span></code>, which is a package manager, allowing you to download, install, and manage other packages.</p>
+<p>The anaconda distribution includes all packages that are needed for these tutorials.</p>
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/COGS108/Tutorials/master/img/jupyter.png" width="250px">
+<br>
+<br><div class="alert alert-success">
+Jupyter notebooks are a way to intermix code, outputs and plain text. 
+They run in a web browser, and connect to a kernel to be able to execute code. 
 </div>
-<div class="section" id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>If you are on Mac, you have a native installation of python. This native installation of Python may be older, will not include the extra packages that you will need for this class, and is best left untouched.</p>
-<ul>
-<li><p>Downloading anaconda will install a separate, independent install of Python, leaving your native install untouched.</p></li>
-</ul>
-</li>
-<li><p>Windows does not require Python natively and so it is not typically pre-installed.</p></li>
-<li><p>If you want a local copy (which is a good idea going forward!), follow this tutorial step-by-step. Alternatively, you can use <a class="reference external" href="http://datahub.ucsd.edu">datahub</a> for everything in this course.</p></li>
-</ul>
+<div class="alert alert-info">
+The official Jupyter website is available 
+<a href="http://jupyter.org" class="alert-link">here</a>.
+</div><p>Note that you do not need to download Jupyter separately, as it comes packaged with the Anaconda distribution.</p>
+<div class="section" id="checking-your-python-version">
+<h3>Checking Your Python Version<a class="headerlink" href="#checking-your-python-version" title="Permalink to this headline">¶</a></h3>
+<p>You can check which installation of Python you are using, and which version it is.</p>
+<p>Once you have installed anaconda, you should see you are using Python in an anaconda folder.</p>
+<p>The version number that is printed should also be 3.6 or greater.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># You can check which python you are using, and what version it is.
-#  Once you have installed anaconda, you should see you are using Python in your anaconda folder
-#  Make sure that the version you have is 3.6 (or at least 3.X)
-#  Note: these are command-line functions that may not work on windows
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Check the installed version of Python
+#   Note: these are command-line functions that may not work on windows
 !which python
 !python --version
 </pre></div>
@@ -311,16 +374,28 @@ with the download page
 </div>
 </div>
 </div>
-<img src="img/git.png" width="400px"><img src="img/github.png" width="400px"><div class="alert alert-success">
-Git is a tool, a software package, for version control. Github is an online hosting service that can be used with git, and offers online tools to use git. 
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/COGS108/Tutorials/master/img/git.png" width="300px">
+<br>
+<br><div class="alert alert-success">
+Git is a tool, a software package, for version control. 
 </div>
 <div class="alert alert-info">
 Install 
 <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" class="alert-link">git</a>,
-if you don't already have it, and create an account on 
-<a href="https://github.com/" class="alert-link">Github</a>.
+if you don't already have it.
+</div><br>
+<br>
+<img src="https://raw.githubusercontent.com/COGS108/Tutorials/master/img/github.png" width="300px">
+<br>
+<br><div class="alert alert-success">
+Github is an online hosting service that can be used with git, and offers online tools to use git. 
 </div>
-<p>Git &amp; GitHub are not the same thing, though, in practice, they are commonly used together, whereby git is used as a tool to version control code and manage multiple copies stored across your computer, as well as on remote repositories that are stored on Github.</p>
+<div class="alert alert-info">
+Create an account on 
+<a href="https://github.com/" class="alert-link">Github</a>.
+</div><p>Git &amp; GitHub are not the same thing, though, in practice, they are commonly used together, whereby git is used as a tool to version control code and manage multiple copies stored across your computer, as well as on remote repositories that are stored on Github.</p>
 <p>Note that while GitHub is a private company, git is an open-source tool, and can be used independent of GitHub.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -335,8 +410,11 @@ if you don't already have it, and create an account on
 </div>
 </div>
 </div>
-<hr>
-<img src="img/sourcetree.png" width="500px"><div class="alert alert-success">
+<br>
+<br>
+<img src="https://raw.githubusercontent.com/COGS108/Tutorials/master/img/sourcetree.png" width="500px">
+<br>
+<br><div class="alert alert-success">
 Source Tree is a free graphical user interface (GUI) for managing repositories with git & Github. 
 </div>
 <div class="alert alert-info">
@@ -348,6 +426,7 @@ who make Source Tree, but this is free.
 </div>
 <p>You don’t need to use SourceTree (or any other GUI) if you know, or want to learn to use git from the command line.</p>
 </div>
+</div>
 <div class="section" id="environments">
 <h2>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-success">
@@ -357,15 +436,15 @@ Environments are isolated, independent installations of a programming language a
 Anaconda has detailed instructions on using environments available 
 <a href="https://conda.io/docs/using/envs.html" class="alert-link">here</a>.
 </div><p>You do not need to use environments, however you may find it useful if you want or need to maintain multiple different versions of Python.</p>
-<p>If you want to use an environment, and already have conda, you can run this command from command line: <br>
-$ conda create –name <em>envname</em> python=3.6 anaconda <br>
-^ Replace ‘<em>envname</em>’ with a name to call this environment.<br>
-This will install a new environment, with Python 3.6 and the anaconda distribution.</p>
+<p>If you want to use an environment, and already have conda, you can run this command from command line: <br></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">*envname*</span> <span class="pre">python=3.7</span> <span class="pre">anaconda</span></code> <br></p>
+<p>^ Replace ‘<em>envname</em>’ with a name to call this environment.<br></p>
+<p>This will install a new environment, with Python 3.7 and the anaconda distribution.</p>
 <p>You will then need to activate this environment (everytime) you want to use it.</p>
 <p>To activate your environment: <br>
-$ source activate <em>envname</em></p>
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">*envname*</span></code></p>
 <p>To deactivate your environment: <br>
-$ source deactivate <em>envname</em></p>
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">deactivate</span></code></p>
 </div>
 </div>
 
@@ -379,7 +458,7 @@ $ source deactivate <em>envname</em></p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../docs/index.html" title="previous page">Data Science in Practice</a>
-    <a class='right-next' id="next-link" href="01-JupyterNotebooks.html" title="next page">Jupyter Notebooks</a>
+    <a class='right-next' id="next-link" href="01-Python.html" title="next page">Python</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

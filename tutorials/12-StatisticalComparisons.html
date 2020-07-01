@@ -1,0 +1,626 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Statistical Comparisons &#8212; Data Science in Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ordinary Least Squares" href="13-OrdinaryLeastSquares.html" />
+    <link rel="prev" title="Testing Distributions" href="11-TestingDistributions.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+<li class="navbar-special">
+<p class="margin-caption">Tutorials</p>
+</li>
+  <li class="">
+    <a href="00-Introduction.html">Introduction</a>
+  </li>
+  <li class="">
+    <a href="01-Python.html">Python</a>
+  </li>
+  <li class="">
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
+  </li>
+  <li class="">
+    <a href="03-DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="05-DataGathering.html">Data Gathering</a>
+  </li>
+  <li class="">
+    <a href="06-DataWrangling.html">Data Wrangling</a>
+  </li>
+  <li class="">
+    <a href="07-DataCleaning.html">Data Cleaning</a>
+  </li>
+  <li class="">
+    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
+  </li>
+  <li class="">
+    <a href="09-DataVisualization.html">Data Visualization</a>
+  </li>
+  <li class="">
+    <a href="10-Distributions.html">Distributions</a>
+  </li>
+  <li class="">
+    <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="active">
+    <a href="">Statistical Comparisons</a>
+  </li>
+  <li class="">
+    <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
+  </li>
+  <li class="">
+    <a href="14-LinearModels.html">Linear Models</a>
+  </li>
+  <li class="">
+    <a href="15-Clustering.html">Clustering</a>
+  </li>
+  <li class="">
+    <a href="16-DimensionalityReduction.html">Dimensionality Reduction</a>
+  </li>
+  <li class="">
+    <a href="17-Classification.html">Classification</a>
+  </li>
+  <li class="">
+    <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Assignments</p>
+</li>
+  <li class="">
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/tutorials/12-StatisticalComparisons.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Source interaction buttons -->
+        
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#on-causality" class="nav-link">On Causality</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#correlations" class="nav-link">Correlations</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#simulate-data" class="nav-link">Simulate Data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#calculate-correlations" class="nav-link">Calculate Correlations</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#rank-correlations" class="nav-link">Rank Correlations</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#t-tests" class="nav-link">T-Tests</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Simulate Data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#calculate-t-tests" class="nav-link">Calculate T-Tests</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#assumptions-of-t-tests" class="nav-link">Assumptions of T-Tests</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#effect-size" class="nav-link">Effect Size</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#defining-effect-size-code" class="nav-link">Defining Effect Size Code</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conclusion" class="nav-link">Conclusion</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="statistical-comparisons">
+<h1>Statistical Comparisons<a class="headerlink" href="#statistical-comparisons" title="Permalink to this headline">¶</a></h1>
+<p>Whenever we have data, we often want to use statistical analyses to explore, compare, and quantify our data.</p>
+<p>In this notebook, we will briefly introduce and explore some common statistical tests that can be applied to data.</p>
+<p>As with many of the topics in data analysis and machine learning, this tutorial is focused on introducing some related topics for data science, and demonstrated their application in Python, but it is out of scope of these tutorials to systematically introduce and describe the topic at hand, which in this case is statistics. If the topics here are unfamiliar, we recommend you follow the links or look for other resources to learn more about these topics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set random seed, for consistency simulating data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="on-causality">
+<h2>On Causality<a class="headerlink" href="#on-causality" title="Permalink to this headline">¶</a></h2>
+<p>Before we dive into particular statistical tests, just a general reminder that though we would often like to understand the <em>causal structure</em> of the data that we are interested in, this is generally not directly interpretable from statistical tests themselves.</p>
+<p>In the follow, we will explore some statistical tests for investigating if and when distributions of data are the same or different, and if and how related they are. These tests, by themselves, do not tell us about what causes what. Correlation is not causation.</p>
+<p>In the context of data science, this can be a limitation as we are often using previously collected datasets of convenience and observational datasets collected. Though we can explore the structure of the data, such datasets typically do not allow for causal interpretations.</p>
+</div>
+<div class="section" id="correlations">
+<h2>Correlations<a class="headerlink" href="#correlations" title="Permalink to this headline">¶</a></h2>
+<p>A common question we may be interested in is if two datasets, or two features of data, are related to each other.</p>
+<p>If they, we would also like to now <em>how</em> related they are to each other.</p>
+<p>For this, we can calculate correlations between features.</p>
+<div class="alert alert-success">
+Correlations are statistical dependencies or relationships between variables. 
+</div>
+<div class="alert alert-info">
+Correlation on 
+<a href=https://en.wikipedia.org/wiki/Correlation_and_dependence class="alert-link">wikipedia</a>, 
+including for the 
+<a href=https://en.wikipedia.org/wiki/Pearson_correlation_coefficient class="alert-link">pearson</a>, 
+and 
+<a href=https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient class="alert-link">spearman</a>
+correlation measures.     
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span><span class="p">,</span> <span class="n">spearmanr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="simulate-data">
+<h3>Simulate Data<a class="headerlink" href="#simulate-data" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s simulate some data.</p>
+<p>For this example, we will simulate two arrays of data that do have a relationship to each other.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for simulated data</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="mf">0.75</span>
+<span class="n">covs</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="n">corr</span><span class="p">],</span> <span class="p">[</span><span class="n">corr</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Generate the data</span>
+<span class="n">d1</span><span class="p">,</span> <span class="n">d2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">covs</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculate-correlations">
+<h3>Calculate Correlations<a class="headerlink" href="#calculate-correlations" title="Permalink to this headline">¶</a></h3>
+<p>Next, we can calculate the correlation coefficient between our data arrays, using the <code class="docutils literal notranslate"><span class="pre">pearsonr</span></code> function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate a pearson correlation between two arrays of data</span>
+<span class="n">r_val</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient is </span><span class="si">{:1.4f}</span><span class="s2"> with a p-value of </span><span class="si">{:1.2f}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_val</span><span class="p">,</span> <span class="n">p_val</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The correlation coefficient is 0.7732 with a p-value of 0.00.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, we have a high correlation coefficient, with a very low p-value.</p>
+<p>This suggests our data are strongly correlated!</p>
+<p>In this case, since we simulated the data, we know that this is a good estimation of the relationship between the data.</p>
+</div>
+<div class="section" id="rank-correlations">
+<h3>Rank Correlations<a class="headerlink" href="#rank-correlations" title="Permalink to this headline">¶</a></h3>
+<p>One thing to keep in mind is that the <code class="docutils literal notranslate"><span class="pre">pearson</span></code> correlation used above assumes that both data distributions are normally distributed.</p>
+<p>These assumptions should also be tested in data to be analyzed.</p>
+<p>Sometimes these assumptions will not be met. In that case, one option is to a different kind of correlation example. For example, the <code class="docutils literal notranslate"><span class="pre">spearman</span></code> correlation is a rank correlation that does not have the same assumptions as pearson.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the spearman rank correlation between our data</span>
+<span class="n">r_val</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+
+<span class="c1"># Check the results of the spearman correlation</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient is </span><span class="si">{:1.4f}</span><span class="s2"> with a p-value of </span><span class="si">{:1.2f}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_val</span><span class="p">,</span> <span class="n">p_val</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The correlation coefficient is 0.7595 with a p-value of 0.00.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, the measured values for <code class="docutils literal notranslate"><span class="pre">pearson</span></code> and <code class="docutils literal notranslate"><span class="pre">spearman</span></code> correlations are about the same, since both are appropriate for the properties of this data.</p>
+</div>
+</div>
+<div class="section" id="t-tests">
+<h2>T-Tests<a class="headerlink" href="#t-tests" title="Permalink to this headline">¶</a></h2>
+<p>Another question we might often want to ask about data is to check and detect when there is a significant difference between collections of data.</p>
+<p>For example, we might want to analyze if there is a significant different in measured feature values between some groups of interest.</p>
+<p>To do so, we can use t-tests.</p>
+<p>There are different variants of t-test, including:</p>
+<ul class="simple">
+<li><p>one sample t-test</p>
+<ul>
+<li><p>test the mean of one group of data</p></li>
+</ul>
+</li>
+<li><p>independent samples t-test</p>
+<ul>
+<li><p>test for a difference of means between two independent samples of data</p></li>
+</ul>
+</li>
+<li><p>related samples t-test</p>
+<ul>
+<li><p>test for a difference of means between two related samples of data</p></li>
+</ul>
+</li>
+</ul>
+<p>For this example, we will explore using the independent samples t-test.</p>
+<p>Functions for the other versions are also available in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
+<div class="alert alert-success">
+T-tests are statistical hypothesis tests for examining mean values and differences of groups of data. 
+</div>
+<div class="alert alert-info">
+T-tests on
+<a href=https://en.wikipedia.org/wiki/Student%27s_t-test class="alert-link">wikipedia</a>. 
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Simulate Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s simulate some data.</p>
+<p>For this example, we will simulate two samples of normally distributed data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for data simulation</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">250</span>
+
+<span class="c1"># Simulate some data</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize our data comparison</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;D1&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d1</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;D2&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d2</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12-StatisticalComparisons_21_0.png" src="../_images/12-StatisticalComparisons_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="calculate-t-tests">
+<h3>Calculate T-Tests<a class="headerlink" href="#calculate-t-tests" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have some data, let’s use a t-tests to statistically compare the two groups of data.</p>
+<p>For this example, we will test whether the two distributions have significantly different means.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run independent samples t-test</span>
+<span class="n">t_val</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the results of the t-test</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;T-Test comparison of D1 &amp; D2:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">T-value </span><span class="se">\t</span><span class="s1"> </span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t_val</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">P-value </span><span class="se">\t</span><span class="s1"> </span><span class="si">{:1.2e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_val</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>T-Test comparison of D1 &amp; D2:
+	T-value 	 -2.2502
+	P-value 	 2.49e-02
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, the t-test shows that there is a significant difference in the mean of the two arrays of data!</p>
+</div>
+<div class="section" id="assumptions-of-t-tests">
+<h3>Assumptions of T-Tests<a class="headerlink" href="#assumptions-of-t-tests" title="Permalink to this headline">¶</a></h3>
+<p>Note, again, that t-tests assume normally distributed data. This is again a property of the data that should be examined before applying statistical tests. If this assumption is not met, other approaches for comparing the data may be needed.</p>
+</div>
+</div>
+<div class="section" id="effect-size">
+<h2>Effect Size<a class="headerlink" href="#effect-size" title="Permalink to this headline">¶</a></h2>
+<p>One thing to keep in mind about hypothesis tests such as the t-test above is that they while they can be used to <em>is there a difference</em> between two sets of data, they do not answer the question of <em>how different are they</em>.</p>
+<p>Often, we would also like to measure how different groups of data are.</p>
+<p>To do so, we can use effect size measures, which can be used to estimate the magnitude of changes or differences.</p>
+<p>There are many methods and approaches to measuring effect sizes across different contexts.</p>
+<p>For this example, we will use cohens-d effect size estimate for differences in means.</p>
+<div class="alert alert-success">
+Effect size measurements are measurements of the magnitude of a particular effect.
+</div>
+<div class="alert alert-info">
+Effect sizes on 
+<a href=https://en.wikipedia.org/wiki/Effect_size class="alert-link">wikipedia</a>.
+</div><div class="section" id="defining-effect-size-code">
+<h3>Defining Effect Size Code<a class="headerlink" href="#defining-effect-size-code" title="Permalink to this headline">¶</a></h3>
+<p>Often, when analyzing data, we will want to apply some measure that we may not find already available, in which case we may need to implement a version ourselves.</p>
+<p>For this example, we will implement cohens-d, an effect size measure for differences of means. Briefly, is a calculation of the difference of means between two distributions, divided by the pooled standard deviation. As such, cohens-d is a standardized measure, meaning the output value is independent of the units of the inputs.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">math</span></code> and <code class="docutils literal notranslate"><span class="pre">statistics</span></code> are standard library modules that contain some useful basic numerical functionality.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stdev</span>
+
+<span class="k">def</span> <span class="nf">compute_cohens_d</span><span class="p">(</span><span class="n">data_1</span><span class="p">,</span> <span class="n">data_2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute cohens-d effect size.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_1, data_2 : 1d array</span>
+<span class="sd">        Array of data to compute the effect size between.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cohens_d : float</span>
+<span class="sd">        The computed effect size measure. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Calculate group means</span>
+    <span class="n">d1_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">data_1</span><span class="p">)</span>
+    <span class="n">d2_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">data_2</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate group standard deviations</span>
+    <span class="n">d1_std</span> <span class="o">=</span> <span class="n">stdev</span><span class="p">(</span><span class="n">data_1</span><span class="p">)</span>
+    <span class="n">d2_std</span> <span class="o">=</span> <span class="n">stdev</span><span class="p">(</span><span class="n">data_2</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate the pooled standard deviation</span>
+    <span class="n">pooled_std</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">((</span><span class="n">d1_std</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">d2_std</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate cohens-d</span>
+    <span class="n">cohens_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">d1_mean</span> <span class="o">-</span> <span class="n">d2_mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">pooled_std</span>
+
+    <span class="k">return</span> <span class="n">cohens_d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the cohens-d effect size for our simulated data from before</span>
+<span class="n">cohens_d</span> <span class="o">=</span> <span class="n">compute_cohens_d</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">d1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the measured value of the effect size</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The cohens-d effect size is </span><span class="si">{:1.2f}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The cohens-d effect size is 0.20.
+</pre></div>
+</div>
+</div>
+</div>
+<p>A cohens-d effect size of ~0.2 is a small or modest effect.</p>
+<p>In combination with our t-test above, we can conclude that there is a difference of means between the two groups of data, but that the magnitude of this difference is relatively small.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Here we have briefly explored some statistical tests and comparisons for numerical data.</p>
+<p>For more information on statistical tests of data, check out courses and resources focused on statistics.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="11-TestingDistributions.html" title="previous page">Testing Distributions</a>
+    <a class='right-next' id="next-link" href="13-OrdinaryLeastSquares.html" title="next page">Ordinary Least Squares</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
+        
+            &copy; Copyright 2020-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

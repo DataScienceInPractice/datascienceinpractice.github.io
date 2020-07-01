@@ -16,14 +16,14 @@ nbconvert.preprocessors.execute.CellExecutionError: An error occurred while exec
 
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn import datasets
+from sklearn import cluster, datasets
 from sklearn.cluster import KMeans
 from scipy.cluster.vq import whiten
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-8f3d4320d912>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-1-61b6e65d0810>[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;31m# Imports[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0mget_ipython[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0mrun_line_magic[0m[0;34m([0m[0;34m'matplotlib'[0m[0;34m,[0m [0;34m'inline'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0;34m[0m[0m

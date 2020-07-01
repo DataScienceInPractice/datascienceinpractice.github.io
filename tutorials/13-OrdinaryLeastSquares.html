@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Linear Models" href="14-LinearModels.html" />
-    <link rel="prev" title="Testing Distributions" href="11-TestingDistributions.html" />
+    <link rel="prev" title="Statistical Comparisons" href="12-StatisticalComparisons.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="active">
     <a href="">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -183,7 +210,19 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#id1" class="nav-link">Ordinary Least Squares</a>
+            <a href="#simulate-data" class="nav-link">Simulate Data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#fit-an-ols-model" class="nav-link">Fit an OLS Model</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#predict-new-data" class="nav-link">Predict New Data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#recalculate-model-error" class="nav-link">Recalculate Model Error</a>
         </li>
     
     </ul>
@@ -199,6 +238,9 @@
                 
   <div class="section" id="ordinary-least-squares">
 <h1>Ordinary Least Squares<a class="headerlink" href="#ordinary-least-squares" title="Permalink to this headline">¶</a></h1>
+<p>If you recall, in an early notebook, we introduced the notion of fitting a line, or a linear model, to some data. We can then use the definition of that line to predict new data points. However, what we didn’t dig into at that point was how we learn and evaluate our linear model, and how to learn the best model.</p>
+<p>To do so, we need a way to measure how good our model is, or an error measurement, that we can use to evaluate our model. Together with a procedure to update models, we can try and learn models that minimize error - that is to say, models that best fit the data.</p>
+<p>Ordinary least squares is on such approach for learning and evaluating models. OLS seeks to minimize the sum squared errors. Squared errors are calculated as the square of the difference between the model prediction of a data point, and the data point itself. One way to think about this is as an error function - OLS defines how we will calculate the error of a model, given the data. The model with the lowest error, defined in terms of OLS, is the best model. When we talk about fitting a model with OLS, we mean finding the solution that has the lowest OLS error - the lowest value for the sum of squared errors.</p>
 <div class="alert alert-success">
 Ordinary least squares (OLS) means minimizing the error of the sum of squares between the predictions made by the model, and the observed data. 
 </div>
@@ -210,23 +252,20 @@ check out this cool
 and/or check out this 
 <a href="https://www.datarobot.com/blog/ordinary-least-squares-in-python/" class="alert-link">tutorial</a>
 about doing OLS in Python.
-</div><div class="section" id="id1">
-<h2>Ordinary Least Squares<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Ordinary least squares can be thought of as an error function - a formalization of how we will calculate the error of a model, given the data.</p>
-<p>Typically, we want to minimize this error term. So the OLS solution to, for example, a linear model, is the model which has the lowest value for the sum of squared errors, calculated as the square of the difference between the model prediction of a data point, and the data point itself.</p>
-<p>Here, we’ll create a minimal dataset, and explore fitting a simple linear model fit to it, using OLS.</p>
+</div><p>For this example, we will create a minimal dataset, and explore fitting a simple linear model fit to it, using OLS.</p>
+<p>In this case, we will be using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> for measuring least squares. Note that for real datasets, this is unlikely to be how you apply models, since it will usually be more practical to use <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> or <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> to manage all the components of model fitting full datasets, but the underlying math is all the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
-<span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="section" id="simulate-data">
+<h2>Simulate Data<a class="headerlink" href="#simulate-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create some data</span>
@@ -239,7 +278,7 @@ about doing OLS in Python.
 <span class="n">y</span> <span class="o">=</span> <span class="n">true_rel</span> <span class="o">*</span> <span class="n">x</span>
 
 <span class="c1"># Add some noise to the y dimension</span>
-<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">noise</span>
 </pre></div>
 </div>
@@ -248,34 +287,40 @@ about doing OLS in Python.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the data</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/13-OrdinaryLeastSquares_5_0.png" src="../_images/13-OrdinaryLeastSquares_5_0.png" />
+<img alt="../_images/13-OrdinaryLeastSquares_6_0.png" src="../_images/13-OrdinaryLeastSquares_6_0.png" />
 </div>
 </div>
-<p>Observing the data above, we can see that there is some relation between the x and y dimension, but we want a way to measure what that relation is. OLS is a procedure to do so: find the model (in this case, line) that minimizes the squared distances between each observed data point and the model prediction.</p>
+<p>Observing the data above, we can see that there is some relation between the x and y dimension.</p>
+<p>We would like to measure what that relation is. That’s where OLS comes in.</p>
+<p>OLS is a procedure to find the model (in this case, line) that minimizes the squared distances between each observed data point and the model prediction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reshape data to play nice with numpy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reshape that data to play nice with numpy</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="fit-an-ols-model">
+<h2>Fit an OLS Model<a class="headerlink" href="#fit-an-ols-model" title="Permalink to this headline">¶</a></h2>
 <p>Numpy provides us with a function to calculuate the OLS solution. In this case, we are fitting the model:</p>
 <div class="math notranslate nohighlight">
 \[y = \theta x \]</div>
-<p>Note that we are not fitting an intercept here (no ‘b’ value, if you think of ‘y = ax + b’). In this simple model, we are therefore implicitly assuming an intercept value of zero. You can fit intercepts (and linear models with more parameters) with OLS, you just need to add them in.</p>
+<p>Note that we are not fitting an intercept here (no ‘b’ value, if you think of ‘y = ax + b’).</p>
+<p>In this simple model, we are therefore implicitly assuming an intercept value of zero.</p>
+<p>You can fit intercepts (and linear models with more parameters) with OLS, you just need to add them in.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the (Ordinary) Least Squares best fit line using numpy</span>
-<span class="c1">#  This gives us a fit value (theta), and residuals (how much error we have in this fit)</span>
-<span class="n">theta</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="c1">#   This gives us a fit value (theta), and residuals (how much error we have in this fit)</span>
+<span class="n">theta</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 <span class="c1"># Pull out theta value from array</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -286,12 +331,12 @@ about doing OLS in Python.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check what the OLS derived solution for theta is:</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Estimated theta value is: </span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1.98695402961
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Estimated theta value is: 2.1194
 </pre></div>
 </div>
 </div>
@@ -299,27 +344,28 @@ about doing OLS in Python.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check how good our OLS solution is</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The true relationship between y &amp; x is: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">true_rel</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;OLS calculated relationship between y &amp; x is: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The true relationship between y &amp; x is: </span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">true_rel</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;OLS calculated relationship between y &amp; x is: </span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The true relationship between y &amp; x is: 	 2
-OLS calculated relationship between y &amp; x is: 	 1.98695402961
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The true relationship between y &amp; x is: 	2.0000
+OLS calculated relationship between y &amp; x is: 	2.1194
 </pre></div>
 </div>
 </div>
 </div>
+<p>This looks good! The absolute error between the true value, and our estimate is quite small!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check what the residuals are</span>
-<span class="n">residuals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check what the residuals are. Residuals are the error of the model fit</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The residuals for the model fit are: </span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">residuals</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.3701226131131277
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The residuals for the model fit are: 	3.2984
 </pre></div>
 </div>
 </div>
@@ -329,16 +375,19 @@ OLS calculated relationship between y &amp; x is: 	 1.98695402961
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the raw data, with the true underlying relationship, and the OLS fit</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;--b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;OLS Fit&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">theta</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True Fit&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;--b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;OLS Model Fit&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">theta</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;True Relationship&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/13-OrdinaryLeastSquares_13_0.png" src="../_images/13-OrdinaryLeastSquares_13_0.png" />
+<img alt="../_images/13-OrdinaryLeastSquares_16_0.png" src="../_images/13-OrdinaryLeastSquares_16_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="predict-new-data">
+<h2>Predict New Data<a class="headerlink" href="#predict-new-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># With our model, we can predict the value of a new &#39;x&#39; datapoint</span>
@@ -349,7 +398,7 @@ OLS calculated relationship between y &amp; x is: 	 1.98695402961
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The prediction for a new x of 2.5 is 4.967
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The prediction for a new x of 2.5 is 5.299
 </pre></div>
 </div>
 </div>
@@ -362,21 +411,26 @@ OLS calculated relationship between y &amp; x is: 	 1.98695402961
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/13-OrdinaryLeastSquares_15_0.png" src="../_images/13-OrdinaryLeastSquares_15_0.png" />
+<img alt="../_images/13-OrdinaryLeastSquares_19_0.png" src="../_images/13-OrdinaryLeastSquares_19_0.png" />
 </div>
 </div>
+</div>
+<div class="section" id="recalculate-model-error">
+<h2>Recalculate Model Error<a class="headerlink" href="#recalculate-model-error" title="Permalink to this headline">¶</a></h2>
+<p>We can use the same procedure as we just used to predict new point to predict the models predictions of the data point we know, and compare these</p>
+<p>Note that this is the same as what the fitting procedure does, and, as well see, this should lead to calculating the same error as the model returned to us.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can also see what the model would predict for all the points we did observe</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate model predictions for our observed data points</span>
 <span class="n">preds</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">*</span> <span class="n">x</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>The residuals, as returned by the OLS fit, are the just the sum of squares between the model fit and the observed data points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Residuals are the just the sum of squares between the model fit and the observed data points</span>
-<span class="c1"># Re-calculate the residuals &#39;by hand&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Re-calculate the residuals &#39;by hand&#39;</span>
 <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -385,14 +439,14 @@ OLS calculated relationship between y &amp; x is: 	 1.98695402961
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that our residuals calculation matches the scipy implementation</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error from :&#39;</span><span class="p">,</span> <span class="n">residuals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error from :&#39;</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error, returned by the model </span><span class="se">\t\t</span><span class="s1">: </span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">residuals</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error, as recalculated residuals </span><span class="se">\t</span><span class="s1">: </span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Error from : 1.37012261311
-Error from : 1.37012261311
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Error, returned by the model 		: 3.2984
+Error, as recalculated residuals 	: 3.2984
 </pre></div>
 </div>
 </div>
@@ -414,7 +468,7 @@ See the 'LinearModels' notebook and/or
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="11-TestingDistributions.html" title="previous page">Testing Distributions</a>
+    <a class='left-prev' id="prev-link" href="12-StatisticalComparisons.html" title="previous page">Statistical Comparisons</a>
     <a class='right-next' id="next-link" href="14-LinearModels.html" title="next page">Linear Models</a>
 
     </div>

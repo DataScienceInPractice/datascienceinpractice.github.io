@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -183,13 +210,21 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#task" class="nav-link">Task:</a><ul class="nav section-nav flex-column">
+            <a href="#load-an-example-dataset" class="nav-link">Load an Example Dataset</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#apply-k-means-clustering" class="nav-link">Apply K-Means Clustering</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#whitening-data" class="nav-link">Whitening Data:</a>
+            <a href="#whitening-data" class="nav-link">Whitening Data</a>
         </li>
     
             </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#other-clustering-approaches" class="nav-link">Other Clustering Approaches</a>
         </li>
     
     </ul>
@@ -205,12 +240,18 @@
                 
   <div class="section" id="clustering">
 <h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<p>A common task or goal within data analysis is to learn some kind of structure from data. One way to do so is to apply clustering analysis to data. This typically means trying to learn ‘groups’ or clusters in the data.</p>
+<p>This example is a minimal example of clustering adapted from the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> tutorials, to introduce the key points and show an introductory example of a clustering analysis.</p>
+<p>As with many of the other topics in data analysis, there are many resources and tutorials available on the clustering analyses. A good place to start is the extensive coverage in the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> documentation. If you are interested in clustering analyses, once you have explored the basic concepts here, we recommend you go and explore some of these other resources.</p>
 <div class="alert alert-success">
 Clustering is the process of trying to find structure (clusters) in data.
 </div>
 <div class="alert alert-info">
-<a href="https://en.wikipedia.org/wiki/Cluster_analysis" class="alert-link">Clustering</a>
-article from wikipedia. 
+<a href=https://en.wikipedia.org/wiki/Cluster_analysis class="alert-link">Clustering</a>
+article from wikipedia. The sklearn 
+<a href=https://scikit-learn.org/stable/user_guide.html class="alert-link">user guide </a>
+has a detailed introduction to and tutorial on
+<a href=https://scikit-learn.org/stable/modules/clustering.html class="alert-link">clustering</a>. 
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
@@ -218,18 +259,38 @@ article from wikipedia.
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 <span class="kn">from</span> <span class="nn">scipy.cluster.vq</span> <span class="kn">import</span> <span class="n">whiten</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Scikit-learn has a bunch of example datasets. Here, we’ll use the iris dataset: which contains data about different species of plants.</p>
+<div class="section" id="load-an-example-dataset">
+<h2>Load an Example Dataset<a class="headerlink" href="#load-an-example-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Scikit-learn has example datasets that can be loaded and used for example.</p>
+<p>Here, we’ll use the iris dataset. This dataset contains data about different species of plants. It includes information for several features across several species. Our task will be to attempt to cluster the data, to see if we can learn a meaningful groupings from the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the iris data</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">iris</span></code>, as loaded by <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> is an object. The data is stored in <code class="docutils literal notranslate"><span class="pre">iris.data</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s check how much data there is</span>
+<span class="p">[</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">n_labels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">{}</span><span class="s2"> samples of data, with </span><span class="si">{}</span><span class="s2"> features and </span><span class="si">{}</span><span class="s2"> labels.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+    <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">,</span> <span class="n">n_labels</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>There are 150 samples of data, with 4 features and 3 labels.
 </pre></div>
 </div>
 </div>
@@ -267,21 +328,6 @@ virginica
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The actual data is stored in iris.data</span>
-<span class="c1"># Let&#39;s check how much data there is</span>
-<span class="p">[</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are &quot;</span><span class="p">,</span> <span class="n">n_samples</span> <span class="p">,</span> <span class="s2">&quot; samples of data, each with &quot;</span> <span class="p">,</span> <span class="n">n_features</span><span class="p">,</span> <span class="s2">&quot; features.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>There are  150  samples of data, each with  4  features.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s set up some indexes, so we know what data we&#39;re using</span>
 <span class="n">sl_ind</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># Sepal Length</span>
 <span class="n">sw_ind</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># Septal Width</span>
@@ -293,43 +339,13 @@ virginica
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start looking at some data. </span>
-<span class="c1"># Let&#39;s start with a scatter plot of petal length vs. petal width</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start looking at some data - plotting petal length vs. petal width</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pl_ind</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pw_ind</span><span class="p">])</span>
 
 <span class="c1"># Add title and labels</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Iris Data: Petal Length vs. Width&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/15-Clustering_9_0.png" src="../_images/15-Clustering_9_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the data colour coded by species</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pl_ind</span><span class="p">][</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pw_ind</span><span class="p">][</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span>
-            <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pl_ind</span><span class="p">][</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="mi">1</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pw_ind</span><span class="p">][</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="mi">1</span><span class="p">],</span>
-            <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pl_ind</span><span class="p">][</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="mi">2</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pw_ind</span><span class="p">][</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="mi">2</span><span class="p">],</span>
-            <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="c1"># Add title, labels and legend</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Iris Data: Petal Length vs. Width&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">);</span>
-
-<span class="c1"># Note that splitting up the plotting per group is basically a hack to make the legend work, </span>
-<span class="c1"># The following command plots the data perfectly well, colour coded by target:</span>
-<span class="c1">#  plt.scatter(iris.data[:, petal_length_ind], iris.data[:, petal_width_ind], c=iris.target)</span>
-<span class="c1"># However, it&#39;s a pain to get a labelled legend when plotted this way</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length (cm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width (cm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -337,11 +353,53 @@ virginica
 <img alt="../_images/15-Clustering_10_0.png" src="../_images/15-Clustering_10_0.png" />
 </div>
 </div>
-<div class="section" id="task">
-<h2>Task:<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h2>
-<p>If we didn’t already know the Species labels, we might notice that there seem to be distinct groups of datapoints. Clustering is the approach of trying to find these groups algorithmically.</p>
-<p>Here, we will do so with the KMeans algorithm. For information on KMeans and how it works, see the lecture.</p>
+<p>Just from plotting the data, we can see that there seems to be some kind of structure in the data.</p>
+<p>In this case, we do know that there are different species in our dataset, which will be useful information for comparing to our clustering analysis.</p>
+<p>Note that we are not going to use these labels in the clustering analysis itself. Clustering, as we will apply it here, is an unsupervised method, meaning we are not going to use any labels to try and learn the structure of the data.</p>
+<p>To see the structure that is present in the data, let’s replot the data, color coding by species.</p>
 <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the data color coded by species</span>
+<span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_labels</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pl_ind</span><span class="p">][</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="n">ind</span><span class="p">],</span>
+                <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pw_ind</span><span class="p">][</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="o">==</span><span class="n">ind</span><span class="p">],</span>
+                <span class="n">label</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+
+<span class="c1"># Add title, labels and legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Iris Data: Petal Length vs. Width&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length (cm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width (cm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">);</span>
+
+<span class="c1"># Note that the data, colored by label, can also be plotted like this:</span>
+<span class="c1">#   plt.scatter(iris.data[:, pl_ind], iris.data[:, pw_ind], c=iris.target)</span>
+<span class="c1"># It is, however, more difficult to add labelled legend when plotted this way</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/15-Clustering_12_0.png" src="../_images/15-Clustering_12_0.png" />
+</div>
+</div>
+<p>In this data, we know we have 3 different ‘groups’ of data, which are the different species.</p>
+<p>As we can see in the plots above, these different species seem to be fairly distinct in terms of their feature values.</p>
+<p>The question then is whether we can learn a clustering approach, based on the feature data and without using the labels, that can learn a meaningful grouping of this data.</p>
+<p>If this approach works, then we might be able to try to use it on other data, for which we have feature data, but might not be sure about the groupings present in the data.</p>
+</div>
+<div class="section" id="apply-k-means-clustering">
+<h2>Apply K-Means Clustering<a class="headerlink" href="#apply-k-means-clustering" title="Permalink to this headline">¶</a></h2>
+<p>Clustering is the process of trying to learn groups algorithmically.</p>
+<p>For this example, we are going to use the K-means clustering algorithm.</p>
+<p>K-means attempts to group the data into <code class="docutils literal notranslate"><span class="pre">k</span></code> clusters, and does so by labeling each data point to be in the cluster with the nearest mean. To learn the center means, after a random initialization, an iterative procedure assigns each point to a cluster, then updates the cluster centers, and repeats, until a final solution is reached.</p>
+<div class="alert alert-success">
+K-means is a clustering algorithm that attempts to learn k clusters by grouping datapoints to the nearest cluster center mean. 
+</div>
+<div class="alert alert-info">
+For more information on K-means, see the article on 
+<a href=https://en.wikipedia.org/wiki/K-means_clustering class="alert-link">wikipedia</a>
+or on the sklearn
+<a href=https://scikit-learn.org/stable/modules/clustering.html#k-means class="alert-link">user guide</a>. 
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pull out the data of interest - Petal Length &amp; Petal Width</span>
 <span class="n">d1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">pl_ind</span><span class="p">])</span>
@@ -351,10 +409,11 @@ virginica
 </div>
 </div>
 <div class="section" id="whitening-data">
-<h3>Whitening Data:<a class="headerlink" href="#whitening-data" title="Permalink to this headline">¶</a></h3>
-<p>If your different dimensions use different units (or have wildy different variances), then these differences can greatly impact the clustering.</p>
-<p>This is because KMeans is isotropic: it treats different in each direction as equally important. So, if the units or variance are very different, this is equivalent to weighting certain features / dimensions as more or less important.</p>
-<p>To correct for this it is common, and sometimes necessary to ‘whiten’ data: to normalize each dimension by it’s respective standard deviation.</p>
+<h3>Whitening Data<a class="headerlink" href="#whitening-data" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we are using two features (or two dimensions) of data.</p>
+<p>One thing to keep in mind for clustering analyses, is that if different dimensions use different units (or have very different variances), then these differences can greatly impact the clustering.</p>
+<p>This is because K-means is isotropic, which means that it treats different in each direction as equally important. Because of this, if the units or variance of different features are very different, this is equivalent to weighting certain features / dimensions as more or less important.</p>
+<p>To correct for this it is common, and sometimes necessary to ‘whiten’ the data. ‘Whitening’ data means normalizing each dimension by it’s respective standard deviation. By transforming the data to be on the same scale (have the same variance), we can ensure that the clustering algorithm treats each dimension with the same importance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Check out the whiten function
@@ -374,7 +433,7 @@ whiten?
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine data into shape for skl</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine data into an array to use with sklearn</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">d1w</span><span class="p">,</span> <span class="n">d2w</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
@@ -382,7 +441,7 @@ whiten?
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize KMeans object, set to fit 3 clusters</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize K-means object, and set it to fit 3 clusters</span>
 <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -390,15 +449,15 @@ whiten?
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the data with KMeans</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the data with K-means</span>
 <span class="n">km</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;k-means++&#39;, max_iter=300,
-    n_clusters=3, n_init=10, n_jobs=1, precompute_distances=&#39;auto&#39;,
-    random_state=13, tol=0.0001, verbose=0)
+       n_clusters=3, n_init=10, n_jobs=None, precompute_distances=&#39;auto&#39;,
+       random_state=13, tol=0.0001, verbose=0)
 </pre></div>
 </div>
 </div>
@@ -407,21 +466,52 @@ whiten?
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s check out the clusters that KMeans found</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">km</span><span class="o">.</span><span class="n">labels_</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">);</span>
 
 <span class="c1"># Add title, labels and legend</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Iris Data: PL vs. PW Clustered&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Petal Length (cm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Petal Width (cm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/15-Clustering_19_0.png" src="../_images/15-Clustering_19_0.png" />
+<img alt="../_images/15-Clustering_22_0.png" src="../_images/15-Clustering_22_0.png" />
 </div>
 </div>
-<p>It looks like it’s doing pretty well! Other than some discrepancies between the versicolor and virginica boundary, KMeans is able to reconstruct the species labels algorithmically, given only information on a couple features.</p>
+<p>In the plot above, each data point is labeled with it’s cluster assignment, that we learned from the data.</p>
+<p>In this case, since we do already know the species label of the data, we can see that it seems like this clustering analysis is doing pretty well! There are some discrepancies, but overall a K-means clustering approach is able to reconstruct a grouping of the datapoints, using only information from a couple of the features.</p>
+</div>
+</div>
+<div class="section" id="other-clustering-approaches">
+<h2>Other Clustering Approaches<a class="headerlink" href="#other-clustering-approaches" title="Permalink to this headline">¶</a></h2>
+<p>Clustering is a general task, and there are many different algorithms that can be used to attempt to solve it.</p>
+<p>For example, below are printed some of the different clustering algorithms and approaches that are available in sklearn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Clustering approaches in sklearn:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">cluster</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  &#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Clustering approaches in sklearn:
+   AffinityPropagation
+   AgglomerativeClustering
+   Birch
+   DBSCAN
+   FeatureAgglomeration
+   KMeans
+   MeanShift
+   MiniBatchKMeans
+   OPTICS
+   SpectralBiclustering
+   SpectralClustering
+   SpectralCoclustering
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>

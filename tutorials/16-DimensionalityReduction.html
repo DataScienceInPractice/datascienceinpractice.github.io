@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -183,15 +210,13 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#overview-of-dimensionality-reduction" class="nav-link">Overview of Dimensionality Reduction</a>
+            <a href="#principal-component-analysis" class="nav-link">Principal Component Analysis</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#pca-overview" class="nav-link">PCA Overview</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#principle-component-analysis" class="nav-link">Principle Component Analysis</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#task" class="nav-link">Task:</a>
+            </ul>
         </li>
     
     </ul>
@@ -207,18 +232,24 @@
                 
   <div class="section" id="dimensionality-reduction">
 <h1>Dimensionality Reduction<a class="headerlink" href="#dimensionality-reduction" title="Permalink to this headline">¶</a></h1>
+<p>Datasets are sometimes very large, containing potentially millions of data points across a large numbers of features.</p>
+<p>Each feature can also be thought of as a ‘dimension’. In some cases, for high-dimensional data, we may want or need to try to reduce the number of dimensions. Reducing the number of dimensions (or reducing the number of features in a dataset) is called ‘dimensionality reduction’.</p>
+<p>The simplest way to do so could simply be to drop some dimensions, and we could even choose to drop the dimensions that seem likely to be the least useful. This would be a simple method of dimensionality reduction. However, this approach is likely to throw away a lot of information, and we wouldn’t necessarily know which features to keep. Typically we want to try to reduce the number of dimensions while still preserving the most information we can from the dataset.</p>
+<p>As we saw before, one way we could try and do something like this is by doing clustering. When we run a clustering analysis on high dimensional data, we can try and re-code data to store each point by it’s cluster label, potentially maintaining more information in a smaller number of dimensions.</p>
+<p>Here we will introduce and explore a different approach to dimensionality reduction. Instead of dropping or clustering our features, we are going to try and learn a new representation of our data, choosing a set of feature dimensions that capture the most variance of our data. This allows us to drop low information dimensions, meaning we can reduce the dimensionality of our data, while preserving the most information.</p>
 <div class="alert alert-success">
 Dimensionality reduction is the process of transforming a dataset to a lower dimensional space. 
 </div>
 <div class="alert alert-info">
-For an explainer on dimensionality reduction, with examples in real data, go
-<a href="http://colah.github.io/posts/2014-10-Visualizing-MNIST/" class="alert-link">here</a>.
-</div><div class="section" id="overview-of-dimensionality-reduction">
-<h2>Overview of Dimensionality Reduction<a class="headerlink" href="#overview-of-dimensionality-reduction" title="Permalink to this headline">¶</a></h2>
-<p>Datasets can be very large, containing not only potentially millions of data points, but also potentially very large numbers of features about each data point. We can consider each feature of our dataset to be a ‘dimension’. For large-dimensional data, we may want to, or need to, try to reduce this number of dimensions.</p>
-<p>The simplest way to do so could simply be to drop some dimensions, and we could even choose to drop the dimensions that seem likely to be the least useful. This would be a simple method of dimensionality reduction.</p>
-<p>Typically though, we want to reduce the number of the dimensions in a way that preserves the most information. One way to do so could be clustering - if we run a clustering analysis on high dimensional data, we could re-code the data to store each point by it’s cluster label, potentially maintaining more information in a smaller number of dimensions.</p>
-<p>Here we will explore another common method for dimensionality reduction - Principal Component Analysis (PCA).</p>
+For more information on dimensionality reduction, see the scikit-learn 
+<a href=https://scikit-learn.org/stable/modules/unsupervised_reduction.html class="alert-link">user manual</a>,
+and / or 
+<a href=http://colah.github.io/posts/2014-10-Visualizing-MNIST/ class="alert-link">blog post</a>
+with an explainer and examples in real data.
+</div><div class="section" id="principal-component-analysis">
+<h2>Principal Component Analysis<a class="headerlink" href="#principal-component-analysis" title="Permalink to this headline">¶</a></h2>
+<p>The method we will for dimensionality reduction is Principal Component Analysis (PCA).</p>
+<p>PCA can be used to learn a new representation of the data, ‘re-organizing’ our features into a set of new dimensions that are ranked by the variance of the dataset that they account for. With this, we can do dimensionality reduction by dropping dimensions with a small amount of explained variance.</p>
 <div class="alert alert-success">
 Principal Component Analysis (PCA) is procedure to transform a dataset into principle components, ordered by how much variance they capture.
 </div>
@@ -227,15 +258,12 @@ For a paper that covers a full tutorial of PCA, go
 <a href="https://arxiv.org/pdf/1404.1100.pdf" class="alert-link">here</a>.
 For a more technical overview and explainer, check out this 
 <a href="http://alexhwilliams.info/itsneuronalblog/2016/03/27/pca/" class="alert-link">post</a>.
-</div></div>
-<div class="section" id="principle-component-analysis">
-<h2>Principle Component Analysis<a class="headerlink" href="#principle-component-analysis" title="Permalink to this headline">¶</a></h2>
-<p>To use PCA for Dimensionality Reduction, we can choose to preserve <em>n</em> components, where <em>n</em> is a number lower than the original dimensionality of our data set.</p>
-<p>By transforming our data with PCA, and keeping <em>n</em> components, we are able to keep the most variance of the original data in our lower dimensional space.</p>
-<p>Most broadly, PCA seeks to take advantage of the correlational structure of the variables, and uses this structure to encode the data.</p>
-<p>For example, if feature <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> of our data are correlated, PCA looks for how it could re-organize the data into some new dimension <span class="math notranslate nohighlight">\(x_pc\)</span> which captures most of the shared variance (correlated structure) between the two.</p>
-<p>In this notebook, we will work through a simple PCA example, with a simple example of using PCA to perform PCA to go from 2D -&gt; 1D data.</p>
-<p>In practice, PCA is most useful to go from _m_D -&gt; _n_D data, where <em>m</em> is very large, and <em>n</em> &lt; <em>m</em>.</p>
+</div><div class="section" id="pca-overview">
+<h3>PCA Overview<a class="headerlink" href="#pca-overview" title="Permalink to this headline">¶</a></h3>
+<p>To use PCA for Dimensionality Reduction, we can apply PCA to a dataset, learning our new components that represent the data. From this, we can choose to preserve <em>n</em> components, where <em>n</em> is a number lower than the original dimensionality of our data set. By transforming our data with PCA, and choosing the keep the top <em>n</em> components, we are able to keep the most variance of the original data in our lower dimensional space.</p>
+<p>Broadly, PCA seeks to take advantage of the correlational structure of the variables, and uses this structure to re-encode the data. For example, if feature <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> of our data are correlated, PCA looks for how it could re-organize the data into some new dimension <span class="math notranslate nohighlight">\(x_pc\)</span> which captures most of the shared variance (correlated structure) between the two.</p>
+<p>In practice, PCA is most useful to go from _m_D -&gt; _n_D data, where D is the dimensionality of the data, <em>m</em> is a large number and we want to choose a new dimensionality <em>n</em>, where <em>n</em> &lt; <em>m</em>.</p>
+<p>For this this notebook, we will work through a simplified example, illustrating the point in dimensionalities that we can plot, by going from 2D to 1D data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
@@ -249,17 +277,16 @@ For a more technical overview and explainer, check out this
 </div>
 </div>
 </div>
+<p>For this examples, we will create some example data, with 2 dimensions, in which the two dimensions are correlated (share some variance).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create some random, correlated, data</span>
-
-<span class="c1"># Settings</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings</span>
 <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 <span class="n">covs</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">],</span> <span class="p">[</span><span class="o">.</span><span class="mi">75</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="c1"># Generate data</span>
-<span class="n">dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">covs</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">covs</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -267,37 +294,44 @@ For a more technical overview and explainer, check out this
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot our two random variables</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]);</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;D1&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;D2&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/16-DimensionalityReduction_7_0.png" src="../_images/16-DimensionalityReduction_7_0.png" />
+<img alt="../_images/16-DimensionalityReduction_8_0.png" src="../_images/16-DimensionalityReduction_8_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out how the data relates to each other</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dat</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]);</span>
+
+<span class="c1"># Add title and labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simulated Data&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1117902b0&gt;
-</pre></div>
-</div>
-<img alt="../_images/16-DimensionalityReduction_8_1.png" src="../_images/16-DimensionalityReduction_8_1.png" />
+<img alt="../_images/16-DimensionalityReduction_9_0.png" src="../_images/16-DimensionalityReduction_9_0.png" />
 </div>
 </div>
+<p>As we can see, there are features are indeed correlated.</p>
+<p>Note that one way to think about PCA is as a ‘rotation’ of the data to a new basis. If we want to choose a single dimension to represent this data, we can see that choosing one or the other of the original dimensions (the X or Y dimension in the plot) would not be ideal. What we want to do with PCA is chose a new set of dimension - like drawing new axes into our plot - to best represent our data.</p>
+<p>In this case, we have 2-dimensions of data. What we want to do, with PCA, is chose a lower dimensional (in this case, 1D) representation of this data that preserves the most information from the data that we can, given the new dimensionality.</p>
+<p>Note that in this example, we are only going from 2D -&gt; 1D, for simplicity and convenience. In practice is most useful when there is a very large number of dimensions, say 20,000, and want to transform the data into a lower dimensional space, maybe something like 20 dimensions, that is more manageable and usable for further analyses.</p>
 </div>
-<div class="section" id="task">
-<h2>Task:<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h2>
-<p>Let’s say that we want or need a lower dimensional representation of our data for some further analysis.</p>
-<p>Instead of simply choosing a subset of dimensions though, dimensionality reduction is the process of trying to capture the most information from the original space, in a smaller number of dimensions.</p>
-<p>Note: here we are going from 2D -&gt; 1D for simplicity, and convenience. In practice is most useful when you have an intractably large number of dimensions, say 20,000, and want to transform the data into a lower dimensional space (that captures the most information you can), but is much more manageable, containing, perhaps closer to 20 dimensions.</p>
-<p>Here we will use Principal Components Analysis (PCA) for dimensionality reduction.</p>
+</div>
+</div>
+<div class="section" id="applying-pca">
+<h1>Applying PCA<a class="headerlink" href="#applying-pca" title="Permalink to this headline">¶</a></h1>
+<p>Now, we want to apply PCA to our data, to reduce it’s dimensionality, while capturing the most information we can from the original space.</p>
+<p>To do so, we will use the PCA implementation from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">PCA</span></code> object to initialize a <code class="docutils literal notranslate"><span class="pre">PCA</span></code> model specifying any settings we want, that we can then apply to the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the PCA model, here specifying 1 component</span>
@@ -308,27 +342,79 @@ For a more technical overview and explainer, check out this
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the PCA model, and apply it to transform the data</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit PCA to the data</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pca</span></code> object has now learned the principal component representation of our data.</p>
+<p>We can now apply this to our original data with <code class="docutils literal notranslate"><span class="pre">transform</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the transformed data, in the new space</span>
-<span class="c1">#  Note: since the new data is 1D, the x-axis here is just index number</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transform the data, using our learned PCA representation</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The returned variable is a new array, with our data, after dimensionality reduction.</p>
+<p>Recall that are original data was 2 dimnensional. Our transformed data is now 1 dimensional.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the dimensions of the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original data dimensions: </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Transformed data dimensions: </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1118b8ef0&gt;]
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original data dimensions: 	 (1000, 2)
+Transformed data dimensions: 	 (1000, 1)
 </pre></div>
 </div>
-<img alt="../_images/16-DimensionalityReduction_12_1.png" src="../_images/16-DimensionalityReduction_12_1.png" />
 </div>
 </div>
+<p>By reducing the dimensionality, we off course lose at least some information.</p>
+<p>Using PCA, we are nevertheless trying to preserve as much variance as we can.</p>
+<p>Next, let’s check how much variance we have kept.</p>
+<p>We can do so, our the sklearn PCA object computes and stores how much explained variance each component captures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check how much variance is captured by the first component</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The proportion of variance explained by the first &quot;</span> <span class="o">+</span>
+      <span class="s2">&quot;principcal component is </span><span class="si">{:1.4f}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The proportion of variance explained by the first principcal component is 0.8861.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let’s plot the transformed data.</p>
+<p>Note that in the plot below, the data is 1 dimensional, so the x-axis here is just index number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the transformed data, in the new space</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">);</span>
+
+<span class="c1"># Add title and labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simulated Data&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Samples&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;PC-1&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/16-DimensionalityReduction_21_0.png" src="../_images/16-DimensionalityReduction_21_0.png" />
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Dimensionality reduction, and PCA in particular, are common data transformations, especially for large data.</p>
+<p>As for our other topics related to machine learning and data analysis, here we have merely introduced the basic ideas behind dimensionality reduction, and one of the most common algorithms to do so, PCA. For further information on these topics, look into more technical courses or resources.</p>
 <div class="alert alert-info">
 For a more in depth tutorial on doing PCA in Python, go
 <a href="https://towardsdatascience.com/pca-using-python-scikit-learn-e653f8989e60" class="alert-link">here</a>,

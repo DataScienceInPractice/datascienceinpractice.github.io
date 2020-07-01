@@ -31,7 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Ordinary Least Squares" href="13-OrdinaryLeastSquares.html" />
+    <link rel="next" title="Statistical Comparisons" href="12-StatisticalComparisons.html" />
     <link rel="prev" title="Distributions" href="10-Distributions.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="active">
     <a href="">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -183,15 +210,17 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#different-distributions" class="nav-link">Different Distributions</a>
+            <a href="#evaluating-a-normal-distribution" class="nav-link">Evaluating a Normal Distribution</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#testing-a-non-normal-distribution" class="nav-link">Testing a non-Normal distribution</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#non-normal-data" class="nav-link">Non-Normal Data</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#testing-other-distributions" class="nav-link">Testing other distributions</a>
+            <a href="#evaluating-different-distributions" class="nav-link">Evaluating Different Distributions</a>
         </li>
     
     </ul>
@@ -207,10 +236,11 @@
                 
   <div class="section" id="testing-distributions">
 <h1>Testing Distributions<a class="headerlink" href="#testing-distributions" title="Permalink to this headline">¶</a></h1>
+<p>Knowing what distribution your data follow is important for knowing which statistical tests to apply to it. If you are using statistical tests that assume data to have a particular distribution, you need to test whether this is indeed the case.</p>
+<p>As we saw previously, different statistical distributions have different ‘shapes’. But just looking at the shape isn’t enough for saying definitively what distribution the data follows. Here, we will explore some statistical tests for checking the distribution of data.</p>
 <div class="alert alert-success">
-Sometimes it may be useful (or necessary) to formally test whether some data you observe follows a particular distribution.
-</div><p>Perhaps most commonly, if you are using statistical tests that assume data to have a particular distribution, you need to test whether this is indeed the case.</p>
-<div class="cell docutils container">
+By 'testing distributions' we mean statistical tests that evaluate whether observed data follow a particular distribution.
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
@@ -237,6 +267,8 @@ Sometimes it may be useful (or necessary) to formally test whether some data you
 </div>
 </div>
 </div>
+<div class="section" id="evaluating-a-normal-distribution">
+<h2>Evaluating a Normal Distribution<a class="headerlink" href="#evaluating-a-normal-distribution" title="Permalink to this headline">¶</a></h2>
 <p>Here, we will focus on the most common case: testing whether a dataset is normally distributed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -253,7 +285,7 @@ Sometimes it may be useful (or necessary) to formally test whether some data you
 <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">d1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">d1</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="n">fit</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">d1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal Dist.&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -262,13 +294,11 @@ Sometimes it may be useful (or necessary) to formally test whether some data you
 <img alt="../_images/11-TestingDistributions_7_0.png" src="../_images/11-TestingDistributions_7_0.png" />
 </div>
 </div>
+<p>The plot above shows a histogram (in orange) of ‘observed’ data, and the expected distribution of the data, under the assumption of it being normally distributed. There seems to be a pretty good alignment! Now, let’s asses this statistically.</p>
+<p>To do so, we will use the <code class="docutils literal notranslate"><span class="pre">normaltest</span></code> function, from scipy, which tests whether a sample of data differs from a what would be expected under a normal distribution. The null hypothesis is that the data come from a normal distribution. We can use <code class="docutils literal notranslate"><span class="pre">normaltest</span></code> to check this null, and to decide whether we should reject the null (to claim the data are not normal), or accept it. To assess this, the <code class="docutils literal notranslate"><span class="pre">normaltest</span></code> function compares the skew and kurtosis of the observed data to what would be expected if it’s normally distributed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># In scipy, the &#39;normaltest&#39; function tests whether a sample differs from a normal distribution
-#  The null hypothesis is that the data are normally distributed.
-#    We can use normaltest to check this null - do we have to reject the null (to claim the data are not normal).
-#  It does using a combined statistics comparing the skew and kurtosis of the observed
-#    data, as compared to as expected under a normal distribution. 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Check the documentation for normaltest
 normaltest?
 </pre></div>
 </div>
@@ -285,7 +315,7 @@ normaltest?
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the p-value of the normaltest</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Normaltest p value is: </span><span class="si">{:1.2e}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_val</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Normaltest p-value is: </span><span class="si">{:1.2f}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_val</span><span class="p">))</span>
 
 <span class="c1"># With alpha value of 0.05, how should we proceed</span>
 <span class="n">check_p_val</span><span class="p">(</span><span class="n">p_val</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
@@ -294,19 +324,21 @@ normaltest?
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
-Normaltest p value is: 1.34e-01 
+Normaltest p-value is: 0.49 
 
 We do not have evidence to reject the null hypothesis.
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="different-distributions">
-<h2>Different Distributions<a class="headerlink" href="#different-distributions" title="Permalink to this headline">¶</a></h2>
-<p>Visually inspecting datasets can give you a quick sense about whether they are normally distributed or not.</p>
-<p>However, visual inspection is not enough, and can be misleading, since non-normally data can ‘look normal’.</p>
-<p>As well as visualling checking data when it looks pretty normal, it is important to perform other checks.</p>
-<p>For example, under some paramters, the Beta distributed data can look like it is normally distibruted.</p>
+<p>In this case, we do not reject the null, meaning we do not reject that this data is normally distributed.</p>
+<p>This statistical test is therefore consistent with the data being normally distributed.</p>
+<div class="section" id="testing-a-non-normal-distribution">
+<h3>Testing a non-Normal distribution<a class="headerlink" href="#testing-a-non-normal-distribution" title="Permalink to this headline">¶</a></h3>
+<p>Let’s test another dataset for normality.</p>
+<p>For this example, we will explore case when visual inspection can be misleading, to emphasize the point that although visually inspecting datasets can give you a quick sense about whether they are normally distributed or not, this is not enough. Visual inspection can be somewhat misleading, since non-normally data can ‘look normal’.</p>
+<p>This is why, as well as visually checking data when it looks pretty normal, it is important to perform other checks.</p>
+<p>For example, under some parameters, the Beta distributed data can look like it is normally distributed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate some data from a beta distribution</span>
@@ -318,13 +350,13 @@ We do not have evidence to reject the null hypothesis.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a histogram of the observed data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/11-TestingDistributions_13_0.png" src="../_images/11-TestingDistributions_13_0.png" />
+<img alt="../_images/11-TestingDistributions_15_0.png" src="../_images/11-TestingDistributions_15_0.png" />
 </div>
 </div>
 <p>This data, as plotted above, we might think looks quite normal, based on the visualization.</p>
@@ -336,18 +368,18 @@ We do not have evidence to reject the null hypothesis.
 <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">d2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">d2</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">fit</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">d2</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal Dist.&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-
-<span class="c1"># Note that we can see *some* differences, when plotting the PDF</span>
-<span class="c1">#  However, if you turn off the PDF plot, we might guess these data look pretty normal</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/11-TestingDistributions_15_0.png" src="../_images/11-TestingDistributions_15_0.png" />
+<img alt="../_images/11-TestingDistributions_17_0.png" src="../_images/11-TestingDistributions_17_0.png" />
 </div>
 </div>
+<p>In the above plot, we can see <em>some</em> difference from the expected normal distribution.</p>
+<p>Overall, though, we might think it looks pretty normal, especially if examined without adding the probability density function.</p>
+<p>Let’s check this statistically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run normal test on the data</span>
@@ -359,7 +391,7 @@ We do not have evidence to reject the null hypothesis.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the p-value of the normaltest</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Normaltest p value is: </span><span class="si">{:1.2e}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_val</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Normaltest p-value is: </span><span class="si">{:1.2e}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_val</span><span class="p">))</span>
 
 <span class="c1"># With alpha value of 0.05, how should we proceed</span>
 <span class="n">check_p_val</span><span class="p">(</span><span class="n">p_val</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
@@ -368,24 +400,23 @@ We do not have evidence to reject the null hypothesis.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
-Normaltest p value is: 2.17e-184 
+Normaltest p-value is: 1.05e-170 
 
 We have evidence to reject the null hypothesis.
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="non-normal-data">
-<h2>Non-Normal Data<a class="headerlink" href="#non-normal-data" title="Permalink to this headline">¶</a></h2>
 <p>In this example, the plot is ambiguous, but ‘normaltest’ suggests these data are actually very unlikely to come from a normal distribution.</p>
-<p>In this case, we happen to know that this is indeed true, as the ‘ground truth’ of the data is that they were generated from a beta distribution.</p>
+<p>We happen to know that this is indeed true, as the ‘ground truth’ of the data is that they were generated from a beta distribution.</p>
 <p>Therefore, using this data in statistical tests that expect normally distributed inputs is invalid, since we have violated the assumptions upon which these tests are based. We will have to use different methods to perform statistical comparisons with these data.</p>
 </div>
-<div class="section" id="testing-other-distributions">
-<h2>Testing other distributions<a class="headerlink" href="#testing-other-distributions" title="Permalink to this headline">¶</a></h2>
-<p>More generally, you can use the Kolmogorov-Smirnov test to check if a set of data has some other distribution (that you specificy).</p>
-<p>This test is implemented in scipy, and you can explore using it.</p>
+</div>
+<div class="section" id="evaluating-different-distributions">
+<h2>Evaluating Different Distributions<a class="headerlink" href="#evaluating-different-distributions" title="Permalink to this headline">¶</a></h2>
+<p>So far we have examined checking whether a dataset is normally distributed.</p>
+<p>More generally, you can use the Kolmogorov-Smirnov test to check if a set of data has some other distribution (that you specify).</p>
+<p>This test is implemented in <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, and you can explore using it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kstest</span>
@@ -401,9 +432,9 @@ kstest?
 </div>
 </div>
 </div>
-<p>The kstest has a similar form to the normaltest, in this case we are comparing a sample of data, to a specified distribution.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">kstest</span></code> has a similar form to the <code class="docutils literal notranslate"><span class="pre">normaltest</span></code>, in that we can compare a sample of data to a specified distribution.</p>
 <p>The null hypothesis is that the data comes from the specified distribution.</p>
-<p>If we reject the null, with some preset alpha value, we can conclude that the data do not conform to the tested distribution.</p>
+<p>If we reject the null, we can conclude that the data do not conform to the tested distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s continue using our data from above, from the beta distribution. </span>
@@ -426,7 +457,8 @@ We have evidence to reject the null hypothesis.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now compare the data to the beta distribution.</span>
-<span class="c1">#   Note that in this case, we have to specify some parameters for the beta distribution we are testing against</span>
+<span class="c1">#   Note that in this case, we have to specify some parameters for the beta </span>
+<span class="c1">#   distribution we are testing against, so we will use the simulation parameters</span>
 <span class="n">stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">kstest</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Statistic: </span><span class="se">\t</span><span class="si">{:1.2f}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">P-Value: </span><span class="se">\t</span><span class="si">{:1.2e}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">p_val</span><span class="p">))</span>
 <span class="n">check_p_val</span><span class="p">(</span><span class="n">p_val</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
@@ -435,13 +467,14 @@ We have evidence to reject the null hypothesis.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Statistic: 	0.00 
-P-Value: 	1.69e-01
+P-Value: 	6.00e-01
 
 We do not have evidence to reject the null hypothesis.
 </pre></div>
 </div>
 </div>
 </div>
+<p>In this case, the data sample is consistent with being from a beta distribution!</p>
 </div>
 </div>
 
@@ -455,7 +488,7 @@ We do not have evidence to reject the null hypothesis.
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="10-Distributions.html" title="previous page">Distributions</a>
-    <a class='right-next' id="next-link" href="13-OrdinaryLeastSquares.html" title="next page">Ordinary Least Squares</a>
+    <a class='right-next' id="next-link" href="12-StatisticalComparisons.html" title="next page">Statistical Comparisons</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

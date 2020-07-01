@@ -31,7 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Demo Assignment" href="../assignments/D3_DataExploration.html" />
+    <link rel="next" title="Appendix: Python Packages" href="A1-PythonPackages.html" />
     <link rel="prev" title="Classification" href="17-Classification.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="active">
     <a href="">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -186,7 +213,7 @@
             <a href="#ntlk-natural-language-tool-kit" class="nav-link">NTLK: Natural Language Tool Kit</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#nltk" class="nav-link">NLTK</a>
+            <a href="#downloading-corpora" class="nav-link">Downloading Corpora</a>
         </li>
     
             </ul>
@@ -208,6 +235,38 @@
             <a href="#stop-words" class="nav-link">Stop words</a>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#text-encoding" class="nav-link">Text Encoding</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#load-some-data" class="nav-link">Load some Data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#pre-processing" class="nav-link">Pre-Processing</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#bag-of-words" class="nav-link">Bag-of-Words</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#term-frequency-inverse-document-frequency-tf-idf" class="nav-link">Term Frequency - Inverse Document Frequency (TF-IDF)</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#applying-tf-idf" class="nav-link">Applying TF-IDF</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conclusion" class="nav-link">Conclusion</a>
+        </li>
+    
     </ul>
 </nav>
 
@@ -221,6 +280,9 @@
                 
   <div class="section" id="natural-language-processing">
 <h1>Natural Language Processing<a class="headerlink" href="#natural-language-processing" title="Permalink to this headline">¶</a></h1>
+<p>Most of the data we have encountered so far has been numerical (or at least, numerically encoded).</p>
+<p>However, one of the most powerful aspects of data science is acknowledging and considering that there are vasts amounts of data available in many other modalities, with potentially valuable information, if the data can be leveraged and analyzed.</p>
+<p>Here, we will introduce natural language processing (NLP), or the computational analysis of text.</p>
 <div class="alert alert-success">
 Natural Language Processing (NLP) is the approach of analyzing text data, with computers.
 </div>
@@ -229,19 +291,18 @@ Natural Language Processing on
 <a href="https://en.wikipedia.org/wiki/Natural-language_processing" class="alert-link">wikipedia</a>.
 </div><div class="section" id="ntlk-natural-language-tool-kit">
 <h2>NTLK: Natural Language Tool Kit<a class="headerlink" href="#ntlk-natural-language-tool-kit" title="Permalink to this headline">¶</a></h2>
+<p>There are many tools for analyzing text data in Python. Here, we will use one of biggest and most prominent ones: NLTK.</p>
+<p>NLTK provides interfaces to over 50 corpora and lexical resources, as well as a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning.</p>
+<p>In this notebook, we will walk through some basic text-analysis using the <code class="docutils literal notranslate"><span class="pre">NLTK</span></code> package.</p>
 <div class="alert alert-success">
-NLTK is the main Python module for text-analysis. 
+The Natural Language Tool Kit, or NLTK, is a Python module for text-analysis. 
 </div>
 <div class="alert alert-info">
 The NLTK organization website is 
 <a href="http://www.nltk.org/" class="alert-link">here</a>
 and they have a whole book of tutorials 
 <a href="http://www.nltk.org/book/" class="alert-link">here</a>.
-</div>
-<div class="section" id="nltk">
-<h3>NLTK<a class="headerlink" href="#nltk" title="Permalink to this headline">¶</a></h3>
-<p>NLTK provides easy-to-use interfaces to over 50 corpora and lexical resources such as WordNet, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning, wrappers for industrial-strength NLP libraries, and an active discussion forum.</p>
-<div class="cell docutils container">
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import NLTK</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
@@ -249,20 +310,30 @@ and they have a whole book of tutorials
 </div>
 </div>
 </div>
-<p>In this notebook, we will walk through some basic text-analysis using some useful functions from the NLTK package.</p>
-<p>To work with text-data, you often need corpora - text datasets to compare to. NLTK has many such datasets available, but doesn’t install them by default (as the full set of them would be quite large). Below we will download some of these datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set an example sentence of &#39;data&#39; to play with</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;UC San Diego is a great place to study cognitive science.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="downloading-corpora">
+<h3>Downloading Corpora<a class="headerlink" href="#downloading-corpora" title="Permalink to this headline">¶</a></h3>
+<p>To work with text-data, you often need corpora - text datasets to compare to.</p>
+<p>NLTK has many such datasets available, but doesn’t install them by default (as the full set of them would be quite large). Below we will download some of these datasets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you hit an error downloading things in the cell below, come back to this cell, uncomment it, and run this code.</span>
 <span class="c1">#   This code gives python permission to write to your disk (if it doesn&#39;t already have persmission to do so).</span>
-<span class="kn">import</span> <span class="nn">ssl</span>
+<span class="c1"># import ssl</span>
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">_create_unverified_https_context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">_create_unverified_context</span>
-<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-    <span class="k">pass</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">ssl</span><span class="o">.</span><span class="n">_create_default_https_context</span> <span class="o">=</span> <span class="n">_create_unverified_https_context</span>
+<span class="c1"># try:</span>
+<span class="c1">#     _create_unverified_https_context = ssl._create_unverified_context</span>
+<span class="c1"># except AttributeError:</span>
+<span class="c1">#     pass</span>
+<span class="c1"># else:</span>
+<span class="c1">#     ssl._create_default_https_context = _create_unverified_https_context</span>
 </pre></div>
 </div>
 </div>
@@ -280,7 +351,8 @@ and they have a whole book of tutorials
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /Users/tom/nltk_data...
+<div class="stderr docutils container">
+<pre class="stderr literal-block">[nltk_data] Downloading package punkt to /Users/tom/nltk_data...
 [nltk_data]   Package punkt is already up-to-date!
 [nltk_data] Downloading package stopwords to /Users/tom/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
@@ -295,17 +367,9 @@ and they have a whole book of tutorials
 [nltk_data]   Package words is already up-to-date!
 [nltk_data] Downloading package treebank to /Users/tom/nltk_data...
 [nltk_data]   Package treebank is already up-to-date!
-</pre></div>
+</pre>
 </div>
 <div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set some test sentences of data to play with</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;UC San Diego is a great place to study cognitive science.&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -375,150 +439,25 @@ Part-of-speech tagging on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the documentation that describes what all of the abbreviations mean</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">upenn_tagset</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the documentation for describing the abbreviations</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">upenn_tagset</span><span class="p">(</span><span class="n">tagpattern</span><span class="o">=</span><span class="s1">&#39;NNP&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">upenn_tagset</span><span class="p">(</span><span class="n">tagpattern</span><span class="o">=</span><span class="s1">&#39;DT&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">upenn_tagset</span><span class="p">(</span><span class="n">tagpattern</span><span class="o">=</span><span class="s1">&#39;JJ&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>$: dollar
-    $ -$ --$ A$ C$ HK$ M$ NZ$ S$ U.S.$ US$
-&#39;&#39;: closing quotation mark
-    &#39; &#39;&#39;
-(: opening parenthesis
-    ( [ {
-): closing parenthesis
-    ) ] }
-,: comma
-    ,
---: dash
-    --
-.: sentence terminator
-    . ! ?
-:: colon or ellipsis
-    : ; ...
-CC: conjunction, coordinating
-    &amp; &#39;n and both but either et for less minus neither nor or plus so
-    therefore times v. versus vs. whether yet
-CD: numeral, cardinal
-    mid-1890 nine-thirty forty-two one-tenth ten million 0.5 one forty-
-    seven 1987 twenty &#39;79 zero two 78-degrees eighty-four IX &#39;60s .025
-    fifteen 271,124 dozen quintillion DM2,000 ...
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>NNP: noun, proper, singular
+    Motown Venneboerger Czestochwa Ranzer Conchita Trumplane Christos
+    Oceanside Escobar Kreisler Sawyer Cougar Yvette Ervin ODI Darryl CTCA
+    Shannon A.K.C. Meltex Liverpool ...
 DT: determiner
     all an another any both del each either every half la many much nary
     neither no some such that the them these this those
-EX: existential there
-    there
-FW: foreign word
-    gemeinschaft hund ich jeux habeas Haementeria Herr K&#39;ang-si vous
-    lutihaw alai je jour objets salutaris fille quibusdam pas trop Monte
-    terram fiche oui corporis ...
-IN: preposition or conjunction, subordinating
-    astride among uppon whether out inside pro despite on by throughout
-    below within for towards near behind atop around if like until below
-    next into if beside ...
 JJ: adjective or numeral, ordinal
     third ill-mannered pre-war regrettable oiled calamitous first separable
     ectoplasmic battery-powered participatory fourth still-to-be-named
     multilingual multi-disciplinary ...
-JJR: adjective, comparative
-    bleaker braver breezier briefer brighter brisker broader bumper busier
-    calmer cheaper choosier cleaner clearer closer colder commoner costlier
-    cozier creamier crunchier cuter ...
-JJS: adjective, superlative
-    calmest cheapest choicest classiest cleanest clearest closest commonest
-    corniest costliest crassest creepiest crudest cutest darkest deadliest
-    dearest deepest densest dinkiest ...
-LS: list item marker
-    A A. B B. C C. D E F First G H I J K One SP-44001 SP-44002 SP-44005
-    SP-44007 Second Third Three Two * a b c d first five four one six three
-    two
-MD: modal auxiliary
-    can cannot could couldn&#39;t dare may might must need ought shall should
-    shouldn&#39;t will would
-NN: noun, common, singular or mass
-    common-carrier cabbage knuckle-duster Casino afghan shed thermostat
-    investment slide humour falloff slick wind hyena override subhumanity
-    machinist ...
-NNP: noun, proper, singular
-    Motown Venneboerger Czestochwa Ranzer Conchita Trumplane Christos
-    Oceanside Escobar Kreisler Sawyer Cougar Yvette Ervin ODI Darryl CTCA
-    Shannon A.K.C. Meltex Liverpool ...
-NNPS: noun, proper, plural
-    Americans Americas Amharas Amityvilles Amusements Anarcho-Syndicalists
-    Andalusians Andes Andruses Angels Animals Anthony Antilles Antiques
-    Apache Apaches Apocrypha ...
-NNS: noun, common, plural
-    undergraduates scotches bric-a-brac products bodyguards facets coasts
-    divestitures storehouses designs clubs fragrances averages
-    subjectivists apprehensions muses factory-jobs ...
-PDT: pre-determiner
-    all both half many quite such sure this
-POS: genitive marker
-    &#39; &#39;s
-PRP: pronoun, personal
-    hers herself him himself hisself it itself me myself one oneself ours
-    ourselves ownself self she thee theirs them themselves they thou thy us
-PRP$: pronoun, possessive
-    her his mine my our ours their thy your
-RB: adverb
-    occasionally unabatingly maddeningly adventurously professedly
-    stirringly prominently technologically magisterially predominately
-    swiftly fiscally pitilessly ...
-RBR: adverb, comparative
-    further gloomier grander graver greater grimmer harder harsher
-    healthier heavier higher however larger later leaner lengthier less-
-    perfectly lesser lonelier longer louder lower more ...
-RBS: adverb, superlative
-    best biggest bluntest earliest farthest first furthest hardest
-    heartiest highest largest least less most nearest second tightest worst
-RP: particle
-    aboard about across along apart around aside at away back before behind
-    by crop down ever fast for forth from go high i.e. in into just later
-    low more off on open out over per pie raising start teeth that through
-    under unto up up-pp upon whole with you
-SYM: symbol
-    % &amp; &#39; &#39;&#39; &#39;&#39;. ) ). * + ,. &lt; = &gt; @ A[fj] U.S U.S.S.R * ** ***
-TO: &quot;to&quot; as preposition or infinitive marker
-    to
-UH: interjection
-    Goodbye Goody Gosh Wow Jeepers Jee-sus Hubba Hey Kee-reist Oops amen
-    huh howdy uh dammit whammo shucks heck anyways whodunnit honey golly
-    man baby diddle hush sonuvabitch ...
-VB: verb, base form
-    ask assemble assess assign assume atone attention avoid bake balkanize
-    bank begin behold believe bend benefit bevel beware bless boil bomb
-    boost brace break bring broil brush build ...
-VBD: verb, past tense
-    dipped pleaded swiped regummed soaked tidied convened halted registered
-    cushioned exacted snubbed strode aimed adopted belied figgered
-    speculated wore appreciated contemplated ...
-VBG: verb, present participle or gerund
-    telegraphing stirring focusing angering judging stalling lactating
-    hankerin&#39; alleging veering capping approaching traveling besieging
-    encrypting interrupting erasing wincing ...
-VBN: verb, past participle
-    multihulled dilapidated aerosolized chaired languished panelized used
-    experimented flourished imitated reunifed factored condensed sheared
-    unsettled primed dubbed desired ...
-VBP: verb, present tense, not 3rd person singular
-    predominate wrap resort sue twist spill cure lengthen brush terminate
-    appear tend stray glisten obtain comprise detest tease attract
-    emphasize mold postpone sever return wag ...
-VBZ: verb, present tense, 3rd person singular
-    bases reconstructs marks mixes displeases seals carps weaves snatches
-    slumps stretches authorizes smolders pictures emerges stockpiles
-    seduces fizzes uses bolsters slaps speaks pleads ...
-WDT: WH-determiner
-    that what whatever which whichever
-WP: WH-pronoun
-    that what whatever whatsoever which who whom whosoever
-WP$: WH-pronoun, possessive
-    whose
-WRB: Wh-adverb
-    how however whence whenever where whereby whereever wherein whereof why
-``: opening quotation mark
-    ` ``
 </pre></div>
 </div>
 </div>
@@ -587,11 +526,12 @@ Stop words on
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="text-encoding">
-<h1>Text Encoding<a class="headerlink" href="#text-encoding" title="Permalink to this headline">¶</a></h1>
-<p>One of the key components of NLP, is deciding how to encode the text data.</p>
-<p>Common encodings are:</p>
+<h2>Text Encoding<a class="headerlink" href="#text-encoding" title="Permalink to this headline">¶</a></h2>
+<p>In order to analyze text <em>as</em> data, we often need to encode it in some way.</p>
+<p>By encoding here, we just mean choosing a representation of the data, and for text data the goal is to choose a representation that is more amenable for computational analysis. There are many possibilities, and which approach works best depends largely on the context of the data and the analyses to be performed. Choosing how to encode text data is a key topic in NLP.</p>
+<p>Here, we will explore a couple simple encoding approaches, which in this case are basically ways to count the words and measure occurrences in text data. By measuring how often certain words occur, we can characterize the text as numerical data, and open up access to numerical analysis of the data.</p>
+<p>Some common encodings for text data are:</p>
 <ul class="simple">
 <li><p>Bag of Words (BoW)</p>
 <ul>
@@ -604,7 +544,7 @@ Stop words on
 </ul>
 </li>
 </ul>
-<p>We will walk through an example of encoding text as BoW and TF-IDF.</p>
+<p>Next we will walk through an example of encoding text as BoW and TF-IDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
@@ -625,13 +565,16 @@ Stop words on
 </div>
 </div>
 </div>
+<div class="section" id="load-some-data">
+<h3>Load some Data<a class="headerlink" href="#load-some-data" title="Permalink to this headline">¶</a></h3>
 <p>The data we will be looking at is a small subset of the BookCorpus dataset. The original dataset can be found here: http://yknzhu.wixsite.com/mbweb.</p>
-<p>The original dataset was collected from more than 11,000 books, and has already been tokenised at both the sentence and word level. The small subset provided and used here contains the first 10,000 sentences.</p>
+<p>The original dataset was collected from more than 11,000 books, and has already been tokenised at both the sentence and word level.</p>
+<p>The small subset provided and used here contains the first 10,000 sentences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/book10k.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">sents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/book10k.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">sents</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -653,15 +596,20 @@ alejo was sure the fact that he was nervously repeating mass along with five wri
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="pre-processing">
+<h3>Pre-Processing<a class="headerlink" href="#pre-processing" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s do some standard text pre-processing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocessing: Strip all extra whitespace from the sentences</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocessing: strip all extra whitespace from the sentences</span>
 <span class="n">sents</span> <span class="o">=</span> <span class="p">[</span><span class="n">sent</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sents</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We first take a look at the word frequency in the document, and print out top 10 most frequently appeared words with their frequencies.</p>
+<p>Let’s first take a look at the word frequencies in this data.</p>
+<p>To do so, we can tokenize the text, count occurences, and then we can have a look at the most frequent words in the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize all the sentences into words</span>
@@ -682,13 +630,24 @@ alejo was sure the fact that he was nervously repeating mass along with five wri
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of words in the data: 	 140060
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of words in the data: 	 140094
 Number of unique words: 	 8221
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+</div>
+<div class="section" id="bag-of-words">
+<h3>Bag-of-Words<a class="headerlink" href="#bag-of-words" title="Permalink to this headline">¶</a></h3>
+<p>Next, let’s try a ‘bag-of-words’ representation of the data.</p>
+<p>After tokenization, a ‘bag-of-words’ can be computed by counting how often each token occurs, which we can do with the <code class="docutils literal notranslate"><span class="pre">Counter</span></code> object.</p>
+<div class="alert alert-success">
+A 'bag of words' model, of representation, is way to represent text data by counting occurences of tokens.
+</div>
+<div class="alert alert-info">
+Bag of words on 
+<a href=https://en.wikipedia.org/wiki/Bag-of-words_model class="alert-link">wikipedia</a>.
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;counter&#39; object to count how many times each word appears</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
@@ -696,13 +655,43 @@ Number of unique words: 	 8221
 </div>
 </div>
 </div>
+<p>Now, we can explore the counter object, which is basically a ‘bag-of-words’ representation of the data.</p>
+<p>Note that in this encoding we have lost word order and grammar. All we have is a collection of words.</p>
+<p>This representation is quite different from how humans interact with language, but can be useful for some analyses.</p>
+<p>What we do have is a list of all the words present, and how often they appear. Basically, we have turned the text into a <em>distribution</em> and we can try and analyze this distribution to try and programmatically analyze the text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the counts object</span>
-<span class="c1">#  This is basically a &#39;bag-of-words&#39; representation of this corpus</span>
-<span class="c1">#  We have lost word order and grammar - it&#39;s just a collection of words</span>
-<span class="c1">#  What we do have is a list of all the words present, and how often they appear</span>
-<span class="n">counts</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the counts object, printing out some of the most common tokens</span>
+<span class="n">counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;.&#39;, 8601),
+ (&#39;,&#39;, 6675),
+ (&#39;the&#39;, 6062),
+ (&#39;and&#39;, 3382),
+ (&#39;to&#39;, 3328),
+ (&#39;``&#39;, 2852),
+ (&#39;i&#39;, 2747),
+ (&#39;a&#39;, 2480),
+ (&#39;of&#39;, 2122),
+ (&#39;was&#39;, 1752),
+ (&#39;he&#39;, 1678),
+ (&#39;in&#39;, 1616),
+ (&#39;you&#39;, 1483),
+ (&#39;her&#39;, 1353),
+ (&#39;his&#39;, 1349),
+ (&#39;?&#39;, 1153),
+ (&#39;she&#39;, 1153),
+ (&#39;that&#39;, 1134),
+ (&#39;it&#39;, 1050),
+ (&quot;&#39;s&quot;, 1023),
+ (&#39;had&#39;, 898),
+ (&#39;with&#39;, 894),
+ (&#39;alejo&#39;, 890),
+ (&#39;wara&#39;, 875),
+ (&#39;at&#39;, 818)]
 </pre></div>
 </div>
 </div>
@@ -758,11 +747,13 @@ Number of unique words: 	 8221
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/18-NaturalLanguageProcessing_41_0.png" src="../_images/18-NaturalLanguageProcessing_41_0.png" />
+<img alt="../_images/18-NaturalLanguageProcessing_44_0.png" src="../_images/18-NaturalLanguageProcessing_44_0.png" />
 </div>
 </div>
 <p>As we can see, ‘the’, ‘was’, ‘a’, etc. appear a lot in the document.</p>
-<p>These frequently appearing words aren’t really that useful to figure out what these documents are about, or as a way to use and understand this text data.</p>
+<p>However, these frequently appearing words aren’t particularly useful for figuring out what these documents are about.</p>
+<p>They do not really help us to understand this text data.</p>
+<p>These words are all ‘stop words’, so let’s drop them from the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all stop words</span>
@@ -791,13 +782,39 @@ Number of unique words: 	 8221
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/18-NaturalLanguageProcessing_45_0.png" src="../_images/18-NaturalLanguageProcessing_45_0.png" />
+<img alt="../_images/18-NaturalLanguageProcessing_48_0.png" src="../_images/18-NaturalLanguageProcessing_48_0.png" />
 </div>
 </div>
-<p>This looks potentially more relevant / useful. We could continue exploring this BoW model, but let’s instead pivot now, and explore using TFIDF.</p>
-<div class="cell docutils container">
+<p>This looks potentially more relevant / useful!</p>
+<p>As a distribution of meaningful word, bag-of-word representations can be used to analyze text data in various ways.</p>
+<p>If you are interested in further analysis of this data, look through the <code class="docutils literal notranslate"><span class="pre">nltk</span></code> tutorials for further analyses.</p>
+</div>
+<div class="section" id="term-frequency-inverse-document-frequency-tf-idf">
+<h3>Term Frequency - Inverse Document Frequency (TF-IDF)<a class="headerlink" href="#term-frequency-inverse-document-frequency-tf-idf" title="Permalink to this headline">¶</a></h3>
+<p>Finally, let’s look at another approach for encoding text data - term frequency / inverse document frequency.</p>
+<p>Note that TF-IDF is a similar kind of word counting to bag-of-words.</p>
+<p>First, let’s consider a difficulty with bag-of-words encodings, which is it’s difficult to interpret the word counts. For example, knowing a word occurs 10 times isn’t itself really enough information to understand something about the document the word come from. If that document is 100 words long, that word seems like it must be quite important. But if the document is 10,000 words long, then this word seems less important.</p>
+<p>TF-IDF tries to address this, and does so by scaling the counts of words by the typical occurrence.</p>
+<ul class="simple">
+<li><p>The term-frequency is the count of the term in the document, which is the same as in the bag-of-words.</p></li>
+<li><p>The inverse-document-frequency is a measurement of how commonly the term occurs across a corpus.</p>
+<ul>
+<li><p>Since it’s calculated as an inverse, a higher IDF score is a rarer word.</p></li>
+</ul>
+</li>
+</ul>
+<p>The TF-IDF score is calculated by multiplying the TF by the IDF. One way to think of this is that it normalizes, or scales, term occurrences in a document by a population measure of the occurrence of the term.</p>
+<p>This allows for a representation of the text data which indicates if terms in the document of interest occur more or less frequently than expected (given a corpus). A high TF-IDF score could occur, for example, due to a relatively large number of occurrences of a typically rare term. This may be an interesting and useful feature to describe the text.</p>
+<p>Here, we will briefly examine applying TF/IDF to text data. Note that in this case, we are using an object from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> that can be used to compute the TF/IDF.</p>
+<div class="alert alert-success">
+Term Frequency - Inverse Document Frequency is representation of text data that scales term occurrences by corpus statistics.
+</div>
+<div class="alert alert-info">
+TF-IDF on 
+<a https://en.wikipedia.org/wiki/Tf%E2%80%93idf class="alert-link">wikipedia</a>.
+</div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize a TFIDF object</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize a TFIDF object, applying some settings</span>
 <span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">analyzer</span><span class="o">=</span><span class="s1">&#39;word&#39;</span><span class="p">,</span>
                         <span class="n">sublinear_tf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                         <span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
@@ -806,18 +823,24 @@ Number of unique words: 	 8221
 </div>
 </div>
 </div>
+<p>The TfidfVectorizer will calculate the inverse document frequency (IDF) for each word across our corpus of words.</p>
+<p>The TFIDF for each term, for a particular document, can then be calculated as TF * IDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the TFIDF transformation to our data</span>
-<span class="c1">#  Note that this takes the sentences, and tokenizes them, then applies TFIDF</span>
-<span class="n">tfidf_books</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sents</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Learn the TFIDF representation of our data</span>
+<span class="c1">#   Note that this takes the raw sentences, tokenizes them, and learns the TF/IDF representation</span>
+<span class="n">tdidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">sents</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The TfidfVectorizer will calculate the inverse document frequency (IDF) for each word.</p>
-<p>The TFIDF is then calculated as the TF * IDF, working to down-weight frequently appearing words. This TFIDF is stored in ‘tfidf_books’ variable, which is a n_documents x n_words matrix that encodes the documents in a TFIDF representation.</p>
-<p>Let’s first plot out the IDF for each of the top 10 most frequently appeared words (from the first analysis).</p>
+<p>Before we apply this representation to our data, let’s explore what the data object and calculated scores.</p>
+<p>If you explore the tfidf object you’ll see it includes attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vocabulary_</span></code>, which maps the terms to their indices</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idf_</span></code>, which has the IDF values for each term.</p></li>
+</ul>
+<p>Let’s now plot out the IDF for each of the top 10 most frequently appeared words (from the first analysis).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the IDF weights for the top 10 most common words</span>
@@ -836,13 +859,13 @@ Number of unique words: 	 8221
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/18-NaturalLanguageProcessing_51_0.png" src="../_images/18-NaturalLanguageProcessing_51_0.png" />
+<img alt="../_images/18-NaturalLanguageProcessing_56_0.png" src="../_images/18-NaturalLanguageProcessing_56_0.png" />
 </div>
 </div>
 <p>We compare the plot with the following plot that shows the words with top 10 highest IDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the words with the highest IDF score</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the terms with the highest IDF score</span>
 <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
 <span class="n">top_IDF_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">inds</span><span class="p">]</span>
 <span class="n">top_IDF_scores</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span><span class="p">[</span><span class="n">inds</span><span class="p">]</span>
@@ -852,7 +875,7 @@ Number of unique words: 	 8221
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the words with the highest IDF score</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the terms with the highest IDF score</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">top_IDF_tokens</span><span class="p">,</span> <span class="n">top_IDF_scores</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Inverse Document Frequency&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;IDF Score&#39;</span><span class="p">);</span>
@@ -860,11 +883,51 @@ Number of unique words: 	 8221
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/18-NaturalLanguageProcessing_54_0.png" src="../_images/18-NaturalLanguageProcessing_54_0.png" />
+<img alt="../_images/18-NaturalLanguageProcessing_59_0.png" src="../_images/18-NaturalLanguageProcessing_59_0.png" />
 </div>
 </div>
-<p>As we can see, the frequently appearing words in the document get very low IDF scores, as compared to much rarer words.</p>
-<p>After TF-IDF, we successfully down-weight the frequently appearing words in the document. This allows us to represent a document by the words that are most unique to it, which can be a more useful way to represent text data.</p>
+<p>As we can see, comparing across the two plots, the frequently appearing words have much lower values for their IDF scores, as compared to much rarer words. This is basically by definition, for the IDF score.</p>
+<p>What this means for TF-IDF is that the weighting helps account for which words in a document are specific to that document. Because the TF and IDF values are multiplied, rare terms get a higher TF-IDF score, per occurrence, than common words, which helps to compare across terms and documents. Ultimately, this allows us to represent a document by distribution of terms that are most unique to the particular document, as compared to the average across the corpus.</p>
+<div class="section" id="applying-tf-idf">
+<h4>Applying TF-IDF<a class="headerlink" href="#applying-tf-idf" title="Permalink to this headline">¶</a></h4>
+<p>Now that we have learned the frequencies, we can apply this representation to our data.</p>
+<p>In the next line, we will apply the TF-IDF representation to our data, and convert this to an array.</p>
+<p>This array is an <code class="docutils literal notranslate"><span class="pre">n_documents</span></code> x <code class="docutils literal notranslate"><span class="pre">n_terms</span></code> matrix that encodes the documents in a TFIDF representation.</p>
+<p>Note that in our TFIDF object above we set the number of features to use as 5000, which is the number of terms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply TF/IDF representation to our data</span>
+<span class="n">tfidf_books</span> <span class="o">=</span> <span class="n">tdidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">sents</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of documents: </span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sents</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of terms: </span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TFIDF representation shape: </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">tfidf_books</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of documents: 		 10000
+Number of terms: 		 5000
+TFIDF representation shape: 	 (10000, 5000)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the TFIDF array, each row stores a representation of the document based on the TF-IDF score of our 5000 terms.</p>
+<p>This is a new representation of our text data, a numerical one, that we could now use for analysis and comparison of text data.</p>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>Text analysis and NLP is itself a huge field, and an area in which one can take whole classes or research programs.</p>
+<p>Here, we have introduced some of the core idea related to NLP. For more information on these topics, look into NLP focused resources and classes.</p>
+</div>
 </div>
 
 
@@ -877,7 +940,7 @@ Number of unique words: 	 8221
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="17-Classification.html" title="previous page">Classification</a>
-    <a class='right-next' id="next-link" href="../assignments/D3_DataExploration.html" title="next page">Demo Assignment</a>
+    <a class='right-next' id="next-link" href="A1-PythonPackages.html" title="next page">Appendix: Python Packages</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

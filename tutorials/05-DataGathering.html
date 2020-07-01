@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data Wrangling" href="06-DataWrangling.html" />
-    <link rel="prev" title="Data Science in Python" href="04-DataSciencePython.html" />
+    <link rel="prev" title="Data Analysis" href="03-DataAnalysis.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="active">
     <a href="">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -186,11 +213,19 @@
             <a href="#where-to-get-data" class="nav-link">Where to get Data</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#the-web" class="nav-link">The Web</a>
+            <a href="#institutional-access" class="nav-link">Institutional Access</a>
         </li>
     
         <li class="nav-item toc-entry toc-h3">
-            <a href="#other-than-the-web" class="nav-link">Other than the Web</a>
+            <a href="#data-repositories" class="nav-link">Data Repositories</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#web-scraping" class="nav-link">Web Scraping</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#asking-people-for-data" class="nav-link">Asking People for Data</a>
         </li>
     
         <li class="nav-item toc-entry toc-h3">
@@ -201,31 +236,31 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#data-repositories" class="nav-link">Data Repositories</a>
+            <a href="#definitions-databases-query-languages" class="nav-link">Definitions: Databases & Query Languages</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#databases" class="nav-link">Databases</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#structured-query-language-sql" class="nav-link">Structured Query Language - SQL</a>
-        </li>
-    
-            </ul>
+            <a href="#id1" class="nav-link">Data Repositories</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
             <a href="#application-program-interfaces-apis" class="nav-link">Application Program Interfaces (APIs)</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#launching-url-requests-from-python" class="nav-link">Launching URL Requests from Python</a>
+            <a href="#launching-url-requests-from-python" class="nav-link">Launching URL Requests from Python</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#api-example" class="nav-link">API Example</a>
+        </li>
+    
+            </ul>
         </li>
     
             </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#web-scraping" class="nav-link">Web Scraping</a><ul class="nav section-nav flex-column">
+            <a href="#id2" class="nav-link">Web Scraping</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
             <a href="#apis-vs-web-scraping" class="nav-link">APIs vs. Web Scraping</a>
@@ -248,64 +283,68 @@
   <div class="section" id="data-gathering">
 <h1>Data Gathering<a class="headerlink" href="#data-gathering" title="Permalink to this headline">¶</a></h1>
 <div class="alert alert-success">
-Data Gathering is simply the process of collecting your data together.
-</div><p>This notebook covers strategies you can use to gather data for an analysis.</p>
-<p>If you want to move on to first working on data analyses (with provided data) you can move onto the next tutorials, and come back to this one later.</p>
-<p>Data gathering can encompass anything from launching a data collection project, web scraping, pulling from a database, downloading data in bulk.</p>
-<p>It might even include simply calling someone to ask if you can use some of their data.</p>
+Data Gathering is the process of accessing data and collecting it together.
+</div><p>This notebook covers strategies for finding and gathering data.</p>
+<p>If you want to start by working on data analyses (with provided data) you can move onto the next tutorials, and come back to this one later.</p>
+<p>Data gathering can encompass many different strategies, including data collection, web scraping, accessing data from databases, and downloading data in bulk. Sometimes it even includes things like calling someone to ask if you can use some of their data, and asking them to send it over.</p>
 <div class="section" id="where-to-get-data">
 <h2>Where to get Data<a class="headerlink" href="#where-to-get-data" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="the-web">
-<h3>The Web<a class="headerlink" href="#the-web" title="Permalink to this headline">¶</a></h3>
-<p>The web is absolutely full of data or ways to get data, either by hosting <strong>data repositories</strong> from which you can download data, by offering <strong>APIs</strong> through which you can request specific data from particular applications, or as data itself, such that you can use <strong>web scraping</strong> to extract data directly from websites.</p>
+<p>There are lots of way to get data, and lots of places to get it from. Typically, most of this data will be accessed through the internet, in one way or another, especially when pursuing indepent research projects.</p>
+<div class="section" id="institutional-access">
+<h3>Institutional Access<a class="headerlink" href="#institutional-access" title="Permalink to this headline">¶</a></h3>
+<p>If you are working with data as part of an institution, such as a company of research lab, the institution will typically have data it needs analyzing, that it collects in various ways. Keep in mind that even people working inside institutions, with access to local data, will data still seek to find and incorporate external datasets.</p>
 </div>
-<div class="section" id="other-than-the-web">
-<h3>Other than the Web<a class="headerlink" href="#other-than-the-web" title="Permalink to this headline">¶</a></h3>
-<p>Not all data is indexed or accessible on the web, at least not publicly.</p>
-<p>Sometimes finding data means chasing down data wherever it might be.</p>
-<p>If there is some particular data you need, you can try to figure out who might have it, and get in touch to see if it might be available.</p>
+<div class="section" id="data-repositories">
+<h3>Data Repositories<a class="headerlink" href="#data-repositories" title="Permalink to this headline">¶</a></h3>
+<p><strong>Data repositories</strong> are databases from which you can download data. Some data repositories allow you to explore available datasets and download datasets in bulk. Others may also offer <strong>APIs</strong>, through which you can request specific data from particular databases.</p>
+</div>
+<div class="section" id="web-scraping">
+<h3>Web Scraping<a class="headerlink" href="#web-scraping" title="Permalink to this headline">¶</a></h3>
+<p>The web itself is full of unstructured data. <strong>Web scraping</strong> can be done to directly extract and collect data directly from websites.</p>
+</div>
+<div class="section" id="asking-people-for-data">
+<h3>Asking People for Data<a class="headerlink" href="#asking-people-for-data" title="Permalink to this headline">¶</a></h3>
+<p>Not all data is indexed or accessible on the web, at least not publicly. Sometimes finding data means figuring out if any data is available, figuring out where it might be, and then reaching out and asking people directly about data access. If there is some particular data you need, you can try to figure out who might have it, and get in touch to see if it might be available.</p>
 </div>
 <div class="section" id="data-gathering-skills">
 <h3>Data Gathering Skills<a class="headerlink" href="#data-gathering-skills" title="Permalink to this headline">¶</a></h3>
 <p>Depending on your gathering method, you will likely have to do some combination of the following:</p>
 <ul class="simple">
-<li><p>Download data files from repositories</p></li>
-<li><p>Read data files into python</p></li>
-<li><p>Use APIs</p></li>
-<li><p>Query databases</p></li>
-<li><p>Call someone and ask them to send you a harddrive</p></li>
+<li><p>Direct download data files from repositories</p></li>
+<li><p>Query databases &amp; use APIs to extract and collect data of interest</p></li>
+<li><p>Ask people for data, and going to pick up data with a harddrive</p></li>
 </ul>
+<p>Ultimately, the goal is collect and curate data files, hopefully structured, that you can read into Python.</p>
 </div>
 </div>
-<div class="section" id="data-repositories">
-<h2>Data Repositories<a class="headerlink" href="#data-repositories" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="definitions-databases-query-languages">
+<h2>Definitions: Databases &amp; Query Languages<a class="headerlink" href="#definitions-databases-query-languages" title="Permalink to this headline">¶</a></h2>
+<p>Here, we will introduce some useful definitions you will likely encounter when exploring how to gather data.</p>
+<p>Other than these definitions, we will not cover databases &amp; query languages more in these tutorials.</p>
+<div class="alert alert-success">
+A database is an organized collection of data. More formally, 'database' refers to a set of related data, and the way it is organized. 
+</div><div class="alert alert-success">
+A query language is a language for operating with databases, such as retrieving, and sometimes modifying, information from databases.
+</div><div class="alert alert-success">
+SQL (pronounced 'sequel') is a common query language used to interact with databases, and request data.
+</div>
+<div class="alert alert-info">
+If you are interested, there is a useful introduction and tutorial to SQL
+<a href="http://www.sqlcourse.com/intro.html" class="alert-link">here</a>
+as well as some useful 'cheat sheets' 
+<a href="http://www.cheat-sheets.org/sites/sql.su/" class="alert-link">here</a>
+and
+<a href="http://www.sqltutorial.org/wp-content/uploads/2016/04/SQL-cheat-sheet.pdf" class="alert-link">here</a>.
+</div></div>
+<div class="section" id="id1">
+<h2>Data Repositories<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-success">
 A Data Repository is basically just a place that data is stored. For our purposes, it is a place you can download data from. 
 </div>
 <div class="alert alert-info">
 There is a curated list of good data source included in the 
 <a href="https://github.com/COGS108/Projects" class="alert-link">project materials</a>.
-</div></div>
-<div class="section" id="databases">
-<h2>Databases<a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h2>
-<div class="alert alert-success">
-A database is an organized collection of data. More formally, 'database' refers to a set of related data, and the way it is organized. 
-</div><div class="section" id="structured-query-language-sql">
-<h3>Structured Query Language - SQL<a class="headerlink" href="#structured-query-language-sql" title="Permalink to this headline">¶</a></h3>
-<div class="alert alert-success">
-SQL (pronounced 'sequel') is a language used to 'communicate' with databases, making queries to request particular data from them.
-</div>
-<div class="alert alert-info">
-There is a useful introduction and tutorial to SQL
-<a href="http://www.sqlcourse.com/intro.html" class="alert-link">here</a>
-as well as some useful 'cheat sheets' 
-<a href="http://www.cheat-sheets.org/sites/sql.su/" class="alert-link">here</a>
-and
-<a href="http://www.sqltutorial.org/wp-content/uploads/2016/04/SQL-cheat-sheet.pdf" class="alert-link">here</a>.
-</div><p>SQL is the standard, and most popular, way to interface with relational databases.</p>
-<p>Note: None of the rest of the tutorials presume or require any knowledge of SQL.</p>
-<p>You can look into it if you want, or if it is relevant to accessing some data you want to analyze, but it is not required for this set of tutorials.</p>
-</div>
+</div><p>For our purposes, data repositories are places you can download data directly from, for example <a class="reference external" href="https://www.data.gov/">data.gov</a>.</p>
 </div>
 <div class="section" id="application-program-interfaces-apis">
 <h2>Application Program Interfaces (APIs)<a class="headerlink" href="#application-program-interfaces-apis" title="Permalink to this headline">¶</a></h2>
@@ -317,21 +356,33 @@ For a simple explanation of APIs go
 <a href="https://medium.freecodecamp.com/what-is-an-api-in-english-please-b880a3214a82" class="alert-link">here</a>
 or for a much broader, more technical, overview try
 <a href="https://medium.com/@mattburgess/apis-a-basic-primer-f8250602597d" class="alert-link">here</a>.
-</div><p>APIs offer a lot of functionality - you can send requests to the application to do all kinds of actions. In fact, any application interface that is designed to be used programatically is an API, including, for example, interfaces for using packages of code.</p>
-<p>One of the many things that APIs do, and offer, is a way to query and access data from particular applications / databases. The benefit of using APIs for data gathering purposes is that they typically return data in nicely structured formats, that are relatively easy to analyze.</p>
+</div>
+<div class="alert alert-info">
+This
+<a href="http://www.webopedia.com/TERM/A/API.html" class="alert-link">list</a>
+includes a collection of commonly used and available APIs. 
+</div><p>APIs offer a lot of functionality - you can send requests to the application to do all kinds of actions. In fact, any application interface that is designed to be used programmatically is an API, including, for example, interfaces for using packages of code.</p>
+<p>One of the many things that APIs do, and offer, is a way to query and access data from particular applications / databases. For example, there is a an API for Google maps that allows for programmatically querying the latitude &amp; longitude positions of given addresses.</p>
+<p>The benefit of using APIs for data gathering purposes is that they typically return data in nicely structured formats, that are relatively easy to analyze.</p>
 <div class="section" id="launching-url-requests-from-python">
 <h3>Launching URL Requests from Python<a class="headerlink" href="#launching-url-requests-from-python" title="Permalink to this headline">¶</a></h3>
+<p>In order to use APIs, and for other approaches to collecting data, it may be useful to launch URL requests from Python.</p>
+<p>Note that by <code class="docutils literal notranslate"><span class="pre">URL</span></code>, we just mean a file or application that can be reached by a web address. Python can be used to organize and launch URL requests, triggering actions and collecting any returned data.</p>
+<p>In practice, APIs are usually special URLs that return raw data, such as <code class="docutils literal notranslate"><span class="pre">json</span></code> or <code class="docutils literal notranslate"><span class="pre">XML</span></code> files. This is compared to URLs we are typically more used to that return web pages as <code class="docutils literal notranslate"><span class="pre">html</span></code>, which can be rendered for human viewers (html). The key difference is that APIs return structured data files, where as <code class="docutils literal notranslate"><span class="pre">html</span></code> files are typically unstructured (more on that later, with web scraping).</p>
+<p>If you with to use an API, try and find the documentation for to see how you send requests to access whatever data you want.</p>
+<div class="section" id="api-example">
+<h4>API Example<a class="headerlink" href="#api-example" title="Permalink to this headline">¶</a></h4>
+<p>For our example here, we will use the Github API. Note that the URL we use is <code class="docutils literal notranslate"><span class="pre">api.github.com</span></code>. This URL accesses the API, and will return structured data files, instead of the html that would be returned by the standard URL (github.com).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="c1">#  requests lets you make http requests from python</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># We will use the `requests` library to launch URL requests from Python</span>
 <span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In practice, APIs are usually special URLs that return raw data (json or XML) as opposed to a web page to be rendered for human viewers (html). Find the documentation for a particular API to see how you send requests to access whatever data you want. For example, let’s try the Github API.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request data from the Github API on a particular user</span>
@@ -348,7 +399,7 @@ or for a much broader, more technical, overview try
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;{&quot;login&quot;:&quot;TomDonoghue&quot;,&quot;id&quot;:7727566,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/7727566?v=4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/TomDonoghue&quot;,&quot;html_url&quot;:&quot;https://github.com/TomDonoghue&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/TomDonoghue/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/TomDonoghue/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/TomDonoghue/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/TomDonoghue/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/TomDonoghue/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/TomDonoghue/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/TomDonoghue/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false,&quot;name&quot;:&quot;Tom&quot;,&quot;company&quot;:&quot;UC San Diego&quot;,&quot;blog&quot;:&quot;tomdonoghue.github.io&quot;,&quot;location&quot;:&quot;San Diego&quot;,&quot;email&quot;:null,&quot;hireable&quot;:null,&quot;bio&quot;:&quot;Cognitive Science Grad Student @ UCSD. \\r\\nOn Twitter @TomDonoghue&quot;,&quot;public_repos&quot;:13,&quot;public_gists&quot;:0,&quot;followers&quot;:13,&quot;following&quot;:35,&quot;created_at&quot;:&quot;2014-05-28T20:20:48Z&quot;,&quot;updated_at&quot;:&quot;2018-01-09T04:15:59Z&quot;}&#39;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;{&quot;login&quot;:&quot;TomDonoghue&quot;,&quot;id&quot;:7727566,&quot;node_id&quot;:&quot;MDQ6VXNlcjc3Mjc1NjY=&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/7727566?v=4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/TomDonoghue&quot;,&quot;html_url&quot;:&quot;https://github.com/TomDonoghue&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/TomDonoghue/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/TomDonoghue/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/TomDonoghue/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/TomDonoghue/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/TomDonoghue/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/TomDonoghue/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/TomDonoghue/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false,&quot;name&quot;:&quot;Tom&quot;,&quot;company&quot;:&quot;UC San Diego&quot;,&quot;blog&quot;:&quot;https://tomdonoghue.github.io&quot;,&quot;location&quot;:&quot;San Diego&quot;,&quot;email&quot;:null,&quot;hireable&quot;:null,&quot;bio&quot;:&quot;Cognitive Science Grad Student @ UC San Diego working on analyzing electrical brain activity. Also teaching Python &amp; Data Science. \\r\\n\\r\\n&quot;,&quot;twitter_username&quot;:null,&quot;public_repos&quot;:13,&quot;public_gists&quot;:0,&quot;followers&quot;:97,&quot;following&quot;:83,&quot;created_at&quot;:&quot;2014-05-28T20:20:48Z&quot;,&quot;updated_at&quot;:&quot;2020-06-19T21:35:12Z&quot;}&#39;
 </pre></div>
 </div>
 </div>
@@ -361,56 +412,58 @@ or for a much broader, more technical, overview try
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>avatar_url             https://avatars0.githubusercontent.com/u/77275...
-bio                    Cognitive Science Grad Student @ UCSD. \r\nOn ...
-blog                                               tomdonoghue.github.io
-company                                                     UC San Diego
-created_at                                          2014-05-28T20:20:48Z
-email                                                               None
-events_url             https://api.github.com/users/TomDonoghue/event...
-followers                                                             13
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>login                                                        TomDonoghue
+id                                                               7727566
+node_id                                             MDQ6VXNlcjc3Mjc1NjY=
+avatar_url             https://avatars0.githubusercontent.com/u/77275...
+gravatar_id                                                             
+url                             https://api.github.com/users/TomDonoghue
+html_url                                  https://github.com/TomDonoghue
 followers_url          https://api.github.com/users/TomDonoghue/follo...
-following                                                             35
 following_url          https://api.github.com/users/TomDonoghue/follo...
 gists_url              https://api.github.com/users/TomDonoghue/gists...
-gravatar_id                                                             
-hireable                                                            None
-html_url                                  https://github.com/TomDonoghue
-id                                                               7727566
-location                                                       San Diego
-login                                                        TomDonoghue
-name                                                                 Tom
-organizations_url          https://api.github.com/users/TomDonoghue/orgs
-public_gists                                                           0
-public_repos                                                          13
-received_events_url    https://api.github.com/users/TomDonoghue/recei...
-repos_url                 https://api.github.com/users/TomDonoghue/repos
-site_admin                                                         False
 starred_url            https://api.github.com/users/TomDonoghue/starr...
 subscriptions_url      https://api.github.com/users/TomDonoghue/subsc...
+organizations_url          https://api.github.com/users/TomDonoghue/orgs
+repos_url                 https://api.github.com/users/TomDonoghue/repos
+events_url             https://api.github.com/users/TomDonoghue/event...
+received_events_url    https://api.github.com/users/TomDonoghue/recei...
 type                                                                User
-updated_at                                          2018-01-09T04:15:59Z
-url                             https://api.github.com/users/TomDonoghue
+site_admin                                                         False
+name                                                                 Tom
+company                                                     UC San Diego
+blog                                       https://tomdonoghue.github.io
+location                                                       San Diego
+email                                                               None
+hireable                                                            None
+bio                    Cognitive Science Grad Student @ UC San Diego ...
+twitter_username                                                    None
+public_repos                                                          13
+public_gists                                                           0
+followers                                                             97
+following                                                             83
+created_at                                          2014-05-28T20:20:48Z
+updated_at                                          2020-06-19T21:35:12Z
 dtype: object
 </pre></div>
 </div>
 </div>
 </div>
-<div class="alert alert-info">
-This
-<a href="http://www.webopedia.com/TERM/A/API.html" class="alert-link">list</a>
-includes a collection of commonly used and available APIs. 
-</div></div>
+<p>As we can see above, in a couple lines of code, we can collect a lot of structured data about a particular user.</p>
+<p>If we wanted to do analyses of Github profiles and activity, we could use the Github API to collect information about a group of users, and then analyze and compare the collected data.</p>
 </div>
-<div class="section" id="web-scraping">
-<h2>Web Scraping<a class="headerlink" href="#web-scraping" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Web Scraping<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-success">
 Web scraping is when you (programmatically) extract data from websites.
 </div>
 <div class="alert alert-info">
 <a href="https://en.wikipedia.org/wiki/Web_scraping" class="alert-link">Wikipedia</a>
 has a useful page on web scraping.
-</div><p>Note that the following section uses the ‘BeautifulSoup’ module, which is not part of the standard anaconda distribution.</p>
+</div><p>By web scraping, we typically mean something distinct from using the internet to access an API. Rather, web scraping refers to using code to systematically navigate the internet, and extract information of internet, from html or other available files. Note that in this case one is not interacting directly with a database, but simply exploring and collecting whatever is available on web pages.</p>
+<p>Note that the following section uses the ‘BeautifulSoup’ module, which is not part of the standard anaconda distribution.</p>
 <p>If you do not have BeautifulSoup, and want to get it to run this section, you can uncomment the cell below, and run it, to install BeautifulSoup in your current Python environment. You only have to do this once.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -488,15 +541,15 @@ P-TAG:
 </div>
 </div>
 </div>
-<p>From the soup object, you can explore that the page is much more organized, and in such a way that you can extract particular components of interest.</p>
+<p>From the soup object, you can explore the page in a more organized way, and start to extract particular components of interest.</p>
 <p>Note that it is still ‘messy’ in other ways, in that there might or might not be a systematic structure to how the page is laid out, and it still might take a lot of work to extract the particular information you want from it.</p>
 <div class="section" id="apis-vs-web-scraping">
 <h3>APIs vs. Web Scraping<a class="headerlink" href="#apis-vs-web-scraping" title="Permalink to this headline">¶</a></h3>
 <p>Web scraping is distinct from using an API, even though many APIs may be accessed over the internet. Web scraping is different in that you are (programmatically) navigating through the internet, and extracting data of interest.</p>
 <p>Note:
-Be aware that scraping data from websites (without using APIs) can often be an involved project itself - scraping sites can take a considerable amount of tuning to get the data you want.</p>
-<p>Be aware that data presented on websites may not be well structured, or in an organzed format that lends itself to easy analysis.</p>
-<p>If you try scraping websites, also make sure you are allowed to scrape the data, and follow the websites terms of service.</p>
+Be aware that scraping data from websites (without using APIs) can often be an involved project itself. Web scraping itself can take a considerable amount of time and work to get the data you want.</p>
+<p>Be aware that data presented on websites may not be well structured, and may not be in an organized format that lends itself to easy collection and analysis.</p>
+<p>If you try scraping websites, you should also check to make sure you are allowed to scrape the data, and follow the websites terms of service.</p>
 </div>
 </div>
 </div>
@@ -510,7 +563,7 @@ Be aware that scraping data from websites (without using APIs) can often be an i
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="04-DataSciencePython.html" title="previous page">Data Science in Python</a>
+    <a class='left-prev' id="prev-link" href="03-DataAnalysis.html" title="previous page">Data Analysis</a>
     <a class='right-next' id="next-link" href="06-DataWrangling.html" title="next page">Data Wrangling</a>
 
     </div>

@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Testing Distributions" href="11-TestingDistributions.html" />
-    <link rel="prev" title="Data Visualization with Python" href="09-DataVisualization.html" />
+    <link rel="prev" title="Data Visualization" href="09-DataVisualization.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="active">
     <a href="">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -183,31 +210,33 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#probability-distributions" class="nav-link">Probability Distributions</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
+            <a href="#probability-distributions" class="nav-link">Probability Distributions</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
             <a href="#uniform-distribution" class="nav-link">Uniform Distribution</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
+        <li class="nav-item toc-entry toc-h3">
             <a href="#normal-distribution" class="nav-link">Normal Distribution</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
+        <li class="nav-item toc-entry toc-h3">
             <a href="#bernouilli-distribution" class="nav-link">Bernouilli Distribution</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
+        <li class="nav-item toc-entry toc-h3">
             <a href="#gamma-distribution" class="nav-link">Gamma Distribution</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
+        <li class="nav-item toc-entry toc-h3">
             <a href="#beta-distribution" class="nav-link">Beta Distribution</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
+        <li class="nav-item toc-entry toc-h3">
             <a href="#poisson-distribution" class="nav-link">Poisson Distribution</a>
+        </li>
+    
+            </ul>
         </li>
     
     </ul>
@@ -246,11 +275,10 @@ If you want a more general refresher on probability / distributions, check out t
 <p>Typically, given a data source, we want to think about and check what kind of probability distribution our data sample appears to follow. More specifically, we are trying to infer the probability distribution that the data generator follows, asking the question: what function could it be replaced by?</p>
 <p>Checking the distribution of data is important, as we typically want to apply statistical tests to our data, and many statistical tests come with underlying assumptions about the distributions of the data they are applied to. Ensuring we apply appropriate statistical methodology requires thinking about and checking the distribution of our data.</p>
 <p>Informally, we can start by visualizing our data, and seeing what ‘shape’ it takes, and which distribution it appears to follow. More formally, we can statistically test whether a sample of data follows a particular distribution.</p>
-<p>Here we will start be visualizing some of the most common distributions. Scipy (scipy.stats) has a series of code and functions for working with, and generating different distributions - all with a consistent API. We will generate synthetic data from different underlying distributions, and do a quick survey of how they look, plotting histograms of the generated data.</p>
+<p>Here we will start be visualizing some of the most common distributions. <code class="docutils literal notranslate"><span class="pre">Scipy</span></code> (scipy.stats) has code for working with, and generating different distributions. We will generate synthetic data from different underlying distributions, and do a quick survey of how they look, plotting histograms of the generated data.</p>
 <p>You can use this notebook to explore different parameters to get a feel for these distributions. For further exploration, explore plotting the probability density functions of each distribution.</p>
-</div>
 <div class="section" id="uniform-distribution">
-<h2>Uniform Distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">¶</a></h2>
+<h3>Uniform Distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-success">
 A uniform distribution is a distribution in which each possible value is equally probable. 
 </div>
@@ -266,14 +294,14 @@ Uniform distribution on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -283,7 +311,7 @@ Uniform distribution on
 </div>
 </div>
 <div class="section" id="normal-distribution">
-<h2>Normal Distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this headline">¶</a></h2>
+<h3>Normal Distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-success">
 The Normal (also Gaussian, or 'Bell Curve') distribution, is a distribution defined by it's mean and standard deviation.
 </div>
@@ -299,14 +327,14 @@ Normal distribution on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -316,9 +344,9 @@ Normal distribution on
 </div>
 </div>
 <div class="section" id="bernouilli-distribution">
-<h2>Bernouilli Distribution<a class="headerlink" href="#bernouilli-distribution" title="Permalink to this headline">¶</a></h2>
+<h3>Bernouilli Distribution<a class="headerlink" href="#bernouilli-distribution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-success">
-A Bernouilli Distribution is a binary distribution - it takes only two values (0 or 1), with some probably 'p'. 
+The Bernouilli Distribution is a binary distribution - it takes only two values (0 or 1), with some probably 'p'. 
 </div>
 <div class="alert alert-info">
 Bernouilli distribution on wikipedia
@@ -332,14 +360,14 @@ Bernouilli distribution on wikipedia
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -349,7 +377,7 @@ Bernouilli distribution on wikipedia
 </div>
 </div>
 <div class="section" id="gamma-distribution">
-<h2>Gamma Distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this headline">¶</a></h2>
+<h3>Gamma Distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-success">
 The Gamma Distribution is continuous probably distribution defined by two parameters.
 </div>
@@ -368,14 +396,14 @@ Gamma distribution on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -385,7 +413,7 @@ Gamma distribution on
 </div>
 </div>
 <div class="section" id="beta-distribution">
-<h2>Beta Distribution<a class="headerlink" href="#beta-distribution" title="Permalink to this headline">¶</a></h2>
+<h3>Beta Distribution<a class="headerlink" href="#beta-distribution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-success">
 The Beta Distribution is a distribution defined on the interval [0, 1], defined by two shape parameters. 
 </div>
@@ -401,14 +429,14 @@ Beta distribution on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -418,7 +446,7 @@ Beta distribution on
 </div>
 </div>
 <div class="section" id="poisson-distribution">
-<h2>Poisson Distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this headline">¶</a></h2>
+<h3>Poisson Distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-success">
 The Poisson Distribution that models events in fixed intervals of time, given a known average rate (and independent occurences).
 </div>
@@ -434,19 +462,20 @@ Poisson distribution on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dat</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/10-Distributions_33_0.png" src="../_images/10-Distributions_33_0.png" />
+</div>
 </div>
 </div>
 </div>
@@ -461,7 +490,7 @@ Poisson distribution on
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="09-DataVisualization.html" title="previous page">Data Visualization with Python</a>
+    <a class='left-prev' id="prev-link" href="09-DataVisualization.html" title="previous page">Data Visualization</a>
     <a class='right-next' id="next-link" href="11-TestingDistributions.html" title="next page">Testing Distributions</a>
 
     </div>

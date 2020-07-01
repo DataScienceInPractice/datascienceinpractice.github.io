@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Demo Assignment &#8212; Data Science in Practice</title>
+    <title>Git &amp; Python &#8212; Data Science in Practice</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -67,16 +67,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="../tutorials/00-Introduction.html">Data Science in Practice</a>
+    <a href="../tutorials/00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="../tutorials/01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="../tutorials/01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="../tutorials/02-DataAnalysis.html">Data Analysis</a>
+    <a href="../tutorials/02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="../tutorials/04-DataSciencePython.html">Data Science in Python</a>
+    <a href="../tutorials/03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
@@ -91,13 +91,16 @@
     <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="../tutorials/09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="../tutorials/09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="../tutorials/10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="../tutorials/11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="../tutorials/13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -117,11 +120,35 @@
   <li class="">
     <a href="../tutorials/18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="../tutorials/A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="D3_DataExploration.html">Demo Assignment</a>
+    <a href="D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -173,9 +200,46 @@
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#how-to-complete-assignments" class="nav-link">How to complete assignments</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#introduction" class="nav-link">Introduction</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-1-git-github-2-5-points" class="nav-link">Part 1: git & GitHub (2.5 points)</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#step-by-step-instructions" class="nav-link">Step-by-Step Instructions</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#general-notes" class="nav-link">General Notes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#q0-span-style-color-red-pid-github-username-span-2-5-points" class="nav-link">Q0: <span style="color: red;">PID & GitHub Username </span> (2.5 points)</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-2-python-5-points" class="nav-link">Part 2: Python (5 points)</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#the-end" class="nav-link">The End!</a>
+        </li>
     
     </ul>
 </nav>
@@ -188,14 +252,13 @@
         
               <div>
                 
-  <div class="section" id="demo-assignment">
-<h1>Demo Assignment<a class="headerlink" href="#demo-assignment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="git-python">
+<h1>Git &amp; Python<a class="headerlink" href="#git-python" title="Permalink to this headline">¶</a></h1>
 <p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
 <div class="alert alert-danger">
 If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
-</div></div>
-<div class="section" id="how-to-complete-assignments">
-<h1>How to complete assignments<a class="headerlink" href="#how-to-complete-assignments" title="Permalink to this headline">¶</a></h1>
+</div><div class="section" id="how-to-complete-assignments">
+<h2>How to complete assignments<a class="headerlink" href="#how-to-complete-assignments" title="Permalink to this headline">¶</a></h2>
 <p>Whenever you see:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
@@ -210,13 +273,13 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Finally, note that questions have points as specified in the detailed instructions.</p>
 </div>
 <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The purpose of this assignment is to make sure you have the tools you’ll need to use
 for COGS108. Notably, we’ll be using Python, Jupyter notebooks, and git/GitHub. Since we’re using <a class="reference external" href="http://datahub.ucsd.edu">datahub</a>, you won’t <em>need</em> a local version of Jupyter or Python on your computer. So, for this assignment, we’ll focus on getting you set up on GitHub.</p>
 <p>Most assignments will be completed completely within the Jupyter Notebook and submitted on datahub; however, for this first assignment, we want you to be comfortable in GitHub. Tasks to complete Part 1 below will require work outside of this notebook.</p>
 </div>
 <div class="section" id="part-1-git-github-2-5-points">
-<h1>Part 1: git &amp; GitHub (2.5 points)<a class="headerlink" href="#part-1-git-github-2-5-points" title="Permalink to this headline">¶</a></h1>
+<h2>Part 1: git &amp; GitHub (2.5 points)<a class="headerlink" href="#part-1-git-github-2-5-points" title="Permalink to this headline">¶</a></h2>
 <p>If you’re new to git and GitHub, documentation <a class="reference external" href="https://help.github.com/en/github/getting-started-with-github">here</a>, <a class="reference external" href="https://guides.github.com/activities/hello-world/">here</a>, and <a class="reference external" href="https://github.com/jlord/git-it-electron#what-to-install">here</a> will likely be helpful.</p>
 <p>Below, we will have you accomplish three common GitHub tasks. Well explain them briefly here and <em>why</em> we’re having you do them. Step-by-step instructions are then included below.</p>
 <ul class="simple">
@@ -225,7 +288,7 @@ for COGS108. Notably, we’ll be using Python, Jupyter notebooks, and git/GitHub
 <li><p>Fork a repo &amp; submit a PR - any time you want to work with someone else’s repo to which you don’t have access, you’ll use this procedure.</p></li>
 </ul>
 <div class="section" id="step-by-step-instructions">
-<h2>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Permalink to this headline">¶</a></h2>
+<h3>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>If you do not already have one, <strong>create a GitHub account</strong></p></li>
 </ol>
@@ -292,11 +355,11 @@ for COGS108. Notably, we’ll be using Python, Jupyter notebooks, and git/GitHub
 </ul>
 </div>
 <div class="section" id="general-notes">
-<h2>General Notes<a class="headerlink" href="#general-notes" title="Permalink to this headline">¶</a></h2>
+<h3>General Notes<a class="headerlink" href="#general-notes" title="Permalink to this headline">¶</a></h3>
 <p>Make sure all the specified repos and files that you make on GitHub are <em>public</em>, and that you type your GitHub username in properly. Automated procedures will be used to check that these repos exist, that the Pull Request was received, and that the submitted Jupyter notebook runs as expected.</p>
 </div>
 <div class="section" id="q0-span-style-color-red-pid-github-username-span-2-5-points">
-<h2>Q0: <span style="color: red;">PID &amp; GitHub Username </span> (2.5 points)<a class="headerlink" href="#q0-span-style-color-red-pid-github-username-span-2-5-points" title="Permalink to this headline">¶</a></h2>
+<h3>Q0: <span style="color: red;">PID &amp; GitHub Username </span> (2.5 points)<a class="headerlink" href="#q0-span-style-color-red-pid-github-username-span-2-5-points" title="Permalink to this headline">¶</a></h3>
 <p>Once you’ve completed the above instructions, we’ll need you to provide us with your PID and GitHub username so that we can check completion and accuracy of the tasks assigned above.</p>
 <p>In the cell below, assign your UCSD PID as a string to the variable <code class="docutils literal notranslate"><span class="pre">PID</span></code> and your GitHub username as a string to the variable <code class="docutils literal notranslate"><span class="pre">github_username</span></code>.</p>
 <p>For example, the cell below may look something like this (But will include <em>your</em> PID and username):</p>
@@ -324,7 +387,7 @@ for COGS108. Notably, we’ll be using Python, Jupyter notebooks, and git/GitHub
 </div>
 </div>
 <div class="section" id="part-2-python-5-points">
-<h1>Part 2: Python (5 points)<a class="headerlink" href="#part-2-python-5-points" title="Permalink to this headline">¶</a></h1>
+<h2>Part 2: Python (5 points)<a class="headerlink" href="#part-2-python-5-points" title="Permalink to this headline">¶</a></h2>
 <p>This part of the assignment is focused on some practice with Python, and with practicing working with the format of the assignments.</p>
 <p>This class assumes some prior knowledge of Python. In the following questions, you will need to work with basic (standard library) data types (floats, lists, dictionaries, etc.) and control flow (conditionals, loops, functions, etc). If the questions in this section are totally unfamiliar to you, you may need to revisit some practice materials to catch up with some of the programming.</p>
 <p>Through these questions, we will also prompt you to use a couple slightly more advanced standard library functions (for example, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> and <code class="docutils literal notranslate"><span class="pre">zip</span></code>), that may be new to you.</p>
@@ -635,10 +698,11 @@ for COGS108. Notably, we’ll be using Python, Jupyter notebooks, and git/GitHub
 </div>
 </div>
 <div class="section" id="the-end">
-<h1>The End!<a class="headerlink" href="#the-end" title="Permalink to this headline">¶</a></h1>
+<h2>The End!<a class="headerlink" href="#the-end" title="Permalink to this headline">¶</a></h2>
 <p>This is the end of the first assignment!</p>
 <p>The goal here was to check your basic Python understanding. From here, assignments will be more data science centric, using lots of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and working with data!</p>
 <p>Have a look back over your answers, and also make sure to <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">&amp;</span> <span class="pre">Run</span> <span class="pre">All</span></code> from the kernel menu to double check that everything is working properly. You can also use the ‘Validate’ button above, which runs your notebook from top to bottom and checks to ensure all <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements pass silently. When you are ready, submit on datahub!</p>
+</div>
 </div>
 
 

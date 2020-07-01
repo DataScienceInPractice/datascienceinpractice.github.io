@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -186,7 +213,11 @@
             <a href="#support-vector-machines" class="nav-link">Support Vector Machines</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
-            <a href="#overview" class="nav-link">Overview</a>
+            <a href="#data-generation" class="nav-link">Data Generation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#data-visualization" class="nav-link">Data Visualization</a>
         </li>
     
         <li class="nav-item toc-entry toc-h3">
@@ -206,7 +237,11 @@
         </li>
     
         <li class="nav-item toc-entry toc-h3">
-            <a href="#explorations" class="nav-link">Explorations</a>
+            <a href="#svms-in-more-dimensions" class="nav-link">SVMs in more dimensions</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#conclusions" class="nav-link">Conclusions</a>
         </li>
     
             </ul>
@@ -225,92 +260,110 @@
                 
   <div class="section" id="classification">
 <h1>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h1>
+<p>Another general task in data analysis and machine learning is classification.</p>
+<p>Classification, in general, is the process of predicting the ‘class’ of datapoints, meaning to assign a label to the data point, or assign them to a grouping or cluster.</p>
+<p>Classification is a type of supervised learning, meaning we typically have some data for which we know the classes, and we want to learn a procedure that can use this information (the data with known labels), to learn a mapping from data to labels that we can apply to new data.</p>
+<p>Note that if we have data that we are trying to categorize, but don’t already know any labels, we typically call this clustering.</p>
+<p>Classification can also be thought of as the categorical version of prediction. Prediction, as we’ve talked about it, is process of predicting a continuous output from a set of features. Classification is the same idea, except in case we are predicting a discrete category (or label).</p>
 <div class="alert alert-success">
-Classification is process of categorizing data - of assigning data points to predefined groups (or clusters). 
+Classification is process of categorizing data - of assigning data points to predefined groups (clusters) or labels. 
 </div>
 <div class="alert alert-info">
 <a href="https://en.wikipedia.org/wiki/Statistical_classification" class="alert-link">Classification</a>
 article from wikipedia. 
 </div><div class="section" id="support-vector-machines">
 <h2>Support Vector Machines<a class="headerlink" href="#support-vector-machines" title="Permalink to this headline">¶</a></h2>
+<p>There are many algorithms for doing classification.</p>
+<p>For this example, we are going to use Support Vector Machines (SVMs) as an example algorithm.</p>
+<p>SVM is one of the most common algorithms for classification. SVMs are an algorithm that seeks to learn a boundary - or dividing line - between groups of data of interest. Once we learn this boundary, we can label datapoints based on where they sit relative to this boundary - basically which side of the line they are on.</p>
+<p>To separate the data, we want the dividing line, or ‘decision boundary’ that separates the data. There might be many different lines that do this. To try and find the best solution, SVMs try to learn the learn that has the greatest separation between the classes. To do so, SVMs use ‘support vectors’, which are datapoints nearby the boundary, that are used to calculate the line of greatest separation.</p>
 <div class="alert alert-success">
 Support Vector Machines are a supervised classification algorithm.
 </div>
 <div class="alert alert-info">
 This 
-<a href="https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72" class="alert-link">article</a>
+<a href=https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72 class="alert-link">article</a>
 provides a nice overview of the SVM algorithm. This is also a code-based explainer from
-<a href="http://scikit-learn.org/stable/modules/svm.html" class="alert-link">scikit-learn</a>.
+<a href=http://scikit-learn.org/stable/modules/svm.html class="alert-link">scikit-learn</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports - from scikit-learn</span>
+
+<span class="c1"># Imports - from scikit-learn</span>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
-<p>In this example, we will generate some 2 dimensional data that comes from two different (known) groups, and apply an SVM classification model to this data.</p>
+<div class="section" id="data-generation">
+<h3>Data Generation<a class="headerlink" href="#data-generation" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we will generate some 2 dimensional data that comes from two different groups.</p>
+<p>This training data has labels, meaning for each data point we also know which group it comes from.</p>
+<p>We will then use a SVM classification model, to try and learn the decision boundary between the groups of data. If we are successful at learning a decision boundary, we can use this to predict the label of new datapoints.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setting for generating some random data</span>
-<span class="n">n_points</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">label_prop</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">50</span>             <span class="c1"># Total number of data points</span>
+<span class="n">label_prop</span> <span class="o">=</span> <span class="mf">0.5</span>          <span class="c1"># Proportion of points in class 1</span>
 
 <span class="c1"># Initialize data matrix (as zeros)</span>
-<span class="n">dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">n_points</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">n_points</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="c1"># Set up the number of data points in each class</span>
-<span class="n">n_dat_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_points</span> <span class="o">*</span> <span class="n">label_prop</span><span class="p">)</span>
-<span class="n">n_dat_2</span> <span class="o">=</span> <span class="n">n_points</span> <span class="o">-</span> <span class="n">n_dat_1</span>
+<span class="n">n_data_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_points</span> <span class="o">*</span> <span class="n">label_prop</span><span class="p">)</span>
+<span class="n">n_data_2</span> <span class="o">=</span> <span class="n">n_points</span> <span class="o">-</span> <span class="n">n_data_1</span>
 
 <span class="c1"># Generate the data</span>
-<span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_dat_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_dat_1</span><span class="p">))</span>
-<span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_dat_1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_dat_1</span><span class="p">))</span>
-<span class="n">dat</span><span class="p">[</span><span class="n">n_dat_2</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_dat_1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="n">dat</span><span class="p">[</span><span class="n">n_dat_2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_dat_1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_data_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_data_1</span><span class="p">))</span>
+<span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_data_1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_data_1</span><span class="p">))</span>
+<span class="n">data</span><span class="p">[</span><span class="n">n_data_2</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_data_1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">data</span><span class="p">[</span><span class="n">n_data_2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_data_1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span>
 
 <span class="c1"># Create the labels vector</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_dat_1</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_dat_2</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_data_1</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_data_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="data-visualization">
+<h3>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have some data, let’s start by plotting it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot out labelled data</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_dat_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_dat_1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Label=0&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="n">n_dat_2</span><span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dat</span><span class="p">[</span><span class="n">n_dat_2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Label=1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_data_1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n_data_1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+         <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Label=0&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">n_data_2</span><span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">n_data_2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">],</span>
+         <span class="s1">&#39;g.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Label=1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/17-Classification_8_0.png" src="../_images/17-Classification_8_0.png" />
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1a1e0f2b90&gt;
+</pre></div>
+</div>
+<img alt="../_images/17-Classification_8_1.png" src="../_images/17-Classification_8_1.png" />
 </div>
 </div>
+<p>As we can see above, we have two fairly distinct groups of data.</p>
+<p>Now we want to learn a mathematical procedure that can learn the labels of these datapoints.</p>
 </div>
 <div class="section" id="scikit-learn-objects">
 <h3>Scikit-Learn Objects<a class="headerlink" href="#scikit-learn-objects" title="Permalink to this headline">¶</a></h3>
-<p>As we can see above, we have two fairly distinct groups of data. Now we want to learn a mathematical procedure that can label these data into two groups, and we want it to learn a general procedure, that we can apply to new datapoints.</p>
-<p>Here we will use the typical scikit-learn approach:</p>
+<p>The SVM implementation we are using is from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+<p>Scikit-learn, as we have seen before, is object oriented.</p>
+<p>Here, we will again use the typical scikit-learn approach, which is to:</p>
 <ul class="simple">
-<li><p>Initialize an sklearn object for the model object we are using, setting the desired parameters</p></li>
-<li><p>Train the model on our labelled training data</p></li>
-<li><p>Check our performance on our labelled data (typically both the train set, and a separate, labelled, test set)</p></li>
+<li><p>Initialize a sklearn object for the model we want to use, setting the desired parameters</p></li>
+<li><p>Train the model on our labeled training data</p></li>
+<li><p>Check performance of our model (in real applications, using a separate, labeled, test set)</p></li>
 <li><p>Apply the model to make predictions about new datapoints</p></li>
 </ul>
 <div class="cell docutils container">
@@ -324,15 +377,15 @@ provides a nice overview of the SVM algorithm. This is also a code-based explain
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit our classification model to our training data</span>
-<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-  decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;auto&#39;, kernel=&#39;linear&#39;,
-  max_iter=-1, probability=False, random_state=None, shrinking=True,
-  tol=0.001, verbose=False)
+    decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;auto_deprecated&#39;,
+    kernel=&#39;linear&#39;, max_iter=-1, probability=False, random_state=None,
+    shrinking=True, tol=0.001, verbose=False)
 </pre></div>
 </div>
 </div>
@@ -340,7 +393,7 @@ provides a nice overview of the SVM algorithm. This is also a code-based explain
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate predictions of the model on the training data</span>
-<span class="n">train_predictions</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+<span class="n">train_predictions</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -353,24 +406,30 @@ provides a nice overview of the SVM algorithm. This is also a code-based explain
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>             precision    recall  f1-score   support
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-          0       1.00      1.00      1.00        25
-          1       1.00      1.00      1.00        25
+           0       1.00      1.00      1.00        25
+           1       1.00      1.00      1.00        25
 
-avg / total       1.00      1.00      1.00        50
+    accuracy                           1.00        50
+   macro avg       1.00      1.00      1.00        50
+weighted avg       1.00      1.00      1.00        50
 
 </pre></div>
 </div>
 </div>
 </div>
+<p>Now we have a trained classifier!</p>
+<p>We have trained our classifier on our data, and also checked it’s performance.</p>
+<p>For this example, we have set up a simple example that is easy to predict, so our predictions are very accurate.</p>
+<p>Note that above all we doing is checking if our classifier can predict the labels of the training data - the data that is has already seen. This is <em>not</em> a valid way to properly measure performance of machine learning algorithms. If you wish to continue to explore and use classification and other machine learning algorithms, you will need to look into how to properly test for accuracy, which is outside of the scope of these materials.</p>
 </div>
 <div class="section" id="predicting-new-data-points">
 <h3>Predicting New Data Points<a class="headerlink" href="#predicting-new-data-points" title="Permalink to this headline">¶</a></h3>
-<p>Once we have a trained model, we can predict labels for new data points - data for which we do not know the answer.</p>
+<p>Now that we have a trained model, we can use it to predict labels for new data points, including for data points for which we do not know already know the correct label.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set a new point - to predict a label for</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a new data point, that we will predict a label for</span>
 <span class="n">new_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 </pre></div>
 </div>
@@ -378,33 +437,26 @@ avg / total       1.00      1.00      1.00        50
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add our new point to figure (in red)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add our new point to figure, in red, and redraw the figure</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">new_point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">new_point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.r&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Redraw figure</span>
 <span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/17-Classification_17_0.png" src="../_images/17-Classification_17_0.png" />
+<img alt="../_images/17-Classification_18_0.png" src="../_images/17-Classification_18_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict the class of the new data point</span>
 <span class="n">prediction</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_point</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted class of new data point is: &#39;</span><span class="p">,</span> <span class="n">prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted class of new data point is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Predicted class of new data point is:  1
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Predicted class of new data point is: 1
 </pre></div>
 </div>
 </div>
@@ -412,20 +464,14 @@ avg / total       1.00      1.00      1.00        50
 </div>
 <div class="section" id="support-vectors">
 <h3>Support Vectors<a class="headerlink" href="#support-vectors" title="Permalink to this headline">¶</a></h3>
-<p>One of the key features of SVMs are that they use ‘support vectors’, meaning they prioritise using information from data points close to the decision boundary, and use them to try to find the widest margin - the distance between the two groups. Here we can briefly explore the support vectors for our trained model.</p>
+<p>As we mentioned befor, SVMs use ‘support vectors’, which are the points closest to the decision boundary, to try and learn the decision boundary with the highest margin (or separation) between the classes.</p>
+<p>Now that we have a trained model, we can have a look at the support vectors, and the decision boundary learned from them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add the support vectors to plot</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add the support vectors to plot, and redraw the figure</span>
 <span class="c1">#  Support vectors will be indicated by being highlighted with black circles</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">classifier</span><span class="o">.</span><span class="n">support_vectors_</span><span class="p">:</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ok&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>  <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Redraw the figure</span>
 <span class="n">fig</span>
 </pre></div>
 </div>
@@ -434,10 +480,11 @@ avg / total       1.00      1.00      1.00        50
 <img alt="../_images/17-Classification_21_0.png" src="../_images/17-Classification_21_0.png" />
 </div>
 </div>
+<p>As we can see, the support vectors, which are identified with some meta-data that is stored in the model object, are some datapoints at the end of the classes - those closest to the boundary.</p>
 </div>
 <div class="section" id="drawing-the-decision-boundary">
 <h3>Drawing the decision boundary<a class="headerlink" href="#drawing-the-decision-boundary" title="Permalink to this headline">¶</a></h3>
-<p>Let’s now draw the decision boundary - the boundary at which our learned model thinks the labels switch between groups.</p>
+<p>We can also draw the decision boundary - the boundary at which our model thinks the labels switch between groups.</p>
 <div class="alert alert-info">
 This following code to find and visualize the decision boundary and margins is adapted from this 
 <a href="http://scikit-learn.org/stable/auto_examples/svm/plot_separating_hyperplane.html#sphx-glr-auto-examples-svm-plot-separating-hyperplane-py" class="alert-link">sklearn example</a>.
@@ -470,14 +517,23 @@ This following code to find and visualize the decision boundary and margins is a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/17-Classification_25_0.png" src="../_images/17-Classification_25_0.png" />
+<img alt="../_images/17-Classification_26_0.png" src="../_images/17-Classification_26_0.png" />
 </div>
 </div>
+<p>In the above plot, the solid line is the decision boundary that the model has learned.</p>
+<p>The dashed lines are the margins - the separation between the classes that the algorithm is trying to maximize.</p>
 </div>
-<div class="section" id="explorations">
-<h3>Explorations<a class="headerlink" href="#explorations" title="Permalink to this headline">¶</a></h3>
-<p>With the code above, your are encouraged to explore SVMs.</p>
-<p>Investigate what happens as you change the data, change the kernel, and predict different data points.</p>
+<div class="section" id="svms-in-more-dimensions">
+<h3>SVMs in more dimensions<a class="headerlink" href="#svms-in-more-dimensions" title="Permalink to this headline">¶</a></h3>
+<p>Note that, for simplicity, in this example we have used SVMs to learn a decision boundary in two dimensional data.</p>
+<p>In this case, with 2D data, the decision boundary is a line.</p>
+<p>SVMs also generalize to higher dimensions, and can be applied to data of any dimensionality. In higher dimensional data, the algorithm works the same, and the solution learned is a hyperplane that attempts the separate the data into categories in whatever dimensionality if lives.</p>
+</div>
+<div class="section" id="conclusions">
+<h3>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h3>
+<p>The example above is a simplified example of an SVM application. With the code above, your are also encouraged to explore SVMs - investigate what happens as you change the data, change some settings, and predict different data points.</p>
+<p>This example is meant as a brief example for using classification models with scikit-learn. Much more information can be found in the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> documentation.</p>
+<p>Classification is a vast area of machine learning, with many tools, algorithms, and approaches that can be applied to data within the realm of data science. This example seeks merely to introduce the basic idea. If you are interested in classification algorithms, then you are recommended to look into resources and classes that focus on machine learning.</p>
 </div>
 </div>
 </div>

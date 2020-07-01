@@ -12,26 +12,26 @@ Traceback (most recent call last):
 nbconvert.preprocessors.execute.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 # First, explicitly open the file object for reading
-f_obj = open('files/dat.txt', 'r')
+file_obj = open('files/data.txt', 'r')
 
 # You can then loop through the file object, grabbing each line of data
-for line in f_obj:
-    # Note that I'm removing the new line marker at the end of each line (the '\n')
+for line in file_obj:
+    # Here we explicitly remove the new line marker at the end of each line (the '\n')
     print(line.strip('\n'))
 
 # File objects then have to closed when you are finished with them
-f_obj.close()
+file_obj.close()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-2-bf09e473b692>[0m in [0;36m<module>[0;34m[0m
+[0;32m<ipython-input-2-72a2cbd28315>[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;31m# First, explicitly open the file object for reading[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mf_obj[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'files/dat.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mfile_obj[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'files/data.txt'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0;34m[0m[0m
 [1;32m      4[0m [0;31m# You can then loop through the file object, grabbing each line of data[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mf_obj[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0;32mfor[0m [0mline[0m [0;32min[0m [0mfile_obj[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'files/dat.txt'
-FileNotFoundError: [Errno 2] No such file or directory: 'files/dat.txt'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'files/data.txt'
+FileNotFoundError: [Errno 2] No such file or directory: 'files/data.txt'
 

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Demo Assignment &#8212; Data Science in Practice</title>
+    <title>Data Privacy &#8212; Data Science in Practice</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -31,6 +31,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Analysis" href="D5_DataAnalysis.html" />
+    <link rel="prev" title="Data Exploration" href="D3_DataExploration.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -67,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="../tutorials/00-Introduction.html">Data Science in Practice</a>
+    <a href="../tutorials/00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="../tutorials/01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="../tutorials/01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="../tutorials/02-DataAnalysis.html">Data Analysis</a>
+    <a href="../tutorials/02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="../tutorials/04-DataSciencePython.html">Data Science in Python</a>
+    <a href="../tutorials/03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
@@ -91,13 +93,16 @@
     <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="">
-    <a href="../tutorials/09-DataVisualization.html">Data Visualization with Python</a>
+    <a href="../tutorials/09-DataVisualization.html">Data Visualization</a>
   </li>
   <li class="">
     <a href="../tutorials/10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="../tutorials/11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="../tutorials/13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -117,11 +122,35 @@
   <li class="">
     <a href="../tutorials/18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="../tutorials/A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="../tutorials/A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="D3_DataExploration.html">Demo Assignment</a>
+    <a href="D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="active">
+    <a href="">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -173,9 +202,122 @@
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#important-reminders" class="nav-link">Important Reminders</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#overview" class="nav-link">Overview</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-1-web-scraping-1-25-points" class="nav-link">Part 1: Web Scraping (1.25 points)</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#scraping-rules" class="nav-link">Scraping Rules</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#a-web-scrape" class="nav-link">1a) Web Scrape</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#b-checking-scrape-contents" class="nav-link">1b) Checking Scrape Contents</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#c-extracting-tables" class="nav-link">1c) Extracting Tables</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#d-collecting-into-a-dataframe" class="nav-link">1d) Collecting into a dataframe</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#e-using-the-data" class="nav-link">1e) Using the data</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-2-identifying-data-3-points" class="nav-link">Part 2: Identifying Data (3 points)</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#a-load-in-the-cleaned-data" class="nav-link">2a) Load in the ‘cleaned’ data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#b-check-the-first-10-emails" class="nav-link">2b) Check the first 10 emails</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#c-extract-the-company-name-from-the-email" class="nav-link">2c) Extract the Company Name From the Email</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#d-load-in-employee-data" class="nav-link">2d) Load in employee data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#e-match-the-employee-name-with-company-age-gender" class="nav-link">2e) Match the employee name with company, age, gender</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#f-extract-all-the-private-data" class="nav-link">2f) Extract all the private data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#g-add-the-names-to-the-original-secure-dataset" class="nav-link">2g) Add the names to the original ‘secure’ dataset!</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#part-3-anonymize-data-3-25-points" class="nav-link">Part 3: Anonymize Data (3.25 points)</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#a-load-in-personal-data" class="nav-link">3a) Load in personal data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#b-drop-personal-attributes" class="nav-link">3b) Drop personal attributes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#c-drop-ages-that-are-above-90" class="nav-link">3c) Drop ages that are above 90</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#d-load-in-zip-code-data" class="nav-link">3d) Load in zip code data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#e-sort-zipcodes-into-geographic-subdivision" class="nav-link">3e) Sort zipcodes into “Geographic Subdivision”</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#f-masking-the-zip-codes" class="nav-link">3f) Masking the Zip Codes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#g-save-out-the-properly-anonymized-data-to-json-file" class="nav-link">3g) Save out the properly anonymized data to json file</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#complete" class="nav-link">Complete!</a>
+        </li>
     
     </ul>
 </nav>
@@ -188,21 +330,20 @@
         
               <div>
                 
-  <div class="section" id="demo-assignment">
-<h1>Demo Assignment<a class="headerlink" href="#demo-assignment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="data-privacy">
+<h1>Data Privacy<a class="headerlink" href="#data-privacy" title="Permalink to this headline">¶</a></h1>
 <p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
 <div class="alert alert-danger">
 If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
-</div></div>
-<div class="section" id="important-reminders">
-<h1>Important Reminders<a class="headerlink" href="#important-reminders" title="Permalink to this headline">¶</a></h1>
+</div><div class="section" id="important-reminders">
+<h2>Important Reminders<a class="headerlink" href="#important-reminders" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Do not change / update / delete any existing cells with ‘assert’ in them. These are the tests used to check your assignment.</p></li>
 <li><p>This assignment has hidden tests: tests that are not visible here, but that will be run on your submitted file. Passing all the tests you can see in the notebook here does not guarantee you have the right answer.</p></li>
 </ul>
 </div>
 <div class="section" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>We have briefly discussed in lecture the importance and the mechanics of protecting individuals’ privacy when they are included in datasets.</p>
 <p>One method to do so is the Safe Harbor Method. The Safe Harbor method specifies how to protect individuals’ identities by telling us which information to remove from a dataset in order to avoid accidently disclosing personal information.</p>
 <p>In this assignment, we will explore web scraping, which can often include personally identifiable information, how identity can be decoded from badly anonymized datasets, and also explore using Safe Harbor to anonymize datasets properly.</p>
@@ -220,9 +361,9 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 </div>
 <div class="section" id="part-1-web-scraping-1-25-points">
-<h1>Part 1: Web Scraping (1.25 points)<a class="headerlink" href="#part-1-web-scraping-1-25-points" title="Permalink to this headline">¶</a></h1>
+<h2>Part 1: Web Scraping (1.25 points)<a class="headerlink" href="#part-1-web-scraping-1-25-points" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="scraping-rules">
-<h2>Scraping Rules<a class="headerlink" href="#scraping-rules" title="Permalink to this headline">¶</a></h2>
+<h3>Scraping Rules<a class="headerlink" href="#scraping-rules" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>If you are using another organization’s website for scraping, make sure to check the website’s terms &amp; conditions.</p></li>
 <li><p>Do not request data from the website too aggressively (quickly) with your program (also known as spamming), as this may break the website. Make sure your program behaves in a reasonable manner (i.e. acts like a human). One request for one webpage per second is good practice.</p></li>
@@ -230,7 +371,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ol>
 </div>
 <div class="section" id="a-web-scrape">
-<h2>1a) Web Scrape<a class="headerlink" href="#a-web-scrape" title="Permalink to this headline">¶</a></h2>
+<h3>1a) Web Scrape<a class="headerlink" href="#a-web-scrape" title="Permalink to this headline">¶</a></h3>
 <p>We will first retrieve the contents on a page and examine them a bit.</p>
 <p>Make a variable called <code class="docutils literal notranslate"><span class="pre">wiki</span></code>, that stores the following URL (as a string):
 https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population</p>
@@ -258,7 +399,7 @@ https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_State
 </div>
 </div>
 <div class="section" id="b-checking-scrape-contents">
-<h2>1b) Checking Scrape Contents<a class="headerlink" href="#b-checking-scrape-contents" title="Permalink to this headline">¶</a></h2>
+<h3>1b) Checking Scrape Contents<a class="headerlink" href="#b-checking-scrape-contents" title="Permalink to this headline">¶</a></h3>
 <p>Extract the title from the page and save it in a variable called <code class="docutils literal notranslate"><span class="pre">title_page</span></code>.</p>
 <p>Make sure you extract it as a string.</p>
 <p>To do so, you have to use the soup object created in the above cell.
@@ -283,7 +424,7 @@ Hint: from your soup variable, you can access this with <code class="docutils li
 </div>
 </div>
 <div class="section" id="c-extracting-tables">
-<h2>1c) Extracting Tables<a class="headerlink" href="#c-extracting-tables" title="Permalink to this headline">¶</a></h2>
+<h3>1c) Extracting Tables<a class="headerlink" href="#c-extracting-tables" title="Permalink to this headline">¶</a></h3>
 <p>In order to extract the data we want, we’ll start with extracting a data table of interest.</p>
 <p>Note that you can see this table by going to look at the link we scraped.</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object and call a method called <code class="docutils literal notranslate"><span class="pre">find</span></code>, which will find and extract the first table in the scraped webpage. Store this in the variable <code class="docutils literal notranslate"><span class="pre">right_table</span></code>.</p>
@@ -337,7 +478,7 @@ Hint: from your soup variable, you can access this with <code class="docutils li
 </div>
 </div>
 <div class="section" id="d-collecting-into-a-dataframe">
-<h2>1d) Collecting into a dataframe<a class="headerlink" href="#d-collecting-into-a-dataframe" title="Permalink to this headline">¶</a></h2>
+<h3>1d) Collecting into a dataframe<a class="headerlink" href="#d-collecting-into-a-dataframe" title="Permalink to this headline">¶</a></h3>
 <p>Create a dataframe <code class="docutils literal notranslate"><span class="pre">my_df</span></code> and add the data from the lists above to it.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">list_a</span></code> is the state or territory name. Set the column name as <code class="docutils literal notranslate"><span class="pre">State</span></code>, and make this the index</p></li>
@@ -365,7 +506,7 @@ Hint: from your soup variable, you can access this with <code class="docutils li
 </div>
 </div>
 <div class="section" id="e-using-the-data">
-<h2>1e) Using the data<a class="headerlink" href="#e-using-the-data" title="Permalink to this headline">¶</a></h2>
+<h3>1e) Using the data<a class="headerlink" href="#e-using-the-data" title="Permalink to this headline">¶</a></h3>
 <p>What is the Population Estimate of California? Save this answer to a variable called <code class="docutils literal notranslate"><span class="pre">ca_pop</span></code>
 Notes:</p>
 <ul class="simple">
@@ -393,7 +534,7 @@ Notes:</p>
 </div>
 </div>
 <div class="section" id="part-2-identifying-data-3-points">
-<h1>Part 2: Identifying Data (3 points)<a class="headerlink" href="#part-2-identifying-data-3-points" title="Permalink to this headline">¶</a></h1>
+<h2>Part 2: Identifying Data (3 points)<a class="headerlink" href="#part-2-identifying-data-3-points" title="Permalink to this headline">¶</a></h2>
 <p>Data Files:</p>
 <ul class="simple">
 <li><p>anon_user_dat.json</p></li>
@@ -402,7 +543,7 @@ Notes:</p>
 <p>You will first be working with a file called ‘anon_user_dat.json’. This file contains information about some (fake) Tinder users. When creating an account, each Tinder user was asked to provide their first name, last name, work email (to verify the disclosed workplace), age, gender, phone # and zip code. Before releasing this data, a data scientist cleaned the data to protect the privacy of Tinder’s users by removing the obvious personal identifiers: phone #, zip code, and IP address. However, the data scientist chose to keep each users’ email addresses because when they visually skimmed a couple of the email addresses none of them seemed to have any of the users’ actual names in them. This is where the data scientist made a huge mistake!</p>
 <p>We will take advantage of having the work email addresses by finding the employee information of different companies and matching that employee information with the information we have, in order to identify the names of the secret Tinder users!</p>
 <div class="section" id="a-load-in-the-cleaned-data">
-<h2>2a) Load in the ‘cleaned’ data<a class="headerlink" href="#a-load-in-the-cleaned-data" title="Permalink to this headline">¶</a></h2>
+<h3>2a) Load in the ‘cleaned’ data<a class="headerlink" href="#a-load-in-the-cleaned-data" title="Permalink to this headline">¶</a></h3>
 <p>Load the <code class="docutils literal notranslate"><span class="pre">anon_user_dat.json</span></code> json file into a pandas dataframe. Call it <code class="docutils literal notranslate"><span class="pre">df_personal</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -421,7 +562,7 @@ Notes:</p>
 </div>
 </div>
 <div class="section" id="b-check-the-first-10-emails">
-<h2>2b) Check the first 10 emails<a class="headerlink" href="#b-check-the-first-10-emails" title="Permalink to this headline">¶</a></h2>
+<h3>2b) Check the first 10 emails<a class="headerlink" href="#b-check-the-first-10-emails" title="Permalink to this headline">¶</a></h3>
 <p>Save the first 10 emails to a Series, and call it <code class="docutils literal notranslate"><span class="pre">sample_emails</span></code>.
 You should then print out this Series. ( Use print() )</p>
 <p>The purpose of this is to get a sense of how these work emails are structured and how we could possibly extract where each anonymous user seems to work.</p>
@@ -442,7 +583,7 @@ You should then print out this Series. ( Use print() )</p>
 </div>
 </div>
 <div class="section" id="c-extract-the-company-name-from-the-email">
-<h2>2c) Extract the Company Name From the Email<a class="headerlink" href="#c-extract-the-company-name-from-the-email" title="Permalink to this headline">¶</a></h2>
+<h3>2c) Extract the Company Name From the Email<a class="headerlink" href="#c-extract-the-company-name-from-the-email" title="Permalink to this headline">¶</a></h3>
 <p>Create a function with the following specifications:</p>
 <ul class="simple">
 <li><p>Function Name: extract_company</p></li>
@@ -481,7 +622,7 @@ You should then print out this Series. ( Use print() )</p>
 <p>With a little bit of basic sleuthing (aka googling) and web-scraping (aka selectively reading in html code) it turns out that you’ve been able to collect information about all the present employees/interns of the companies you are interested in. Specifically, on each company website, you have found the name, gender, and age of its employees. You have saved that info in employee_info.json and plan to see if, using this new information, you can match the Tinder accounts to actual names.</p>
 </div>
 <div class="section" id="d-load-in-employee-data">
-<h2>2d) Load in employee data<a class="headerlink" href="#d-load-in-employee-data" title="Permalink to this headline">¶</a></h2>
+<h3>2d) Load in employee data<a class="headerlink" href="#d-load-in-employee-data" title="Permalink to this headline">¶</a></h3>
 <p>Load the json file into a pandas dataframe. Call it <code class="docutils literal notranslate"><span class="pre">df_employee</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -500,7 +641,7 @@ You should then print out this Series. ( Use print() )</p>
 </div>
 </div>
 <div class="section" id="e-match-the-employee-name-with-company-age-gender">
-<h2>2e) Match the employee name with company, age, gender<a class="headerlink" href="#e-match-the-employee-name-with-company-age-gender" title="Permalink to this headline">¶</a></h2>
+<h3>2e) Match the employee name with company, age, gender<a class="headerlink" href="#e-match-the-employee-name-with-company-age-gender" title="Permalink to this headline">¶</a></h3>
 <p>Create a function with the following specifications:</p>
 <ul class="simple">
 <li><p>Function name: employee_matcher</p></li>
@@ -549,7 +690,7 @@ i.e.,</p>
 </div>
 </div>
 <div class="section" id="f-extract-all-the-private-data">
-<h2>2f) Extract all the private data<a class="headerlink" href="#f-extract-all-the-private-data" title="Permalink to this headline">¶</a></h2>
+<h3>2f) Extract all the private data<a class="headerlink" href="#f-extract-all-the-private-data" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Create 2 empty lists called <code class="docutils literal notranslate"><span class="pre">first_names</span></code> and <code class="docutils literal notranslate"><span class="pre">last_names</span></code></p></li>
 <li><p>Loop through all the people we are trying to identify in df_personal</p></li>
@@ -575,7 +716,7 @@ i.e.,</p>
 </div>
 </div>
 <div class="section" id="g-add-the-names-to-the-original-secure-dataset">
-<h2>2g) Add the names to the original ‘secure’ dataset!<a class="headerlink" href="#g-add-the-names-to-the-original-secure-dataset" title="Permalink to this headline">¶</a></h2>
+<h3>2g) Add the names to the original ‘secure’ dataset!<a class="headerlink" href="#g-add-the-names-to-the-original-secure-dataset" title="Permalink to this headline">¶</a></h3>
 <p>We have done this last step for you below, all you need to do is run this cell.</p>
 <p>For your own personal enjoyment, you should also print out the new <code class="docutils literal notranslate"><span class="pre">df_personal</span></code> with the identified people.</p>
 <div class="cell docutils container">
@@ -590,10 +731,10 @@ i.e.,</p>
 </div>
 </div>
 <div class="section" id="part-3-anonymize-data-3-25-points">
-<h1>Part 3: Anonymize Data (3.25 points)<a class="headerlink" href="#part-3-anonymize-data-3-25-points" title="Permalink to this headline">¶</a></h1>
+<h2>Part 3: Anonymize Data (3.25 points)<a class="headerlink" href="#part-3-anonymize-data-3-25-points" title="Permalink to this headline">¶</a></h2>
 <p>You are hopefully now convinced that with some seemingly harmless data a hacker can pretty easily discover the identities of certain users. Thus, we will now clean the original Tinder data ourselves according to the Safe Harbor Method in order to make sure that it has been <em>properly</em> cleaned…</p>
 <div class="section" id="a-load-in-personal-data">
-<h2>3a) Load in personal data<a class="headerlink" href="#a-load-in-personal-data" title="Permalink to this headline">¶</a></h2>
+<h3>3a) Load in personal data<a class="headerlink" href="#a-load-in-personal-data" title="Permalink to this headline">¶</a></h3>
 <p>Load the <code class="docutils literal notranslate"><span class="pre">user_dat.csv</span></code> file into a pandas dataframe, being sure to read the zip codes (<code class="docutils literal notranslate"><span class="pre">zip</span></code>) in as a string.</p>
 <p>Store this in <code class="docutils literal notranslate"><span class="pre">df_users</span></code>.</p>
 <div class="cell docutils container">
@@ -613,7 +754,7 @@ i.e.,</p>
 </div>
 </div>
 <div class="section" id="b-drop-personal-attributes">
-<h2>3b) Drop personal attributes<a class="headerlink" href="#b-drop-personal-attributes" title="Permalink to this headline">¶</a></h2>
+<h3>3b) Drop personal attributes<a class="headerlink" href="#b-drop-personal-attributes" title="Permalink to this headline">¶</a></h3>
 <p>Remove any personal information, following the Safe Harbor method.
 Based on the Safe Harbor method, remove any columns from <code class="docutils literal notranslate"><span class="pre">df_users</span></code> that contain personal information.</p>
 <p>Note that details on the Safe Harbor method are covered in the Tutorials.</p>
@@ -634,7 +775,7 @@ Based on the Safe Harbor method, remove any columns from <code class="docutils l
 </div>
 </div>
 <div class="section" id="c-drop-ages-that-are-above-90">
-<h2>3c) Drop ages that are above 90<a class="headerlink" href="#c-drop-ages-that-are-above-90" title="Permalink to this headline">¶</a></h2>
+<h3>3c) Drop ages that are above 90<a class="headerlink" href="#c-drop-ages-that-are-above-90" title="Permalink to this headline">¶</a></h3>
 <p>Safe Harbor rule C: Drop all the rows which have age greater than 90 from <code class="docutils literal notranslate"><span class="pre">df_users</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -653,7 +794,7 @@ Based on the Safe Harbor method, remove any columns from <code class="docutils l
 </div>
 </div>
 <div class="section" id="d-load-in-zip-code-data">
-<h2>3d) Load in zip code data<a class="headerlink" href="#d-load-in-zip-code-data" title="Permalink to this headline">¶</a></h2>
+<h3>3d) Load in zip code data<a class="headerlink" href="#d-load-in-zip-code-data" title="Permalink to this headline">¶</a></h3>
 <p>Load the zip_pop.csv file into a (different) pandas dataframe. Call it <code class="docutils literal notranslate"><span class="pre">df_zip</span></code>.</p>
 <p>Note that the zip data should be read in as strings, not ints, as would be the default.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>, use the parameter <code class="docutils literal notranslate"><span class="pre">dtype</span></code> to specify to read <code class="docutils literal notranslate"><span class="pre">zip</span></code> as str, and <code class="docutils literal notranslate"><span class="pre">population</span></code> as int.</p>
@@ -674,7 +815,7 @@ Based on the Safe Harbor method, remove any columns from <code class="docutils l
 </div>
 </div>
 <div class="section" id="e-sort-zipcodes-into-geographic-subdivision">
-<h2>3e) Sort zipcodes into “Geographic Subdivision”<a class="headerlink" href="#e-sort-zipcodes-into-geographic-subdivision" title="Permalink to this headline">¶</a></h2>
+<h3>3e) Sort zipcodes into “Geographic Subdivision”<a class="headerlink" href="#e-sort-zipcodes-into-geographic-subdivision" title="Permalink to this headline">¶</a></h3>
 <p>The Safe Harbor Method applies to “Geographic Subdivisions” as opposed to each zipcode itself.</p>
 <p>Geographic Subdivision: All areas which share the first 3 digits of a zip code</p>
 <p>Count the total population for each geographic subdivision, storing the first 3 digits of the zip code and its corresponding population in the dictionary <code class="docutils literal notranslate"><span class="pre">zip_dict</span></code>. (For example, if there were 20 people whose zip code started with 090, the key-value pair in <code class="docutils literal notranslate"><span class="pre">zip_dict</span></code> would be <code class="docutils literal notranslate"><span class="pre">{'090'</span> <span class="pre">:</span> <span class="pre">20}</span></code>.)</p>
@@ -709,7 +850,7 @@ Based on the Safe Harbor method, remove any columns from <code class="docutils l
 </div>
 </div>
 <div class="section" id="f-masking-the-zip-codes">
-<h2>3f) Masking the Zip Codes<a class="headerlink" href="#f-masking-the-zip-codes" title="Permalink to this headline">¶</a></h2>
+<h3>3f) Masking the Zip Codes<a class="headerlink" href="#f-masking-the-zip-codes" title="Permalink to this headline">¶</a></h3>
 <p>In this part, you should write a for loop, updating the <code class="docutils literal notranslate"><span class="pre">df_users</span></code> dataframe.</p>
 <p>Go through each user, and update their zip code, to Safe Harbor specifications:</p>
 <ul class="simple">
@@ -741,7 +882,7 @@ Based on the Safe Harbor method, remove any columns from <code class="docutils l
 </div>
 </div>
 <div class="section" id="g-save-out-the-properly-anonymized-data-to-json-file">
-<h2>3g) Save out the properly anonymized data to json file<a class="headerlink" href="#g-save-out-the-properly-anonymized-data-to-json-file" title="Permalink to this headline">¶</a></h2>
+<h3>3g) Save out the properly anonymized data to json file<a class="headerlink" href="#g-save-out-the-properly-anonymized-data-to-json-file" title="Permalink to this headline">¶</a></h3>
 <p>Save out <code class="docutils literal notranslate"><span class="pre">df_users</span></code> as a json file, called <code class="docutils literal notranslate"><span class="pre">real_anon_user_dat.json</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -761,9 +902,10 @@ Based on the Safe Harbor method, remove any columns from <code class="docutils l
 </div>
 </div>
 <div class="section" id="complete">
-<h1>Complete!<a class="headerlink" href="#complete" title="Permalink to this headline">¶</a></h1>
+<h2>Complete!<a class="headerlink" href="#complete" title="Permalink to this headline">¶</a></h2>
 <p>Congrats, you’re done! The users’ identities are much more protected now.</p>
 <p>Have a look back over your answers, and also make sure to <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">&amp;</span> <span class="pre">Run</span> <span class="pre">All</span></code> from the kernel menu to double check that everything is working properly. You can also use the ‘Validate’ button above, which runs your notebook from top to bottom and checks to ensure all <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements pass silently. When you are ready, submit on datahub!</p>
+</div>
 </div>
 
 
@@ -775,6 +917,8 @@ Based on the Safe Harbor method, remove any columns from <code class="docutils l
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="D3_DataExploration.html" title="previous page">Data Exploration</a>
+    <a class='right-next' id="next-link" href="D5_DataAnalysis.html" title="next page">Data Analysis</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

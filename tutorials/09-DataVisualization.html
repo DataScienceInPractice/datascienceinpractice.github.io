@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Data Visualization with Python &#8212; Data Science in Practice</title>
+    <title>Data Visualization &#8212; Data Science in Practice</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -69,16 +69,16 @@
 <p class="margin-caption">Tutorials</p>
 </li>
   <li class="">
-    <a href="00-Introduction.html">Data Science in Practice</a>
+    <a href="00-Introduction.html">Introduction</a>
   </li>
   <li class="">
-    <a href="01-JupyterNotebooks.html">Jupyter Notebooks</a>
+    <a href="01-Python.html">Python</a>
   </li>
   <li class="">
-    <a href="02-DataAnalysis.html">Data Analysis</a>
+    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
   </li>
   <li class="">
-    <a href="04-DataSciencePython.html">Data Science in Python</a>
+    <a href="03-DataAnalysis.html">Data Analysis</a>
   </li>
   <li class="">
     <a href="05-DataGathering.html">Data Gathering</a>
@@ -93,13 +93,16 @@
     <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
   </li>
   <li class="active">
-    <a href="">Data Visualization with Python</a>
+    <a href="">Data Visualization</a>
   </li>
   <li class="">
     <a href="10-Distributions.html">Distributions</a>
   </li>
   <li class="">
     <a href="11-TestingDistributions.html">Testing Distributions</a>
+  </li>
+  <li class="">
+    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
   </li>
   <li class="">
     <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
@@ -119,11 +122,35 @@
   <li class="">
     <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
   </li>
+  <li class="">
+    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
+  </li>
+  <li class="">
+    <a href="A2-Git.html">Appendix: Version Control</a>
+  </li>
 <li class="navbar-special">
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
-    <a href="../assignments/D3_DataExploration.html">Demo Assignment</a>
+    <a href="../assignments/D2_Pandas.html">Pandas</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D3_DataExploration.html">Data Exploration</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
+  </li>
+  <li class="">
+    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Project</p>
+</li>
+  <li class="">
+    <a href="../projects/projects.html">Project Description</a>
   </li>
 </ul>
 </nav>
@@ -183,10 +210,6 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#pyplot-vs-pylab" class="nav-link">Pyplot vs Pylab</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
             <a href="#line-graph" class="nav-link">Line graph</a>
         </li>
     
@@ -198,7 +221,15 @@
         </li>
     
         <li class="nav-item toc-entry toc-h3">
+            <a href="#customizing-plots" class="nav-link">Customizing Plots</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
             <a href="#figures-and-axes" class="nav-link">Figures and Axes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#conclusion" class="nav-link">Conclusion</a>
         </li>
     
             </ul>
@@ -215,31 +246,20 @@
         
               <div>
                 
-  <div class="section" id="data-visualization-with-python">
-<h1>Data Visualization with Python<a class="headerlink" href="#data-visualization-with-python" title="Permalink to this headline">¶</a></h1>
-<p>Data Visualization might mean a of different things.</p>
-<p>Here we are only going to deal with basic 2D plotting, using Matplotlib, which is a library for plotting with Python.</p>
-<p>Matplotlib is very well supported with examples that you can use to figure out how it works.</p>
-<p>Here, we will run through a quick intro of using matplotlib, with examples adapted from the official materials.</p>
+  <div class="section" id="data-visualization">
+<h1>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h1>
+<p>Data Visualization can refer to a lot of different things. Here, we will start with making static 2D visualizations of data.</p>
+<p>To do so, we will use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> package. Matplotlib is a large and well supported package that forms the basis of a lot of plotting in Python.</p>
 <div class="alert alert-success">
 Data Visualization is a way to 'see' your data, for data exploration and data communication.
 </div>
 <div class="alert alert-info">
-Check out matplotlibs official
-<a href="https://matplotlib.org/" class="alert-link">website</a>
+Check out the matplotlib
+<a href="https://matplotlib.org/" class="alert-link">website</a>,
 including their introductory 
 <a href="http://matplotlib.org/users/beginner.html" class="alert-link">tutorial</a>,
-and list of 
-<a href="http://matplotlib.org/examples/" class="alert-link">examples</a>.
-</div><div class="section" id="pyplot-vs-pylab">
-<h2>Pyplot vs Pylab<a class="headerlink" href="#pyplot-vs-pylab" title="Permalink to this headline">¶</a></h2>
-<p>Note that matplotlib is an and old, and quite massive, module, and actually has a couple different ways to use it.</p>
-<p>Short version: import ‘matplotlib.pyplot’, like we do here is perhaps most common, and will work!</p>
-<p>Long version: follow the following link to learn a bit about the different ways in which matplotlib can be used (pyplot, pylab, etc.).</p>
-<p>Ultimately, it all calls the same underlying code, there is just different syntax for accessing everything.</p>
-<div class="alert alert-info">
-A description of the different ways to interact with matplotlib is availabe
-<a href="http://stackoverflow.com/questions/16849483/which-is-the-recommended-way-to-plot-matplotlib-or-pylab" class="alert-link">here</a>.
+and gallery of 
+<a href="https://matplotlib.org/gallery/index.html" class="alert-link">examples</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import matplotlib - the main python plotting package</span>
@@ -257,38 +277,35 @@ A description of the different ways to interact with matplotlib is availabe
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="line-graph">
 <h2>Line graph<a class="headerlink" href="#line-graph" title="Permalink to this headline">¶</a></h2>
+<p>First, we will create a simple line graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s create some fake data to plot</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="c1"># In matplotlib, we can make a figure and then plot to it</span>
-<span class="c1"># Make a figure</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="c1"># To plot, simply pass the x and y data to the plot function</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x119df8710&gt;]
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11ad9a210&gt;]
 </pre></div>
 </div>
-<img alt="../_images/09-DataVisualization_6_1.png" src="../_images/09-DataVisualization_6_1.png" />
+<img alt="../_images/09-DataVisualization_4_1.png" src="../_images/09-DataVisualization_4_1.png" />
 </div>
 </div>
 <p>Without any other information, matplotlib will add a number of plotting attributes by default.</p>
-<p>For example, by default we get lines around the plot, tick marks as well as axis number labels.</p>
+<p>For example, by default we get lines around the plot, tick marks, and axis number labels.</p>
 <p>We can customize all of these things, and add more stuff to the plot as well.</p>
 </div>
 <div class="section" id="scatter-plot">
 <h2>Scatter Plot<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">¶</a></h2>
-<p>Lets try creating a Scatter plot
-Let’s image two groups of data, that we want to plot together on a scatter plot to compare.</p>
+<p>Next, lets try creating a scatter plot.</p>
+<p>To do so, we can simulate two groups of data, that we want to plot together on a scatter plot to compare.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create some Data</span>
@@ -303,55 +320,73 @@ Let’s image two groups of data, that we want to plot together on a scatter plo
 <div class="section" id="creating-a-scatter-plot">
 <h3>Creating a Scatter Plot<a class="headerlink" href="#creating-a-scatter-plot" title="Permalink to this headline">¶</a></h3>
 <p>The ‘scatter’ command works about the same as the plot command, but makes a scatter plot instead of a line.</p>
-<p>Here, we’re adding another argument, ‘c’ which specifies the colour to make the points</p>
-<p>There are lots of optional arguments we can add to ‘plot’ and ‘scatter’</p>
+<p>Here, we’re adding another argument, <code class="docutils literal notranslate"><span class="pre">color</span></code> which specifies the color to make the points.</p>
+<p>Note there are lots of optional arguments we can add to ‘plot’ and ‘scatter’, that we will explore more later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the first set of data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="c1"># We now want to plot the second set of data on the same plot. </span>
-<span class="c1"># The &#39;hold&#39; command tells Python to hold onto the current figure and add the next data to it. </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hold</span>
-<span class="c1"># Plot the second set of data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11aac7d68&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11ae17b90&gt;
 </pre></div>
 </div>
-<img alt="../_images/09-DataVisualization_11_1.png" src="../_images/09-DataVisualization_11_1.png" />
+<img alt="../_images/09-DataVisualization_9_1.png" src="../_images/09-DataVisualization_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, plot both sets of data together</span>
+<span class="c1">#   We can do this by calling the plot call on each set of data</span>
+<span class="c1">#   Subsequent plot calls, like this one, will by default plot onto the same figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11b209e90&gt;
+</pre></div>
+</div>
+<img alt="../_images/09-DataVisualization_10_1.png" src="../_images/09-DataVisualization_10_1.png" />
 </div>
 </div>
 <p>We now have a scatter plot!</p>
-<p>However, it doesn’t look very nice. Let’s see if we can improve it. Let’s experiment with adding lots of the customization functions to make a nicer graph.</p>
+</div>
+<div class="section" id="customizing-plots">
+<h3>Customizing Plots<a class="headerlink" href="#customizing-plots" title="Permalink to this headline">¶</a></h3>
+<p>The plot above shows the data, but aesthetically there is more we could do to make it look nicer.</p>
+<p>Next up, we will replot the data, and add some customization to the plot.</p>
+<p>In the next cell, we will add lots of customization. It’s a large set of code, but to explore how it all works, work through bit by bit, and try passing in different values, and see what it does to the resultant plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new figure</span>
+<span class="c1">#   In this case we are explicitly creating the figure that we will plot to </span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="c1"># Add an axes to our figure</span>
+<span class="c1">#   Figures can have multiple axes. This adds a single new axes to our figure</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
 
 <span class="c1"># Plot the data again</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Group 1&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hold</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Group 2&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="c1"># Here we&#39;ve added some more optional arguments. </span>
-<span class="c1"># alpha - sets the transparency of the data points</span>
-<span class="c1"># label - makes a label for the data we&#39;ve plotted, which can be used in the legend</span>
-<span class="c1"># s - size. Changes the size of the dots we plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Group 1&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Group 2&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="c1"># Here we&#39;ve added some more optional arguments:</span>
+<span class="c1">#   alpha - sets the transparency of the data points</span>
+<span class="c1">#   label - makes a label for the data we&#39;ve plotted, which can be used in the legend</span>
+<span class="c1">#   s (size) - changes the size of the dots we plot</span>
 
 <span class="c1"># Add a title to our graph</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;My Awesome Scatter Plot&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
 
 <span class="c1"># Add data labels</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X Data Label&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y Data Label&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X Data Label&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y Data Label&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
 
 <span class="c1"># Set the ranges to plot of the x and y variables</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
 
 <span class="c1"># Set the tick labels</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]))</span>
@@ -370,15 +405,17 @@ Let’s image two groups of data, that we want to plot together on a scatter plo
 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Add a legend. This will use the labels you defined when you set the data.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># Legend doesn&#39;t require any arguments. </span>
-<span class="c1"># Here we optionally specify where to put the legend (&#39;loc&#39;), how many points to use </span>
-<span class="c1">#  in the legend (&#39;scatterpoints&#39;), and wether to have a box around the legend (&#39;frameon&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">scatterpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Note that legend doesn&#39;t require any arguments</span>
+<span class="c1">#   Here we optionally specifing:</span>
+<span class="c1">#     &#39;loc&#39; - where to put the legend</span>
+<span class="c1">#     &#39;scatterpoints&#39; - how many points to show in the legend </span>
+<span class="c1">#     &#39;frameon&#39; - whether to have a box around the legend</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11a655cf8&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11b57e850&gt;
 </pre></div>
 </div>
 <img alt="../_images/09-DataVisualization_13_1.png" src="../_images/09-DataVisualization_13_1.png" />
@@ -387,22 +424,26 @@ Let’s image two groups of data, that we want to plot together on a scatter plo
 </div>
 <div class="section" id="figures-and-axes">
 <h3>Figures and Axes<a class="headerlink" href="#figures-and-axes" title="Permalink to this headline">¶</a></h3>
-<p>Note above that sometimes we are calling these functions on ‘ax’ and sometimes we are calling with ‘plt’</p>
-<p>We also created a thing called fig. What’s all this?</p>
+<p>Note that in the above example, we defined a figure object, <code class="docutils literal notranslate"><span class="pre">fig</span></code>, and an axes object, <code class="docutils literal notranslate"><span class="pre">ax</span></code>.</p>
+<p>You might also notice that sometimes we used called function from <code class="docutils literal notranslate"><span class="pre">plt</span></code>, and sometimes called methods directly on the <code class="docutils literal notranslate"><span class="pre">ax</span></code> object.</p>
+<p>So, what are these different things?</p>
 <ul class="simple">
-<li><p>‘plt’ is just our nickname for the matplotlib module</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt</span></code> is then name we have given the imported matplotlib module</p>
 <ul>
-<li><p>Here, whenver we are using ‘plt’ we are implicitly calling a function from matplotlib on the current figure</p></li>
+<li><p>Here, whenever we are using ‘plt’ we are calling a function from matplotlib</p></li>
+<li><p>By default, this gets applied to the current figure (the most recent one created)</p></li>
 </ul>
 </li>
-<li><p>‘fig’ is just an arbitrary variable name we have been using to assign to a figure object.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">fig</span></code> is a variable name we have given to the figure object</p>
 <ul>
-<li><p>We can use ‘fig’ (or whatever we call our figure) to update it after we have created it</p></li>
+<li><p>A figure object is the whole figure that we are creating</p></li>
+<li><p>We can use ‘fig’ (or whatever we call our figure) to access or update our figure after we have created it</p></li>
 </ul>
 </li>
-<li><p>‘ax’ is also just an arbitrary variable name for the current axis.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax</span></code> is also a variable name, for the current axis</p>
 <ul>
-<li><p>We can us ‘ax (or whatever we call our axes) to update a particular axis after we have created it</p></li>
+<li><p>A figure can have multiple axes (though our figure above only has one)</p></li>
+<li><p>To update a value on an axes object, you can call a <code class="docutils literal notranslate"><span class="pre">set_</span></code> method on the axes object, like we do above</p></li>
 </ul>
 </li>
 </ul>
@@ -423,7 +464,7 @@ Figure(432x288)
 
 </pre></div>
 </div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.figure.Figure at 0x117779588&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -433,27 +474,21 @@ Figure(432x288)
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;ax&#39; is a name for the current axes. A figure can have many axes (figures can have subplots)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ax</span><span class="p">))</span>              <span class="c1"># Axes is a class of variable in matplotlib</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>                    <span class="c1"># This is the axes handle &#39;ax&#39; that we made before</span>
-<span class="c1">#print(plt.gca(), &#39;\n&#39;)      # gca grabs the current axes. </span>
 
-<span class="c1"># In this case, current axis is &#39;ax&#39;. Turned off as it plots an axis. </span>
-<span class="c1"># Note that here gca is drawing an empty axis</span>
+<span class="c1"># Note that if you need to grab the current axes, you can do so with `plt.gca()`</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;matplotlib.axes._subplots.AxesSubplot&#39;&gt;
-Axes(0.125,0.125;0.775x0.755)
+AxesSubplot(0.125,0.125;0.775x0.755)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Keeping track of figures and axes, and knowing what to call on what can be a bit confusing at first.</p>
-<p>Note that a lot of it gets managed behind the scenes - you don’t have a to explicitly create new figures or axes. Matplotlib will make new figures and axes when it needs to, without explicitly being told to.</p>
-<p>If you’re wondering why we would bother using fig and ax then:</p>
-<ul class="simple">
-<li><p>We often don’t need to, but it can be very useful to have a label to grab our figure (and manipulate it) when we need to.</p></li>
-</ul>
-<p>For example, we can get our figure back just by calling it’s name.</p>
+<p>Keeping track of figures and axes, can be a bit confusing at first. Note that typically a lot of managing matplotlib objects objects can happen automatically. In many cases, many figures in different cells, for example, matplotlib will make new figures and axes when it needs to, without you having to explicitly specify this.</p>
+<p>Defining or accessing figure and axes objects can be useful when customizing plots, replotting things later, or for more custom or complex plotting tasks. That is, it can be useful to have a label to grab our figure, and manipulate it, if and when we need to.</p>
+<p>For example, we can get our figure back just by calling the figure object name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Redraw figure with &#39;fig&#39; variable name</span>
@@ -465,10 +500,11 @@ Axes(0.125,0.125;0.775x0.755)
 <img alt="../_images/09-DataVisualization_18_0.png" src="../_images/09-DataVisualization_18_0.png" />
 </div>
 </div>
-<div class="alert alert-info">
-As well as the official documentation, another useful tutorial is available
-<a href="https://www.labri.fr/perso/nrougier/teaching/matplotlib/" class="alert-link">here</a>.
-</div></div>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h3>
+<p>This is only a brief introduction to the main concepts of matplotlib, that we will use throughout the rest of these materials. For much more in depth explanations and examples, visit the official documentation.</p>
+</div>
 </div>
 </div>
 
