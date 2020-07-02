@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/jupyter_cache/executors/basic.py", line 163, in execute
+    executenb(nb_bundle.nb, cwd=tmpdirname, timeout=timeout)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 737, in executenb
+    return ep.preprocess(nb, resources, km=km)[0]
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 405, in preprocess
+    nb, resources = super(ExecutePreprocessor, self).preprocess(nb, resources)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/base.py", line 69, in preprocess
+    nb.cells[index], resources = self.preprocess_cell(cell, resources, index)
+  File "/opt/anaconda3/envs/book/lib/python3.7/site-packages/nbconvert/preprocessors/execute.py", line 448, in preprocess_cell
+    raise CellExecutionError.from_cell_and_msg(cell, out)
+nbconvert.preprocessors.execute.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Create the variables
+# YOUR CODE HERE
+raise NotImplementedError()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNotImplementedError[0m                       Traceback (most recent call last)
+[0;32m<ipython-input-2-ed8ddaa3a2b7>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Create the variables[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;31m# YOUR CODE HERE[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mraise[0m [0mNotImplementedError[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mNotImplementedError[0m: 
+NotImplementedError: 
+

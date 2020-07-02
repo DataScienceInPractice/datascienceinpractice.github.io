@@ -132,6 +132,9 @@
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
+    <a href="D1_Python.html">Python Introduction</a>
+  </li>
+  <li class="">
     <a href="D2_Pandas.html">Pandas</a>
   </li>
   <li class="">
@@ -329,6 +332,30 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 </div>
 </div>
+<div class="section" id="downloading-data">
+<h2>Downloading Data<a class="headerlink" href="#downloading-data" title="Permalink to this headline">¶</a></h2>
+<p>If you download this notebook to run locally, you will also need some data files.</p>
+<p>Running the next cell will download the required files for this assignment.</p>
+<p>You can also view and download these files from <a class="reference external" href="https://github.com/DataScienceInPractice/Data">https://github.com/DataScienceInPractice/Data</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+
+<span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/DataScienceInPractice/Data/master/&#39;</span>
+
+<span class="c1"># Fill in these values</span>
+<span class="n">assignment</span> <span class="o">=</span> <span class="s1">&#39;A6&#39;</span>
+<span class="n">data_files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;custrev_test.tsv&#39;</span><span class="p">,</span> <span class="s1">&#39;custrev_train.tsv&#39;</span><span class="p">,</span> <span class="s1">&#39;rt-polarity.tsv&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">data_file</span> <span class="ow">in</span> <span class="n">data_files</span><span class="p">:</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">assignment</span><span class="p">,</span> <span class="n">data_file</span><span class="p">)</span>
+    <span class="n">urlretrieve</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">data_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="part-1-sentiment-analysis-on-movie-review-data-4-25-points">
 <h1>Part 1: Sentiment Analysis on Movie Review Data (4.25 points)<a class="headerlink" href="#part-1-sentiment-analysis-on-movie-review-data-4-25-points" title="Permalink to this headline">¶</a></h1>
@@ -352,7 +379,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="n">MR_filepath</span><span class="o">=</span><span class="s1">&#39;data/rt-polarity.tsv&#39;</span>
+<span class="n">MR_filepath</span><span class="o">=</span><span class="s1">&#39;rt-polarity.tsv&#39;</span>
 
 <span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
@@ -857,16 +884,16 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <h2>3a) Loading the data<a class="headerlink" href="#a-loading-the-data" title="Permalink to this headline">¶</a></h2>
 <p>Customer review task has 2 files</p>
 <ul class="simple">
-<li><p>“data/custrev_train.tsv” contains training data with labels</p></li>
-<li><p>“data/custrev_test.tsv” contains test data without labels which need to be predicted</p></li>
+<li><p>“custrev_train.tsv” contains training data with labels</p></li>
+<li><p>“custrev_test.tsv” contains test data without labels which need to be predicted</p></li>
 </ul>
-<p>Import raw textfile <code class="docutils literal notranslate"><span class="pre">data/custrev_train.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">CR_train_df</span></code>. Set the column names as <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">review</span></code>.</p>
-<p>Import raw textfile <code class="docutils literal notranslate"><span class="pre">data/custrev_test.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">CR_test_df</span></code>. Set the column names as <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">review</span></code></p>
+<p>Import raw textfile <code class="docutils literal notranslate"><span class="pre">custrev_train.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">CR_train_df</span></code>. Set the column names as <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code>, <code class="docutils literal notranslate"><span class="pre">review</span></code>.</p>
+<p>Import raw textfile <code class="docutils literal notranslate"><span class="pre">custrev_test.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">CR_test_df</span></code>. Set the column names as <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">review</span></code></p>
 <p>Note that both will need to be imported with <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">header</span></code> arguments (like in 1a)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CR_train_file</span> <span class="o">=</span> <span class="s1">&#39;data/custrev_train.tsv&#39;</span>
-<span class="n">CR_test_file</span> <span class="o">=</span> <span class="s1">&#39;data/custrev_test.tsv&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CR_train_file</span> <span class="o">=</span> <span class="s1">&#39;custrev_train.tsv&#39;</span>
+<span class="n">CR_test_file</span> <span class="o">=</span> <span class="s1">&#39;custrev_test.tsv&#39;</span>
 
 <span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>

@@ -132,6 +132,9 @@
 <p class="margin-caption">Assignments</p>
 </li>
   <li class="">
+    <a href="D1_Python.html">Python Introduction</a>
+  </li>
+  <li class="">
     <a href="D2_Pandas.html">Pandas</a>
   </li>
   <li class="active">
@@ -268,6 +271,29 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <span class="c1"># Round decimals when displaying DataFrames</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="downloading-data">
+<h2>Downloading Data<a class="headerlink" href="#downloading-data" title="Permalink to this headline">¶</a></h2>
+<p>If you download this notebook to run locally, you will also need some data files.</p>
+<p>Running the next cell will download the required files for this assignment.</p>
+<p>You can also view and download these files from <a class="reference external" href="https://github.com/DataScienceInPractice/Data">https://github.com/DataScienceInPractice/Data</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+
+<span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/DataScienceInPractice/Data/master/&#39;</span>
+
+<span class="n">assignment</span> <span class="o">=</span> <span class="s1">&#39;A3&#39;</span>
+<span class="n">data_files</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age_steps.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;incomes.json&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">data_file</span> <span class="ow">in</span> <span class="n">data_files</span><span class="p">:</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">assignment</span><span class="p">,</span> <span class="n">data_file</span><span class="p">)</span>
+    <span class="n">urlretrieve</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">data_file</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
