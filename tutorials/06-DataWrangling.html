@@ -1,46 +1,72 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data Wrangling &#8212; Data Science in Practice</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data Cleaning" href="07-DataCleaning.html" />
     <link rel="prev" title="Data Gathering" href="05-DataGathering.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -49,110 +75,181 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-<li class="navbar-special">
-<p class="margin-caption">Tutorials</p>
-</li>
-  <li class="">
-    <a href="00-Introduction.html">Introduction</a>
-  </li>
-  <li class="">
-    <a href="01-Python.html">Python</a>
-  </li>
-  <li class="">
-    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
-  </li>
-  <li class="">
-    <a href="03-DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="05-DataGathering.html">Data Gathering</a>
-  </li>
-  <li class="active">
-    <a href="">Data Wrangling</a>
-  </li>
-  <li class="">
-    <a href="07-DataCleaning.html">Data Cleaning</a>
-  </li>
-  <li class="">
-    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
-  </li>
-  <li class="">
-    <a href="09-DataVisualization.html">Data Visualization</a>
-  </li>
-  <li class="">
-    <a href="10-Distributions.html">Distributions</a>
-  </li>
-  <li class="">
-    <a href="11-TestingDistributions.html">Testing Distributions</a>
-  </li>
-  <li class="">
-    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
-  </li>
-  <li class="">
-    <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
-  </li>
-  <li class="">
-    <a href="14-LinearModels.html">Linear Models</a>
-  </li>
-  <li class="">
-    <a href="15-Clustering.html">Clustering</a>
-  </li>
-  <li class="">
-    <a href="16-DimensionalityReduction.html">Dimensionality Reduction</a>
-  </li>
-  <li class="">
-    <a href="17-Classification.html">Classification</a>
-  </li>
-  <li class="">
-    <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-  <li class="">
-    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
-  </li>
-  <li class="">
-    <a href="A2-Git.html">Appendix: Version Control</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Assignments</p>
-</li>
-  <li class="">
-    <a href="../assignments/D2_Pandas.html">Pandas</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Project</p>
-</li>
-  <li class="">
-    <a href="../projects/projects.html">Project Description</a>
-  </li>
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-JupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-DataGathering.html">
+   Data Gathering
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-DataCleaning.html">
+   Data Cleaning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataPrivacy%26Anonymization.html">
+   Data Privacy &amp; Anonymization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-DataVisualization.html">
+   Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Distributions.html">
+   Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TestingDistributions.html">
+   Testing Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-StatisticalComparisons.html">
+   Statistical Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-OrdinaryLeastSquares.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-LinearModels.html">
+   Linear Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-Clustering.html">
+   Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="16-DimensionalityReduction.html">
+   Dimensionality Reduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="18-NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-PythonPackages.html">
+   Appendix: Python Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A2-Git.html">
+   Appendix: Version Control
+  </a>
+ </li>
 </ul>
-</nav>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D1_Python.html">
+   Python Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D2_Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D3_DataExploration.html">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D4_DataPrivacy.html">
+   Data Privacy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D5_DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D6_NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../projects/projects.html">
+   Project Description
+  </a>
+ </li>
+</ul>
 
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -163,107 +260,218 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
-
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/tutorials/06-DataWrangling.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
             
-        </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-        <!-- Source interaction buttons -->
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/06-DataWrangling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
 </div>
 
-<nav id="bd-toc-nav">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/tutorials/06-DataWrangling.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-i-o">
+   Python I/O
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-i-o">
+   Pandas I/O
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file-types">
+   File types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#csv-files">
+     CSV Files
+    </a>
     <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#python-i-o" class="nav-link">Python I/O</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#pandas-i-o" class="nav-link">Pandas I/O</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#file-types" class="nav-link">File types</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#csv-files" class="nav-link">CSV Files</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#csv-files-with-python" class="nav-link">CSV Files with Python</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#csv-files-with-pandas" class="nav-link">CSV Files with Pandas</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#json-files" class="nav-link">JSON Files</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#json-files-with-python" class="nav-link">JSON Files with Python</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#json-files-with-pandas" class="nav-link">JSON Files with Pandas</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#conclusion" class="nav-link">Conclusion</a>
-        </li>
-    
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#csv-files-with-python">
+       CSV Files with Python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#csv-files-with-pandas">
+       CSV Files with Pandas
+      </a>
+     </li>
     </ul>
-</nav>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json-files">
+     JSON Files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#json-files-with-python">
+       JSON Files with Python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#json-files-with-pandas">
+       JSON Files with Pandas
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
 
-
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data Wrangling</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-i-o">
+   Python I/O
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-i-o">
+   Pandas I/O
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#file-types">
+   File types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#csv-files">
+     CSV Files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#csv-files-with-python">
+       CSV Files with Python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#csv-files-with-pandas">
+       CSV Files with Pandas
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json-files">
+     JSON Files
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#json-files-with-python">
+       JSON Files with Python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#json-files-with-pandas">
+       JSON Files with Pandas
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="data-wrangling">
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-wrangling">
 <h1>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this headline">¶</a></h1>
 <div class="alert alert-success">
 'Data Wrangling' generally refers to transforming raw data into a useable form for your analyses of interest, including loading, aggregating and formating. 
@@ -278,13 +486,13 @@ Official Python
 on input / output.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Check out an example data file
-!cat files/data.txt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out an example data file</span>
+<span class="o">!</span>cat files/data.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First line of data
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First line of data
 Second line of data
 </pre></div>
 </div>
@@ -292,7 +500,7 @@ Second line of data
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, explicitly open the file object for reading</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, explicitly open the file object for reading</span>
 <span class="n">file_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
 <span class="c1"># You can then loop through the file object, grabbing each line of data</span>
@@ -306,7 +514,7 @@ Second line of data
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First line of data
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First line of data
 Second line of data
 </pre></div>
 </div>
@@ -316,7 +524,7 @@ Second line of data
 <p>By using <code class="docutils literal notranslate"><span class="pre">with</span></code>, file objects will be opened, and then automatically closed at the end of the code block.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use &#39;with&#39; keyword to open, read, and then close a file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use &#39;with&#39; keyword to open, read, and then close a file</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_obj</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_obj</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
@@ -324,7 +532,7 @@ Second line of data
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First line of data
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First line of data
 Second line of data
 </pre></div>
 </div>
@@ -344,14 +552,14 @@ Official Pandas
 on input / output. 
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tab complete to check out all the read functions available</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tab complete to check out all the read functions available</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_</span>
 </pre></div>
 </div>
@@ -372,13 +580,13 @@ More information on CSV files from
 <a href="https://en.wikipedia.org/wiki/Comma-separated_values" class="alert-link">wikipedia</a>. 
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Let&#39;s have a look at a csv file (printed out in plain text)
-!cat files/data.csv
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s have a look at a csv file (printed out in plain text)</span>
+<span class="o">!</span>cat files/data.csv
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1, 2, 3, 4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1, 2, 3, 4
 5, 6, 7, 8
 9, 10, 11, 12
 </pre></div>
@@ -389,7 +597,7 @@ More information on CSV files from
 <h4>CSV Files with Python<a class="headerlink" href="#csv-files-with-python" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python has a module devoted to working with csv&#39;s</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python has a module devoted to working with csv&#39;s</span>
 <span class="kn">import</span> <span class="nn">csv</span>
 </pre></div>
 </div>
@@ -397,7 +605,7 @@ More information on CSV files from
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can read through our file with the csv module</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can read through our file with the csv module</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
     <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
@@ -406,7 +614,7 @@ More information on CSV files from
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1,  2,  3,  4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1,  2,  3,  4
 5,  6,  7,  8
 9,  10,  11,  12
 </pre></div>
@@ -418,15 +626,15 @@ More information on CSV files from
 <h4>CSV Files with Pandas<a class="headerlink" href="#csv-files-with-pandas" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Pandas also has functions to directly load csv data
-pd.read_csv?
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas also has functions to directly load csv data</span>
+pd.read_csv<span class="o">?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s read in our csv file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s read in our csv file</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.csv&#39;</span><span class="p">),</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -495,13 +703,13 @@ More information on JSON files from
 <a href="https://en.wikipedia.org/wiki/JSON" class="alert-link">wikipedia</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Let&#39;s have a look at a json file (printed out in plain text)
-!cat files/data.json
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s have a look at a json file (printed out in plain text)</span>
+<span class="o">!</span>cat files/data.json
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>{
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
   &quot;firstName&quot;: &quot;John&quot;,
   &quot;age&quot;: 53
 }
@@ -511,14 +719,14 @@ More information on JSON files from
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Think of json&#39;s as similar to dictionaries</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Think of json&#39;s as similar to dictionaries</span>
 <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;firstName&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="s1">&#39;53&#39;</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;firstName&#39;: &#39;John&#39;, &#39;age&#39;: &#39;53&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;firstName&#39;: &#39;John&#39;, &#39;age&#39;: &#39;53&#39;}
 </pre></div>
 </div>
 </div>
@@ -527,7 +735,7 @@ More information on JSON files from
 <h4>JSON Files with Python<a class="headerlink" href="#json-files-with-python" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python also has a module for dealing with json</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python also has a module for dealing with json</span>
 <span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 </div>
@@ -535,7 +743,7 @@ More information on JSON files from
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a json file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a json file</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat_file</span><span class="p">:</span>    
     <span class="n">dat</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dat_file</span><span class="p">)</span>
 </pre></div>
@@ -544,13 +752,13 @@ More information on JSON files from
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check what data type this gets loaded as</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check what data type this gets loaded as</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dat</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -560,22 +768,22 @@ More information on JSON files from
 <h4>JSON Files with Pandas<a class="headerlink" href="#json-files-with-pandas" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Pandas also has support for reading in json files
-pd.read_json?
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas also has support for reading in json files</span>
+pd.read_json<span class="o">?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can read in json formatted strings with pandas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can read in json formatted strings with pandas</span>
 <span class="c1">#  Note that here I am specifying to read it in as a pd.Series, as there is a single line of data</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;{ &quot;first&quot;: &quot;Alan&quot;, &quot;place&quot;: &quot;Manchester&quot;}&#39;</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;series&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>first          Alan
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>first          Alan
 place    Manchester
 dtype: object
 </pre></div>
@@ -584,13 +792,13 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in our json file with pandas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in our json file with pandas</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/data.json&#39;</span><span class="p">),</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;series&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>firstName    John
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>firstName    John
 age            53
 dtype: object
 </pre></div>
@@ -606,36 +814,64 @@ dtype: object
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="05-DataGathering.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Gathering</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="07-DataCleaning.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Cleaning</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
+    <footer class="footer">
+  <p>
     
+      By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
     
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="05-DataGathering.html" title="previous page">Data Gathering</a>
-    <a class='right-next' id="next-link" href="07-DataCleaning.html" title="next page">Data Cleaning</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
-        
-            &copy; Copyright 2020-.<br/>
-      </p>
-    </div>
-  </footer>
+        &copy; Copyright 2020-.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
   </body>
 </html>

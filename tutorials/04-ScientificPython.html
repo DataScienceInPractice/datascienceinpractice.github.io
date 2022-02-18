@@ -1,44 +1,70 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scientific Python &#8212; Data Science in Practice</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -47,110 +73,181 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-<li class="navbar-special">
-<p class="margin-caption">Tutorials</p>
-</li>
-  <li class="">
-    <a href="00-Introduction.html">Introduction</a>
-  </li>
-  <li class="">
-    <a href="01-Python.html">Python</a>
-  </li>
-  <li class="">
-    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
-  </li>
-  <li class="">
-    <a href="03-DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="05-DataGathering.html">Data Gathering</a>
-  </li>
-  <li class="">
-    <a href="06-DataWrangling.html">Data Wrangling</a>
-  </li>
-  <li class="">
-    <a href="07-DataCleaning.html">Data Cleaning</a>
-  </li>
-  <li class="">
-    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
-  </li>
-  <li class="">
-    <a href="09-DataVisualization.html">Data Visualization</a>
-  </li>
-  <li class="">
-    <a href="10-Distributions.html">Distributions</a>
-  </li>
-  <li class="">
-    <a href="11-TestingDistributions.html">Testing Distributions</a>
-  </li>
-  <li class="">
-    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
-  </li>
-  <li class="">
-    <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
-  </li>
-  <li class="">
-    <a href="14-LinearModels.html">Linear Models</a>
-  </li>
-  <li class="">
-    <a href="15-Clustering.html">Clustering</a>
-  </li>
-  <li class="">
-    <a href="16-DimensionalityReduction.html">Dimensionality Reduction</a>
-  </li>
-  <li class="">
-    <a href="17-Classification.html">Classification</a>
-  </li>
-  <li class="">
-    <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-  <li class="">
-    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
-  </li>
-  <li class="">
-    <a href="A2-Git.html">Appendix: Version Control</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Assignments</p>
-</li>
-  <li class="">
-    <a href="../assignments/D2_Pandas.html">Pandas</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Project</p>
-</li>
-  <li class="">
-    <a href="../projects/projects.html">Project Description</a>
-  </li>
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-JupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-DataGathering.html">
+   Data Gathering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-DataWrangling.html">
+   Data Wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-DataCleaning.html">
+   Data Cleaning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataPrivacy%26Anonymization.html">
+   Data Privacy &amp; Anonymization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-DataVisualization.html">
+   Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Distributions.html">
+   Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TestingDistributions.html">
+   Testing Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-StatisticalComparisons.html">
+   Statistical Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-OrdinaryLeastSquares.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-LinearModels.html">
+   Linear Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-Clustering.html">
+   Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="16-DimensionalityReduction.html">
+   Dimensionality Reduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="18-NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-PythonPackages.html">
+   Appendix: Python Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A2-Git.html">
+   Appendix: Version Control
+  </a>
+ </li>
 </ul>
-</nav>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D1_Python.html">
+   Python Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D2_Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D3_DataExploration.html">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D4_DataPrivacy.html">
+   Data Privacy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D5_DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D6_NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../projects/projects.html">
+   Project Description
+  </a>
+ </li>
+</ul>
 
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -161,65 +258,116 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
-
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/tutorials/04-ScientificPython.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
             
-        </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-        <!-- Source interaction buttons -->
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/04-ScientificPython.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
 </div>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#external-resources" class="nav-link">External Resources</a>
-        </li>
-    
-    </ul>
-</nav>
+            <!-- Source interaction buttons -->
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/tutorials/04-ScientificPython.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#external-resources">
+   External Resources
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Scientific Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#external-resources">
+   External Resources
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="scientific-python">
+  <div class="tex2jax_ignore mathjax_ignore section" id="scientific-python">
 <h1>Scientific Python<a class="headerlink" href="#scientific-python" title="Permalink to this headline">¶</a></h1>
 <p>Python has a large number of tools available for doing data science, sometimes referred to as ‘scientific Python’.</p>
 <p>The scientific Python ecosystem revolves around some a set of core modules, including:</p>
@@ -249,7 +397,7 @@ and extensive
 <a href="https://docs.scipy.org/doc/scipy/reference/tutorial/" class="alert-link">tutorials</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can import the full scipy package, typically shortened to &#39;sp&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can import the full scipy package, typically shortened to &#39;sp&#39;</span>
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
 
 <span class="c1"># However, it is perhaps more common to import particular submodules</span>
@@ -263,20 +411,20 @@ and extensive
 <p>For a simple / random example, let’s use it’s stats module to model flipping a coin with <a class="reference external" href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernouilli Distribution</a>, which is a distribution that can model a random variable that can be either 0 (call it Tails) or 1 (call it Heads).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s model a fair coin - with 0.5 probability of being Heads</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s model a fair coin - with 0.5 probability of being Heads</span>
 <span class="n">sts</span><span class="o">.</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s flip a bunch of coins!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s flip a bunch of coins!</span>
 <span class="n">coin_flips</span> <span class="o">=</span> <span class="p">[</span><span class="n">sts</span><span class="o">.</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first ten coin flips are: &#39;</span><span class="p">,</span> <span class="n">coin_flips</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The percent of heads from this sample is: &#39;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">coin_flips</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
@@ -284,7 +432,7 @@ and extensive
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The first ten coin flips are:  [1, 0, 0, 1, 0, 1, 1, 0, 1, 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The first ten coin flips are:  [1, 0, 0, 1, 0, 1, 1, 0, 1, 0]
 The percent of heads from this sample is:  59.0 %
 </pre></div>
 </div>
@@ -306,7 +454,7 @@ including their official
 An array is a ‘a systematic arrangement of similar objects, usually in rows and columns’ (definition from <a class="reference external" href="https://en.wikipedia.org/wiki/Array">Wikipedia</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numpy is standardly imported as &#39;np&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numpy is standardly imported as &#39;np&#39;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
@@ -314,7 +462,7 @@ An array is a ‘a systematic arrangement of similar objects, usually in rows an
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numpy&#39;s specialty is linear algebra and arrays of (uniform) data </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numpy&#39;s specialty is linear algebra and arrays of (uniform) data </span>
 
 <span class="c1"># Define some arrays</span>
 <span class="c1">#  Arrays can have different types, but all the data within an array needs to be the same type</span>
@@ -328,7 +476,7 @@ An array is a ‘a systematic arrangement of similar objects, usually in rows an
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that if you try to make a mixed-data-type array, numpy won&#39;t fail, </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that if you try to make a mixed-data-type array, numpy won&#39;t fail, </span>
 <span class="c1">#  but it will (silently)</span>
 <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
 
@@ -339,7 +487,7 @@ An array is a ‘a systematic arrangement of similar objects, usually in rows an
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.str_&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.str_&#39;&gt;
 &lt;class &#39;numpy.str_&#39;&gt;
 </pre></div>
 </div>
@@ -347,7 +495,7 @@ An array is a ‘a systematic arrangement of similar objects, usually in rows an
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># These array will therefore not act like you might expect</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These array will therefore not act like you might expect</span>
 <span class="c1"># The last item looks like a Boolen</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
@@ -357,7 +505,7 @@ An array is a ‘a systematic arrangement of similar objects, usually in rows an
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 False
 </pre></div>
 </div>
@@ -385,7 +533,7 @@ and a tutorial on
 <p>If you are familiar with R, pandas dataframes object and approaches are quite similar to R.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas is standardly imported as pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas is standardly imported as pd</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
@@ -393,7 +541,7 @@ and a tutorial on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start with an array of data, but we also have a label for each data item</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start with an array of data, but we also have a label for each data item</span>
 <span class="n">dat_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Washington&#39;</span><span class="p">,</span> <span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Budapest&#39;</span><span class="p">])</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ada&#39;</span><span class="p">,</span> <span class="s1">&#39;Alonzo&#39;</span><span class="p">,</span> <span class="s1">&#39;Alan&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">]</span>
 </pre></div>
@@ -402,22 +550,22 @@ and a tutorial on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Pandas offers the &#39;Series&#39; data object to store 1d data with axis labels
-pd.Series?
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas offers the &#39;Series&#39; data object to store 1d data with axis labels</span>
+pd.Series<span class="o">?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s make a Series with out data, and check it out</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s make a Series with out data, and check it out</span>
 <span class="n">ser_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dat_1</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 <span class="n">ser_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Ada           London
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ada           London
 Alonzo    Washington
 Alan          London
 John        Budapest
@@ -428,7 +576,7 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we have some different data (with the same labels) we can make another Series</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we have some different data (with the same labels) we can make another Series</span>
 <span class="n">dat_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">36</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">53</span><span class="p">]</span>
 <span class="n">ser_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dat_2</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 
@@ -437,7 +585,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Ada       36
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ada       36
 Alonzo    92
 Alan      41
 John      53
@@ -448,16 +596,16 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># However, having a collection of series can quickly get quite messy
-#  Pandas therefore offer the dataframe - a powerful data object to store mixed type data with labels
-pd.DataFrame?
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># However, having a collection of series can quickly get quite messy</span>
+<span class="c1">#  Pandas therefore offer the dataframe - a powerful data object to store mixed type data with labels</span>
+pd.DataFrame<span class="o">?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are several ways to initialize a dataframe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are several ways to initialize a dataframe</span>
 <span class="c1">#  Here, we provide a dictionary made up of our series</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Col-A&#39;</span><span class="p">:</span> <span class="n">ser_1</span><span class="p">,</span> <span class="s1">&#39;Col-B&#39;</span><span class="p">:</span><span class="n">ser_2</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
 </pre></div>
@@ -466,13 +614,13 @@ pd.DataFrame?
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># For categorical data, we can check how many of each value there are</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For categorical data, we can check how many of each value there are</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Col-A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>London        2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>London        2
 Washington    1
 Budapest      1
 Name: Col-A, dtype: int64
@@ -482,7 +630,7 @@ Name: Col-A, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that dataframes are actually collections of Series</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that dataframes are actually collections of Series</span>
 <span class="c1">#  When we index the df, as above, we actually pull out a Series</span>
 <span class="c1">#    So, the &#39;.value_counts()&#39; is actually a Series method</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Col-A&#39;</span><span class="p">])</span>
@@ -490,21 +638,21 @@ Name: Col-A, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas also gives us tons an ways to directly explore and analyze data in dataframes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pandas also gives us tons an ways to directly explore and analyze data in dataframes</span>
 <span class="c1">#  For example, the mean for all numberic data columns</span>
 <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Col-B    55.5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Col-B    55.5
 dtype: float64
 </pre></div>
 </div>
@@ -532,15 +680,15 @@ as well as a
 of examples that you can start from and modify.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This magic command is used to plot all figures inline in the notebook</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This magic command is used to plot all figures inline in the notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matplotlib is standardly imported as plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matplotlib is standardly imported as plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
@@ -548,13 +696,13 @@ of examples that you can start from and modify.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a basic line graph</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a basic line graph</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1a205186d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1a205186d0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/04-ScientificPython_33_1.png" src="../_images/04-ScientificPython_33_1.png" />
@@ -577,7 +725,7 @@ including their official
 <a href="http://scikit-learn.org/stable/tutorial/basic/tutorial.html" class="alert-link">tutorial</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import sklearn</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import sklearn</span>
 <span class="kn">import</span> <span class="nn">sklearn</span> <span class="k">as</span> <span class="nn">skl</span>
 </pre></div>
 </div>
@@ -585,8 +733,8 @@ including their official
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Check out module description
-skl?
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out module description</span>
+skl<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -605,34 +753,50 @@ by
 </div></div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
         </div>
     </div>
+    <footer class="footer">
+  <p>
     
+      By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
     
-    <div class='prev-next-bottom'>
-        
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
-        
-            &copy; Copyright 2020-.<br/>
-      </p>
-    </div>
-  </footer>
+        &copy; Copyright 2020-.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
   </body>
 </html>

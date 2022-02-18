@@ -1,46 +1,72 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Natural Language Processing &#8212; Data Science in Practice</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Project Description" href="../projects/projects.html" />
     <link rel="prev" title="Data Analysis" href="D5_DataAnalysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -49,116 +75,181 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-<li class="navbar-special">
-<p class="margin-caption">Tutorials</p>
-</li>
-  <li class="">
-    <a href="../tutorials/00-Introduction.html">Introduction</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/01-Python.html">Python</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/02-JupyterNotebooks.html">Jupyter Notebooks</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/03-DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/06-DataWrangling.html">Data Wrangling</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/07-DataCleaning.html">Data Cleaning</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/09-DataVisualization.html">Data Visualization</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/10-Distributions.html">Distributions</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/11-TestingDistributions.html">Testing Distributions</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/12-StatisticalComparisons.html">Statistical Comparisons</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/14-LinearModels.html">Linear Models</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/15-Clustering.html">Clustering</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/16-DimensionalityReduction.html">Dimensionality Reduction</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/17-Classification.html">Classification</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/18-NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/A1-PythonPackages.html">Appendix: Python Packages</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/A2-Git.html">Appendix: Version Control</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Assignments</p>
-</li>
-  <li class="">
-    <a href="D1_Python.html">Python Introduction</a>
-  </li>
-  <li class="">
-    <a href="D2_Pandas.html">Pandas</a>
-  </li>
-  <li class="">
-    <a href="D3_DataExploration.html">Data Exploration</a>
-  </li>
-  <li class="">
-    <a href="D4_DataPrivacy.html">Data Privacy</a>
-  </li>
-  <li class="">
-    <a href="D5_DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="active">
-    <a href="">Natural Language Processing</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Project</p>
-</li>
-  <li class="">
-    <a href="../projects/projects.html">Project Description</a>
-  </li>
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/00-Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/01-Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/02-JupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/03-DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/05-DataGathering.html">
+   Data Gathering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/06-DataWrangling.html">
+   Data Wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/07-DataCleaning.html">
+   Data Cleaning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/08-DataPrivacy%26Anonymization.html">
+   Data Privacy &amp; Anonymization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/09-DataVisualization.html">
+   Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/10-Distributions.html">
+   Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/11-TestingDistributions.html">
+   Testing Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/12-StatisticalComparisons.html">
+   Statistical Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/13-OrdinaryLeastSquares.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/14-LinearModels.html">
+   Linear Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/15-Clustering.html">
+   Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/16-DimensionalityReduction.html">
+   Dimensionality Reduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/17-Classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/18-NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/A1-PythonPackages.html">
+   Appendix: Python Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/A2-Git.html">
+   Appendix: Version Control
+  </a>
+ </li>
 </ul>
-</nav>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="D1_Python.html">
+   Python Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D2_Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D3_DataExploration.html">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D4_DataPrivacy.html">
+   Data Privacy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D5_DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Natural Language Processing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../projects/projects.html">
+   Project Description
+  </a>
+ </li>
+</ul>
 
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -169,64 +260,468 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/assignments/D6_NaturalLanguageProcessing.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/assignments/D6_NaturalLanguageProcessing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/assignments/D6_NaturalLanguageProcessing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
-        <!-- Source interaction buttons -->
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#important">
+   Important
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background-work-flow">
+   Background &amp; Work Flow
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-data">
+     Downloading Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-sentiment-analysis-on-movie-review-data-4-25-points">
+   Part 1: Sentiment Analysis on Movie Review Data (4.25 points)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-import-data">
+     1a) Import data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-create-a-function-that-converts-string-labels-to-numerical-labels">
+     1b) Create a function that converts string labels to numerical labels
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-numerical-labels">
+     1c) Numerical Labels
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-convert-text-data-into-vector">
+     1d) Convert Text data into vector
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-vectorize-reviews">
+     1e) Vectorize reviews
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-outcome-variable">
+     1f)  Outcome variable
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#g-defining-the-train-test-sets">
+     1g) Defining the train &amp; test sets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#h-extracting-train-test-data">
+     1h)  Extracting train &amp; test Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-svm">
+     1i) SVM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#j-train-svm">
+     1j) Train SVM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-predict-outcome">
+     1k) Predict outcome
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-tf-idf-1-25-points">
+   Part 2: TF-IDF (1.25 points)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-text-data-to-vectors">
+     2a) Text Data to Vectors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-transform-reviews">
+     2b) Transform Reviews
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c">
+     2c)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-training">
+     2d) Training
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-prediction">
+     2e) Prediction
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#written-answer-question">
+     Written Answer Question
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3-sentiment-analysis-on-customer-review-with-tf-idf-2-points">
+   Part 3: Sentiment Analysis on Customer Review with TF-IDF (2 points)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-loading-the-data">
+     3a) Loading the data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-concatenation">
+     3b) Concatenation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-cleaning">
+     3c) Cleaning
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-use-tfidf">
+     3d)  Use
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tfidf
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-svm">
+     3e) SVM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-predict-training-data">
+     3f) Predict: training data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#g-predict-test-set">
+     3g)  Predict: test set
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#h-convert-labels">
+     3h) Convert labels
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complete">
+   Complete!
+  </a>
+ </li>
+</ul>
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-        
-    </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-    </ul>
-</nav>
-
-
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Natural Language Processing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#important">
+   Important
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background-work-flow">
+   Background &amp; Work Flow
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-data">
+     Downloading Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-sentiment-analysis-on-movie-review-data-4-25-points">
+   Part 1: Sentiment Analysis on Movie Review Data (4.25 points)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-import-data">
+     1a) Import data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-create-a-function-that-converts-string-labels-to-numerical-labels">
+     1b) Create a function that converts string labels to numerical labels
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-numerical-labels">
+     1c) Numerical Labels
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-convert-text-data-into-vector">
+     1d) Convert Text data into vector
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-vectorize-reviews">
+     1e) Vectorize reviews
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-outcome-variable">
+     1f)  Outcome variable
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#g-defining-the-train-test-sets">
+     1g) Defining the train &amp; test sets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#h-extracting-train-test-data">
+     1h)  Extracting train &amp; test Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-svm">
+     1i) SVM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#j-train-svm">
+     1j) Train SVM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-predict-outcome">
+     1k) Predict outcome
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-tf-idf-1-25-points">
+   Part 2: TF-IDF (1.25 points)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-text-data-to-vectors">
+     2a) Text Data to Vectors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-transform-reviews">
+     2b) Transform Reviews
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c">
+     2c)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-training">
+     2d) Training
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-prediction">
+     2e) Prediction
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#written-answer-question">
+     Written Answer Question
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-3-sentiment-analysis-on-customer-review-with-tf-idf-2-points">
+   Part 3: Sentiment Analysis on Customer Review with TF-IDF (2 points)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-loading-the-data">
+     3a) Loading the data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-concatenation">
+     3b) Concatenation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-cleaning">
+     3c) Cleaning
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-use-tfidf">
+     3d)  Use
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tfidf
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#e-svm">
+     3e) SVM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#f-predict-training-data">
+     3f) Predict: training data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#g-predict-test-set">
+     3g)  Predict: test set
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#h-convert-labels">
+     3h) Convert labels
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complete">
+   Complete!
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="natural-language-processing">
+  <div class="tex2jax_ignore mathjax_ignore section" id="natural-language-processing">
 <h1>Natural Language Processing<a class="headerlink" href="#natural-language-processing" title="Permalink to this headline">¶</a></h1>
 <p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
 <div class="alert alert-danger">
 If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
 </div></div>
-<div class="section" id="important">
+<div class="tex2jax_ignore mathjax_ignore section" id="important">
 <h1>Important<a class="headerlink" href="#important" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>This assignment has hidden tests: tests that are not visible here, but that will be run on your submitted assignment for grading.</p>
@@ -247,7 +742,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </li>
 </ul>
 </div>
-<div class="section" id="background-work-flow">
+<div class="tex2jax_ignore mathjax_ignore section" id="background-work-flow">
 <h1>Background &amp; Work Flow<a class="headerlink" href="#background-work-flow" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>In this homework assignment, we will be analyzing text data. A common approach to analyzing text data is to use methods that allow us to convert text data into some kind of numerical representation - since we can then use all of our mathematical tools on such data. In this assignment, we will explore 2 feature engineering methods that convert raw text data into numerical vectors:</p>
@@ -273,8 +768,8 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports - these are all the imports needed for the assignment</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports - these are all the imports needed for the assignment</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -307,7 +802,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Natural language processing (NLP) often requires corpus data (lists of words, and/or example text data) which is what we will download here now, if you don’t already have them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># In the cell below, we will download some files from nltk. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In the cell below, we will download some files from nltk. </span>
 <span class="c1">#   If you hit an error doing so, come back to this cell, and uncomment and run the code below. </span>
 <span class="c1">#   This code gives python permission to write to your disk (if it doesn&#39;t already have persmission to do so)</span>
 
@@ -325,7 +820,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the NLTK English tokenizer and the stopwords of all languages</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the NLTK English tokenizer and the stopwords of all languages</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
 </pre></div>
@@ -339,7 +834,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>You can also view and download these files from <a class="reference external" href="https://github.com/DataScienceInPractice/Data">https://github.com/DataScienceInPractice/Data</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
 
 <span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/DataScienceInPractice/Data/master/&#39;</span>
@@ -357,11 +852,11 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 </div>
 </div>
-<div class="section" id="part-1-sentiment-analysis-on-movie-review-data-4-25-points">
+<div class="tex2jax_ignore mathjax_ignore section" id="part-1-sentiment-analysis-on-movie-review-data-4-25-points">
 <h1>Part 1: Sentiment Analysis on Movie Review Data (4.25 points)<a class="headerlink" href="#part-1-sentiment-analysis-on-movie-review-data-4-25-points" title="Permalink to this headline">¶</a></h1>
 <p>In part 1 we will apply sentiment analysis to Movie Review (MR) data.</p>
 <ul class="simple">
-<li><p>The MR data contains more than 10,000 reviews collected from the IMDB website, and each of the reviews is annotated as either positive or negative. The number of positive and negative reviews are roughly the same. For more information about the dataset, you can visit http://www.cs.cornell.edu/people/pabo/movie-review-data/</p></li>
+<li><p>The MR data contains more than 10,000 reviews collected from the IMDB website, and each of the reviews is annotated as either positive or negative. The number of positive and negative reviews are roughly the same. For more information about the dataset, you can visit <a class="reference external" href="http://www.cs.cornell.edu/people/pabo/movie-review-data/">http://www.cs.cornell.edu/people/pabo/movie-review-data/</a></p></li>
 <li><p>For this homework assignment, we’ve already shuffled the data, and truncated the data to contain only 5000 reviews.</p></li>
 </ul>
 <p>In this part of the assignment we will:</p>
@@ -378,8 +873,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Note that ‘rt-polarity.tsv’ is a tab separated raw text file, in which data is separated by tabs (‘\t’). You can load this file with <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>, specifying the <code class="docutils literal notranslate"><span class="pre">sep</span></code> (separator) argument as tabs (‘\t’). You will have to set <code class="docutils literal notranslate"><span class="pre">header</span></code> as None.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="n">MR_filepath</span><span class="o">=</span><span class="s1">&#39;rt-polarity.tsv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MR_filepath</span><span class="o">=</span><span class="s1">&#39;rt-polarity.tsv&#39;</span>
 
 <span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
@@ -389,14 +883,14 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the data</span>
 <span class="n">MR_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -414,8 +908,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="k">def</span> <span class="nf">convert_label</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_label</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
 <span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
@@ -424,7 +917,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">callable</span><span class="p">(</span><span class="n">convert_label</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">callable</span><span class="p">(</span><span class="n">convert_label</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -436,8 +929,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Save them as a new column named “y” in <code class="docutils literal notranslate"><span class="pre">MR_df</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -445,14 +937,14 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">MR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]))</span> <span class="o">==</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">MR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]))</span> <span class="o">==</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the MR_df data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the MR_df data</span>
 <span class="n">MR_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -476,8 +968,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -485,7 +976,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span>
 <span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">max_features</span> <span class="o">==</span> <span class="mi">2000</span>
 <span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">==</span> <span class="n">word_tokenize</span>
 <span class="k">assert</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">stop_words</span> <span class="o">==</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
@@ -503,8 +994,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 <p>Note this may post a warning about stopwords. This is ok.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -512,7 +1002,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">MR_X</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">MR_X</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 </pre></div>
 </div>
 </div>
@@ -524,8 +1014,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 <p>Make sure the shape of <code class="docutils literal notranslate"><span class="pre">MR_y</span></code> is (5000,) - depending upon your earlier approach, you <em>may</em> have to use <code class="docutils literal notranslate"><span class="pre">reshape</span></code> to do so.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -533,7 +1022,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">5000</span><span class="p">,)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">5000</span><span class="p">,)</span>
 </pre></div>
 </div>
 </div>
@@ -549,8 +1038,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -558,7 +1046,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">num_training</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">num_training</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
 <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">num_testing</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
 </pre></div>
 </div>
@@ -576,7 +1064,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -584,7 +1072,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_train_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">MR_train_y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_train_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">MR_train_y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">assert</span> <span class="n">MR_test_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">MR_test_y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">MR_train_X</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4000</span>
@@ -611,7 +1099,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_SVM</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_SVM</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">):</span>
 <span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
@@ -620,7 +1108,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">callable</span><span class="p">(</span><span class="n">train_SVM</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">callable</span><span class="p">(</span><span class="n">train_SVM</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -633,8 +1121,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 <p>Note that running this function may take many seconds / up to a few minutes to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -642,7 +1129,7 @@ Set to remove all stopwords in English. We do this since they generally don’t 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MR_clf</span><span class="p">,</span> <span class="s2">&quot;predict&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -657,8 +1144,7 @@ Name the predicted labels for the testing samples as <code class="docutils liter
 <p>Your code here will also take a minute to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -667,7 +1153,7 @@ Name the predicted labels for the testing samples as <code class="docutils liter
 <p>Now we will use the function <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> to print out the performance of the classifier on the training set:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach above 90% accuracy </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach above 90% accuracy </span>
 <span class="c1"># on the training set</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">MR_train_y</span><span class="p">,</span><span class="n">MR_predicted_train_y</span><span class="p">))</span>
 </pre></div>
@@ -677,7 +1163,7 @@ Name the predicted labels for the testing samples as <code class="docutils liter
 <p>And finally, we check the performance of the trained classifier on the test set:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach around 70% accuracy on the test set.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach around 70% accuracy on the test set.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">MR_test_y</span><span class="p">,</span> <span class="n">MR_predicted_test_y</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -685,7 +1171,7 @@ Name the predicted labels for the testing samples as <code class="docutils liter
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_predicted_train_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4000</span><span class="p">,)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_predicted_train_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4000</span><span class="p">,)</span>
 <span class="k">assert</span> <span class="n">MR_predicted_test_y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,)</span>
 
 <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">MR_train_y</span><span class="p">,</span><span class="n">MR_predicted_train_y</span><span class="p">)</span>
@@ -697,7 +1183,7 @@ Name the predicted labels for the testing samples as <code class="docutils liter
 </div>
 </div>
 </div>
-<div class="section" id="part-2-tf-idf-1-25-points">
+<div class="tex2jax_ignore mathjax_ignore section" id="part-2-tf-idf-1-25-points">
 <h1>Part 2: TF-IDF (1.25 points)<a class="headerlink" href="#part-2-tf-idf-1-25-points" title="Permalink to this headline">¶</a></h1>
 <p>In this part, we will explore TF-IDF on sentiment analysis.</p>
 <p>TF-IDF is used as an alternate way to encode text data, as compared to the BoW approach used in Part 1.</p>
@@ -723,8 +1209,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -732,7 +1217,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">analyzer</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span>
 <span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">max_features</span> <span class="o">==</span> <span class="mi">2000</span>
 <span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">==</span> <span class="n">word_tokenize</span>
 <span class="k">assert</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">stop_words</span> <span class="o">==</span> <span class="kc">None</span>
@@ -749,8 +1234,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Hint: You might need to cast the datatype of <code class="docutils literal notranslate"><span class="pre">MR_tfidf_X</span></code> to <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> by using <code class="docutils literal notranslate"><span class="pre">.toarray()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -758,7 +1242,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_tfidf_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_tfidf_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
 
 <span class="k">assert</span> <span class="s2">&quot;skills&quot;</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">stop_words_</span><span class="p">)</span>
 <span class="k">assert</span> <span class="s2">&quot;risky&quot;</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">stop_words_</span><span class="p">)</span>
@@ -779,8 +1263,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>We will use the same 80/20 split as in part 1. You can use the same <code class="docutils literal notranslate"><span class="pre">num_training</span></code> variable from part 1 to split up the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -788,7 +1271,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_train_tfidf_X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="n">MR_tfidf_X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">MR_train_tfidf_X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="n">MR_tfidf_X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="k">assert</span> <span class="n">MR_train_tfidf_X</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">MR_test_tfidf_X</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
 </pre></div>
@@ -803,8 +1286,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Note that this may take many seconds, up to a few minutes, to run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -812,7 +1294,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">MR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">MR_tfidf_clf</span><span class="p">,</span> <span class="s2">&quot;predict&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -825,8 +1307,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Name the predicted labels on training samples as <code class="docutils literal notranslate"><span class="pre">MR_pred_train_tfidf_y</span></code>. Name the predicted labels on testing samples as <code class="docutils literal notranslate"><span class="pre">MR_pred_test_tfidf_y</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -835,7 +1316,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Again, we use <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> to check the performance on the training set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach above 85% accuracy.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach above 85% accuracy.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">MR_train_tfidf_y</span><span class="p">,</span> <span class="n">MR_pred_train_tfidf_y</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -844,7 +1325,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Again, check performance on the test set:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach around 70% accuracy.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your classifier should be able to reach around 70% accuracy.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">MR_test_tfidf_y</span><span class="p">,</span> <span class="n">MR_pred_test_tfidf_y</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -852,7 +1333,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">MR_train_tfidf_y</span><span class="p">,</span> <span class="n">MR_pred_train_tfidf_y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">MR_train_tfidf_y</span><span class="p">,</span> <span class="n">MR_pred_train_tfidf_y</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.86</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.87</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
 </pre></div>
@@ -866,11 +1347,11 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>YOUR ANSWER HERE</p>
 </div>
 </div>
-<div class="section" id="part-3-sentiment-analysis-on-customer-review-with-tf-idf-2-points">
+<div class="tex2jax_ignore mathjax_ignore section" id="part-3-sentiment-analysis-on-customer-review-with-tf-idf-2-points">
 <h1>Part 3: Sentiment Analysis on Customer Review with TF-IDF (2 points)<a class="headerlink" href="#part-3-sentiment-analysis-on-customer-review-with-tf-idf-2-points" title="Permalink to this headline">¶</a></h1>
 <p>In this part, we will use TF-IDF to analyse the sentiment of some Customer Review (CR) data.</p>
 <p>The CR data contains around 3771 reviews, and they were all collected from the Amazon website. The reviews are annotated by humans as either positive reviews or negative reviews. In this dataset, the 2 classes are not balanced, as there are twice as many positive reviews as negative reviews.</p>
-<p>For more information on this dataset, you can visit https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html</p>
+<p>For more information on this dataset, you can visit <a class="reference external" href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html</a></p>
 <p>In this part, we have already split the data into a training set and a test set, in which the training set has labels for the reviews, but the test set doesn’t.</p>
 <p>The goal is to train an SVM classifier on the training set, and then predict pos/neg for each review in the test set.</p>
 <p>To do so, we will:</p>
@@ -892,7 +1373,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Note that both will need to be imported with <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">header</span></code> arguments (like in 1a)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CR_train_file</span> <span class="o">=</span> <span class="s1">&#39;custrev_train.tsv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CR_train_file</span> <span class="o">=</span> <span class="s1">&#39;custrev_train.tsv&#39;</span>
 <span class="n">CR_test_file</span> <span class="o">=</span> <span class="s1">&#39;custrev_test.tsv&#39;</span>
 
 <span class="c1"># YOUR CODE HERE</span>
@@ -903,7 +1384,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_train_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_train_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_test_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -915,8 +1396,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Concatenate the 2 DataFrames from the last step into a single DataFrame, and name it <code class="docutils literal notranslate"><span class="pre">CR_df</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -924,7 +1404,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">CR_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3771</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">CR_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3771</span>
 </pre></div>
 </div>
 </div>
@@ -935,8 +1415,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Convert all labels in <code class="docutils literal notranslate"><span class="pre">CR_df[&quot;label&quot;]</span></code> using the <code class="docutils literal notranslate"><span class="pre">convert_label</span></code> function we defined above. Save these numerical labels as a new column named <code class="docutils literal notranslate"><span class="pre">y</span></code> in CR_df.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -944,7 +1423,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -955,8 +1434,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Transform reviews <code class="docutils literal notranslate"><span class="pre">CR_df[&quot;review&quot;]</span></code> into vectors using the <code class="docutils literal notranslate"><span class="pre">tfidf</span></code> vectorizer we created in part 2. Save the transformed data into a variable called <code class="docutils literal notranslate"><span class="pre">CR_tfidf_X</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -964,7 +1442,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_tfidf_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_tfidf_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -972,7 +1450,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Here we will collect all training samples &amp; numerical labels from <code class="docutils literal notranslate"><span class="pre">CR_tfidf_X</span></code>. The code provided below will extract all samples with labels from the dataframe:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># code provided to collect labels</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code provided to collect labels</span>
 <span class="n">CR_train_X</span> <span class="o">=</span> <span class="n">CR_tfidf_X</span><span class="p">[</span><span class="o">~</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
 <span class="n">CR_train_y</span> <span class="o">=</span> <span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="o">~</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
 
@@ -995,8 +1473,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1004,7 +1481,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_clf</span><span class="p">,</span> <span class="n">SVC</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1015,8 +1492,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Predict labels on the training set, and name the returned variable as <code class="docutils literal notranslate"><span class="pre">CR_pred_train_y</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1024,7 +1500,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the classifier accuracy on the train data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the classifier accuracy on the train data</span>
 <span class="c1">#   Note that your classifier should be able to reach above 90% accuracy.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">CR_train_y</span><span class="p">,</span> <span class="n">CR_pred_train_y</span><span class="p">))</span>
 </pre></div>
@@ -1033,7 +1509,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">CR_train_y</span><span class="p">,</span> <span class="n">CR_pred_train_y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">CR_train_y</span><span class="p">,</span> <span class="n">CR_pred_train_y</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">precision</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.91</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
 </pre></div>
@@ -1042,7 +1518,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect all test samples from CR_tfidf_X</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect all test samples from CR_tfidf_X</span>
 <span class="n">CR_test_X</span> <span class="o">=</span> <span class="n">CR_tfidf_X</span><span class="p">[</span><span class="n">CR_df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
 </pre></div>
 </div>
@@ -1054,8 +1530,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Predict the labels on the test set. Name the returned variable as <code class="docutils literal notranslate"><span class="pre">CR_pred_test_y</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1063,7 +1538,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_test_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_test_X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_pred_test_y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1076,8 +1551,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>Create a column called <code class="docutils literal notranslate"><span class="pre">label</span></code> in <code class="docutils literal notranslate"><span class="pre">CR_test_df</span></code> to store the converted labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1085,7 +1559,7 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_test_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CR_test_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">CR_test_df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;neg&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -1098,42 +1572,70 @@ Set to tokenize the text data by using the word_tokenizer from NLTK</p></li>
 <p>YOUR ANSWER HERE</p>
 </div>
 </div>
-<div class="section" id="complete">
+<div class="tex2jax_ignore mathjax_ignore section" id="complete">
 <h1>Complete!<a class="headerlink" href="#complete" title="Permalink to this headline">¶</a></h1>
 <p>Good work! Have a look back over your answers, and also make sure to <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">&amp;</span> <span class="pre">Run</span> <span class="pre">All</span></code> from the kernel menu to double check that everything is working properly. While you can typically use the ‘Validate’ button above, which runs your notebook from top to bottom and checks to ensure all <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements pass silently, <em><strong>‘Validate’ may fail on this assignment as the code takes too long to run. Use Restart &amp; Run All instead</strong></em>. When you are ready, submit on datahub!</p>
 <p>Note that <em><strong>the final validation is for your reassurance and is not a required step</strong></em>. You can submit without validating. You can also submit without passing all asserts (for partial credit on the assignment). We grade whatever is submitted on datahub. We will grade your most recent submission.</p>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="D5_DataAnalysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../projects/projects.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Project Description</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
+    <footer class="footer">
+  <p>
     
+      By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
     
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="D5_DataAnalysis.html" title="previous page">Data Analysis</a>
-    <a class='right-next' id="next-link" href="../projects/projects.html" title="next page">Project Description</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
-        
-            &copy; Copyright 2020-.<br/>
-      </p>
-    </div>
-  </footer>
+        &copy; Copyright 2020-.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
   </body>
 </html>

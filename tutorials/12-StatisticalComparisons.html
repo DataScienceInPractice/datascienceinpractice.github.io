@@ -1,46 +1,72 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Statistical Comparisons &#8212; Data Science in Practice</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Ordinary Least Squares" href="13-OrdinaryLeastSquares.html" />
     <link rel="prev" title="Testing Distributions" href="11-TestingDistributions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -49,110 +75,181 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-<li class="navbar-special">
-<p class="margin-caption">Tutorials</p>
-</li>
-  <li class="">
-    <a href="00-Introduction.html">Introduction</a>
-  </li>
-  <li class="">
-    <a href="01-Python.html">Python</a>
-  </li>
-  <li class="">
-    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
-  </li>
-  <li class="">
-    <a href="03-DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="05-DataGathering.html">Data Gathering</a>
-  </li>
-  <li class="">
-    <a href="06-DataWrangling.html">Data Wrangling</a>
-  </li>
-  <li class="">
-    <a href="07-DataCleaning.html">Data Cleaning</a>
-  </li>
-  <li class="">
-    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
-  </li>
-  <li class="">
-    <a href="09-DataVisualization.html">Data Visualization</a>
-  </li>
-  <li class="">
-    <a href="10-Distributions.html">Distributions</a>
-  </li>
-  <li class="">
-    <a href="11-TestingDistributions.html">Testing Distributions</a>
-  </li>
-  <li class="active">
-    <a href="">Statistical Comparisons</a>
-  </li>
-  <li class="">
-    <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
-  </li>
-  <li class="">
-    <a href="14-LinearModels.html">Linear Models</a>
-  </li>
-  <li class="">
-    <a href="15-Clustering.html">Clustering</a>
-  </li>
-  <li class="">
-    <a href="16-DimensionalityReduction.html">Dimensionality Reduction</a>
-  </li>
-  <li class="">
-    <a href="17-Classification.html">Classification</a>
-  </li>
-  <li class="">
-    <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-  <li class="">
-    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
-  </li>
-  <li class="">
-    <a href="A2-Git.html">Appendix: Version Control</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Assignments</p>
-</li>
-  <li class="">
-    <a href="../assignments/D2_Pandas.html">Pandas</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Project</p>
-</li>
-  <li class="">
-    <a href="../projects/projects.html">Project Description</a>
-  </li>
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-JupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-DataGathering.html">
+   Data Gathering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-DataWrangling.html">
+   Data Wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-DataCleaning.html">
+   Data Cleaning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataPrivacy%26Anonymization.html">
+   Data Privacy &amp; Anonymization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-DataVisualization.html">
+   Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Distributions.html">
+   Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TestingDistributions.html">
+   Testing Distributions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Statistical Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-OrdinaryLeastSquares.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-LinearModels.html">
+   Linear Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-Clustering.html">
+   Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="16-DimensionalityReduction.html">
+   Dimensionality Reduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="18-NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-PythonPackages.html">
+   Appendix: Python Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A2-Git.html">
+   Appendix: Version Control
+  </a>
+ </li>
 </ul>
-</nav>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D1_Python.html">
+   Python Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D2_Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D3_DataExploration.html">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D4_DataPrivacy.html">
+   Data Privacy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D5_DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D6_NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../projects/projects.html">
+   Project Description
+  </a>
+ </li>
+</ul>
 
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -163,122 +260,245 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
-
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/tutorials/12-StatisticalComparisons.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
             
-        </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-        <!-- Source interaction buttons -->
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/12-StatisticalComparisons.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
 </div>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#on-causality" class="nav-link">On Causality</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#correlations" class="nav-link">Correlations</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#simulate-data" class="nav-link">Simulate Data</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#calculate-correlations" class="nav-link">Calculate Correlations</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#rank-correlations" class="nav-link">Rank Correlations</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#t-tests" class="nav-link">T-Tests</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#id1" class="nav-link">Simulate Data</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#calculate-t-tests" class="nav-link">Calculate T-Tests</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#assumptions-of-t-tests" class="nav-link">Assumptions of T-Tests</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#effect-size" class="nav-link">Effect Size</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#defining-effect-size-code" class="nav-link">Defining Effect Size Code</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#conclusion" class="nav-link">Conclusion</a>
-        </li>
-    
-    </ul>
-</nav>
+            <!-- Source interaction buttons -->
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/tutorials/12-StatisticalComparisons.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#on-causality">
+   On Causality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlations">
+   Correlations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulate-data">
+     Simulate Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-correlations">
+     Calculate Correlations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rank-correlations">
+     Rank Correlations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-tests">
+   T-Tests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Simulate Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-t-tests">
+     Calculate T-Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assumptions-of-t-tests">
+     Assumptions of T-Tests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effect-size">
+   Effect Size
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-effect-size-code">
+     Defining Effect Size Code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Statistical Comparisons</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#on-causality">
+   On Causality
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlations">
+   Correlations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulate-data">
+     Simulate Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-correlations">
+     Calculate Correlations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rank-correlations">
+     Rank Correlations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#t-tests">
+   T-Tests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Simulate Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-t-tests">
+     Calculate T-Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assumptions-of-t-tests">
+     Assumptions of T-Tests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#effect-size">
+   Effect Size
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-effect-size-code">
+     Defining Effect Size Code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="statistical-comparisons">
+  <div class="tex2jax_ignore mathjax_ignore section" id="statistical-comparisons">
 <h1>Statistical Comparisons<a class="headerlink" href="#statistical-comparisons" title="Permalink to this headline">¶</a></h1>
 <p>Whenever we have data, we often want to use statistical analyses to explore, compare, and quantify our data.</p>
 <p>In this notebook, we will briefly introduce and explore some common statistical tests that can be applied to data.</p>
 <p>As with many of the topics in data analysis and machine learning, this tutorial is focused on introducing some related topics for data science, and demonstrated their application in Python, but it is out of scope of these tutorials to systematically introduce and describe the topic at hand, which in this case is statistics. If the topics here are unfamiliar, we recommend you follow the links or look for other resources to learn more about these topics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -290,7 +510,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set random seed, for consistency simulating data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set random seed, for consistency simulating data</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -320,7 +540,7 @@ and
 correlation measures.     
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span><span class="p">,</span> <span class="n">spearmanr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span><span class="p">,</span> <span class="n">spearmanr</span>
 </pre></div>
 </div>
 </div>
@@ -331,7 +551,7 @@ correlation measures.
 <p>For this example, we will simulate two arrays of data that do have a relationship to each other.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for simulated data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for simulated data</span>
 <span class="n">corr</span> <span class="o">=</span> <span class="mf">0.75</span>
 <span class="n">covs</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="n">corr</span><span class="p">],</span> <span class="p">[</span><span class="n">corr</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
@@ -348,7 +568,7 @@ correlation measures.
 <p>Next, we can calculate the correlation coefficient between our data arrays, using the <code class="docutils literal notranslate"><span class="pre">pearsonr</span></code> function from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate a pearson correlation between two arrays of data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate a pearson correlation between two arrays of data</span>
 <span class="n">r_val</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -356,12 +576,12 @@ correlation measures.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient is </span><span class="si">{:1.4f}</span><span class="s2"> with a p-value of </span><span class="si">{:1.2f}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_val</span><span class="p">,</span> <span class="n">p_val</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient is </span><span class="si">{:1.4f}</span><span class="s2"> with a p-value of </span><span class="si">{:1.2f}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_val</span><span class="p">,</span> <span class="n">p_val</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The correlation coefficient is 0.7732 with a p-value of 0.00.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The correlation coefficient is 0.7732 with a p-value of 0.00.
 </pre></div>
 </div>
 </div>
@@ -377,7 +597,7 @@ correlation measures.
 <p>Sometimes these assumptions will not be met. In that case, one option is to a different kind of correlation example. For example, the <code class="docutils literal notranslate"><span class="pre">spearman</span></code> correlation is a rank correlation that does not have the same assumptions as pearson.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the spearman rank correlation between our data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the spearman rank correlation between our data</span>
 <span class="n">r_val</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
 
 <span class="c1"># Check the results of the spearman correlation</span>
@@ -386,7 +606,7 @@ correlation measures.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The correlation coefficient is 0.7595 with a p-value of 0.00.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The correlation coefficient is 0.7595 with a p-value of 0.00.
 </pre></div>
 </div>
 </div>
@@ -427,7 +647,7 @@ T-tests on
 <a href=https://en.wikipedia.org/wiki/Student%27s_t-test class="alert-link">wikipedia</a>. 
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span>
 </pre></div>
 </div>
 </div>
@@ -438,7 +658,7 @@ T-tests on
 <p>For this example, we will simulate two samples of normally distributed data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for data simulation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for data simulation</span>
 <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">250</span>
 
 <span class="c1"># Simulate some data</span>
@@ -450,7 +670,7 @@ T-tests on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize our data comparison</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize our data comparison</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;D1&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d1</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;D2&#39;</span><span class="p">);</span>
@@ -470,7 +690,7 @@ T-tests on
 <p>For this example, we will test whether the two distributions have significantly different means.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run independent samples t-test</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run independent samples t-test</span>
 <span class="n">t_val</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -478,7 +698,7 @@ T-tests on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the results of the t-test</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the results of the t-test</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;T-Test comparison of D1 &amp; D2:&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">T-value </span><span class="se">\t</span><span class="s1"> </span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t_val</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">P-value </span><span class="se">\t</span><span class="s1"> </span><span class="si">{:1.2e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_val</span><span class="p">))</span>
@@ -486,7 +706,7 @@ T-tests on
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>T-Test comparison of D1 &amp; D2:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-Test comparison of D1 &amp; D2:
 	T-value 	 -2.2502
 	P-value 	 2.49e-02
 </pre></div>
@@ -520,7 +740,7 @@ Effect sizes on
 <p>Note that <code class="docutils literal notranslate"><span class="pre">math</span></code> and <code class="docutils literal notranslate"><span class="pre">statistics</span></code> are standard library modules that contain some useful basic numerical functionality.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span><span class="p">,</span> <span class="n">stdev</span>
 
 <span class="k">def</span> <span class="nf">compute_cohens_d</span><span class="p">(</span><span class="n">data_1</span><span class="p">,</span> <span class="n">data_2</span><span class="p">):</span>
@@ -558,7 +778,7 @@ Effect sizes on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the cohens-d effect size for our simulated data from before</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the cohens-d effect size for our simulated data from before</span>
 <span class="n">cohens_d</span> <span class="o">=</span> <span class="n">compute_cohens_d</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">d1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -566,13 +786,13 @@ Effect sizes on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the measured value of the effect size</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the measured value of the effect size</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The cohens-d effect size is </span><span class="si">{:1.2f}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The cohens-d effect size is 0.20.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cohens-d effect size is 0.20.
 </pre></div>
 </div>
 </div>
@@ -588,36 +808,64 @@ Effect sizes on
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="11-TestingDistributions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Testing Distributions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="13-OrdinaryLeastSquares.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ordinary Least Squares</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
+    <footer class="footer">
+  <p>
     
+      By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
     
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="11-TestingDistributions.html" title="previous page">Testing Distributions</a>
-    <a class='right-next' id="next-link" href="13-OrdinaryLeastSquares.html" title="next page">Ordinary Least Squares</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
-        
-            &copy; Copyright 2020-.<br/>
-      </p>
-    </div>
-  </footer>
+        &copy; Copyright 2020-.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
   </body>
 </html>

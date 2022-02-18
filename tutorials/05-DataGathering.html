@@ -1,46 +1,72 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data Gathering &#8212; Data Science in Practice</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data Wrangling" href="06-DataWrangling.html" />
     <link rel="prev" title="Data Analysis" href="03-DataAnalysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -49,110 +75,181 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-<li class="navbar-special">
-<p class="margin-caption">Tutorials</p>
-</li>
-  <li class="">
-    <a href="00-Introduction.html">Introduction</a>
-  </li>
-  <li class="">
-    <a href="01-Python.html">Python</a>
-  </li>
-  <li class="">
-    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
-  </li>
-  <li class="">
-    <a href="03-DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="active">
-    <a href="">Data Gathering</a>
-  </li>
-  <li class="">
-    <a href="06-DataWrangling.html">Data Wrangling</a>
-  </li>
-  <li class="">
-    <a href="07-DataCleaning.html">Data Cleaning</a>
-  </li>
-  <li class="">
-    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
-  </li>
-  <li class="">
-    <a href="09-DataVisualization.html">Data Visualization</a>
-  </li>
-  <li class="">
-    <a href="10-Distributions.html">Distributions</a>
-  </li>
-  <li class="">
-    <a href="11-TestingDistributions.html">Testing Distributions</a>
-  </li>
-  <li class="">
-    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
-  </li>
-  <li class="">
-    <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
-  </li>
-  <li class="">
-    <a href="14-LinearModels.html">Linear Models</a>
-  </li>
-  <li class="">
-    <a href="15-Clustering.html">Clustering</a>
-  </li>
-  <li class="">
-    <a href="16-DimensionalityReduction.html">Dimensionality Reduction</a>
-  </li>
-  <li class="">
-    <a href="17-Classification.html">Classification</a>
-  </li>
-  <li class="">
-    <a href="18-NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-  <li class="">
-    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
-  </li>
-  <li class="">
-    <a href="A2-Git.html">Appendix: Version Control</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Assignments</p>
-</li>
-  <li class="">
-    <a href="../assignments/D2_Pandas.html">Pandas</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Project</p>
-</li>
-  <li class="">
-    <a href="../projects/projects.html">Project Description</a>
-  </li>
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-JupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Gathering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-DataWrangling.html">
+   Data Wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-DataCleaning.html">
+   Data Cleaning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataPrivacy%26Anonymization.html">
+   Data Privacy &amp; Anonymization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-DataVisualization.html">
+   Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Distributions.html">
+   Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TestingDistributions.html">
+   Testing Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-StatisticalComparisons.html">
+   Statistical Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-OrdinaryLeastSquares.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-LinearModels.html">
+   Linear Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-Clustering.html">
+   Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="16-DimensionalityReduction.html">
+   Dimensionality Reduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="18-NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-PythonPackages.html">
+   Appendix: Python Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A2-Git.html">
+   Appendix: Version Control
+  </a>
+ </li>
 </ul>
-</nav>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D1_Python.html">
+   Python Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D2_Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D3_DataExploration.html">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D4_DataPrivacy.html">
+   Data Privacy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D5_DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D6_NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../projects/projects.html">
+   Project Description
+  </a>
+ </li>
+</ul>
 
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -163,121 +260,252 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
-
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/tutorials/05-DataGathering.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
             
-        </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-        <!-- Source interaction buttons -->
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/05-DataGathering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
 </div>
 
-<nav id="bd-toc-nav">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/tutorials/05-DataGathering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-to-get-data">
+   Where to get Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#institutional-access">
+     Institutional Access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-repositories">
+     Data Repositories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#web-scraping">
+     Web Scraping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#asking-people-for-data">
+     Asking People for Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-gathering-skills">
+     Data Gathering Skills
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions-databases-query-languages">
+   Definitions: Databases &amp; Query Languages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Data Repositories
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-program-interfaces-apis">
+   Application Program Interfaces (APIs)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#launching-url-requests-from-python">
+     Launching URL Requests from Python
+    </a>
     <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#where-to-get-data" class="nav-link">Where to get Data</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#institutional-access" class="nav-link">Institutional Access</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#data-repositories" class="nav-link">Data Repositories</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#web-scraping" class="nav-link">Web Scraping</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#asking-people-for-data" class="nav-link">Asking People for Data</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#data-gathering-skills" class="nav-link">Data Gathering Skills</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#definitions-databases-query-languages" class="nav-link">Definitions: Databases & Query Languages</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#id1" class="nav-link">Data Repositories</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#application-program-interfaces-apis" class="nav-link">Application Program Interfaces (APIs)</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#launching-url-requests-from-python" class="nav-link">Launching URL Requests from Python</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#api-example" class="nav-link">API Example</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#id2" class="nav-link">Web Scraping</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#apis-vs-web-scraping" class="nav-link">APIs vs. Web Scraping</a>
-        </li>
-    
-            </ul>
-        </li>
-    
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#api-example">
+       API Example
+      </a>
+     </li>
     </ul>
-</nav>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Web Scraping
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apis-vs-web-scraping">
+     APIs vs. Web Scraping
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
-
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data Gathering</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#where-to-get-data">
+   Where to get Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#institutional-access">
+     Institutional Access
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-repositories">
+     Data Repositories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#web-scraping">
+     Web Scraping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#asking-people-for-data">
+     Asking People for Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-gathering-skills">
+     Data Gathering Skills
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions-databases-query-languages">
+   Definitions: Databases &amp; Query Languages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Data Repositories
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-program-interfaces-apis">
+   Application Program Interfaces (APIs)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#launching-url-requests-from-python">
+     Launching URL Requests from Python
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#api-example">
+       API Example
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Web Scraping
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apis-vs-web-scraping">
+     APIs vs. Web Scraping
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="data-gathering">
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-gathering">
 <h1>Data Gathering<a class="headerlink" href="#data-gathering" title="Permalink to this headline">¶</a></h1>
 <div class="alert alert-success">
 Data Gathering is the process of accessing data and collecting it together.
@@ -369,10 +597,10 @@ includes a collection of commonly used and available APIs.
 <p>If you with to use an API, try and find the documentation for to see how you send requests to access whatever data you want.</p>
 <div class="section" id="api-example">
 <h4>API Example<a class="headerlink" href="#api-example" title="Permalink to this headline">¶</a></h4>
-<p>For our example here, we will use the Github API. Note that the URL we use is <code class="docutils literal notranslate"><span class="pre">api.github.com</span></code>. This URL accesses the API, and will return structured data files, instead of the html that would be returned by the standard URL (github.com).</p>
+<p>For our example here, we will use the Github API. Note that the URL we use is <code class="docutils literal notranslate"><span class="pre">api.github.com</span></code>. This URL accesses the API, and will return structured data files, instead of the html that would be returned by the standard URL (<a class="reference external" href="http://github.com">github.com</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># We will use the `requests` library to launch URL requests from Python</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -382,7 +610,7 @@ includes a collection of commonly used and available APIs.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request data from the Github API on a particular user</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request data from the Github API on a particular user</span>
 <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.github.com/users/tomdonoghue&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -390,26 +618,26 @@ includes a collection of commonly used and available APIs.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this case, the content we get back is a json file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In this case, the content we get back is a json file</span>
 <span class="n">page</span><span class="o">.</span><span class="n">content</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;{&quot;login&quot;:&quot;TomDonoghue&quot;,&quot;id&quot;:7727566,&quot;node_id&quot;:&quot;MDQ6VXNlcjc3Mjc1NjY=&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/7727566?v=4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/TomDonoghue&quot;,&quot;html_url&quot;:&quot;https://github.com/TomDonoghue&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/TomDonoghue/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/TomDonoghue/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/TomDonoghue/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/TomDonoghue/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/TomDonoghue/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/TomDonoghue/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/TomDonoghue/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false,&quot;name&quot;:&quot;Tom&quot;,&quot;company&quot;:&quot;UC San Diego&quot;,&quot;blog&quot;:&quot;https://tomdonoghue.github.io&quot;,&quot;location&quot;:&quot;San Diego&quot;,&quot;email&quot;:null,&quot;hireable&quot;:null,&quot;bio&quot;:&quot;Cognitive Science Grad Student @ UC San Diego working on analyzing electrical brain activity. Also teaching Python &amp; Data Science. \\r\\n\\r\\n&quot;,&quot;twitter_username&quot;:null,&quot;public_repos&quot;:13,&quot;public_gists&quot;:0,&quot;followers&quot;:97,&quot;following&quot;:83,&quot;created_at&quot;:&quot;2014-05-28T20:20:48Z&quot;,&quot;updated_at&quot;:&quot;2020-06-19T21:35:12Z&quot;}&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;{&quot;login&quot;:&quot;TomDonoghue&quot;,&quot;id&quot;:7727566,&quot;node_id&quot;:&quot;MDQ6VXNlcjc3Mjc1NjY=&quot;,&quot;avatar_url&quot;:&quot;https://avatars0.githubusercontent.com/u/7727566?v=4&quot;,&quot;gravatar_id&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://api.github.com/users/TomDonoghue&quot;,&quot;html_url&quot;:&quot;https://github.com/TomDonoghue&quot;,&quot;followers_url&quot;:&quot;https://api.github.com/users/TomDonoghue/followers&quot;,&quot;following_url&quot;:&quot;https://api.github.com/users/TomDonoghue/following{/other_user}&quot;,&quot;gists_url&quot;:&quot;https://api.github.com/users/TomDonoghue/gists{/gist_id}&quot;,&quot;starred_url&quot;:&quot;https://api.github.com/users/TomDonoghue/starred{/owner}{/repo}&quot;,&quot;subscriptions_url&quot;:&quot;https://api.github.com/users/TomDonoghue/subscriptions&quot;,&quot;organizations_url&quot;:&quot;https://api.github.com/users/TomDonoghue/orgs&quot;,&quot;repos_url&quot;:&quot;https://api.github.com/users/TomDonoghue/repos&quot;,&quot;events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/events{/privacy}&quot;,&quot;received_events_url&quot;:&quot;https://api.github.com/users/TomDonoghue/received_events&quot;,&quot;type&quot;:&quot;User&quot;,&quot;site_admin&quot;:false,&quot;name&quot;:&quot;Tom&quot;,&quot;company&quot;:&quot;UC San Diego&quot;,&quot;blog&quot;:&quot;https://tomdonoghue.github.io&quot;,&quot;location&quot;:&quot;San Diego&quot;,&quot;email&quot;:null,&quot;hireable&quot;:null,&quot;bio&quot;:&quot;Cognitive Science Grad Student @ UC San Diego working on analyzing electrical brain activity. Also teaching Python &amp; Data Science. \\r\\n\\r\\n&quot;,&quot;twitter_username&quot;:null,&quot;public_repos&quot;:13,&quot;public_gists&quot;:0,&quot;followers&quot;:97,&quot;following&quot;:83,&quot;created_at&quot;:&quot;2014-05-28T20:20:48Z&quot;,&quot;updated_at&quot;:&quot;2020-06-19T21:35:12Z&quot;}&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can read in the json data with pandas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can read in the json data with pandas</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s1">&#39;series&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>login                                                        TomDonoghue
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>login                                                        TomDonoghue
 id                                                               7727566
 node_id                                             MDQ6VXNlcjc3Mjc1NjY=
 avatar_url             https://avatars0.githubusercontent.com/u/77275...
@@ -464,7 +692,7 @@ has a useful page on web scraping.
 <p>If you do not have BeautifulSoup, and want to get it to run this section, you can uncomment the cell below, and run it, to install BeautifulSoup in your current Python environment. You only have to do this once.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#import sys</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import sys</span>
 <span class="c1">#!conda install --yes --prefix {sys.prefix} beautifulsoup4</span>
 </pre></div>
 </div>
@@ -472,7 +700,7 @@ has a useful page on web scraping.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import BeautifulSoup</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import BeautifulSoup</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 </pre></div>
 </div>
@@ -480,7 +708,7 @@ has a useful page on web scraping.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the URL for the page we wish to scrape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the URL for the page we wish to scrape</span>
 <span class="n">site_url</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/wiki/Data_science&#39;</span>
 
 <span class="c1"># Launch the URL request, to get the page</span>
@@ -491,13 +719,13 @@ has a useful page on web scraping.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the first 1000 characters of the scraped web page</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the first 1000 characters of the scraped web page</span>
 <span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;&lt;!DOCTYPE html&gt;\n&lt;html class=&quot;client-nojs&quot; lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;\n&lt;head&gt;\n&lt;meta charset=&quot;UTF-8&quot;/&gt;\n&lt;title&gt;Data science - Wikipedia&lt;/title&gt;\n&lt;script&gt;document.documentElement.className = document.documentElement.className.replace( /(^|\\s)client-nojs(\\s|$)/, &quot;$1client-js$2&quot; );&lt;/script&gt;\n&lt;script&gt;(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({&quot;wgCanonicalNamespace&quot;:&quot;&quot;,&quot;wgCanonicalSpecialPageName&quot;:false,&quot;wgNamespaceNumber&quot;:0,&quot;wgPageName&quot;:&quot;Data_science&quot;,&quot;wgTitle&quot;:&quot;Data science&quot;,&quot;wgCurRevisionId&quot;:822535327,&quot;wgRevisionId&quot;:822535327,&quot;wgArticleId&quot;:35458904,&quot;wgIsArticle&quot;:true,&quot;wgIsRedirect&quot;:false,&quot;wgAction&quot;:&quot;view&quot;,&quot;wgUserName&quot;:null,&quot;wgUserGroups&quot;:[&quot;*&quot;],&quot;wgCategories&quot;:[&quot;Use dmy dates from December 2012&quot;,&quot;Information science&quot;,&quot;Computer occupations&quot;,&quot;Computational fields of study&quot;,&quot;Data analysis&quot;],&quot;wgBreakFrames&quot;:false,&quot;wgPageContentLanguage&quot;:&quot;en&quot;,&quot;wgPageContentModel&quot;:&quot;wikitext&quot;,&quot;wgSeparatorTransformTable&quot;:[&quot;&quot;,&quot;&quot;],&quot;wgDigitTransformTable&quot;:[&quot;&quot;,&quot;&quot;],&quot;wgDefaultDateFormat&quot;:&quot;dmy&quot;,&quot;wgMonthNames&quot;:[&quot;&quot;,&quot;Ja&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;&lt;!DOCTYPE html&gt;\n&lt;html class=&quot;client-nojs&quot; lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;\n&lt;head&gt;\n&lt;meta charset=&quot;UTF-8&quot;/&gt;\n&lt;title&gt;Data science - Wikipedia&lt;/title&gt;\n&lt;script&gt;document.documentElement.className = document.documentElement.className.replace( /(^|\\s)client-nojs(\\s|$)/, &quot;$1client-js$2&quot; );&lt;/script&gt;\n&lt;script&gt;(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({&quot;wgCanonicalNamespace&quot;:&quot;&quot;,&quot;wgCanonicalSpecialPageName&quot;:false,&quot;wgNamespaceNumber&quot;:0,&quot;wgPageName&quot;:&quot;Data_science&quot;,&quot;wgTitle&quot;:&quot;Data science&quot;,&quot;wgCurRevisionId&quot;:822535327,&quot;wgRevisionId&quot;:822535327,&quot;wgArticleId&quot;:35458904,&quot;wgIsArticle&quot;:true,&quot;wgIsRedirect&quot;:false,&quot;wgAction&quot;:&quot;view&quot;,&quot;wgUserName&quot;:null,&quot;wgUserGroups&quot;:[&quot;*&quot;],&quot;wgCategories&quot;:[&quot;Use dmy dates from December 2012&quot;,&quot;Information science&quot;,&quot;Computer occupations&quot;,&quot;Computational fields of study&quot;,&quot;Data analysis&quot;],&quot;wgBreakFrames&quot;:false,&quot;wgPageContentLanguage&quot;:&quot;en&quot;,&quot;wgPageContentModel&quot;:&quot;wikitext&quot;,&quot;wgSeparatorTransformTable&quot;:[&quot;&quot;,&quot;&quot;],&quot;wgDigitTransformTable&quot;:[&quot;&quot;,&quot;&quot;],&quot;wgDefaultDateFormat&quot;:&quot;dmy&quot;,&quot;wgMonthNames&quot;:[&quot;&quot;,&quot;Ja&#39;
 </pre></div>
 </div>
 </div>
@@ -506,7 +734,7 @@ has a useful page on web scraping.
 <p>There is a lot of information in there, but with no clear organization. There is some structure in the page though, delineated by HTML tags, etc, we just need to use them to parse out the data. We can do that with BeautifulSoup, which takes in messy documents like this, and parses them based on a specified format.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parse the webpage with Beautiful Soup, using a html parser</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parse the webpage with Beautiful Soup, using a html parser</span>
 <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -514,7 +742,7 @@ has a useful page on web scraping.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># With the parsed soup object, we can select particular segments of the web page</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># With the parsed soup object, we can select particular segments of the web page</span>
 
 <span class="c1"># Print out the page title</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;TITLE: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -527,7 +755,7 @@ has a useful page on web scraping.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>TITLE: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TITLE: 
 
 &lt;title&gt;Data science - Wikipedia&lt;/title&gt;
 
@@ -551,36 +779,64 @@ Be aware that scraping data from websites (without using APIs) can often be an i
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="03-DataAnalysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="06-DataWrangling.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Wrangling</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
+    <footer class="footer">
+  <p>
     
+      By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
     
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="03-DataAnalysis.html" title="previous page">Data Analysis</a>
-    <a class='right-next' id="next-link" href="06-DataWrangling.html" title="next page">Data Wrangling</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
-        
-            &copy; Copyright 2020-.<br/>
-      </p>
-    </div>
-  </footer>
+        &copy; Copyright 2020-.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
   </body>
 </html>

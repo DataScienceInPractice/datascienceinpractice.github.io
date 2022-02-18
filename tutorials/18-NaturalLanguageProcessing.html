@@ -1,46 +1,72 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Natural Language Processing &#8212; Data Science in Practice</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Appendix: Python Packages" href="A1-PythonPackages.html" />
     <link rel="prev" title="Classification" href="17-Classification.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -49,110 +75,181 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-<li class="navbar-special">
-<p class="margin-caption">Tutorials</p>
-</li>
-  <li class="">
-    <a href="00-Introduction.html">Introduction</a>
-  </li>
-  <li class="">
-    <a href="01-Python.html">Python</a>
-  </li>
-  <li class="">
-    <a href="02-JupyterNotebooks.html">Jupyter Notebooks</a>
-  </li>
-  <li class="">
-    <a href="03-DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="05-DataGathering.html">Data Gathering</a>
-  </li>
-  <li class="">
-    <a href="06-DataWrangling.html">Data Wrangling</a>
-  </li>
-  <li class="">
-    <a href="07-DataCleaning.html">Data Cleaning</a>
-  </li>
-  <li class="">
-    <a href="08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
-  </li>
-  <li class="">
-    <a href="09-DataVisualization.html">Data Visualization</a>
-  </li>
-  <li class="">
-    <a href="10-Distributions.html">Distributions</a>
-  </li>
-  <li class="">
-    <a href="11-TestingDistributions.html">Testing Distributions</a>
-  </li>
-  <li class="">
-    <a href="12-StatisticalComparisons.html">Statistical Comparisons</a>
-  </li>
-  <li class="">
-    <a href="13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
-  </li>
-  <li class="">
-    <a href="14-LinearModels.html">Linear Models</a>
-  </li>
-  <li class="">
-    <a href="15-Clustering.html">Clustering</a>
-  </li>
-  <li class="">
-    <a href="16-DimensionalityReduction.html">Dimensionality Reduction</a>
-  </li>
-  <li class="">
-    <a href="17-Classification.html">Classification</a>
-  </li>
-  <li class="active">
-    <a href="">Natural Language Processing</a>
-  </li>
-  <li class="">
-    <a href="A1-PythonPackages.html">Appendix: Python Packages</a>
-  </li>
-  <li class="">
-    <a href="A2-Git.html">Appendix: Version Control</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Assignments</p>
-</li>
-  <li class="">
-    <a href="../assignments/D2_Pandas.html">Pandas</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D4_DataPrivacy.html">Data Privacy</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D5_DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="../assignments/D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Project</p>
-</li>
-  <li class="">
-    <a href="../projects/projects.html">Project Description</a>
-  </li>
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-JupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-DataGathering.html">
+   Data Gathering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-DataWrangling.html">
+   Data Wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-DataCleaning.html">
+   Data Cleaning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataPrivacy%26Anonymization.html">
+   Data Privacy &amp; Anonymization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-DataVisualization.html">
+   Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Distributions.html">
+   Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TestingDistributions.html">
+   Testing Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-StatisticalComparisons.html">
+   Statistical Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-OrdinaryLeastSquares.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-LinearModels.html">
+   Linear Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-Clustering.html">
+   Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="16-DimensionalityReduction.html">
+   Dimensionality Reduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-PythonPackages.html">
+   Appendix: Python Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A2-Git.html">
+   Appendix: Version Control
+  </a>
+ </li>
 </ul>
-</nav>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D1_Python.html">
+   Python Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D2_Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D3_DataExploration.html">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D4_DataPrivacy.html">
+   Data Privacy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D5_DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignments/D6_NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../projects/projects.html">
+   Project Description
+  </a>
+ </li>
+</ul>
 
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -163,119 +260,248 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
-
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/tutorials/18-NaturalLanguageProcessing.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
             
-        </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-        <!-- Source interaction buttons -->
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/18-NaturalLanguageProcessing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
 </div>
 
-<nav id="bd-toc-nav">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/tutorials/18-NaturalLanguageProcessing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ntlk-natural-language-tool-kit">
+   NTLK: Natural Language Tool Kit
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-corpora">
+     Downloading Corpora
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tokenisation">
+   Tokenisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-of-speech-pos-tagging">
+   Part-of-speech (POS) Tagging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#named-entity-recognition-ner">
+   Named Entity Recognition (NER)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stop-words">
+   Stop words
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#text-encoding">
+   Text Encoding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-some-data">
+     Load some Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pre-processing">
+     Pre-Processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-words">
+     Bag-of-Words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">
+     Term Frequency - Inverse Document Frequency (TF-IDF)
+    </a>
     <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#ntlk-natural-language-tool-kit" class="nav-link">NTLK: Natural Language Tool Kit</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#downloading-corpora" class="nav-link">Downloading Corpora</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#tokenisation" class="nav-link">Tokenisation</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#part-of-speech-pos-tagging" class="nav-link">Part-of-speech (POS) Tagging</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#named-entity-recognition-ner" class="nav-link">Named Entity Recognition (NER)</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#stop-words" class="nav-link">Stop words</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#text-encoding" class="nav-link">Text Encoding</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#load-some-data" class="nav-link">Load some Data</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#pre-processing" class="nav-link">Pre-Processing</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#bag-of-words" class="nav-link">Bag-of-Words</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#term-frequency-inverse-document-frequency-tf-idf" class="nav-link">Term Frequency - Inverse Document Frequency (TF-IDF)</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#applying-tf-idf" class="nav-link">Applying TF-IDF</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#conclusion" class="nav-link">Conclusion</a>
-        </li>
-    
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#applying-tf-idf">
+       Applying TF-IDF
+      </a>
+     </li>
     </ul>
-</nav>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
 
-
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Natural Language Processing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ntlk-natural-language-tool-kit">
+   NTLK: Natural Language Tool Kit
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-corpora">
+     Downloading Corpora
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tokenisation">
+   Tokenisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-of-speech-pos-tagging">
+   Part-of-speech (POS) Tagging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#named-entity-recognition-ner">
+   Named Entity Recognition (NER)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stop-words">
+   Stop words
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#text-encoding">
+   Text Encoding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-some-data">
+     Load some Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pre-processing">
+     Pre-Processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bag-of-words">
+     Bag-of-Words
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">
+     Term Frequency - Inverse Document Frequency (TF-IDF)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#applying-tf-idf">
+       Applying TF-IDF
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="natural-language-processing">
+  <div class="tex2jax_ignore mathjax_ignore section" id="natural-language-processing">
 <h1>Natural Language Processing<a class="headerlink" href="#natural-language-processing" title="Permalink to this headline">¶</a></h1>
 <p>Most of the data we have encountered so far has been numerical (or at least, numerically encoded).</p>
 <p>However, one of the most powerful aspects of data science is acknowledging and considering that there are vasts amounts of data available in many other modalities, with potentially valuable information, if the data can be leveraged and analyzed.</p>
@@ -301,7 +527,7 @@ and they have a whole book of tutorials
 <a href="http://www.nltk.org/book/" class="alert-link">here</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import NLTK</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import NLTK</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 </pre></div>
 </div>
@@ -309,7 +535,7 @@ and they have a whole book of tutorials
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set an example sentence of &#39;data&#39; to play with</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set an example sentence of &#39;data&#39; to play with</span>
 <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;UC San Diego is a great place to study cognitive science.&quot;</span>
 </pre></div>
 </div>
@@ -321,7 +547,7 @@ and they have a whole book of tutorials
 <p>NLTK has many such datasets available, but doesn’t install them by default (as the full set of them would be quite large). Below we will download some of these datasets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you hit an error downloading things in the cell below, come back to this cell, uncomment it, and run this code.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you hit an error downloading things in the cell below, come back to this cell, uncomment it, and run this code.</span>
 <span class="c1">#   This code gives python permission to write to your disk (if it doesn&#39;t already have persmission to do so).</span>
 <span class="c1"># import ssl</span>
 
@@ -337,7 +563,7 @@ and they have a whole book of tutorials
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download some useful data files from NLTK</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download some useful data files from NLTK</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;averaged_perceptron_tagger&#39;</span><span class="p">)</span>
@@ -348,8 +574,7 @@ and they have a whole book of tutorials
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">[nltk_data] Downloading package punkt to /Users/tom/nltk_data...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /Users/tom/nltk_data...
 [nltk_data]   Package punkt is already up-to-date!
 [nltk_data] Downloading package stopwords to /Users/tom/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
@@ -364,9 +589,9 @@ and they have a whole book of tutorials
 [nltk_data]   Package words is already up-to-date!
 [nltk_data] Downloading package treebank to /Users/tom/nltk_data...
 [nltk_data]   Package treebank is already up-to-date!
-</pre>
+</pre></div>
 </div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -385,7 +610,7 @@ More information on tokenization
 <p>Tokenization can be done at different levels - you can, for example tokenize text into sentences, and/or into words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize our sentence, at the word level</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize our sentence, at the word level</span>
 <span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -393,13 +618,13 @@ More information on tokenization
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the word-tokenized data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the word-tokenized data</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;UC&#39;, &#39;San&#39;, &#39;Diego&#39;, &#39;is&#39;, &#39;a&#39;, &#39;great&#39;, &#39;place&#39;, &#39;to&#39;, &#39;study&#39;, &#39;cognitive&#39;, &#39;science&#39;, &#39;.&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;UC&#39;, &#39;San&#39;, &#39;Diego&#39;, &#39;is&#39;, &#39;a&#39;, &#39;great&#39;, &#39;place&#39;, &#39;to&#39;, &#39;study&#39;, &#39;cognitive&#39;, &#39;science&#39;, &#39;.&#39;]
 </pre></div>
 </div>
 </div>
@@ -415,7 +640,7 @@ Part-of-speech tagging on
 <a href="https://en.wikipedia.org/wiki/Part-of-speech_tagging" class="alert-link">wikipedia</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply part-of-speech tagging to our sentence</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply part-of-speech tagging to our sentence</span>
 <span class="n">tags</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -423,20 +648,20 @@ Part-of-speech tagging on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the POS tags for our data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the POS tags for our data</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;UC&#39;, &#39;NNP&#39;), (&#39;San&#39;, &#39;NNP&#39;), (&#39;Diego&#39;, &#39;NNP&#39;), (&#39;is&#39;, &#39;VBZ&#39;), (&#39;a&#39;, &#39;DT&#39;), (&#39;great&#39;, &#39;JJ&#39;), (&#39;place&#39;, &#39;NN&#39;), (&#39;to&#39;, &#39;TO&#39;), (&#39;study&#39;, &#39;VB&#39;), (&#39;cognitive&#39;, &#39;JJ&#39;), (&#39;science&#39;, &#39;NN&#39;), (&#39;.&#39;, &#39;.&#39;)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;UC&#39;, &#39;NNP&#39;), (&#39;San&#39;, &#39;NNP&#39;), (&#39;Diego&#39;, &#39;NNP&#39;), (&#39;is&#39;, &#39;VBZ&#39;), (&#39;a&#39;, &#39;DT&#39;), (&#39;great&#39;, &#39;JJ&#39;), (&#39;place&#39;, &#39;NN&#39;), (&#39;to&#39;, &#39;TO&#39;), (&#39;study&#39;, &#39;VB&#39;), (&#39;cognitive&#39;, &#39;JJ&#39;), (&#39;science&#39;, &#39;NN&#39;), (&#39;.&#39;, &#39;.&#39;)]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the documentation for describing the abbreviations</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the documentation for describing the abbreviations</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">upenn_tagset</span><span class="p">(</span><span class="n">tagpattern</span><span class="o">=</span><span class="s1">&#39;NNP&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">upenn_tagset</span><span class="p">(</span><span class="n">tagpattern</span><span class="o">=</span><span class="s1">&#39;DT&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">help</span><span class="o">.</span><span class="n">upenn_tagset</span><span class="p">(</span><span class="n">tagpattern</span><span class="o">=</span><span class="s1">&#39;JJ&#39;</span><span class="p">)</span>
@@ -444,7 +669,7 @@ Part-of-speech tagging on
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>NNP: noun, proper, singular
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NNP: noun, proper, singular
     Motown Venneboerger Czestochwa Ranzer Conchita Trumplane Christos
     Oceanside Escobar Kreisler Sawyer Cougar Yvette Ervin ODI Darryl CTCA
     Shannon A.K.C. Meltex Liverpool ...
@@ -470,7 +695,7 @@ Named entity recognition on
 <a href="https://en.wikipedia.org/wiki/Named-entity_recognition" class="alert-link">wikipedia</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply named entity recognition to our POS tags</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply named entity recognition to our POS tags</span>
 <span class="n">entities</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">ne_chunk</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -478,13 +703,13 @@ Named entity recognition on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the named entities</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the named entities</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">entities</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(S
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(S
   UC/NNP
   (PERSON San/NNP Diego/NNP)
   is/VBZ
@@ -511,13 +736,13 @@ Stop words on
 <a href="https://en.wikipedia.org/wiki/Stop_words" class="alert-link">wikipedia</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the corpus of stop words in English</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the corpus of stop words in English</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;, &#39;our&#39;, &#39;ours&#39;, &#39;ourselves&#39;, &#39;you&#39;, &quot;you&#39;re&quot;, &quot;you&#39;ve&quot;, &quot;you&#39;ll&quot;, &quot;you&#39;d&quot;, &#39;your&#39;, &#39;yours&#39;, &#39;yourself&#39;, &#39;yourselves&#39;, &#39;he&#39;, &#39;him&#39;, &#39;his&#39;, &#39;himself&#39;, &#39;she&#39;, &quot;she&#39;s&quot;, &#39;her&#39;, &#39;hers&#39;, &#39;herself&#39;, &#39;it&#39;, &quot;it&#39;s&quot;, &#39;its&#39;, &#39;itself&#39;, &#39;they&#39;, &#39;them&#39;, &#39;their&#39;, &#39;theirs&#39;, &#39;themselves&#39;, &#39;what&#39;, &#39;which&#39;, &#39;who&#39;, &#39;whom&#39;, &#39;this&#39;, &#39;that&#39;, &quot;that&#39;ll&quot;, &#39;these&#39;, &#39;those&#39;, &#39;am&#39;, &#39;is&#39;, &#39;are&#39;, &#39;was&#39;, &#39;were&#39;, &#39;be&#39;, &#39;been&#39;, &#39;being&#39;, &#39;have&#39;, &#39;has&#39;, &#39;had&#39;, &#39;having&#39;, &#39;do&#39;, &#39;does&#39;, &#39;did&#39;, &#39;doing&#39;, &#39;a&#39;, &#39;an&#39;, &#39;the&#39;, &#39;and&#39;, &#39;but&#39;, &#39;if&#39;, &#39;or&#39;, &#39;because&#39;, &#39;as&#39;, &#39;until&#39;, &#39;while&#39;, &#39;of&#39;, &#39;at&#39;, &#39;by&#39;, &#39;for&#39;, &#39;with&#39;, &#39;about&#39;, &#39;against&#39;, &#39;between&#39;, &#39;into&#39;, &#39;through&#39;, &#39;during&#39;, &#39;before&#39;, &#39;after&#39;, &#39;above&#39;, &#39;below&#39;, &#39;to&#39;, &#39;from&#39;, &#39;up&#39;, &#39;down&#39;, &#39;in&#39;, &#39;out&#39;, &#39;on&#39;, &#39;off&#39;, &#39;over&#39;, &#39;under&#39;, &#39;again&#39;, &#39;further&#39;, &#39;then&#39;, &#39;once&#39;, &#39;here&#39;, &#39;there&#39;, &#39;when&#39;, &#39;where&#39;, &#39;why&#39;, &#39;how&#39;, &#39;all&#39;, &#39;any&#39;, &#39;both&#39;, &#39;each&#39;, &#39;few&#39;, &#39;more&#39;, &#39;most&#39;, &#39;other&#39;, &#39;some&#39;, &#39;such&#39;, &#39;no&#39;, &#39;nor&#39;, &#39;not&#39;, &#39;only&#39;, &#39;own&#39;, &#39;same&#39;, &#39;so&#39;, &#39;than&#39;, &#39;too&#39;, &#39;very&#39;, &#39;s&#39;, &#39;t&#39;, &#39;can&#39;, &#39;will&#39;, &#39;just&#39;, &#39;don&#39;, &quot;don&#39;t&quot;, &#39;should&#39;, &quot;should&#39;ve&quot;, &#39;now&#39;, &#39;d&#39;, &#39;ll&#39;, &#39;m&#39;, &#39;o&#39;, &#39;re&#39;, &#39;ve&#39;, &#39;y&#39;, &#39;ain&#39;, &#39;aren&#39;, &quot;aren&#39;t&quot;, &#39;couldn&#39;, &quot;couldn&#39;t&quot;, &#39;didn&#39;, &quot;didn&#39;t&quot;, &#39;doesn&#39;, &quot;doesn&#39;t&quot;, &#39;hadn&#39;, &quot;hadn&#39;t&quot;, &#39;hasn&#39;, &quot;hasn&#39;t&quot;, &#39;haven&#39;, &quot;haven&#39;t&quot;, &#39;isn&#39;, &quot;isn&#39;t&quot;, &#39;ma&#39;, &#39;mightn&#39;, &quot;mightn&#39;t&quot;, &#39;mustn&#39;, &quot;mustn&#39;t&quot;, &#39;needn&#39;, &quot;needn&#39;t&quot;, &#39;shan&#39;, &quot;shan&#39;t&quot;, &#39;shouldn&#39;, &quot;shouldn&#39;t&quot;, &#39;wasn&#39;, &quot;wasn&#39;t&quot;, &#39;weren&#39;, &quot;weren&#39;t&quot;, &#39;won&#39;, &quot;won&#39;t&quot;, &#39;wouldn&#39;, &quot;wouldn&#39;t&quot;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;, &#39;our&#39;, &#39;ours&#39;, &#39;ourselves&#39;, &#39;you&#39;, &quot;you&#39;re&quot;, &quot;you&#39;ve&quot;, &quot;you&#39;ll&quot;, &quot;you&#39;d&quot;, &#39;your&#39;, &#39;yours&#39;, &#39;yourself&#39;, &#39;yourselves&#39;, &#39;he&#39;, &#39;him&#39;, &#39;his&#39;, &#39;himself&#39;, &#39;she&#39;, &quot;she&#39;s&quot;, &#39;her&#39;, &#39;hers&#39;, &#39;herself&#39;, &#39;it&#39;, &quot;it&#39;s&quot;, &#39;its&#39;, &#39;itself&#39;, &#39;they&#39;, &#39;them&#39;, &#39;their&#39;, &#39;theirs&#39;, &#39;themselves&#39;, &#39;what&#39;, &#39;which&#39;, &#39;who&#39;, &#39;whom&#39;, &#39;this&#39;, &#39;that&#39;, &quot;that&#39;ll&quot;, &#39;these&#39;, &#39;those&#39;, &#39;am&#39;, &#39;is&#39;, &#39;are&#39;, &#39;was&#39;, &#39;were&#39;, &#39;be&#39;, &#39;been&#39;, &#39;being&#39;, &#39;have&#39;, &#39;has&#39;, &#39;had&#39;, &#39;having&#39;, &#39;do&#39;, &#39;does&#39;, &#39;did&#39;, &#39;doing&#39;, &#39;a&#39;, &#39;an&#39;, &#39;the&#39;, &#39;and&#39;, &#39;but&#39;, &#39;if&#39;, &#39;or&#39;, &#39;because&#39;, &#39;as&#39;, &#39;until&#39;, &#39;while&#39;, &#39;of&#39;, &#39;at&#39;, &#39;by&#39;, &#39;for&#39;, &#39;with&#39;, &#39;about&#39;, &#39;against&#39;, &#39;between&#39;, &#39;into&#39;, &#39;through&#39;, &#39;during&#39;, &#39;before&#39;, &#39;after&#39;, &#39;above&#39;, &#39;below&#39;, &#39;to&#39;, &#39;from&#39;, &#39;up&#39;, &#39;down&#39;, &#39;in&#39;, &#39;out&#39;, &#39;on&#39;, &#39;off&#39;, &#39;over&#39;, &#39;under&#39;, &#39;again&#39;, &#39;further&#39;, &#39;then&#39;, &#39;once&#39;, &#39;here&#39;, &#39;there&#39;, &#39;when&#39;, &#39;where&#39;, &#39;why&#39;, &#39;how&#39;, &#39;all&#39;, &#39;any&#39;, &#39;both&#39;, &#39;each&#39;, &#39;few&#39;, &#39;more&#39;, &#39;most&#39;, &#39;other&#39;, &#39;some&#39;, &#39;such&#39;, &#39;no&#39;, &#39;nor&#39;, &#39;not&#39;, &#39;only&#39;, &#39;own&#39;, &#39;same&#39;, &#39;so&#39;, &#39;than&#39;, &#39;too&#39;, &#39;very&#39;, &#39;s&#39;, &#39;t&#39;, &#39;can&#39;, &#39;will&#39;, &#39;just&#39;, &#39;don&#39;, &quot;don&#39;t&quot;, &#39;should&#39;, &quot;should&#39;ve&quot;, &#39;now&#39;, &#39;d&#39;, &#39;ll&#39;, &#39;m&#39;, &#39;o&#39;, &#39;re&#39;, &#39;ve&#39;, &#39;y&#39;, &#39;ain&#39;, &#39;aren&#39;, &quot;aren&#39;t&quot;, &#39;couldn&#39;, &quot;couldn&#39;t&quot;, &#39;didn&#39;, &quot;didn&#39;t&quot;, &#39;doesn&#39;, &quot;doesn&#39;t&quot;, &#39;hadn&#39;, &quot;hadn&#39;t&quot;, &#39;hasn&#39;, &quot;hasn&#39;t&quot;, &#39;haven&#39;, &quot;haven&#39;t&quot;, &#39;isn&#39;, &quot;isn&#39;t&quot;, &#39;ma&#39;, &#39;mightn&#39;, &quot;mightn&#39;t&quot;, &#39;mustn&#39;, &quot;mustn&#39;t&quot;, &#39;needn&#39;, &quot;needn&#39;t&quot;, &#39;shan&#39;, &quot;shan&#39;t&quot;, &#39;shouldn&#39;, &quot;shouldn&#39;t&quot;, &#39;wasn&#39;, &quot;wasn&#39;t&quot;, &#39;weren&#39;, &quot;weren&#39;t&quot;, &#39;won&#39;, &quot;won&#39;t&quot;, &#39;wouldn&#39;, &quot;wouldn&#39;t&quot;]
 </pre></div>
 </div>
 </div>
@@ -544,8 +769,8 @@ Stop words on
 <p>Next we will walk through an example of encoding text as BoW and TF-IDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># Standard Python has some useful string tools</span>
 <span class="kn">import</span> <span class="nn">string</span>
@@ -564,12 +789,12 @@ Stop words on
 </div>
 <div class="section" id="load-some-data">
 <h3>Load some Data<a class="headerlink" href="#load-some-data" title="Permalink to this headline">¶</a></h3>
-<p>The data we will be looking at is a small subset of the BookCorpus dataset. The original dataset can be found here: http://yknzhu.wixsite.com/mbweb.</p>
+<p>The data we will be looking at is a small subset of the BookCorpus dataset. The original dataset can be found here: <a class="reference external" href="http://yknzhu.wixsite.com/mbweb">http://yknzhu.wixsite.com/mbweb</a>.</p>
 <p>The original dataset was collected from more than 11,000 books, and has already been tokenised at both the sentence and word level.</p>
 <p>The small subset provided and used here contains the first 10,000 sentences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;files/book10k.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">sents</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 </pre></div>
@@ -578,17 +803,16 @@ Stop words on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the data - print out the first and last sentences, as examples</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the data - print out the first and last sentences, as examples</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sents</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sents</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>the half-ling book one in the fall of igneeria series kaylee soderburg copyright 2013 kaylee soderburg all rights reserved .
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the half-ling book one in the fall of igneeria series kaylee soderburg copyright 2013 kaylee soderburg all rights reserved .
 
 alejo was sure the fact that he was nervously repeating mass along with five wrinkly , age-encrusted spanish women meant that stalin was rethinking whether he was going to pay the price .
-
 </pre></div>
 </div>
 </div>
@@ -599,7 +823,7 @@ alejo was sure the fact that he was nervously repeating mass along with five wri
 <p>First, let’s do some standard text pre-processing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocessing: strip all extra whitespace from the sentences</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocessing: strip all extra whitespace from the sentences</span>
 <span class="n">sents</span> <span class="o">=</span> <span class="p">[</span><span class="n">sent</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">sent</span> <span class="ow">in</span> <span class="n">sents</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -609,7 +833,7 @@ alejo was sure the fact that he was nervously repeating mass along with five wri
 <p>To do so, we can tokenize the text, count occurences, and then we can have a look at the most frequent words in the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize all the sentences into words</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize all the sentences into words</span>
 <span class="c1">#  This collects all the word tokens together into one big list</span>
 <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sents</span><span class="p">:</span>
@@ -620,14 +844,14 @@ alejo was sure the fact that he was nervously repeating mass along with five wri
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out how many words are in the data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out how many words are in the data</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of words in the data: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of unique words: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tokens</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of words in the data: 	 140094
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of words in the data: 	 140094
 Number of unique words: 	 8221
 </pre></div>
 </div>
@@ -646,7 +870,7 @@ Bag of words on
 <a href=https://en.wikipedia.org/wiki/Bag-of-words_model class="alert-link">wikipedia</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;counter&#39; object to count how many times each word appears</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;counter&#39; object to count how many times each word appears</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -658,13 +882,13 @@ Bag of words on
 <p>What we do have is a list of all the words present, and how often they appear. Basically, we have turned the text into a <em>distribution</em> and we can try and analyze this distribution to try and programmatically analyze the text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the counts object, printing out some of the most common tokens</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the counts object, printing out some of the most common tokens</span>
 <span class="n">counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(&#39;.&#39;, 8601),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;.&#39;, 8601),
  (&#39;,&#39;, 6675),
  (&#39;the&#39;, 6062),
  (&#39;and&#39;, 3382),
@@ -696,20 +920,20 @@ Bag of words on
 <p>One thing you might notice if you scroll through the word list above is that it still contains punctuation. Let’s remove those.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &#39;string&#39; module (standard library) has a useful list of punctuation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &#39;string&#39; module (standard library) has a useful list of punctuation</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>!&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>!&quot;#$%&amp;&#39;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all punction markers from the counts object</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all punction markers from the counts object</span>
 <span class="k">for</span> <span class="n">punc</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">punc</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
         <span class="n">counts</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">punc</span><span class="p">)</span>
@@ -719,7 +943,7 @@ Bag of words on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the top 10 most frequent words</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the top 10 most frequent words</span>
 <span class="n">top10</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -727,7 +951,7 @@ Bag of words on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the top words, and counts</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the top words, and counts</span>
 <span class="n">top10_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">it</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">top10</span><span class="p">]</span>
 <span class="n">top10_counts</span> <span class="o">=</span> <span class="p">[</span><span class="n">it</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">top10</span><span class="p">]</span>
 </pre></div>
@@ -736,7 +960,7 @@ Bag of words on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a barplot of the most frequent words in the text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a barplot of the most frequent words in the text</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">top10_words</span><span class="p">,</span> <span class="n">top10_counts</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Term Frequency&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">);</span>
@@ -753,7 +977,7 @@ Bag of words on
 <p>These words are all ‘stop words’, so let’s drop them from the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all stop words</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all stop words</span>
 <span class="k">for</span> <span class="n">stop</span> <span class="ow">in</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">stop</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
         <span class="n">counts</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
@@ -763,7 +987,7 @@ Bag of words on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the top 20 most frequent words, of the stopword-removed data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the top 20 most frequent words, of the stopword-removed data</span>
 <span class="n">top20</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -771,7 +995,7 @@ Bag of words on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a barplot of the most frequent words in the text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a barplot of the most frequent words in the text</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">([</span><span class="n">it</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">top20</span><span class="p">],</span> <span class="p">[</span><span class="n">it</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">top20</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Term Frequency&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">);</span>
@@ -811,7 +1035,7 @@ TF-IDF on
 <a https://en.wikipedia.org/wiki/Tf%E2%80%93idf class="alert-link">wikipedia</a>.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize a TFIDF object, applying some settings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize a TFIDF object, applying some settings</span>
 <span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">analyzer</span><span class="o">=</span><span class="s1">&#39;word&#39;</span><span class="p">,</span>
                         <span class="n">sublinear_tf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                         <span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
@@ -824,7 +1048,7 @@ TF-IDF on
 <p>The TFIDF for each term, for a particular document, can then be calculated as TF * IDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Learn the TFIDF representation of our data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Learn the TFIDF representation of our data</span>
 <span class="c1">#   Note that this takes the raw sentences, tokenizes them, and learns the TF/IDF representation</span>
 <span class="n">tdidf</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">sents</span><span class="p">)</span>
 </pre></div>
@@ -840,7 +1064,7 @@ TF-IDF on
 <p>Let’s now plot out the IDF for each of the top 10 most frequently appeared words (from the first analysis).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the IDF weights for the top 10 most common words</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the IDF weights for the top 10 most common words</span>
 <span class="n">IDF_weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span><span class="p">[</span><span class="n">tfidf</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">[</span><span class="n">token</span><span class="p">]]</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">top10_words</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -848,7 +1072,7 @@ TF-IDF on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the IDF scores for the very common words</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the IDF scores for the very common words</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">top10_words</span><span class="p">,</span> <span class="n">IDF_weights</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Inverse Document Frequency&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;IDF Score&#39;</span><span class="p">);</span>
@@ -862,7 +1086,7 @@ TF-IDF on
 <p>We compare the plot with the following plot that shows the words with top 10 highest IDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the terms with the highest IDF score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the terms with the highest IDF score</span>
 <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
 <span class="n">top_IDF_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">inds</span><span class="p">]</span>
 <span class="n">top_IDF_scores</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span><span class="p">[</span><span class="n">inds</span><span class="p">]</span>
@@ -872,7 +1096,7 @@ TF-IDF on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the terms with the highest IDF score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the terms with the highest IDF score</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">top_IDF_tokens</span><span class="p">,</span> <span class="n">top_IDF_scores</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Inverse Document Frequency&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;IDF Score&#39;</span><span class="p">);</span>
@@ -893,7 +1117,7 @@ TF-IDF on
 <p>Note that in our TFIDF object above we set the number of features to use as 5000, which is the number of terms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply TF/IDF representation to our data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply TF/IDF representation to our data</span>
 <span class="n">tfidf_books</span> <span class="o">=</span> <span class="n">tdidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">sents</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -901,14 +1125,14 @@ TF-IDF on
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of documents: </span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sents</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of documents: </span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sents</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of terms: </span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">vocabulary_</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TFIDF representation shape: </span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">tfidf_books</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number of documents: 		 10000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of documents: 		 10000
 Number of terms: 		 5000
 TFIDF representation shape: 	 (10000, 5000)
 </pre></div>
@@ -927,36 +1151,64 @@ TFIDF representation shape: 	 (10000, 5000)
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="17-Classification.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Classification</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="A1-PythonPackages.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Appendix: Python Packages</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
+    <footer class="footer">
+  <p>
     
+      By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
     
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="17-Classification.html" title="previous page">Classification</a>
-    <a class='right-next' id="next-link" href="A1-PythonPackages.html" title="next page">Appendix: Python Packages</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
-        
-            &copy; Copyright 2020-.<br/>
-      </p>
-    </div>
-  </footer>
+        &copy; Copyright 2020-.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
   </body>
 </html>

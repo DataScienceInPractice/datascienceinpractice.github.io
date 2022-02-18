@@ -1,46 +1,72 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data Analysis &#8212; Data Science in Practice</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Natural Language Processing" href="D6_NaturalLanguageProcessing.html" />
     <link rel="prev" title="Data Privacy" href="D4_DataPrivacy.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -49,116 +75,181 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-<li class="navbar-special">
-<p class="margin-caption">Tutorials</p>
-</li>
-  <li class="">
-    <a href="../tutorials/00-Introduction.html">Introduction</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/01-Python.html">Python</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/02-JupyterNotebooks.html">Jupyter Notebooks</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/03-DataAnalysis.html">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/05-DataGathering.html">Data Gathering</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/06-DataWrangling.html">Data Wrangling</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/07-DataCleaning.html">Data Cleaning</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/08-DataPrivacy&Anonymization.html">Data Privacy & Anonymization</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/09-DataVisualization.html">Data Visualization</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/10-Distributions.html">Distributions</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/11-TestingDistributions.html">Testing Distributions</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/12-StatisticalComparisons.html">Statistical Comparisons</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/13-OrdinaryLeastSquares.html">Ordinary Least Squares</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/14-LinearModels.html">Linear Models</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/15-Clustering.html">Clustering</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/16-DimensionalityReduction.html">Dimensionality Reduction</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/17-Classification.html">Classification</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/18-NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/A1-PythonPackages.html">Appendix: Python Packages</a>
-  </li>
-  <li class="">
-    <a href="../tutorials/A2-Git.html">Appendix: Version Control</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Assignments</p>
-</li>
-  <li class="">
-    <a href="D1_Python.html">Python Introduction</a>
-  </li>
-  <li class="">
-    <a href="D2_Pandas.html">Pandas</a>
-  </li>
-  <li class="">
-    <a href="D3_DataExploration.html">Data Exploration</a>
-  </li>
-  <li class="">
-    <a href="D4_DataPrivacy.html">Data Privacy</a>
-  </li>
-  <li class="active">
-    <a href="">Data Analysis</a>
-  </li>
-  <li class="">
-    <a href="D6_NaturalLanguageProcessing.html">Natural Language Processing</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Project</p>
-</li>
-  <li class="">
-    <a href="../projects/projects.html">Project Description</a>
-  </li>
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/00-Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/01-Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/02-JupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/03-DataAnalysis.html">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/05-DataGathering.html">
+   Data Gathering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/06-DataWrangling.html">
+   Data Wrangling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/07-DataCleaning.html">
+   Data Cleaning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/08-DataPrivacy%26Anonymization.html">
+   Data Privacy &amp; Anonymization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/09-DataVisualization.html">
+   Data Visualization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/10-Distributions.html">
+   Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/11-TestingDistributions.html">
+   Testing Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/12-StatisticalComparisons.html">
+   Statistical Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/13-OrdinaryLeastSquares.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/14-LinearModels.html">
+   Linear Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/15-Clustering.html">
+   Clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/16-DimensionalityReduction.html">
+   Dimensionality Reduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/17-Classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/18-NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/A1-PythonPackages.html">
+   Appendix: Python Packages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tutorials/A2-Git.html">
+   Appendix: Version Control
+  </a>
+ </li>
 </ul>
-</nav>
+<p class="caption">
+ <span class="caption-text">
+  Assignments
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="D1_Python.html">
+   Python Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D2_Pandas.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D3_DataExploration.html">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D4_DataPrivacy.html">
+   Data Privacy
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="D6_NaturalLanguageProcessing.html">
+   Natural Language Processing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../projects/projects.html">
+   Project Description
+  </a>
+ </li>
+</ul>
 
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -169,64 +260,648 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/assignments/D5_DataAnalysis.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/assignments/D5_DataAnalysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/assignments/D5_DataAnalysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
-        <!-- Source interaction buttons -->
-        
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
-        
-    </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-
-<nav id="bd-toc-nav">
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#important-reminders">
+   Important Reminders
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-data">
+     Downloading Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-1-load-clean-the-data-2-95-points">
+     Part 1: Load &amp; Clean the Data (2.95 points)
+    </a>
     <ul class="nav section-nav flex-column">
-    
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-load-the-data">
+       1a) Load the data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-find-missing-data">
+       1b) Find missing data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-drop-the-rows-with-nan-values">
+       1c) Drop the rows with NaN values
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-standardize-gender-function">
+       1d) Standardize ‘gender’ function
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-transform-gender-column">
+       1e) Transform ‘gender’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-standardize-other-columns">
+       1f) Standardize other columns
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#g-standardize-year-column">
+       1g)  Standardize ‘year’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#h-transform-year-column">
+       1h) Transform ‘year’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i-standardize-weight-column">
+       1i) Standardize ‘weight’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#j-transform-weight-column">
+       1j) Transform ‘weight’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#k-standardize-favorite-icecream-column">
+       1k) Standardize ‘favorite_icecream’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#l-transform-favorite-icecream-column">
+       1l) Transform ‘favorite_icecream’ column
+      </a>
+     </li>
     </ul>
-</nav>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-2-exploratory-data-vizualization-0-8-points">
+     Part 2: Exploratory Data Vizualization (0.8 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-plot-the-data">
+       2a) Plot the data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-plot-a-bar-chart-showing-the-number-of-students-in-each-major">
+       2b) Plot a bar chart showing the number of students in each major.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-cogsci-as-their-major">
+       2c) Plot a histogram of the height data for all students who wrote ‘COGSCI’ as their major.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-compsci-as-their-major">
+       2d) Plot a histogram of the height data for all students who wrote ‘COMPSCI’ as their major.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-3-exploring-the-data-0-8-points">
+     Part 3: Exploring The Data (0.8 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-how-many-different-majors-are-in-the-dataset">
+       3a) How many different majors are in the dataset?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-what-is-the-range-max-value-min-value-of-ages-in-the-dataset">
+       3b) What is the range (max value - min value) of ages in the dataset?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-what-is-the-most-popular-ice-cream-flavor">
+       3c) What is the most popular ice cream flavor?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-how-many-people-have-a-unique-favorite-ice-cream-in-other-words-how-many-ice-cream-flavors-are-only-1-person-s-favorite">
+       3d) How many people have a unique favorite ice cream? (In other words: how many ice cream flavors are only 1 person’s favorite?)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-4-testing-distributions-0-45-points">
+     Part 4: Testing Distributions (0.45 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-testing-normality">
+       4a) Testing Normality
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-set-boolean-values-as-specified-above">
+       4b) Set boolean values, as specified above.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-5-data-analysis-2-4-points">
+     Part 5: Data Analysis (2.4 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-pull-out-the-data-we-are-going-to-use">
+       5a) Pull out the data we are going to use:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-what-is-the-average-mean-height-for-students-from-each-major">
+       5b) What is the average (mean) height for students from each major?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-compare-distributions-t-test">
+       5c) Compare distributions: t-test
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#let-s-explore-some-more">
+         Let’s explore some more
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-digging-deeper">
+       5d) Digging Deeper
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-what-is-the-ratio-of-women-in-each-major">
+       5e) What is the ratio of women in each major?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-subsetting-data">
+       5f) Subsetting data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#g-pivot-tables">
+       5g) Pivot Tables
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#linear-models">
+         Linear Models
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#h-linear-model">
+       5h) Linear model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i-assess-significance-mod-1">
+       5i) Assess significance:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         mod_1
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#j-multivariate-regression">
+       5j) Multivariate regression
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#k-assess-significance-mod-2">
+       5k) Assess significance:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         mod_2
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-6-discussion-conclusions-0-1-points">
+     Part 6: Discussion &amp; Conclusions (0.1 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-conclusion">
+       6a) Conclusion
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-summary">
+       6b) Summary
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-end">
+     The End!
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
-
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data Analysis
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#important-reminders">
+   Important Reminders
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-data">
+     Downloading Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-1-load-clean-the-data-2-95-points">
+     Part 1: Load &amp; Clean the Data (2.95 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-load-the-data">
+       1a) Load the data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-find-missing-data">
+       1b) Find missing data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-drop-the-rows-with-nan-values">
+       1c) Drop the rows with NaN values
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-standardize-gender-function">
+       1d) Standardize ‘gender’ function
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-transform-gender-column">
+       1e) Transform ‘gender’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-standardize-other-columns">
+       1f) Standardize other columns
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#g-standardize-year-column">
+       1g)  Standardize ‘year’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#h-transform-year-column">
+       1h) Transform ‘year’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i-standardize-weight-column">
+       1i) Standardize ‘weight’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#j-transform-weight-column">
+       1j) Transform ‘weight’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#k-standardize-favorite-icecream-column">
+       1k) Standardize ‘favorite_icecream’ column
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#l-transform-favorite-icecream-column">
+       1l) Transform ‘favorite_icecream’ column
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-2-exploratory-data-vizualization-0-8-points">
+     Part 2: Exploratory Data Vizualization (0.8 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-plot-the-data">
+       2a) Plot the data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-plot-a-bar-chart-showing-the-number-of-students-in-each-major">
+       2b) Plot a bar chart showing the number of students in each major.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-cogsci-as-their-major">
+       2c) Plot a histogram of the height data for all students who wrote ‘COGSCI’ as their major.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-compsci-as-their-major">
+       2d) Plot a histogram of the height data for all students who wrote ‘COMPSCI’ as their major.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-3-exploring-the-data-0-8-points">
+     Part 3: Exploring The Data (0.8 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-how-many-different-majors-are-in-the-dataset">
+       3a) How many different majors are in the dataset?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-what-is-the-range-max-value-min-value-of-ages-in-the-dataset">
+       3b) What is the range (max value - min value) of ages in the dataset?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-what-is-the-most-popular-ice-cream-flavor">
+       3c) What is the most popular ice cream flavor?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-how-many-people-have-a-unique-favorite-ice-cream-in-other-words-how-many-ice-cream-flavors-are-only-1-person-s-favorite">
+       3d) How many people have a unique favorite ice cream? (In other words: how many ice cream flavors are only 1 person’s favorite?)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-4-testing-distributions-0-45-points">
+     Part 4: Testing Distributions (0.45 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-testing-normality">
+       4a) Testing Normality
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-set-boolean-values-as-specified-above">
+       4b) Set boolean values, as specified above.
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-5-data-analysis-2-4-points">
+     Part 5: Data Analysis (2.4 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-pull-out-the-data-we-are-going-to-use">
+       5a) Pull out the data we are going to use:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-what-is-the-average-mean-height-for-students-from-each-major">
+       5b) What is the average (mean) height for students from each major?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-compare-distributions-t-test">
+       5c) Compare distributions: t-test
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#let-s-explore-some-more">
+         Let’s explore some more
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-digging-deeper">
+       5d) Digging Deeper
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-what-is-the-ratio-of-women-in-each-major">
+       5e) What is the ratio of women in each major?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-subsetting-data">
+       5f) Subsetting data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#g-pivot-tables">
+       5g) Pivot Tables
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#linear-models">
+         Linear Models
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#h-linear-model">
+       5h) Linear model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#i-assess-significance-mod-1">
+       5i) Assess significance:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         mod_1
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#j-multivariate-regression">
+       5j) Multivariate regression
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#k-assess-significance-mod-2">
+       5k) Assess significance:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         mod_2
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-6-discussion-conclusions-0-1-points">
+     Part 6: Discussion &amp; Conclusions (0.1 points)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-conclusion">
+       6a) Conclusion
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-summary">
+       6b) Summary
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-end">
+     The End!
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="data-analysis">
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-analysis">
 <h1>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h1>
 <p>This is a demo assignment that is openly available for the Data Science in Practice Course.</p>
 <div class="alert alert-danger">
 If you are in the COGS108 course at UC San Diego, this is NOT a valid version of the assignment for the course.
 </div></div>
-<div class="section" id="important-reminders">
+<div class="tex2jax_ignore mathjax_ignore section" id="important-reminders">
 <h1>Important Reminders<a class="headerlink" href="#important-reminders" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>This assignment has hidden tests: tests that are not visible here, but that will be run on your submitted assignment for grading.</p>
@@ -249,8 +924,8 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Run the following cell. These are all you need for the assignment. Do not import additional packages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports </span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports </span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -279,7 +954,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>You can also view and download these files from <a class="reference external" href="https://github.com/DataScienceInPractice/Data">https://github.com/DataScienceInPractice/Data</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
 
 <span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/DataScienceInPractice/Data/master/&#39;</span>
@@ -304,7 +979,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ul>
 <p>Research Question: Do students in different majors have different heights?</p>
 <p>Background: Physical height has previously shown to correlate with career choice, and career success. More recently it has been demonstrated that these correlations can actually be explained by height in high school, as opposed to height in adulthood (1). It is currently unclear whether height correlates with choice of major in university.</p>
-<p>Reference: 1) https://www.sas.upenn.edu/~apostlew/paper/pdf/short.pdf</p>
+<p>Reference: 1) <a class="reference external" href="https://www.sas.upenn.edu/~apostlew/paper/pdf/short.pdf">https://www.sas.upenn.edu/~apostlew/paper/pdf/short.pdf</a></p>
 <p>Hypothesis: We hypothesize that there will be a relation between height and chosen major.</p>
 </div>
 <div class="section" id="part-1-load-clean-the-data-2-95-points">
@@ -317,8 +992,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Import datafile <code class="docutils literal notranslate"><span class="pre">COGS108_IntroQuestionnaireData.csv</span></code> into a DataFrame called <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -326,14 +1000,14 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check out the data</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -342,7 +1016,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Those column names are a bit excessive, so first let’s rename them - code provided below to do so.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Renaming the columns of the dataframe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Renaming the columns of the dataframe</span>
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span>
               <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;eye_color&#39;</span><span class="p">,</span> <span class="s1">&#39;born_in_CA&#39;</span><span class="p">,</span> <span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span>
 </pre></div>
@@ -355,7 +1029,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>This function is very useful because it allows us to find missing data very quickly in our dataframe. As an example, consider the code below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the first few rows of the &#39;isnull&#39; dataframe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the first few rows of the &#39;isnull&#39; dataframe</span>
 <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -364,7 +1038,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>If you print out more, and scroll down, you’ll see some rows with missing data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># For example:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For example:</span>
 <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">48</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
@@ -373,7 +1047,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Check an example, row 49, in which an entry has missing data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">49</span><span class="p">,</span> <span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">49</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -392,7 +1066,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>In other words, copy over and use the line of code that we gave out in the cell above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -400,7 +1074,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># check output</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check output</span>
 <span class="n">rows_to_drop</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -408,7 +1082,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rows_to_drop</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rows_to_drop</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">rows_to_drop</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -423,7 +1097,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>We’ll learn about solutions to these types of problems in the upcoming cells.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rows_to_drop</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rows_to_drop</span>
 </pre></div>
 </div>
 </div>
@@ -436,7 +1110,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>To do this, use the pandas <code class="docutils literal notranslate"><span class="pre">dropna</span></code> method, inplace, using the <code class="docutils literal notranslate"><span class="pre">subset</span></code> arguments to specify columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -444,7 +1118,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">403</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">403</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -462,7 +1136,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p><strong>Note</strong>: For the following few cells you should run, read, and understand the code provided, but you don’t have to add any code until Q1d.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># just run this cell</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># just run this cell</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -473,7 +1147,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>That is an issue. We want to be able to analyze this data and, in order to do this successfully, we need to all answers with the same meaning to be written in the same way. Therefore, we’re gonna have to transform answers such as ‘3, third, 3rd, junior, etc’ into a single possible value. We’ll do this for all values that mean the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_standardize_function</span><span class="p">(</span><span class="n">str_in</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_standardize_function</span><span class="p">(</span><span class="n">str_in</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Standardize data to the question &#39;what is your favorite major python version?&#39;</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
@@ -523,7 +1197,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Check all different values given for majors. It’s a lot!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -531,7 +1205,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>We’ll write a function performing some simple substring checking in order to group many responses together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardize_major</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardize_major</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     
     <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -562,7 +1236,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>We then have to apply the transformation using the function we just defined.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">standardize_major</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">standardize_major</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -571,7 +1245,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>It looks a lot better, though it’s not perfect, but we’ll run with this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -583,7 +1257,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Check the different responses received for gender, including how many of each response we have</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># run this to see different gender input data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run this to see different gender input data</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -606,7 +1280,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -614,7 +1288,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_gender</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_gender</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span>
 <span class="k">assert</span> <span class="n">standardize_gender</span><span class="p">(</span><span class="s1">&#39;male&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span>
 <span class="k">assert</span> <span class="n">standardize_gender</span><span class="p">(</span><span class="s1">&#39;Transgender&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;nonbinary_or_trans&#39;</span>
 </pre></div>
@@ -628,7 +1302,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Then, drop any rows with missing gender information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -636,7 +1310,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the results</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the results</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -644,7 +1318,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">3</span>
 <span class="k">assert</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">402</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -658,7 +1332,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Hint: you can answer this question using the <code class="docutils literal notranslate"><span class="pre">unique</span></code> method, used above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 <span class="n">num_unique_responses</span>
 </pre></div>
@@ -667,7 +1341,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">num_unique_responses</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">num_unique_responses</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">num_unique_responses</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -675,7 +1349,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out all the different answers in &#39;year&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out all the different answers in &#39;year&#39;</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -768,7 +1442,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>HINTS: you will need to use the functions <code class="docutils literal notranslate"><span class="pre">lower()</span></code>, <code class="docutils literal notranslate"><span class="pre">strip()</span></code>, <code class="docutils literal notranslate"><span class="pre">isnumeric()</span></code> and <code class="docutils literal notranslate"><span class="pre">replace()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -776,7 +1450,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;2nd&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;2nd&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 <span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;sophomore&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 <span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;3rd year&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
 <span class="k">assert</span> <span class="n">standardize_year</span><span class="p">(</span><span class="s1">&#39;5th&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
@@ -793,8 +1467,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Hint: use the <code class="docutils literal notranslate"><span class="pre">apply</span></code> function AND remember to save your output inside the dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -802,7 +1475,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">7</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="mi">7</span>
 </pre></div>
 </div>
 </div>
@@ -813,7 +1486,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Note that if you check the data type of this column, you’ll see that pandas converts these numbers to <code class="docutils literal notranslate"><span class="pre">float</span></code>, even though the applied function returns <code class="docutils literal notranslate"><span class="pre">int</span></code>, because <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> is considered a float. This is fine.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -821,7 +1494,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Let’s do it again. Let’s take a look at the responses in the ‘weight’ column, and then standardize them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, ensure that all types are consistent, use strings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, ensure that all types are consistent, use strings</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -829,7 +1502,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check all the different answers we received</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check all the different answers we received</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -878,7 +1551,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -886,7 +1559,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_weight</span><span class="p">(</span><span class="s1">&#39;34 lbs&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">34</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_weight</span><span class="p">(</span><span class="s1">&#39;34 lbs&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">34</span>
 <span class="k">assert</span> <span class="n">standardize_weight</span><span class="p">(</span><span class="s1">&#39;101 kg&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">222</span>
 </pre></div>
 </div>
@@ -899,7 +1572,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Hint: use the <code class="docutils literal notranslate"><span class="pre">apply</span></code> function AND remember to save your output inside the dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -907,7 +1580,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">83</span><span class="p">,)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">83</span><span class="p">,)</span>
 </pre></div>
 </div>
 </div>
@@ -915,7 +1588,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Now, let’s see the result of our hard work. The code below should output all numbers (or nan).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -945,7 +1618,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check all the different answers we received</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check all the different answers we received</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -953,7 +1626,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -961,7 +1634,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="s1">&#39;vanilla&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;vanilla&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="s1">&#39;vanilla&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;vanilla&#39;</span>
 <span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="s1">&#39;Vanilla&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;vanilla&#39;</span>
 <span class="k">assert</span> <span class="n">standardize_icecream</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;nan&#39;</span>
 
@@ -980,7 +1653,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Hint: use the <code class="docutils literal notranslate"><span class="pre">apply</span></code> function AND remember to save your output inside the dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -988,7 +1661,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># check output now that we&#39;ve standardized</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check output now that we&#39;ve standardized</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -996,7 +1669,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">82</span><span class="p">,)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;favorite_icecream&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">82</span><span class="p">,)</span>
 </pre></div>
 </div>
 </div>
@@ -1006,7 +1679,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Do read the code below and try to understand what it is doing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, we&#39;ll look at the possible values for height</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, we&#39;ll look at the possible values for height</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1016,7 +1689,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Let’s write a function that converts all those values to inches.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert all values to inches</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert all values to inches</span>
 <span class="k">def</span> <span class="nf">standardize_height</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     
     <span class="n">orig</span> <span class="o">=</span> <span class="n">string</span>
@@ -1137,7 +1810,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Applying the transformation and dropping invalid rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Applying the transformation and dropping invalid rows</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">standardize_height</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
 </pre></div>
@@ -1146,7 +1819,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the height data, after applying our standardization</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the height data, after applying our standardization</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1154,7 +1827,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensuring that the data types are correct - type cast age to int.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensuring that the data types are correct - type cast age to int.</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
 
 <span class="c1"># Check out the data, after we&#39;ve cleaned it!</span>
@@ -1165,7 +1838,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that the dataframe has the right number of rows</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that the dataframe has the right number of rows</span>
 <span class="c1">#  If this doesn&#39;t pass - check your code in the section above.</span>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">365</span>
 </pre></div>
@@ -1183,8 +1856,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Using <code class="docutils literal notranslate"><span class="pre">scatter_matrix</span></code>, from <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, plot <code class="docutils literal notranslate"><span class="pre">df</span></code>. Assign it to a variable called <code class="docutils literal notranslate"><span class="pre">fig</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1192,7 +1864,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1207,7 +1879,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
 <span class="n">f1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
@@ -1217,7 +1889,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f1</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f1</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1227,7 +1899,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <h3>2c) Plot a histogram of the height data for all students who wrote ‘COGSCI’ as their major.<a class="headerlink" href="#c-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-cogsci-as-their-major" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
 <span class="n">f2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
@@ -1237,7 +1909,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f2</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f2</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1247,8 +1919,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <h3>2d) Plot a histogram of the height data for all students who wrote ‘COMPSCI’ as their major.<a class="headerlink" href="#d-plot-a-histogram-of-the-height-data-for-all-students-who-wrote-compsci-as-their-major" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 
 <span class="n">f3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
@@ -1258,7 +1929,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f3</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f3</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">has_data</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1278,7 +1949,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Save this number to a variable <code class="docutils literal notranslate"><span class="pre">n_majors</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1286,7 +1957,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">n_majors</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">n_majors</span> <span class="o">&lt;</span> <span class="mi">25</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">n_majors</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">n_majors</span> <span class="o">&lt;</span> <span class="mi">25</span>
 </pre></div>
 </div>
 </div>
@@ -1297,7 +1968,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Save this number to a variable <code class="docutils literal notranslate"><span class="pre">r_age</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1305,7 +1976,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">r_age</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">r_age</span> <span class="o">&lt;</span> <span class="mi">50</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">r_age</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">r_age</span> <span class="o">&lt;</span> <span class="mi">50</span> 
 </pre></div>
 </div>
 </div>
@@ -1317,8 +1988,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Hint: you can get these values using the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1326,14 +1996,14 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">n_ice</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n_ice</span> <span class="o">&lt;</span> <span class="mi">50</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">n_ice</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">n_ice</span> <span class="o">&lt;</span> <span class="mi">50</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f_ice</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">f_ice</span>
 </pre></div>
 </div>
 </div>
@@ -1344,7 +2014,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Save this number to a variable <code class="docutils literal notranslate"><span class="pre">u_ice</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1352,7 +2022,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">u_ice</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">u_ice</span> <span class="o">&lt;</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">u_ice</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">u_ice</span> <span class="o">&lt;</span> <span class="mi">100</span>
 </pre></div>
 </div>
 </div>
@@ -1367,7 +2037,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>For convenience, and consistency, we’re providing this code to pull out the required data. Be sure to run the following cell and understand what it’s doing.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h_co</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;COGSCI&#39;</span><span class="p">][</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h_co</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;COGSCI&#39;</span><span class="p">][</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">h_cs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;COMPSCI&#39;</span><span class="p">][</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
@@ -1380,7 +2050,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Save these values as <code class="docutils literal notranslate"><span class="pre">st_co</span></code>, <code class="docutils literal notranslate"><span class="pre">p_co</span></code>, <code class="docutils literal notranslate"><span class="pre">st_cs</span></code>, and <code class="docutils literal notranslate"><span class="pre">p_cs</span></code>, respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1388,7 +2058,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">st_co</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">st_co</span>
 <span class="k">assert</span> <span class="n">p_co</span>
 <span class="k">assert</span> <span class="n">st_cs</span>
 <span class="k">assert</span> <span class="n">p_cs</span>
@@ -1406,8 +2076,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>For the <code class="docutils literal notranslate"><span class="pre">h_cs</span></code> data, set a boolean value to the var <code class="docutils literal notranslate"><span class="pre">is_n_cs</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1415,7 +2084,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">is_n_co</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">is_n_co</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">is_n_cs</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1425,7 +2094,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>This plots a histogram, with the hypothetical normal distribution (with same mean and variance)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h_co</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">h_co</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h_co</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">h_co</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="n">fit</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">h_co</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">h_co</span><span class="p">))</span>
 <span class="c1"># most easily done using matplotlib</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Normal Dist.&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
@@ -1440,7 +2109,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>This plots a histogram, with the hypothetical normal distribution (with same mean and variance)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h_cs</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">h_cs</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h_cs</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">h_cs</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="n">fit</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">h_cs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">h_cs</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Normal Dist.&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">h_cs</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Actual Data&#39;</span><span class="p">);</span>
@@ -1463,8 +2132,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Save the height data for all ‘COMPSCI’ majors to a variable called <code class="docutils literal notranslate"><span class="pre">h_cs</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1472,7 +2140,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">h_co</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">h_co</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">h_cs</span><span class="p">)</span>
 
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">h_co</span><span class="p">)</span> <span class="o">==</span> <span class="mi">178</span>
@@ -1487,7 +2155,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Save these values to <code class="docutils literal notranslate"><span class="pre">avg_h_co</span></code> for COGSCI students, and <code class="docutils literal notranslate"><span class="pre">avg_h_cs</span></code> for COMPSCI students.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1495,7 +2163,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">avg_h_co</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">avg_h_co</span>
 <span class="k">assert</span> <span class="n">avg_h_cs</span>
 </pre></div>
 </div>
@@ -1503,7 +2171,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the average heights - this code provided</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the average heights - this code provided</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Average height of cogs majors is </span><span class="se">\t</span><span class="s1"> </span><span class="si">{:2.2f}</span><span class="s1"> inches&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_h_co</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Average height of cs majors is </span><span class="se">\t\t</span><span class="s1"> </span><span class="si">{:2.2f}</span><span class="s1"> inches&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_h_cs</span><span class="p">))</span>
 </pre></div>
@@ -1519,8 +2187,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p><code class="docutils literal notranslate"><span class="pre">ttest_ind</span></code> returns a t-statistic, and a p-value. Save these outputs to <code class="docutils literal notranslate"><span class="pre">t_val</span></code> and <code class="docutils literal notranslate"><span class="pre">p_val</span></code> respectively.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1528,7 +2195,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">t_val</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">t_val</span>
 <span class="k">assert</span> <span class="n">p_val</span>
 </pre></div>
 </div>
@@ -1536,7 +2203,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if statistical test passes significance, using an alpha value of 0.01. This code provided.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if statistical test passes significance, using an alpha value of 0.01. This code provided.</span>
 <span class="k">if</span> <span class="n">p_val</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data Science accomplished, there is a significant difference!&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -1570,8 +2237,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1579,7 +2245,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">g_co</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">g_co</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">g_cs</span><span class="p">)</span>
 
 <span class="k">assert</span> <span class="n">g_co</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">91</span>
@@ -1599,15 +2265,14 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Note: keep these numbers as ratios (they should be decimal numbers, less than 1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g_cs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g_cs</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1615,7 +2280,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">r_co</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">r_co</span>
 <span class="k">assert</span> <span class="n">r_cs</span>
 </pre></div>
 </div>
@@ -1627,7 +2292,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Run a chi-squared test of the difference of ratios of categorical data between groups:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chisq</span><span class="p">,</span> <span class="n">p_val_chi</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g_co</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">g_cs</span><span class="o">.</span><span class="n">values</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chisq</span><span class="p">,</span> <span class="n">p_val_chi</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g_co</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">g_cs</span><span class="o">.</span><span class="n">values</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">p_val_chi</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There is a significant difference in ratios!&#39;</span><span class="p">)</span>
@@ -1642,8 +2307,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Hint: you can do this using the or operater ‘|’, with loc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1651,7 +2315,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">df2</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">342</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;major&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;COGSCI&#39;</span><span class="p">,</span> <span class="s1">&#39;COMPSCI&#39;</span><span class="p">])</span>
 </pre></div>
@@ -1667,8 +2331,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Make sure you do this using <code class="docutils literal notranslate"><span class="pre">df2</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1676,14 +2339,14 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">pv</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">pv</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1694,7 +2357,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Does it look like there are differences in heights by major, when spit up by gender?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span>
 </pre></div>
 </div>
 </div>
@@ -1727,8 +2390,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Fit the model, assigning it to <code class="docutils literal notranslate"><span class="pre">res_1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1736,7 +2398,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">outcome_1</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">outcome_1</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">predictors_1</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mod_1</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">regression</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">OLS</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res_1</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">regression</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">RegressionResultsWrapper</span><span class="p">)</span>
@@ -1746,7 +2408,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the summary results of the model fitting</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the summary results of the model fitting</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res_1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1759,7 +2421,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Set your answer as a boolean (True / False) to a variable called <code class="docutils literal notranslate"><span class="pre">lm_1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1767,7 +2429,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lm_1</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lm_1</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1781,8 +2443,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Fit the model, assigning it to <code class="docutils literal notranslate"><span class="pre">res_2</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1790,7 +2451,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">outcome_2</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">outcome_2</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">predictors_2</span><span class="p">,</span> <span class="n">patsy</span><span class="o">.</span><span class="n">design_info</span><span class="o">.</span><span class="n">DesignMatrix</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mod_2</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">regression</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">OLS</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res_2</span><span class="p">,</span> <span class="n">sm</span><span class="o">.</span><span class="n">regression</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">RegressionResultsWrapper</span><span class="p">)</span>
@@ -1800,7 +2461,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the results </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the results </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res_2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1813,8 +2474,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 <p>Set your answer as a boolean (True / False) to a variable called <code class="docutils literal notranslate"><span class="pre">lm_2</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1822,7 +2482,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lm_2</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lm_2</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1840,8 +2500,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># YOUR CODE HERE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1849,7 +2508,7 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1868,36 +2527,64 @@ If you are in the COGS108 course at UC San Diego, this is NOT a valid version of
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="D4_DataPrivacy.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Privacy</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="D6_NaturalLanguageProcessing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Natural Language Processing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
+    <footer class="footer">
+  <p>
     
+      By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
     
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="D4_DataPrivacy.html" title="previous page">Data Privacy</a>
-    <a class='right-next' id="next-link" href="D6_NaturalLanguageProcessing.html" title="next page">Natural Language Processing</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Thomas Donoghue, Bradley Voytek, & Shannon Ellis<br/>
-        
-            &copy; Copyright 2020-.<br/>
-      </p>
-    </div>
-  </footer>
+        &copy; Copyright 2020-.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    <script src="../_static/js/index.js"></script>
-    
   </body>
 </html>
