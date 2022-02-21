@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COGS 108 - Final Project Proposal &#8212; Data Science in Practice</title>
+    <title>Final Project Proposal &#8212; Data Science in Practice</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,8 +52,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Final Project" href="ProjectReport.html" />
+    <link rel="prev" title="Final Project" href="project_guidelines.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,6 +78,11 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
@@ -85,7 +93,14 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/index.html">
+   Data Science in Practice
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Tutorials
  </span>
@@ -234,10 +249,25 @@
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="projects.html">
-   Project Description
+  <a class="reference internal" href="project_guidelines.html">
+   Final Project
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Final Project Proposal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProjectReport.html">
+   Final Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="project_checklist.html">
+   Project Checklist
   </a>
  </li>
 </ul>
@@ -292,6 +322,22 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/datascienceinpractice/Site"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/datascienceinpractice/Site/issues/new?title=Issue%20on%20page%20%2Fprojects/ProjectProposal.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -306,7 +352,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/projects/ProjectProposal.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice/Site/master?urlpath=tree/dsip/projects/ProjectProposal.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -330,17 +376,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   COGS 108 - Final Project Proposal
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#names">
-   Names
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#group-members-ids">
-   Group Members IDs
+   Final Project Proposal
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -368,16 +404,6 @@
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ethics-privacy">
    Ethics &amp; Privacy
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#team-expectations">
-   Team Expectations
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#project-timeline-proposal">
-   Project Timeline Proposal
   </a>
  </li>
 </ul>
@@ -390,7 +416,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>COGS 108 - Final Project Proposal</h1>
+                <h1>Final Project Proposal</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -402,17 +428,7 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   COGS 108 - Final Project Proposal
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#names">
-   Names
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#group-members-ids">
-   Group Members IDs
+   Final Project Proposal
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -442,16 +458,6 @@
    Ethics &amp; Privacy
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#team-expectations">
-   Team Expectations
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#project-timeline-proposal">
-   Project Timeline Proposal
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -461,46 +467,17 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="cogs-108-final-project-proposal">
-<h1>COGS 108 - Final Project Proposal<a class="headerlink" href="#cogs-108-final-project-proposal" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="names">
-<h1>Names<a class="headerlink" href="#names" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Ant Man</p></li>
-<li><p>Hulk</p></li>
-<li><p>Iron Man</p></li>
-<li><p>Thor</p></li>
-<li><p>Wasp</p></li>
-</ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="group-members-ids">
-<h1>Group Members IDs<a class="headerlink" href="#group-members-ids" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>A########</p></li>
-<li><p>A########</p></li>
-<li><p>A########</p></li>
-<li><p>A########</p></li>
-<li><p>A########</p></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="final-project-proposal">
+<h1>Final Project Proposal<a class="headerlink" href="#final-project-proposal" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="research-question">
 <h1>Research Question<a class="headerlink" href="#research-question" title="Permalink to this headline">¶</a></h1>
 <p><em>Fill in your research question here</em></p>
 <div class="section" id="background-and-prior-work">
 <h2>Background and Prior Work<a class="headerlink" href="#background-and-prior-work" title="Permalink to this headline">¶</a></h2>
-<p><em>Fill in your background and prior work here. Be sure to specify which statements are from which references.</em></p>
-<p>References (include links):</p>
-<ul class="simple">
-<li><ol class="simple">
-<li></li>
-</ol>
-</li>
-<li><ol class="simple">
-<li></li>
-</ol>
-</li>
-</ul>
+<p>Fill in your background and prior work here. <strong>Use inline citation through Mardown footnotes to specify which references support which statements</strong></p>
+<p>For example: After government genocide in the 20th century, real birds were replaced with surveillance drones designed to look just like birds<a class="footnote-reference brackets" href="#lorenz" id="id1">1</a>.
+Use a minimum of 2 or 3 citations, but we prefer more<a class="footnote-reference brackets" href="#admonish" id="id2">2</a>. You need enough to fully explain and back up important facts.</p>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="hypothesis">
@@ -514,64 +491,15 @@
 <div class="tex2jax_ignore mathjax_ignore section" id="ethics-privacy">
 <h1>Ethics &amp; Privacy<a class="headerlink" href="#ethics-privacy" title="Permalink to this headline">¶</a></h1>
 <p><em>Fill in your ethics &amp; privacy discussion here</em></p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="team-expectations">
-<h1>Team Expectations<a class="headerlink" href="#team-expectations" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><em>Team Expectation 1</em></p></li>
-<li><p><em>Team Expectation 2</em></p></li>
-<li><p><em>Team Expecation 3</em></p></li>
-<li><p>…</p></li>
-</ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="project-timeline-proposal">
-<h1>Project Timeline Proposal<a class="headerlink" href="#project-timeline-proposal" title="Permalink to this headline">¶</a></h1>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Meeting Date</p></th>
-<th class="head"><p>Meeting Time</p></th>
-<th class="head"><p>Completed Before Meeting</p></th>
-<th class="head"><p>Discuss at Meeting</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1/20</p></td>
-<td><p>1 PM</p></td>
-<td><p>Read &amp; Think about COGS 108 expectations; brainstorm topics/questions</p></td>
-<td><p>Determine best form of communication; Discuss and decide on final project topic; discuss hypothesis; begin background research</p></td>
-</tr>
-<tr class="row-odd"><td><p>1/26</p></td>
-<td><p>10 AM</p></td>
-<td><p>Do background research on topic</p></td>
-<td><p>Discuss ideal dataset(s) and ethics; draft project proposal</p></td>
-</tr>
-<tr class="row-even"><td><p>2/1</p></td>
-<td><p>10 AM</p></td>
-<td><p>Edit, finalize, and submit proposal; Search for datasets</p></td>
-<td><p>Discuss Wrangling and possible analytical approaches; Assign group members to lead each specific part</p></td>
-</tr>
-<tr class="row-odd"><td><p>2/14</p></td>
-<td><p>6 PM</p></td>
-<td><p>Import &amp; Wrangle Data (Ant Man); EDA (Hulk)</p></td>
-<td><p>Review/Edit wrangling/EDA; Discuss Analysis Plan</p></td>
-</tr>
-<tr class="row-even"><td><p>2/23</p></td>
-<td><p>12 PM</p></td>
-<td><p>Finalize wrangling/EDA; Begin Analysis (Iron Man; Thor)</p></td>
-<td><p>Discuss/edit Analysis; Complete project check-in</p></td>
-</tr>
-<tr class="row-odd"><td><p>3/13</p></td>
-<td><p>12 PM</p></td>
-<td><p>Complete analysis; Draft results/conclusion/discussion (Wasp)</p></td>
-<td><p>Discuss/edit full project</p></td>
-</tr>
-<tr class="row-even"><td><p>3/19</p></td>
-<td><p>Before 11:59 PM</p></td>
-<td><p>NA</p></td>
-<td><p>Turn in Final Project &amp; Group Project Surveys</p></td>
-</tr>
-</tbody>
-</table>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="lorenz"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Lorenz, T. (9 Dec 2021) Birds Aren’t Real, or Are They? Inside a Gen Z Conspiracy Theory. <em>The New York Times</em>. <a class="reference external" href="https://www.nytimes.com/2021/12/09/technology/birds-arent-real-gen-z-misinformation.html">https://www.nytimes.com/2021/12/09/technology/birds-arent-real-gen-z-misinformation.html</a></p>
+</dd>
+<dt class="label" id="admonish"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Also refs should be important to the background, not some randomly chosen vaguely related stuff. Include a web link if possible in refs as above.</p>
+</dd>
+</dl>
 </div>
 
     <script type="text/x-thebe-config">
@@ -598,7 +526,21 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="project_guidelines.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Final Project</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ProjectReport.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Final Project</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

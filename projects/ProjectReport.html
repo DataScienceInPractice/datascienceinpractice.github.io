@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COGS 108 - Final Project &#8212; Data Science in Practice</title>
+    <title>Final Project &#8212; Data Science in Practice</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,8 +52,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Project Checklist" href="project_checklist.html" />
+    <link rel="prev" title="Final Project Proposal" href="ProjectProposal.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,6 +78,11 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Data Science in Practice</h1>
@@ -85,7 +93,14 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/index.html">
+   Data Science in Practice
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Tutorials
  </span>
@@ -234,10 +249,25 @@
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="projects.html">
-   Project Description
+  <a class="reference internal" href="project_guidelines.html">
+   Final Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProjectProposal.html">
+   Final Project Proposal
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Final Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="project_checklist.html">
+   Project Checklist
   </a>
  </li>
 </ul>
@@ -292,6 +322,22 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/datascienceinpractice/Site"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/datascienceinpractice/Site/issues/new?title=Issue%20on%20page%20%2Fprojects/ProjectReport.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -306,7 +352,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice//master?urlpath=tree/dsip/projects/ProjectReport.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/datascienceinpractice/Site/master?urlpath=tree/dsip/projects/ProjectReport.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -330,29 +376,12 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   COGS 108 - Final Project
+   Final Project
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#permissions">
-     Permissions
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
    Overview
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#names">
-   Names
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#group-members-ids">
-   Group Members IDs
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -361,8 +390,8 @@
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#background-and-prior-work">
-     Background and Prior Work
+    <a class="reference internal nav-link" href="#background-prior-work">
+     Background &amp; Prior Work
     </a>
    </li>
   </ul>
@@ -400,11 +429,6 @@
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conclusion-discussion">
    Conclusion &amp; Discussion
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#team-contributions">
-   Team Contributions
   </a>
  </li>
 </ul>
@@ -417,7 +441,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>COGS 108 - Final Project</h1>
+                <h1>Final Project</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -429,29 +453,12 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   COGS 108 - Final Project
+   Final Project
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#permissions">
-     Permissions
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
    Overview
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#names">
-   Names
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#group-members-ids">
-   Group Members IDs
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -460,8 +467,8 @@
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#background-and-prior-work">
-     Background and Prior Work
+    <a class="reference internal nav-link" href="#background-prior-work">
+     Background &amp; Prior Work
     </a>
    </li>
   </ul>
@@ -501,11 +508,6 @@
    Conclusion &amp; Discussion
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#team-contributions">
-   Team Contributions
-  </a>
- </li>
 </ul>
 
                         </nav>
@@ -515,46 +517,20 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="cogs-108-final-project">
-<h1>COGS 108 - Final Project<a class="headerlink" href="#cogs-108-final-project" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="permissions">
-<h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
-<p>Place an <code class="docutils literal notranslate"><span class="pre">X</span></code> in the appropriate bracket below to specify if you would like your group’s project to be made available to the public. (Note that PIDs will be scraped from the public submission, but student names will be included.)</p>
-<ul class="simple">
-<li><p>[  ] YES - make available</p></li>
-<li><p>[  ] NO - keep private</p></li>
-</ul>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="final-project">
+<h1>Final Project<a class="headerlink" href="#final-project" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <p><em>Fill in your overview here</em></p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="names">
-<h1>Names<a class="headerlink" href="#names" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Ant Man</p></li>
-<li><p>Hulk</p></li>
-<li><p>Iron Man</p></li>
-<li><p>Thor</p></li>
-<li><p>Wasp</p></li>
-</ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="group-members-ids">
-<h1>Group Members IDs<a class="headerlink" href="#group-members-ids" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>A########</p></li>
-<li><p>A########</p></li>
-<li><p>A########</p></li>
-<li><p>A########</p></li>
-<li><p>A########</p></li>
-</ul>
+<p><a id='research_question'></a></p>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="research-question">
 <h1>Research Question<a class="headerlink" href="#research-question" title="Permalink to this headline">¶</a></h1>
 <p><em>Fill in your research question here</em></p>
-<div class="section" id="background-and-prior-work">
-<h2>Background and Prior Work<a class="headerlink" href="#background-and-prior-work" title="Permalink to this headline">¶</a></h2>
+<p><a id='background'></a></p>
+<div class="section" id="background-prior-work">
+<h2>Background &amp; Prior Work<a class="headerlink" href="#background-prior-work" title="Permalink to this headline">¶</a></h2>
 <p><em>Fill in your background and prior work here</em></p>
 <p>References (include links):</p>
 <ul class="simple">
@@ -627,10 +603,6 @@
 <h1>Conclusion &amp; Discussion<a class="headerlink" href="#conclusion-discussion" title="Permalink to this headline">¶</a></h1>
 <p><em>Fill in your discussion information here</em></p>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="team-contributions">
-<h1>Team Contributions<a class="headerlink" href="#team-contributions" title="Permalink to this headline">¶</a></h1>
-<p><em>Specify who in your group worked on which parts of the project.</em></p>
-</div>
 
     <script type="text/x-thebe-config">
     {
@@ -656,7 +628,21 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="ProjectProposal.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Final Project Proposal</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="project_checklist.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Project Checklist</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
